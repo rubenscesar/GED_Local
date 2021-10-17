@@ -1,0 +1,270 @@
+Épico: Inovação na ferramenta de Regras Tributárias por NCM para possibilitar a marcação nas notas de tributação monofásica de COFINS / PIS e substituição tributária de COFINS / PIS
+Número do cartão: S CH202010036016
+Ano de publicação: 2021
+Relacionamentos: Regras Tributárias por NCM, Tributação Monofásica, Substituição Tributária de COFINS / PIS, Importação CSV, Sincronizar, Ferramenta, NF-e, NFC-e, CF-e, Simples Nacional, Analisador Fiscal
+RE[1.0.0] Requisitos:
+	RE[1.1.1] Exigências para enquadramento do requisito:
+		Empresa deve ser do Regime do Simples Nacional
+			Quando houver cadastro de Regras Tributárias por NCM realizada compatível com as informações existente no item do lançamento
+				O lançamento deve atender as parametrizações da Regra Tributária, reprocessando o corpo da nota se necessário e lançando o que foi marcado na Regra Tributária no que compete a Tributação Monofásica e Substituição Tributária de COFINS/PIS. ICMS e IPI (como não existe na tela de Regras Tributárias por NCM) deve seguir a regra preexistente, atendendo as parametrizações definidas no cadastro do Produto (aba Simples Nacional) e se neste não houver marcações nenhuma passa a atender as parametrizações da Configuração (Importação NF-e/NFC-e/CF-e) opção para sugerir Substituição Tributária e Tributação Monofásica
+			Quando não houver cadastro de Regras Tributárias por NCM realizada compatível com as informações existente no item do lançamento
+				Quando no cadastro do Produto (aba Simples Nacional) estiver marcado alguma opção (Tributação Monofásica ou Substituição Tributária de COFINS/PIS/ICMS/IPI)
+					O lançamento deve atender as parametrizações do cadastro do Produto (aba Simples Nacional), reprocessando o corpo da nota se necessário e lançando o que foi marcado na aba Simples Nacional no que compete a Tributação Monofásica de COFINS/PIS e Substituição Tributária de COFINS/PIS/ICMS/IPI seguindo a regra preexistente e se neste não houver marcações nenhuma de Substituição Tributária de ICMS/IPI passa a atender as parametrizações da Configuração (Importação NF-e/NFC-e/CF-e) opção para sugerir Substituição Tributária e Tributação Monofásica
+				Quando no cadastro do Produto (aba Simples Nacional) não estiver marcado nenhuma opção (Tributação Monofásica ou Substituição Tributária de ICMS/IPI)
+					Deve atender as parametrizações da Configuração (Importação NF-e/NFC-e/CF-e) opção para sugerir Substituição Tributária e Tributação Monofásica, reprocessando o corpo da nota se necessário e lançando o que foi marcado na exclusivamente na Configuração
+		╔═══════════╦═══════════════════════════════════════════════════════════════════════════════╗
+		║ 1ª FASE	║ De onde irá buscar a marcação?:	Cadastros >> Regras Tributárias por NCM		║
+		║ 			║ Quais marcações?:					Tributação Monofásica de COFINS/PIS ou 		║
+		║ 			║ 									Substituição Tributária de COFINS/PIS		║
+		╠───────────╬───────────────────────────────────────────────────────────────────────────────╣
+		║ 2ª FASE	║ De onde irá buscar a marcação?:	Cadastros >> Produtos						║
+		║ 			║ Quais marcações?:					Tributação Monofásica de COFINS/PIS ou 		║
+		║ 			║ 									Substituição Tributária de COFINS/PIS e/ou	║
+		║ 			║ 									Substituição Tributária de ICMS/IPI			║
+		╠───────────╬───────────────────────────────────────────────────────────────────────────────╣
+		║ 3ª FASE	║ De onde irá buscar a marcação?:	Utilitários >> Configuração					║
+		║ 			║ Quais marcações?:					Substituição Tributária de ICMS/IPI			║
+		╚═══════════╩═══════════════════════════════════════════════════════════════════════════════╝
+	RE[1.1.2] Exigências para enquadramento do requisito:
+		Os campos de Substituição Tributária e Tributação Monofásica na tela de cadastro de Regras Tributárias por NCM devem ser habilitadas conforme condições:
+			CFOP com Natureza de Devolução/Anulação:
+				CFOP de Saída: Não deve habilitar
+				CFOP de Entrada: Deve habilitar
+			CFOP com Natureza diferente de Devolução/Anulação:
+				CFOP de Saída: Deve habilitar
+				CFOP de Entrada: Não deve habilitar
+		Conforme regra já existente da tela da NFM
+	RE[1.1.3] Exigências para enquadramento do requisito:
+		Ao aplicar as Regras Tributárias na ferramenta Analisador Fiscal, se não bater com a Regras Tributárias por NCM deve acusar inconsistência em todos os itens dos lançamentos
+	RE[1.2.1] Espécies e Operações de lançamentos que produzirão impacto nos resultados:
+		Entrada: NF-e
+		Saída: NF-e, NFC-e, CF-e
+	RE[1.3.1] Demonstrativo de cálculo:
+RN[2.0.0] Regras de Negócio:
+	RN[2.1.1] Exigências para enquadramento da regra:
+		Na tela de Regras Tributárias por NCM, ao clicar no botão [Sugerir Monofásica]
+			Deve marcar
+				( CFOP de Venda )
+				( Registros selecionados com CST = "04" )
+			Deve desmarcar
+				( Registros selecionados com CST <> "04" )
+				( Registros selecionados com CST <> "05" e estiver marcado "COFINS Substituição )
+				( Registros selecionados com CST <> "05" e estiver marcado "PIS Substituição ​)
+		Na tela de Regras Tributárias por NCM, ao clicar no botão [Sugerir Substituição]
+			Deve marcar
+				( CFOP de Venda )
+				( Registros selecionados com CST = "05" )
+			Deve desmarcar
+				( Registros selecionados com CST <> "05" )
+				( Registros selecionados com CST <> "04" e estiver marcado "COFINS Monofásica )
+				( Registros selecionados com CST <> "04" e estiver marcado "PIS Monofásica ​)
+	RN[2.1.2] Exigências para enquadramento da regra:
+		Na tela de Regras Tributárias por NCM, ao clicar no botão [Sugerir Monofásica] ou [Sugerir Substituição] em um registro que se enquadre nos requisitos RE[1.1.2] em que não deva habilitar
+		ou em um registro que não tenha nenhuma alteração a ser feita
+			Deve apresentar mensagem "Não foi possível fazer alteração, pois o CFOP e CST usados na regra não podem ser alterados."
+	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.3.1] Demonstrativo de cálculo:
+	RN[2.4.1] Funcionalidade consequente:
+Matriz de risco:
+	| Descrição																																																	| (P)robabilidade de Ocorrência do Erro	| (I)mpacto do Erro	| Priorização do Teste = P x I	| Responsável	| Estratégia		| Reavaliar
+	| Empresa do Simples Nacional																																												| 3 Alta								| 3 Alta			| 9								| Rubens		| Prevenir/Mitigar	| Por Evento
+	| Empresa do Simples Nacional excluída do Simples Nacional no estado																																		| 2 Média								| 3 Alta			| 6								| Rubens		| Prevenir/Mitigar	| Por Evento
+	| Empresa do Lucro Real, Regime de Tributação Estadual Normal, Atendendo a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou outra por ter especificações diferentes	| 1 Baixa								| 3 Alta			| 3								| Rubens		| Prevenir/Mitigar	| Por Evento
+Features:
+	Empresa do Simples Nacional
+	Empresa do Simples Nacional excluída do Simples Nacional no estado
+	Empresa do Lucro Real, Regime de Tributação Estadual Normal, Atendendo a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou outra por ter especificações diferentes
+Scenário Outline:
+	| Banco		| Estabelecimento	| Operação	| Qtd. de Itens	| Espécies	| Detalhes da Nota																							| Detalhes da CFOP do item								| Detalhes do cadastro da Regras Tributárias por NCM					| Detalhes do cadastro do Produto														| Detalhes da Configuração (Importação NF-e/NFC-e/CF-e) opção para sugerir Substituição Tributária e Tributação Monofásica
+	| Firebird	| CE				| Saída		| 1				| NF-e		| 1 nota com itens que atende NCM Analítico no cadastro da Regras Tributárias por NCM						| Com CFOP de Natureza de Compra/Aquisição (1.102)		| Nenhuma marcação de Tributação Monofásica e Substituição Tributária	| Nenhuma marcação de Tributação Monofásica e Substituição Tributária					| Nenhuma marcação de Tributação Monofásica e Substituição Tributária
+	| SQL		| RJ				| Entrada	| 5				| NFC-e		| 1 nota com itens que atende NCM Sintético, Analítico e com EX no cadastro da Regras Tributárias por NCM	| Com CFOP de Natureza de Venda/Prestação (5.102)		| Marcado Tributação Monofásica de COFINS/PIS							| Marcado Tributação Monofásica de COFINS/PIS e Substituição Tributária de ICMS, IPI	| Marcado Tributação Monofásica de COFINS/PIS e Substituição Tributária de ICMS, IPI
+	|			|					|			|				| CF-e		|																											| Com CFOP de Natureza de Devolução/Anulação (1.411)	| Marcado Substituição Tributária de COFINS/PIS							| Marcado Tributação Monofásica de COFINS/PIS											| Marcado Tributação Monofásica de COFINS/PIS
+	|			|					|			|				|			|																											| Com CFOP de Natureza de Devolução/Anulação (5.411)	|																		| Marcado Substituição Tributária de COFINS/PIS, ICMS, IPI								| Marcado Substituição Tributária de COFINS/PIS, ICMS, IPI
+	|			|					|			|				|			|																											| Com CFOP de Natureza de Transferência (1.152)			|																		| Marcado Substituição Tributária de COFINS/PIS											| Marcado Substituição Tributária de COFINS/PIS
+	|			|					|			|				|			|																											| Com CFOP de Natureza de Transferência (5.152)			|																		| Marcado Substituição Tributária de ICMS, IPI											| Marcado Substituição Tributária de ICMS, IPI
+	|			|					|			|				|			|																											| 														|																		|																						| Marcado Substituição Tributária de COFINS/PIS, ICMS, IPI apenas para CFOP de Substituição Tributária
+	|			|					|			|				|			|																											| 														|																		|																						| Marcado Tributação Monofásica de COFINS/PIS apenas para CFOP de Substituição Tributária
+Features:
+	Teste funcional das telas e relatórios
+Scenário Outline:
+	| Banco		| CRUD							| GRID							| Resolução	| Teste funcional				| Teste funcional dos relatórios
+	| Firebird	| Regras Tributárias por NCM	| Regras Tributárias por NCM	| 1366x768	| Botão Sugerir Monofásico		| RELATÓRIOS >> SIMPLES NACIONAL >> DETALHAMENTO SUBST. E TRIB. MONOFÁSICA >> ENTRADAS
+	| SQL		| 								|								|			| Botão Sugerir Substituição	| RELATÓRIOS >> SIMPLES NACIONAL >> DETALHAMENTO SUBST. E TRIB. MONOFÁSICA >> SAÍDAS
+Features:
+	Teste funcional de importação, sincronizaçoes
+Scenário Outline:
+	| Banco		| 
+	| Firebird	| 
+	| SQL		| 
+Features:
+	Teste funcional de Backup/Restore
+Scenário Outline:
+	| Banco		| 
+	| Firebird	| 
+	| SQL		| 
+Features:
+	Teste funcional de Auditoria
+Scenário Outline:
+	| Banco		| 
+	| Firebird	| 
+	| SQL		| 
+
+	Firebird
+	SQL
+		Regime de Tributação Federal - Lucro Real
+		Regime de Tributação Federal - Simples Nacional
+			Regime de Tributação Estadual - Normal
+			Regime de Tributação Estadual - Simples Nacional
+			Regime de Tributação Estadual - Simples Nacional (Não participa do Simples Nacional)
+				Com Itens
+					Atender a um ciclo onde os testes irão passar
+					Atender a um ciclo onde os testes irão dar errado
+					Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou outra por ter especificações diferentes
+					Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou a forma como vinha sendo feito até esta data
+					Refatorar / Eliminar Redundâncias
+						Hands On:	
+						Regras Tributárias
+							CRUD - GRID - Não esquecer listar
+							Importação CSV
+							Sincronizar
+							Sugerir Monofásica
+							Sugerir Substituição
+							Regras Tributárias
+								A partir da data 01/12/2019
+								A partir da data 01/01/2020
+									Com NCM Sintético
+									Com NCM Analítico
+									Com NCM com EX
+										Com CFOP de Entrada
+											Com CFOP de Natureza de Compra/Aquisição ((1102) 50)
+											Com CFOP de Natureza de Devolução/Anulação ((1411) 98)
+											Com CFOP de Natureza de Transferência ((1152) 99)
+												Marcando COFINS e PIS Monofásico
+												Marcando COFINS e PIS Substituição
+												Nenhuma marcação de COFINS e PIS Monofásico e Substituição
+										Com CFOP de Saída
+											Com CFOP de Natureza de Venda/Prestação ((5102) 01)
+											Com CFOP de Natureza de Devolução/Anulação ((5411) 49)
+											Com CFOP de Natureza de Transferência ((5152) 99)
+												Marcando COFINS e PIS Monofásico
+												Marcando COFINS e PIS Substituição
+												Nenhuma marcação de COFINS e PIS Monofásico e Substituição
+						Lançamentos
+							Entradas
+								NFE, NF1 com vários itens e Serviço
+									Com CFOP de Natureza de Compra/Aquisição
+									Com CFOP de Natureza de Devolução/Anulação
+									Com CFOP de Natureza de Transferência
+										Marcando COFINS e PIS Monofásico
+										Nenhuma marcação de COFINS e PIS Monofásico e Substituição
+							Saídas
+								NFE, NF1, NFCE, CFE com vários itens e Serviço
+									Com CFOP de Natureza de Venda/Prestação
+									Com CFOP de Natureza de Devolução/Anulação
+									Com CFOP de Natureza de Transferência
+										Marcando COFINS e PIS Monofásico
+										Marcando COFINS e PIS Substituição
+										Nenhuma marcação de COFINS e PIS Monofásico e Substituição
+							Aplicando alterações parametrizadas na Regras Tributárias
+							Aplicando alterações parametrizadas no Produto
+							Aplicando alterações parametrizadas na Configuração
+
+Peculiaridades das notas e aplicação das regras que devem ser analisadas:
+	Estando a Regras Tributárias por NCM com cadastro realizado e compatível com todas as informações existentes nos itens do lançamento
+	Estando o cadastro de Produtos sem nenhuma marcação
+	Estando a Configuração sem nenhuma marcação
+		Gerando 1 operação na nota:
+			De desmarcado na Tributação Monofásica e Substituição Tributária de COFINS/PIS para marcado na Tributação Monofásica de COFINS/PIS
+			De marcado na Tributação Monofásica de COFINS/PIS para desmarcado na Tributação Monofásica e Substituição Tributária de COFINS/PIS
+			De marcado na Substituição Tributária de COFINS/PIS para desmarcado na Tributação Monofásica e Substituição Tributária de COFINS/PIS
+			De desmarcado na Tributação Monofásica e Substituição Tributária de COFINS/PIS para marcado na Substituição Tributária de COFINS/PIS
+			De marcado na Substituição Tributária de COFINS/PIS para marcado na Tributação Monofásica de COFINS/PIS
+			De marcado na Tributação Monofásica de COFINS/PIS para marcado na Substituição Tributária de COFINS/PIS
+				Verificar se está montando a operação corretamente conferindo valores, alíquotas, CFOP e quantidade de operações
+
+	Estando a Regras Tributárias por NCM com cadastro realizado e compatível com todas as informações existentes nos itens do lançamento
+	Estando o cadastro de Produtos sem nenhuma marcação
+	Estando a Configuração sem nenhuma marcação
+		Gerando 2 operação na nota:
+			De desmarcado na Tributação Monofásica e Substituição Tributária de COFINS/PIS para marcado na Tributação Monofásica de COFINS/PIS
+			De marcado na Tributação Monofásica de COFINS/PIS para desmarcado na Tributação Monofásica e Substituição Tributária de COFINS/PIS
+			De desmarcado na Tributação Monofásica e Substituição Tributária de COFINS/PIS para marcado na Substituição Tributária de COFINS/PIS
+			De marcado na Substituição Tributária de COFINS/PIS para desmarcado na Tributação Monofásica e Substituição Tributária de COFINS/PIS
+			De marcado na Tributação Monofásica de COFINS/PIS para marcado na Substituição Tributária de COFINS/PIS
+			De marcado na Substituição Tributária de COFINS/PIS para marcado na Tributação Monofásica de COFINS/PIS
+				Verificar se está montando a operação corretamente conferindo valores, alíquotas, CFOP e quantidade de operações
+
+	Estando a Regras Tributárias por NCM com cadastro realizado e informações compatíveis com 2 dos 3 itens existentes no lançamento
+	Estando o cadastro de Produtos com marcação realizada em todos os itens existentes no lançamento
+	Estando a Configuração sem nenhuma marcação
+		Gerando 1 operação na nota:
+			De desmarcado na Tributação Monofásica e Substituição Tributária de COFINS/PIS para marcado na Tributação Monofásica de COFINS/PIS
+			De marcado na Tributação Monofásica de COFINS/PIS para desmarcado na Tributação Monofásica e Substituição Tributária de COFINS/PIS
+			De desmarcado na Tributação Monofásica e Substituição Tributária de COFINS/PIS para marcado na Substituição Tributária de COFINS/PIS
+			De marcado na Substituição Tributária de COFINS/PIS para desmarcado na Tributação Monofásica e Substituição Tributária de COFINS/PIS
+			De marcado na Tributação Monofásica de COFINS/PIS para marcado na Substituição Tributária de COFINS/PIS
+			De marcado na Substituição Tributária de COFINS/PIS para marcado na Tributação Monofásica de COFINS/PIS
+				Verificar se está montando a operação corretamente conferindo valores, alíquotas, CFOP e quantidade de operações
+
+	Estando a Regras Tributárias por NCM com cadastro realizado e informações compatíveis com 2 dos 3 itens existentes no lançamento
+	Estando o cadastro de Produtos com marcação realizada em todos os itens existentes no lançamento
+	Estando a Configuração sem nenhuma marcação
+		Gerando 2 operação na nota:
+			De desmarcado na Tributação Monofásica e Substituição Tributária de COFINS/PIS para marcado na Tributação Monofásica de COFINS/PIS
+			De marcado na Tributação Monofásica de COFINS/PIS para desmarcado na Tributação Monofásica e Substituição Tributária de COFINS/PIS
+			De desmarcado na Tributação Monofásica e Substituição Tributária de COFINS/PIS para marcado na Substituição Tributária de COFINS/PIS
+			De marcado na Substituição Tributária de COFINS/PIS para desmarcado na Tributação Monofásica e Substituição Tributária de COFINS/PIS
+			De marcado na Tributação Monofásica de COFINS/PIS para marcado na Substituição Tributária de COFINS/PIS
+			De marcado na Substituição Tributária de COFINS/PIS para marcado na Tributação Monofásica de COFINS/PIS
+				Verificar se está montando a operação corretamente conferindo valores, alíquotas, CFOP e quantidade de operações
+
+	Estando a Regras Tributárias por NCM com cadastro realizado e informações compatíveis com 2 dos 3 itens existentes no lançamento
+	Estando o cadastro de Produtos com marcação realizada apenas no item existente no lançamento que não possui Regra Tributária cadastrada para ele
+	Estando a Configuração sem nenhuma marcação
+		Gerando 1 operação na nota:
+			De desmarcado na Tributação Monofásica e Substituição Tributária de COFINS/PIS para marcado na Tributação Monofásica de COFINS/PIS
+			De desmarcado na Tributação Monofásica e Substituição Tributária de COFINS/PIS para marcado na Substituição Tributária de COFINS/PIS
+			De marcado na Tributação Monofásica de COFINS/PIS para desmarcado na Tributação Monofásica e Substituição Tributária de COFINS/PIS (cenário não deve ser possível)
+			De marcado na Substituição Tributária de COFINS/PIS para desmarcado na Tributação Monofásica e Substituição Tributária de COFINS/PIS (cenário não deve ser possível)
+			De marcado na Tributação Monofásica de COFINS/PIS para marcado na Substituição Tributária de COFINS/PIS
+			De marcado na Substituição Tributária de COFINS/PIS para marcado na Tributação Monofásica de COFINS/PIS
+				Verificar se está montando a operação corretamente conferindo valores, alíquotas, CFOP e quantidade de operações
+
+	Estando a Regras Tributárias por NCM com cadastro realizado e informações compatíveis com 2 dos 3 itens existentes no lançamento
+	Estando o cadastro de Produtos com marcação realizada apenas no item existente no lançamento que não possui Regra Tributária cadastrada para ele
+	Estando a Configuração sem nenhuma marcação
+		Gerando 2 operação na nota:
+			De desmarcado na Tributação Monofásica e Substituição Tributária de COFINS/PIS para marcado na Tributação Monofásica de COFINS/PIS
+			De desmarcado na Tributação Monofásica e Substituição Tributária de COFINS/PIS para marcado na Substituição Tributária de COFINS/PIS
+			De marcado na Tributação Monofásica de COFINS/PIS para desmarcado na Tributação Monofásica e Substituição Tributária de COFINS/PIS (cenário não deve ser possível)
+			De marcado na Substituição Tributária de COFINS/PIS para desmarcado na Tributação Monofásica e Substituição Tributária de COFINS/PIS (cenário não deve ser possível)
+			De marcado na Tributação Monofásica de COFINS/PIS para marcado na Substituição Tributária de COFINS/PIS
+			De marcado na Substituição Tributária de COFINS/PIS para marcado na Tributação Monofásica de COFINS/PIS
+				Verificar se está montando a operação corretamente conferindo valores, alíquotas, CFOP e quantidade de operações
+
+	Estando a Regras Tributárias por NCM com cadastro realizado e informações compatíveis com 2 dos 3 itens existentes no lançamento
+	Estando o cadastro de Produtos sem nenhuma marcação
+	Estando a Configuração com marcação realizada
+		Gerando 1 operação na nota:
+			De desmarcado na Tributação Monofásica e Substituição Tributária de COFINS/PIS para marcado na Tributação Monofásica de COFINS/PIS (cenário não deve ser possível, pois da Configuração só lê marcação de ICMS/IPI e da Regras Tributárias por NCM só lê COFINS/PIS, gerando no mínimo 2 operações na nota)
+			De marcado na Tributação Monofásica de COFINS/PIS para desmarcado na Tributação Monofásica e Substituição Tributária de COFINS/PIS
+			De desmarcado na Tributação Monofásica e Substituição Tributária de COFINS/PIS para marcado na Substituição Tributária de COFINS/PIS (cenário não deve ser possível, pois da Configuração só lê marcação de ICMS/IPI e da Regras Tributárias por NCM só lê COFINS/PIS, gerando no mínimo 2 operações na nota)
+			De marcado na Substituição Tributária de COFINS/PIS para desmarcado na Tributação Monofásica e Substituição Tributária de COFINS/PIS
+			De marcado na Tributação Monofásica de COFINS/PIS para marcado na Substituição Tributária de COFINS/PIS
+			De marcado na Substituição Tributária de COFINS/PIS para marcado na Tributação Monofásica de COFINS/PIS
+				Verificar se está montando a operação corretamente conferindo valores, alíquotas, CFOP e quantidade de operações
+
+	Estando a Regras Tributárias por NCM com cadastro realizado e informações compatíveis com 2 dos 3 itens existentes no lançamento
+	Estando o cadastro de Produtos sem nenhuma marcação
+	Estando a Configuração com marcação realizada
+		Gerando 2 operação na nota:
+			De desmarcado na Tributação Monofásica e Substituição Tributária de COFINS/PIS para marcado na Tributação Monofásica de COFINS/PIS
+			De desmarcado na Tributação Monofásica e Substituição Tributária de COFINS/PIS para marcado na Substituição Tributária de COFINS/PIS
+			De marcado na Tributação Monofásica de COFINS/PIS para desmarcado na Tributação Monofásica e Substituição Tributária de COFINS/PIS
+			De marcado na Substituição Tributária de COFINS/PIS para desmarcado na Tributação Monofásica e Substituição Tributária de COFINS/PIS
+			De marcado na Tributação Monofásica de COFINS/PIS para marcado na Substituição Tributária de COFINS/PIS
+			De marcado na Substituição Tributária de COFINS/PIS para marcado na Tributação Monofásica de COFINS/PIS
+				Verificar se está montando a operação corretamente conferindo valores, alíquotas, CFOP e quantidade de operações
+
+Links de testes unitários:
+Links de testes funcionais:

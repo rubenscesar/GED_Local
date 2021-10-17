@@ -1,0 +1,24 @@
+Épico: Ao realizar conversão do arquivo de planilha financeira para leiaute CT, sistema esta contando parte do histórico do lançamento
+Número do cartão: P CH202107053598
+Ano de publicação: 2021
+Relacionamentos: Conversão da Planilha Financeira
+Requisitos:
+	RE[1.1.1] Exigências para enquadramento do requisito:
+	RE[1.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RE[1.3.1] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.1.1] Exigências para enquadramento da regra:
+	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.3.1] Demonstrativo de cálculo:
+	RN[2.4.1] Funcionalidade consequente:
+Matriz de risco:
+Features:
+Scenário Outline:
+	Firebird
+		Informações Adicionais:
+			Lançamentos com históricos longos
+Stack:
+Links de testes unitários:
+Links de testes funcionais:
+Recursos:
+	Banco para testes: ACC-Planilha Financeira-2021-ONE INTERNET SA-042021.rar

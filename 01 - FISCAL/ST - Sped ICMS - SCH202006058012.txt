@@ -1,0 +1,51 @@
+Épico: Atualizar Calssificação do Paraná de acordo com a tabela 5.1.1 do Sped Fiscal - versão 17
+Número do cartão: S CH202006058012
+Ano de publicação: 2021
+Relacionamentos: Sped ICMS, Sped Fiscal, Tabela 5.1.1, Tipificação, E111, "ICMS - Outros Débitos/Créditos, Estornos, Deduções", Classificação, CAF, Código de Ajuste de Apuração
+Requisitos:
+	RE[1.1.1] Exigências para enquadramento do requisito:
+	RE[1.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RE[1.3.1] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.1.1] Exigências para enquadramento da regra:
+		Incluir apenas CAF que tenha o 3º caractere = "0"
+		Incluir apenas CAF que tenha o 4º caractere <> "5" e "9"
+		Retirar as Redundâncias do início das descrições
+		Nunca apagar ou realizar qualquer alteração nos códigos antigos que já estavam no KrICD do trunk, somente incluir, por mais que os antigos estejam errados. Com isso garantir a integridade dos lançamentos dos usuários que utilizaram este código
+	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.3.1] Demonstrativo de cálculo:
+	RN[2.4.1] Funcionalidade consequente:
+		Os novos códigos são apenas inseridos no final do arquivo do KrICD, então não espere que eles apareçam em ordem na tela
+		Confira no Sped ICMS os registro E111
+		Sempre necessário solicitar o arquivo KrICD.pas do branch do DEV para comparar com o KrICD do trunk e com a tabela 5.1.1 do Sped Fiscal
+		Preferência para receber o arquivo KrICD.pas do branch do DEV, pois assim é improvável que venha com caracteres inválidos
+Matriz de risco:
+Features:
+Scenário Outline:
+	Firebird
+	SQL
+		Escriturando em estabelecimento de PR
+			Regime de Tributação Federal - Lucro Real ou Lucro Presumido
+				Regime de Tributação Estadual - Normal
+					Parametrizado na Legislação Estadual o Código da Receita de ICMS Normal = 1015
+						Lançamentos a partir do ano corrente
+							Informações Adicionais:
+							Operação:
+								Saída
+								Ajuste de Apuração
+							Espécies:
+								NF-e
+								ICMS - Outros Débitos/Créditos, Estornos, Deduções
+							Relatório
+								ICMS Normal
+							Obrigação acessória:
+								Sped Fiscal
+							Peculiaridades em ICMS - Outros Débitos/Créditos, Estornos, Deduções:
+								Lançamentos com diversas classificações com os novos códigos
+								Utilize os códigos com as descrições mais longas, pois na geração do Sped ICMS deve estar preparado para truncar a informação
+							Testar em Base real de pendências passadas
+Stack:
+Links de testes unitários:
+Links de testes funcionais:
+Recursos:
+	https://docs.google.com/spreadsheets/d/1rJzw3h-80W7PLPukefvPAjVrOsbu6qrt2DpFrUKCN38/edit#gid=744225909

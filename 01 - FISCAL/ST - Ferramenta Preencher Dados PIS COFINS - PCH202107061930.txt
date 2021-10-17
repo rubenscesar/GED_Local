@@ -1,0 +1,88 @@
+Épico: Não habilita o preenchimento de CST de PIS e COFINS pela ferramenta de Preencher dados Pis e Cofins para documentos de serviços
+Número do cartão: P CH202107061930 
+Ano de publicação: 2021
+Relacionamentos: Tributos Federais, Sped Contribuições, Sped PIS/COFINS, Preencher Dados PIS e COFINS
+Requisitos:
+	RE[1.1.1] Exigências para enquadramento do requisito:
+	RE[1.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RE[1.3.1] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.1.1] Exigências para enquadramento da regra:
+		Até a data 31/05/2021
+			Não será marcado automaticamente a opção "Preencher Exclusão da BC PIS/COFINS" (como sugestão)
+		A partir da data 01/06/2021
+			Será marcado automaticamente a opção "Preencher Exclusão da BC PIS/COFINS" (como sugestão)
+	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.3.1] Demonstrativo de cálculo:
+	RN[2.4.1] Funcionalidade consequente:
+Matriz de risco:
+Features:
+Scenário Outline:
+	Regime de Tributação Federal - Lucro Real
+	Regime de Tributação Federal - Lucro Presumido
+		Incidência tributária não-cumulativa
+		Incidência tributária cumulativa
+			Informações Adicionais:
+				Tipo de Documento
+					Sem Produtos
+				Peculiaridades do uso da Ferramenta
+					| id	| Status	| Utilizando	| Operação	| Data			| Marcado "Preencher Exclusão da BC PIS/COFINS"	| Resultado CST	| Resultado Nat. Crédito	|
+					| 01	| Incluindo	| Teclado		| Saída		| 01/01/2021	| Sim											| Habilitado	| Desabilitado				|
+					| 02	| Incluindo	| Teclado		| Saída		| 01/01/2021	| Não											| Habilitado	| Desabilitado				|
+					| 03	| Incluindo	| Teclado		| Saída		| 01/06/2021	| Sim											| Habilitado	| Desabilitado				|
+					| 04	| Incluindo	| Teclado		| Saída		| 01/06/2021	| Não											| Habilitado	| Desabilitado				|
+					| 05	| Editando	| Teclado		| Saída		| 01/01/2021	| Sim											| Habilitado	| Desabilitado				|
+					| 06	| Editando	| Teclado		| Saída		| 01/01/2021	| Não											| Habilitado	| Desabilitado				|
+					| 07	| Editando	| Teclado		| Saída		| 01/06/2021	| Sim											| Habilitado	| Desabilitado				|
+					| 08	| Editando	| Teclado		| Saída		| 01/06/2021	| Não											| Habilitado	| Desabilitado				|
+					| 09	| Incluindo	| Teclado		| Entrada	| 01/01/2021	| Sim											| Habilitado	| Habilitado				|
+					| 10	| Incluindo	| Teclado		| Entrada	| 01/01/2021	| Não											| Habilitado	| Habilitado				|
+					| 11	| Incluindo	| Teclado		| Entrada	| 01/06/2021	| Sim											| Habilitado	| Habilitado				|
+					| 12	| Incluindo	| Teclado		| Entrada	| 01/06/2021	| Não											| Habilitado	| Habilitado				|
+					| 13	| Editando	| Teclado		| Entrada	| 01/01/2021	| Sim											| Habilitado	| Desabilitado				|
+					| 14	| Editando	| Teclado		| Entrada	| 01/01/2021	| Não											| Habilitado	| Desabilitado				|
+					| 15	| Editando	| Teclado		| Entrada	| 01/06/2021	| Sim											| Habilitado	| Desabilitado				|
+					| 16	| Editando	| Teclado		| Entrada	| 01/06/2021	| Não											| Habilitado	| Desabilitado				|
+					| 17	| Incluindo	| Mouse			| Saída		| 01/01/2021	| Sim											| Habilitado	| Desabilitado				|
+					| 18	| Incluindo	| Mouse			| Saída		| 01/01/2021	| Não											| Habilitado	| Desabilitado				|
+					| 19	| Incluindo	| Mouse			| Saída		| 01/06/2021	| Sim											| Habilitado	| Desabilitado				|
+					| 20	| Incluindo	| Mouse			| Saída		| 01/06/2021	| Não											| Habilitado	| Desabilitado				|
+					| 21	| Editando	| Mouse			| Saída		| 01/01/2021	| Sim											| Habilitado	| Desabilitado				|
+					| 22	| Editando	| Mouse			| Saída		| 01/01/2021	| Não											| Habilitado	| Desabilitado				|
+					| 23	| Editando	| Mouse			| Saída		| 01/06/2021	| Sim											| Habilitado	| Desabilitado				|
+					| 24	| Editando	| Mouse			| Saída		| 01/06/2021	| Não											| Habilitado	| Desabilitado				|
+					| 25	| Incluindo	| Mouse			| Entrada	| 01/01/2021	| Sim											| Habilitado	| Habilitado				|
+					| 26	| Incluindo	| Mouse			| Entrada	| 01/01/2021	| Não											| Habilitado	| Habilitado				|
+					| 27	| Incluindo	| Mouse			| Entrada	| 01/06/2021	| Sim											| Habilitado	| Habilitado				|
+					| 28	| Incluindo	| Mouse			| Entrada	| 01/06/2021	| Não											| Habilitado	| Habilitado				|
+					| 29	| Editando	| Mouse			| Entrada	| 01/01/2021	| Sim											| Habilitado	| Desabilitado				|
+					| 30	| Editando	| Mouse			| Entrada	| 01/01/2021	| Não											| Habilitado	| Desabilitado				|
+					| 31	| Editando	| Mouse			| Entrada	| 01/06/2021	| Sim											| Habilitado	| Desabilitado				|
+					| 32	| Editando	| Mouse			| Entrada	| 01/06/2021	| Não											| Habilitado	| Desabilitado				|
+				Ferramentas
+					Utilitários >> Ferramentas >> Preencher Dados PIS e COFINS
+Stack:
+	Mapeamento de Espécies que possuem "Nat. Crédito"
+		NFS-e
+		NFS
+		CT-e
+		CTRC
+		CT-eOS
+		NFST
+		NFSTC
+		NFSC
+	Mapeamento de Espécies que possuem "Nat. Cont. Estorno"
+		Habilitado apenas para os documentos de Devolução de Venda na Incidência Tributária Cumulativa
+			NF-e
+			NF-e (terceiros)
+			NF1
+			NF1 (terceiros)
+			NFP
+			NFP (terceiros)
+			NFA
+			CT-e
+			CTRC
+Links de testes unitários:
+Links de testes funcionais:
+	Preencher_Dados_PIS_COFINS.sd
+Recursos:

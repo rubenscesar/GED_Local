@@ -1,0 +1,67 @@
+Épico: Empresa do lucro presumido ao gerar tentar gerar DARF (provisão) de 05/2021 dos tributos COFINS e PIS com códigos de receita 2172 e 8109 junto com CSL e IRPJ o sistema exibe os códigos de receita de empresa do regime lucro real (5856 e 6912).
+	   Caso tente gerar sem selecionar os tributos de IRPJ e CSL o sistema gera com os códigos corretos, lucro presumido.
+	   • O problema só ocorre quando no histórico da empresa é criado um registro como simples nacional e no mês que pretende tirar o Darf é incluído um novo histórico como lucro presumido
+	   sendo assim ao emitir o Darf marcando todos os tributos PIS Cofins imposto de renda e contribuição social aí o Darf sai com código errado para PIS e Cofins
+Número do cartão: P CH202107069443
+Ano de publicação: 2021
+Relacionamentos: DARF, Código da Receita
+Requisitos:
+	RE[1.1.1] Exigências para enquadramento do requisito:
+	RE[1.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RE[1.3.1] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.1.1] Exigências para enquadramento da regra:
+	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.3.1] Demonstrativo de cálculo:
+	RN[2.4.1] Funcionalidade consequente:
+Matriz de risco:
+Features:
+Scenário Outline:
+	Firebird
+		Regime de Tributação Estadual - Normal
+			Informações Adicionais
+				Operação
+					Saída
+				Testar em Base real de pendências passadas
+			Optante pelo Regime de Tributação Lucro Presumido (Cumulativo)
+				Provisão Mensal e Trimestral
+					Tributo						Códigos das Receitas
+					COFINS, PIS, CSL, IRPJ		2172, 8109, 2372, 2089
+					COFINS, PIS					2172, 8109
+					CSL, IRPJ					2372, 2089
+					COFINS						2172
+					PIS							8109
+					CSL							2372
+					IRPJ						2089
+			Optante pelo Regime de Tributação Lucro Real (Não-Cumulativo)
+				Provisão Mensal e Trimestral
+					Tributo						Códigos das Receitas
+					COFINS, PIS					5856, 6912
+					COFINS						5856
+					PIS							6912
+			Obrigado ao Regime de Tributação Lucro Real (Não-Cumulativo)
+				Provisão Mensal
+					Tributo						Códigos das Receitas
+					COFINS, PIS					5856, 6912
+					COFINS						5856
+					PIS							6912
+			Obrigado ao Regime de Tributação Lucro Real (Não-Cumulativo) (Entidade Financeira)
+				Provisão Mensal
+					Tributo						Códigos das Receitas
+					COFINS, PIS					7987, 4574
+					COFINS						7987
+					PIS							4574
+			Contribuição Previdenciária - Serviço
+				Tributo						Códigos das Receitas
+				CPRB						2985
+			Contribuição Previdenciária - Indústria
+				Tributo						Códigos das Receitas
+				CPRB						2991
+			Regime Especial de Tributação do Patrimônio de Afetação
+				Tributo						Códigos das Receitas
+				RET							4095
+				Minha Casa, Minha Vida		1068
+
+Stack:
+Links de testes unitários:
+Links de testes funcionais:

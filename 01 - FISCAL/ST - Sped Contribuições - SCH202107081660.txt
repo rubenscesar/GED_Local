@@ -1,0 +1,138 @@
+Épico: Habilitar o campo de identificador de Contrib. Previdenciária no lançamento do CTe de Entrada Documento Próprio e CTe de Entrada, quando se tratar de uma devolução/anulação. (aba Outros) e gerar informações para o bloco P do SPED Contribuições e R-2060 da REINF
+Número do cartão: S CH202107081660
+Ano de publicação: 2021
+Relacionamentos: Sped Contribuições, Sped PIS/COFINS, CT-e anulação, CPRB, Registro P100, R-2060, Continuação de S CH202008021181
+Requisitos:
+	RE[1.1.1] Exigências para enquadramento do requisito:
+		• CT-e a ser substituído deve estar com a situação autorizada (não pode estar cancelado ou denegado)
+		• CNPJ/CPF do remetente do CT-e substituto deve ser igual ao informado no CT-E Substituído
+	RE[1.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RE[1.3.1] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.1.1] Exigências para enquadramento da regra:
+	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.3.1] Demonstrativo de cálculo:
+	RN[2.4.1] Funcionalidade consequente:
+		REINF
+			UPDATE EMP
+			SET
+				GUIDHOMOREINF = 'a7a19471-1049-47ea-aa96-6b54857fe945',
+				DTADESAOREINFPROD = NULL,
+				DTADESAOREINFHOMO = '1-JAN-2019 00:00:00',
+				AMBIENTEATIVOREINF = 2
+			WHERE (CODIGO = '0003')
+Matriz de risco:
+Features:
+	| Regime de Tributação Federal	| Incidência tributária	| Regime		|
+	| Lucro Real					| não-cumulativa		| competência	|
+	| Lucro Presumido				| cumulativa			| competência	|
+	| Lucro Presumido				| cumulativa			| caixa			|
+Scenário Outline:
+	Firebird
+	SQL
+		Lançamentos em 2 estabelecimentos
+			Regime de Tributação Federal - Lucro Real
+			Regime de Tributação Federal - Lucro Presumido
+				Regime de Tributação Estadual - Normal
+					Incidência tributária não-cumulativa
+					Incidência tributária cumulativa
+						Alíquota padrão de PIS/COFINS
+							Regime de competência
+							Regime de caixa
+								Adotando critério de escrituração Consolidada para gerar Sped Contribuições, sem informar itens no Histórico da empresa e informando itens no Histórico do estabelecimento
+								Adotando critério de escrituração Consolidada para gerar Sped Contribuições, sem informar itens no Histórico da empresa e sem informar itens no Histórico do estabelecimento
+								Adotando critério de escrituração Detalhada para gerar Sped Contribuições, informando itens no Histórico da empresa e no Histórico do estabelecimento
+									Informações Adicionais:
+										GRID
+										CRUD
+										Operação
+											Saída
+											Entrada
+											Tributos Federais >> Ajuste de COFINS/PIS >> Base de Cálculo - Ajuste de Redução
+										Espécies
+											CT-e
+											CT-e (Documento Próprio)
+										Peculiaridades das notas
+											CPRB
+												Utilizando em todos os lançamentos do cenário o mesmo código ICP (00000030)
+												Utilizando no lançamento de Saída do Tipo Normal e Entrada do Tipo Anulação o código ICP (00000030) e de Saída do Tipo Substituição o código ICP (39262000) (Obs.: Visto com #produto e cenário não existe)
+											CT-e do Tipo
+												Normal
+												Substituição
+												Anulação
+											Importação
+												Visarq
+												Importação .FS
+													Adequação a leiaute de importação
+												Importação .XML
+													Configuração de código padrão de ICP
+											Relatórios
+												Relatórios >> Tributos Federais >> COFINS, PIS, CSL e IRPJ (Demonstrativo de Cálculo)
+												Relatórios >> Tributos Federais >> DARF
+												Relatórios >> Tributos Federais >> Contribuição Sobre o Valor da Receita Bruta - Demonstrativo Bloco P
+											Obrigação acessória
+												Sped Contribuições
+												REINF (R-2060)
+											Auditoria
+										Cenários
+											CT-e de Anulação emitido na mesma competência do CT-e anulado
+												Incidência tributária não-cumulativa
+													UC1
+														Contribuinte A
+															CT-e de Saída do Tipo Normal
+															CT-e (Terceiros) de Entrada do Tipo Anulação (com CFOP 1.206 ou 2.206 e CST de PIS/COFINS 50)
+															CT-e de Saída do Tipo Substituição
+													UC2
+														Contribuinte A
+															CT-e de Saída do Tipo Normal
+															CT-e (Documento Próprio) de Entrada do Tipo Anulação (com CFOP 1.206 ou 2.206 e CST de PIS/COFINS 50)
+															CT-e de Saída do Tipo Substituição
+											CT-e de Anulação emitido em competência posterior ao CT-e anulado
+												Incidência tributária não-cumulativa
+													UC3
+														Contribuinte A
+															CT-e de Saída do Tipo Normal (emitido no mês 1)
+															CT-e (Terceiros) de Entrada do Tipo Anulação (emitido no mês 2) (com CFOP 1.206 ou 2.206 e CST de PIS/COFINS 50)
+															CT-e de Saída do Tipo Substituição (emitido no mês 2)
+													UC4
+														Contribuinte A
+															CT-e de Saída do Tipo Normal (emitido no mês 1)
+															CT-e (Documento Próprio) de Entrada do Tipo Anulação (emitido no mês 2)
+															CT-e de Saída do Tipo Substituição (emitido no mês 2)
+											CT-e de Anulação emitido na mesma competência do CT-e anulado
+												Incidência tributária cumulativa
+													UC5
+														Contribuinte A
+															CT-e de Saída do Tipo Normal (emitido no mês 1)
+															CT-e (Terceiros) de Entrada do Tipo Anulação (emitido no mês 2) (com CFOP 1.206 ou 2.206 e CST de PIS/COFINS 98)
+															Tributos Federais >> Ajuste de COFINS/PIS >> Base de Cálculo - Ajuste de Redução (emitido no mês 1)
+															CT-e de Saída do Tipo Substituição (emitido no mês 1)
+													UC6
+														Contribuinte A
+															CT-e de Saída do Tipo Normal (emitido no mês 1)
+															CT-e (Documento Próprio) de Entrada do Tipo Anulação (emitido no mês 2) (com CFOP 1.206 ou 2.206 e CST de PIS/COFINS 98 ou 99)
+															Tributos Federais >> Ajuste de COFINS/PIS >> Base de Cálculo - Ajuste de Redução (emitido no mês 1)
+															CT-e de Saída do Tipo Substituição (emitido no mês 1)
+											CT-e de Anulação emitido em competência posterior ao CT-e anulado
+												Incidência tributária cumulativa
+													UC7
+														Contribuinte A
+															CT-e de Saída do Tipo Normal (emitido no mês 1)
+															CT-e (Terceiros) de Entrada do Tipo Anulação (emitido no mês 2) (com CFOP 1.206 ou 2.206 e CST de PIS/COFINS 98 ou 99)
+															Tributos Federais >> Ajuste de COFINS/PIS >> Base de Cálculo - Ajuste de Redução (emitido no mês 2)
+															CT-e de Saída do Tipo Substituição (emitido no mês 2)
+													UC8
+														Contribuinte A
+															CT-e de Saída do Tipo Normal (emitido no mês 1)
+															CT-e (Documento Próprio) de Entrada do Tipo Anulação (emitido no mês 2) (com CFOP 1.206 ou 2.206 e CST de PIS/COFINS 98 ou 99)
+															Tributos Federais >> Ajuste de COFINS/PIS >> Base de Cálculo - Ajuste de Redução (emitido no mês 2)
+															CT-e de Saída do Tipo Substituição (emitido no mês 2)
+													
+Lançamentos atendendo ao Contribuinte B existente nas planílhas é desnecessário, pois, em todos os cenários os lançamentos eram:
+	Contribuinte B
+		CT-e (Terceiros) de Entrada do Tipo Normal
+		CT-e de Saída do Tipo Anulação
+Ou seja, entrada e saída normal mudando apenas o "Tipo" mas em questão de valores não eram nada menos do que uma entrada e uma saída de mesmo valor, no máximo mudava de período
+Stack:
+Links de testes unitários:
+Links de testes funcionais:

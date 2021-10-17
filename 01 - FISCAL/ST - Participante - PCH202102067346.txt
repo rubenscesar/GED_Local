@@ -1,0 +1,26 @@
+Épico: Ao importar as notas fiscais de serviço apresenta erro no IE
+Número do cartão: P CH202102067346
+Ano de publicação: 2021
+Relacionamentos: Importação Abrasf, Conversão, Perticipante
+Requisitos:
+	RE[1.1.1] Exigências para enquadramento do requisito:
+		Quando vier arquivo Abrasf sem UF e com IE, transformar o erro em aviso e deixar passar, somente quando for origem Abrasf
+Regras de Negócio:
+Matriz de risco:
+Features:
+Scenário Outline:
+	Firebird
+		Informações Adicionais:
+			Operações:
+				Saída
+				Entrada
+			Espécies
+				NFS-e
+			Imortação
+				NFS-e Padrão Abrasf
+				Importação .FS
+Stack:
+Links de testes unitários:
+Links de testes funcionais:
+Recursos:
+	Arquivo para importação: Abrasf-Ponte Nova (MG)-Inscrição Estadual do Participante.xml

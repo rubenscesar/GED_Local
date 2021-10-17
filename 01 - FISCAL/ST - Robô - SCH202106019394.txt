@@ -1,0 +1,49 @@
+Épico:
+Número do cartão: S CH202106019394
+Ano de publicação: 2021
+Relacionamentos: Robô, Robotização, Importação Abrasf
+Requisitos:
+	RE[1.1.1] Exigências para enquadramento do requisito:
+	RE[1.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RE[1.3.1] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.1.1] Exigências para enquadramento da regra:
+	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.3.1] Demonstrativo de cálculo:
+	RN[2.4.1] Funcionalidade consequente:
+Matriz de risco:
+Features:
+Scenário Outline:
+	Firebird
+		Informações Adicionais:
+			Robotização
+				Executando Agora
+				Agendado
+					Empresa específica
+					Todas as empresas
+						Novo Processo > Personalizado
+						Novo Processo > Utilizando um processo modelo
+			Entradas e Saídas
+				Comportamento Diante do sucesso
+					Quando já tiver um arquivo na caixa de entrada
+				Comportamento Diante de telas de parametrizações
+					tela de relacionamento de atividade
+					tela de relacionamento de serviço
+					tela de relacionamento de atividade e serviço
+				Comportamento Diante de erros
+					Leiaute não reconhecido
+					Arquivo inconsistente faltando tag de fechamento
+					Não pretence a empresa
+					serviço padrão não configurado
+					serviço nfe não existente
+					Dados no xml incorreto
+						Município do participante inválido (MS/9157)
+				Comportamento Diante de avisos
+					participante sem uf P CH202102067346
+					tag de importação do simples nacional
+				Comportamento Diante da demora de importação
+			Testar em Base real de pendências passadas
+Stack:
+Links de testes unitários:
+Links de testes funcionais:
+Recursos:

@@ -1,0 +1,41 @@
+Épico: Sistema está gerando código 2 no campo 19 do Registro R10, ocasionando o seguinte erro
+Número do cartão: P CH202105050057
+Ano de publicação: 2021
+Relacionamentos: DCTF Mensal
+Requisitos:
+	RE[1.1.1] Exigências para enquadramento do requisito:
+		No Histórico dos Estabelecimentos, a empresa classificada como "RET > Progrma MCMV > Receitas recebidas pelo contrato de construção", gerando assim para o código de receita 1068 a variação 02 (1068-02) - RET - Contrato de Construção - PMCMV - Pagamento Unificado.
+		Enquadrado como RET (Receitas recebidas pela incorporadora) deve gerar campo 19 com 2
+		Enquadrado como RET (Receitas recebidas pelo contrato de construção) deve gerar campo 19 com 0
+	RE[1.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RE[1.3.1] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.1.1] Exigências para enquadramento da regra:
+	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.3.1] Demonstrativo de cálculo:
+	RN[2.4.1] Funcionalidade consequente:
+Matriz de risco:
+Features:
+Scenário Outline:
+	Firebird
+		Escriturando em 2 estabelecimentos
+			Regime de Tributação Federal - Lucro Presumido
+				Regime de Tributação Estadual - Normal
+					Não enquadrado como RET
+					Enquadrado como RET (Receitas recebidas pela incorporadora) 2
+					Enquadrado como RET (Receitas recebidas pelo contrato de construção) 0
+						DARF a pagar
+						DARF pago
+							Informações Adicionais
+								Operação
+									Saída
+								Espécies
+									Operação de Atividade Imobiliária
+								Obrigação acessória
+									DCTF - Mensal
+								Testar em Base real de pendências passadas
+
+Stack:
+Links de testes unitários:
+Links de testes funcionais:
+Recursos:

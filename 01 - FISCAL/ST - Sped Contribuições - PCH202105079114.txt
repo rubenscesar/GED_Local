@@ -1,0 +1,145 @@
+Épico: A conta contábil só deve ir para o  SPED contribuições, caso esteja vinculada a operações que serão enviadas para o arquivo.
+Número do cartão: P CH202105079114
+Ano de publicação: 2021
+Relacionamentos: Sped Contribuições, Registro 0500, Código Contábil, Conta Contábil
+Requisitos:
+	RE[1.1.1] Exigências para enquadramento do requisito:
+	RE[1.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RE[1.3.1] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.1.1] Exigências para enquadramento da regra:
+	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.3.1] Demonstrativo de cálculo:
+	RN[2.4.1] Funcionalidade consequente:
+Matriz de risco:
+Features:
+	| Estabelecimento	| Regime de Tributação Federal	| Incidência tributária									| Alíquota de PIS/COFINS	| Regime		| Escrituração
+	| 2					| Lucro Real					| Não-cumulativa										| Padrão					| Competência	| Detalhada para gerar Sped Contribuições, informando itens no Histórico da empresa e no Histórico do estabelecimento
+	| 2					| Lucro Real					| Não-cumulativa										| Específica				| Competência	| Detalhada para gerar Sped Contribuições, informando itens no Histórico da empresa e no Histórico do estabelecimento
+	| 2					| Lucro Real					| Não-cumulativa e cumulativa (parão não-cumulativa)	| Padrão					| Competência	| Detalhada para gerar Sped Contribuições, informando itens no Histórico da empresa e no Histórico do estabelecimento
+	| 2					| Lucro Real					| Não-cumulativa e cumulativa (parão não-cumulativa)	| Específica				| Competência	| Detalhada para gerar Sped Contribuições, informando itens no Histórico da empresa e no Histórico do estabelecimento
+	| 2					| Lucro Presumido				| Cumulativa											| Padrão					| Competência	| Consolidada para gerar Sped Contribuições, sem informar itens no Histórico da empresa e informando itens no Histórico do estabelecimento
+	| 2					| Lucro Presumido				| Cumulativa											| Padrão					| Competência	| Consolidada para gerar Sped Contribuições, sem informar itens no Histórico da empresa e sem informar itens no Histórico do estabelecimento
+	| 2					| Lucro Presumido				| Cumulativa											| Padrão					| Competência	| Detalhada para gerar Sped Contribuições, informando itens no Histórico da empresa e no Histórico do estabelecimento
+	| 2					| Lucro Presumido				| Cumulativa											| Específica				| Competência	| Detalhada para gerar Sped Contribuições, informando itens no Histórico da empresa e no Histórico do estabelecimento
+	| 2					| Lucro Presumido				| Cumulativa											| Padrão					| Caixa			| Detalhada para gerar Sped Contribuições, informando itens no Histórico da empresa e no Histórico do estabelecimento
+	| 2					| Lucro Presumido				| Cumulativa											| Específica				| Caixa			| Detalhada para gerar Sped Contribuições, informando itens no Histórico da empresa e no Histórico do estabelecimento
+Scenário Outline:
+	Firebird
+	SQL
+		Escriturando em 2 estabelecimentos
+			Regime de Tributação Federal - Lucro Real
+			Regime de Tributação Federal - Lucro Presumido
+				Regime de Tributação Estadual - Normal
+					Incidência tributária não-cumulativa
+					Incidência tributária cumulativa
+					Incidência tributária não-cumulativa e cumulativa (padrão não-cumulativa)
+						Alíquota padrão de PIS/COFINS
+						Alíquota específica de PIS/COFINS
+							Regime de competência
+							Regime de caixa
+								Adotando critério de escrituração Consolidada para gerar Sped Contribuições, sem informar itens no Histórico da empresa e informando itens no Histórico do estabelecimento
+								Adotando critério de escrituração Consolidada para gerar Sped Contribuições, sem informar itens no Histórico da empresa e sem informar itens no Histórico do estabelecimento
+								Adotando critério de escrituração Detalhada para gerar Sped Contribuições, informando itens no Histórico da empresa e no Histórico do estabelecimento
+									Atender a um ciclo onde os testes irão passar
+									Atender a um ciclo onde os testes irão dar errado
+									Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou outra por ter especificações diferentes
+									Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou a forma como vinha sendo feito até esta data
+									Refatorar / Eliminar Redundâncias
+										Informações Adicionais:
+										Operação:
+											Saída
+											Entrada
+										Espécies:
+											Informando mercadorias e/ou serviços
+												CF-e
+													2 equipamentos
+												NF-e
+												NF1
+												NFC-e
+											Informando mercadorias ou serviços
+												NFS-e
+												NFS
+												NF-e (terceiros)
+												NFP
+												NFA
+												NFVC
+												CT-e
+												CTeOS
+												BP-e
+												RMD
+												NF3e
+												NFGC
+												NFFA
+												NFSTC
+												NFSC
+												RDD
+												GCO
+												Outras despesas
+												Deduções
+										Obrigação acessória:
+											Sped Contribuições
+										Testar em Base real de pendências passadas
+										Peculiaridades das notas de entrada:
+											Informar código contábil nos itens e outro na aba outros
+											Lançamentos com todos os CSTs, pois, dependendo da espécie e se há crédito, será escriturado o lançamento no arquivo ou não
+											1 item de mercadoria e/ou serviço
+												CST Descrição
+												50	Operação com Direito a Crédito - Vinculada Exclusivamente a Receita Tributada no Mercado Interno
+												51	Operação com Direito a Crédito – Vinculada Exclusivamente a Receita Não Tributada no Mercado Interno
+												52	Operação com Direito a Crédito - Vinculada Exclusivamente a Receita de Exportação
+												53	Operação com Direito a Crédito - Vinculada a Receitas Tributadas e Não-Tributadas no Mercado Interno
+												54	Operação com Direito a Crédito - Vinculada a Receitas Tributadas no Mercado Interno e de Exportação
+												55	Operação com Direito a Crédito - Vinculada a Receitas Não-Tributadas no Mercado Interno e de Exportação
+												56	Operação com Direito a Crédito - Vinculada a Receitas Tributadas e Não-Tributadas no Mercado Interno, e de Exportação
+												60	Crédito Presumido - Operação de Aquisição Vinculada Exclusivamente a Receita Tributada no Mercado Interno
+												61	Crédito Presumido - Operação de Aquisição Vinculada Exclusivamente a Receita Não-Tributada no Mercado Interno
+												62	Crédito Presumido - Operação de Aquisição Vinculada Exclusivamente a Receita de Exportação
+												63	Crédito Presumido - Operação de Aquisição Vinculada a Receitas Tributadas e Não-Tributadas no Mercado Interno
+												64	Crédito Presumido - Operação de Aquisição Vinculada a Receitas Tributadas no Mercado Interno e de Exportação
+												65	Crédito Presumido - Operação de Aquisição Vinculada a Receitas Não-Tributadas no Mercado Interno e de Exportação
+												66	Crédito Presumido - Operação de Aquisição Vinculada a Receitas Tributadas e Não-Tributadas no Mercado Interno, e de Exportação
+												67	Crédito Presumido - Outras Operações
+												70	Operação de Aquisição sem Direito a Crédito
+												71	Operação de Aquisição com Isenção
+												72	Operação de Aquisição com Suspensão
+												73	Operação de Aquisição a Alíquota Zero
+												74	Operação de Aquisição sem Incidência da Contribuição
+												75	Operação de Aquisição por Substituição Tributária
+												98	Outras Operações de Entrada
+												99	Outras Operações
+											3 itens de mercadoria e/ou serviço
+												CST	CST	CST
+												50	50	50
+												70	70	70
+												50	50	70
+												50	70	50
+												70	50	50
+											3 itens de mercadoria e/ou serviço com incidências tributárias diferentes
+												ITEM 1 → Parametrizado para incidência tributária padrão conforme Histórico da empresa
+												ITEM 2 → Parametrizado para incidência tributária não-cumulativa
+												ITEM 3 → Parametrizado para Incidência tributária cumulativa
+												ITEMITEMITEM
+												2	2	2
+													CST	CST	CST
+													50	50	50
+													70	70	70
+													50	50	70
+													50	70	50
+													70	50	50
+												ITEMITEMITEM
+												3	3	3
+												ITEMITEMITEM
+												2	3	2
+													CST	CST	CST
+													50	_	50
+													70	_	70
+													70	_	50
+
+
+
+Stack:
+Links de testes unitários:
+Links de testes funcionais:
+Recursos:
+"D:\1_CONTÊINERES\3_Bancos para teste\5_Banco para testes do Sped Contribuições\P CH202105079114 Sped Contribuições - Banco para teste Funcional de Crédtios.rar"

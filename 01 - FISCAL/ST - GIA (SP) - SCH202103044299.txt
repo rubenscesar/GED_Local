@@ -1,0 +1,99 @@
+Épico: Adequar a geração do registro CR=14 para as operações de saídas de CTe com CFOP interestadual
+Número do cartão: S CH202103044299 
+Ano de publicação: 2021
+Relacionamentos: GIA, SP, CT-e, CTe
+Requisitos:
+	RE[1.1.1] Exigências para enquadramento do requisito:
+	RE[1.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RE[1.3.1] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.1.1] Exigências para enquadramento da regra:
+		RN[2.1.2] Regra Geral (Entradas e Saídas)
+											| GIA (SP)							| Sped ICMS
+			| UF de coleta	| UD de destino	| CR=14 - Detalhes Interestaduais	| Registro D100
+			| = SP			| <> SP			| UF de Entrega/Destino do CTe		| = UF do Município do campo 25
+			| <> SP			| = SP			| UF de Coleta do CTe				| = UF do Município do campo 24
+			| <> SP			| <> SP			| UF de Entrega/Destino do CTe		| = UF do Município do campo 25
+	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.3.1] Demonstrativo de cálculo:
+	RN[2.4.1] Funcionalidade consequente:
+Matriz de risco:
+Features:
+Scenário Outline:
+	Firebird
+	SQL
+		Escriturando em 1 estabelecimento sendo obrigatoriamente de SP
+			Regime de Tributação Federal - Lucro Real
+			Regime de Tributação Simples Nacional
+				Regime de Tributação Estadual - Normal
+				Regime de Tributação Estadual - Simples Nacional
+					Regime de competência
+					Regime de caixa
+						Atender a um ciclo onde os testes irão passar
+							Informações Adicionais:
+								Operações:
+									Saída
+									Entrada
+								Espécies:
+									CT-e
+								Peculiaridades das notas de saída e entrada:
+									| UF de coleta	| UD de destino
+									| = SP			| <> SP
+									| <> SP			| = SP
+									| <> SP			| <> SP
+									Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou outra por ter especificações diferentes
+										| UF de coleta	| UD de destino
+										| = SP			| = SP
+								Obrigação acessória:
+									GIA (SP)
+								Testar em Base real de pendências passadas
+								Backup/Restore
+
+Stack:
+Links de testes unitários:
+Links de testes funcionais:
+Fluxo Básico Modelo:
+	- Colocar no invalida saldo
+	- Testar tela com resolução 1366x768, vê se na mesma aparecem todos os campos e são clicáveis
+	- Perfil de Usuário
+	- Leiaute de importação
+	- Visarq
+	- Sintegra
+	- Documentos consolidados (Com pro e Sem pro)
+	- Importação XML (quando se tratar de novo documento eletrônico)
+	- Importação XML (Verificar a importação da forma cancelada)
+	- Ferramentas de Ajustes (Quando necessário) - Transferir Produtos - Transferir Participantes - Avaliar demais ferramentas
+	- AC Auto (para as entradas)
+	- Geração automática de Inventário (quando documento possuir itens)
+	- Backup/Restore (quando se tratar de tabela nova)
+	- Integração Contábil
+	- Listagens diversas
+	- Verificar relatórios com filtros
+	- Quebra de sequência
+	- Livros Fiscais
+	- SPED Contribuições
+	- SPED ECF
+	- Avaliar demais Obrigações Federais
+	- SPED ICMS
+	- Avaliar demais obrigações Estaduais
+	- Apurações (Tributos Federais)
+	- Apurações (Simples Nacional)
+	- Apurações (ICMS Normal)
+	- Apurações (Livro de Apuração do ICMS)
+	- Analisador (Regras Tributárias)
+	- Controle de créditos
+	- Controle de retenções
+	- Controle de Vencimentos
+	- Integração FortesDoc (quando se tratar de novo documento eletrônico)
+	- Auditoria
+	- Situação do Documento, verificar por exemplo quando cancelado se está aparecendo uma linha do participante em branco, quando marcar a opção para ver os dados do mesmo na listagem de saídas.
+	- Se alteração em SQL verificar se modificações devem ir para o .DOC da versão de importação "LeiauteImportacaoFortesACFiscal.doc"
+	- Se modificar o arquivo "LeiauteImportacaoFortesACFiscal.doc", gerar copia da versão anterior
+	- Se modificação de Leiaute gerar teste unitário da versão anterior
+	- Se modificação da estrutura do arquivo .FS "LeiauteImportacaoFortesACFiscal.doc" verificar se versão do arquivo não esta aberta e gerar PDF do arquivo "LeiauteImportacaoFortesACFiscal.doc" para versão
+	- Preencher dados Pis/Cofins, quando tiver mudança verificar se deve ajustar também para Regras Tributarias, variável "AnalisadorFiscal".
+	- Sempre testar incluindo documentos em mais de 1 estabelecimento
+	- Sempre incluir notas com mais de 1 corpo e dados diferentes
+	- Sempre incluir vários itens diferentes
+	- Depois de todos os teste, sempre testar com uma base real, de preferência a base grande, avaliar funcionamento e performance
+	- (Contabilização) Verificar se ao desfazer importação FS após ter contabilizado não está mantendo prezo os lançamentos contábeis. Para conferir tem de dar um select na tabela LCF após importar, contabilizar e desfazer importação FS para ver se as contabilizações permanecem ou não no banco.

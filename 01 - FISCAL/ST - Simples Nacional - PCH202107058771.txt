@@ -1,0 +1,52 @@
+Épico:
+Número do cartão: P CH202107058771 
+Ano de publicação: 2021
+Relacionamentos: Simples Nacional, Anexo I
+Requisitos:
+	RE[1.1.1] Exigências para enquadramento do requisito:
+	RE[1.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RE[1.3.1] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.1.1] Exigências para enquadramento da regra:
+	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.3.1] Demonstrativo de cálculo:
+	RN[2.4.1] Funcionalidade consequente:
+Matriz de risco:
+Features:
+Scenário Outline:
+	Firebird
+		Regime de Tributação Federal - Simples Nacional
+			Regime de Tributação Estadual - Simples Nacional
+				Competência
+				Caixa
+					Informando itens
+					Sem informar itens
+						Anexo I
+							Receita no Mercado Interno
+								Informações Adicionais:
+									Operação:
+										Saída
+									Espécies:
+										NF-e
+									Situação:
+										Normal
+									Peculiaridades das notas:
+										Marcado Substituição Tributária em ICMS
+										Marcado Substituição Tributária em ICMS, COFINS, PIS
+										Marcado Substituição Tributária em COFINS, PIS
+										Marcado Substituição Tributária em ICMS e Tributação Monofásica em COFINS, PIS
+										Marcado Tributação Monofásica em COFINS, PIS
+									Relatório
+										Relatórios >> Simples Nacional >> Espelho PGDAS
+										Relatórios >> Simples Nacional >> Acompanhamento Tributário
+										Relatórios >> Simples Nacional >> Acompanhamento Tributário (Demonstrativo de Cálculo)
+										Relatórios >> Receitas por Estabelecimento
+										Relatórios >> Declaração de Faturamento
+										Relatórios >> Resumo >> Resumo Gerencial de Receitas e Tributos
+										Relatórios >> Comparativo Vendas x Compras
+									Testar em Base real de pendências passadas
+
+Stack:
+Links de testes unitários:
+Links de testes funcionais:
+Recursos:

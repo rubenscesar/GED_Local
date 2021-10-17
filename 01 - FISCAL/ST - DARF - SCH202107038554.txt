@@ -1,0 +1,192 @@
+Épico: Gerar DARF on-line
+Número do cartão: CH202107038554 
+Ano de publicação: 2021
+Relacionamentos: DARF
+Requisitos:
+	RE[1.1.1] Exigências para enquadramento do requisito:
+	RE[1.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RE[1.3.1] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.1.1] Exigências para enquadramento da regra:
+		Site G-CLICK
+		  https://app.gclick.com.br/
+		Usuario: alex.fortes; senha: 123
+		Empresa já vinculada no G-CLICK: 0006 - Demonstração - CNPJ: 00.297.542/0001-78  ; com Estab: 0001 e 0002
+		uma vez após baixar recomento que exclua logo a baixa no g-click pois após um tempo ele não permite excluir
+		Visualisa o relatório e ao sair aparecerá uma janela de integração com G-Click perguntando se deseja Anexar Relatório (PDF)
+	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.3.1] Demonstrativo de cálculo:
+	RN[2.4.1] Funcionalidade consequente:
+Matriz de risco:
+Features:
+Scenário Outline:
+Stack:
+	Firebird
+	SQL
+		Escriturando em 2 estabelecimentos
+		Escriturando em 2 empresas para garantir que o DARF de uma empresa não está sendo visualizado por outra
+		Escriturando em empresa do tipo Produtor Rural (CPF)
+			Regime de Tributação Federal - Lucro Real
+			Regime de Tributação Federal - Lucro Real (Entidade Financeira)
+			Regime de Tributação Federal - Lucro Presumido
+			Regime de Tributação Federal como Simples Nacional e no mês que pretende tirar o DARF é incluído um novo histórico como Lucro Presumido
+				Incidência tributária não-cumulativa
+				Incidência tributária cumulativa
+				Incidência tributária não-cumulativa e cumulativa (padrão não-cumulativa)
+					Regime de Tributação Estadual - Normal
+						Alíquota padrão de PIS/COFINS
+						Alíquota específica de PIS/COFINS
+							Regime de competência
+								Informações Adicionais
+									Operações
+										Saída
+										Entrada
+									Espécies
+										NFS-e
+										NF-e
+										Operação de Atividade Imobiliária
+									GRID
+									CRUD
+										DARF Manual
+									Relacionamento
+										DARF a pagar
+										DARF pago
+											Sem Juros
+											Com Juros
+												Acessando automaticamente a tela de "Monitor DARF's com Código de Barras" após emissão do DARF
+												Sem acessar a tela de "Monitor DARF's com Código de Barras" após emissão do DARF
+													Filtrando a empresa e período corrente
+													Filtrando outra empresa e período
+														Imprimir quando "Status de Emissão" se encontra
+															Processando
+															Emitido
+																DARF de Apuração (Emitir com código de barras)
+																	Optante pelo Regime de Tributação Lucro Presumido (Cumulativo)
+																		Provisão Mensal e Trimestral
+																			Tributo						Códigos das Receitas
+																			COFINS, PIS					2172, 8109
+																			COFINS						2172
+																			PIS							8109
+																		CSL e IRPJ pagos por estimativa mensal (DARFs de Provisão sempre serão Cota Única)
+																			CSL, IRPJ					2372, 2089
+																			CSL							2372
+																			IRPJ						2089
+																	Obrigado ao Regime de Tributação Lucro Real (Não-Cumulativo) (Entidade Financeira)
+																		Provisão Mensal
+																			Tributo						Códigos das Receitas
+																			COFINS, PIS					7987, 4574
+																			COFINS						7987
+																			PIS							4574
+																		CSL e IRPJ pagos por estimativa mensal (Cota Única e Parcelado)
+																			CSL, IRPJ					2484, 2319
+																			CSL							2484
+																			IRPJ						2319
+																		Contribuinte do IPI
+																			IPI							1097
+																		PIS Sobre Folha
+																			PIS FOLHA					8301
+																		Contribuição Previdenciária - Serviço
+																			Tributo						Códigos das Receitas
+																			CPRB						2985
+																		Contribuição Previdenciária - Indústria
+																			Tributo						Códigos das Receitas
+																			CPRB						2991
+																		Regime Especial de Tributação do Patrimônio de Afetação
+																			Tributo						Códigos das Receitas
+																			RET							4095
+																			Minha Casa, Minha Vida		1068
+																	Obrigado ao Regime de Tributação Lucro Real (Não-Cumulativo)
+																		Provisão Mensal
+																			Tributo						Códigos das Receitas
+																			COFINS, PIS					5856, 6912
+																			COFINS						5856
+																			PIS							6912
+																		CSL e IRPJ pagos por estimativa mensal (Cota Única e Parcelado)
+																			CSL, IRPJ					2484, 2362
+																			CSL							2484
+																			IRPJ						2362
+																		Contribuinte do IPI
+																			IPI							1097
+																		PIS Sobre Folha
+																			PIS FOLHA					8301
+																		Contribuição Previdenciária - Serviço
+																			Tributo						Códigos das Receitas
+																			CPRB						2985
+																		Contribuição Previdenciária - Indústria
+																			Tributo						Códigos das Receitas
+																			CPRB						2991
+																		Regime Especial de Tributação do Patrimônio de Afetação
+																			Tributo						Códigos das Receitas
+																			RET							4095
+																			Minha Casa, Minha Vida		1068
+																	Optante pelo Regime de Tributação Lucro Real (Não-Cumulativo)
+																		Provisão Mensal e Trimestral
+																			Tributo						Códigos das Receitas
+																			COFINS, PIS					5856, 6912
+																			COFINS						5856
+																			PIS							6912
+																		CSL e IRPJ pagos por estimativa mensal (Cota Única e Parcelado)
+																			CSL, IRPJ					2372, 2089
+																			CSL							2372
+																			IRPJ						2089
+																		Contribuinte do IPI
+																			IPI							1097
+																		PIS Sobre Folha
+																			PIS FOLHA					8301
+																		Contribuição Previdenciária - Serviço
+																			Tributo						Códigos das Receitas
+																			CPRB						2985
+																		Contribuição Previdenciária - Indústria
+																			Tributo						Códigos das Receitas
+																			CPRB						2991
+																		Regime Especial de Tributação do Patrimônio de Afetação
+																			Tributo						Códigos das Receitas
+																			RET							4095
+																			Minha Casa, Minha Vida		1068
+																DARF de Retenção
+																	Optante pelo Regime de Tributação Lucro Presumido (Cumulativo)
+																		Tributo						Códigos das Receitas
+																		COFINS, PIS					2172, 8109
+																		COFINS						2172
+																		PIS							8109
+																		CSRF						5952
+																		CSL, IRPF					2372, 2089
+																		CSL							2372
+																		IRPF						2089
+									Obrigação acessória
+										DCTF
+										REINF
+										Sped Contribuições (M205, M605)
+									Teste funcional das telas e relatórios
+										Relatórios >> Tributos Federais >> DARF
+										Movimentos >> Tributos Federais >> DARFs Emitidos (Apuração e Retenção)
+											DARF de Retenção
+											DARF de Apuração
+												Imprimir
+												2ª Via
+												Alterar Data de Pagamento
+												Mudança no Contexto
+										Movimentos >> Tributos Federais >> Monitor DARFs com Códigos de Barras
+											DARF de Retenção
+											DARF de Apuração
+												Imprimir
+												Atualizar
+												Mudança no Contexto
+Links de testes unitários:
+Links de testes funcionais:
+Recursos:
+	- Emitir DARF manual no site da receita: https://sicalc.receita.economia.gov.br/sicalc/rapido/contribuinte
+					  Nome do arquivo no padrão:	[Relacionamento principal]-( Se for arquivo Abrasf informar o município e UF )[Município] (UF)-[Observação opcional]
+										Exemplo:	Arquivo para importação: Abrasf-Ponte Nova (MG)-Inscrição Estadual do Participante.xml
+	Nome do arquivo do banco de dados no padrão:	[Iniciais do subsistema]-[Relacionamento principal]-[Ano de publicação]-[Nome da empresa]-[Período]-[Observação opcional]
+										Exemplo:	Banco para testes: ACC-Planilha Financeira-2021-ONE INTERNET SA-042021.rar
+Fluxo Básico Modelo:
+	- Colocar no invalida saldo
+	- Testar tela com resolução 1366x768, vê se na mesma aparecem todos os campos e são clicáveis
+	- Controle de retenções
+	- Controle de Vencimentos
+	- Atender a um ciclo onde os testes irão passar
+	- Atender a um ciclo onde os testes irão dar errado
+	- Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou outra por ter especificações diferentes
+	- Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou a forma como vinha sendo feito até esta data
+	- Capturar drf.dtapuracao, drf.codreceita, drf.link, drf.guid da tabela drf

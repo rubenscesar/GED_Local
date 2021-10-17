@@ -1,0 +1,153 @@
+Épico: 2ª Fase do cartão de xclusão do ICMS da Base de Cálculo de PIS/COFINS. Teve início no cartão S CH202106122335.
+Número do cartão: S CH202107041148
+Ano de publicação: 2021
+Relacionamentos: Sped Contribuições, Sped PIS/COFINS, Exclusão do ICMS da Base de Cálculo de PIS/COFINS
+Requisitos:
+	RE[1.1.1] Exigências para enquadramento do requisito:
+
+		A partir do dia 16/03/2017 (esta data inclusa)
+
+		Controle de Crédito (aguardando cenário da eq. de Teste)
+
+		Nome do campo vai permanecer o mesmo. Incluir ajudinha com a descrição: "Parecer SEI n° 7.698/2021/ME - Para as receitas auferidas a partir de 16.03.2017, o valor do ICMS destacado nas notas fiscais de vendas e devoluções de vendas não integram a base de cálculo do PIS e COFINS, independentemente de processo judicial protocolado ou não."
+
+		Ferramenta Preencher Dados PIS e COFINS:
+			não deve ser obrigado o preenchimento do Processo Judicial.
+			Também deve deixar habilitado para o usuário escolher a exclusão até 31/05/2021. A partir de 01/06, será automático.
+
+		Permitir cliente apagar exclusão da BC PIS/COFINS
+		Quando for utilizada ferramenta que altere BC, invalidar apuração.
+		
+		Auditoria do Sistema
+			Auditar invalidação
+			E tb quando cliente preencher exclusão ou apagar exclusão.
+
+		Na importação do XML e web: Sugerir o valor da exclusão.
+		
+		Leiaute FS. - Nos campos Exclusão da BC PIS/COFINS dos documentos com ICMS, incluir informação: Deverá ser preenchido a partir de 16.03.2017, com o valor do ICMS destacado nas notas fiscais de vendas e devoluções de vendas, de forma que não integrem a base de cálculo do PIS e COFINS, independentemente de processo judicial protocolado ou não.
+
+		
+		• Na importação XML não existe uma tag específica Para o campo de exclusão do ICMS da base de cálculo de PIS Cofins sendo assim ele será calculado .Quando o valor da base de cálculo de PIS Cofins for diferente Do valor do produto No XML então o sistema irá calcular o valor de exclusão da base de cálculo PIS Cofins 
+		• Na ferramenta de exclusão do cst e PIS Cofins Não haverá um Campo Novo informando que será excluído a exclusão da base de cálculo PIS Cofins e sim ao marcar uma das opções aquela informação Irá valer para excluir OCST A base de cálculo a alíquota o valor e agora a exclusão da base de cálculo PIS Cofins 
+		• Não existe a possibilidade de a partir do mês 6 de 2021 Haver lançamentos sem exclusão do ICMS da base cálculo PIS Cofins logo na inclusão de uma nota o sistema calcula automaticamente caso o campo esteja em branco 
+	RE[1.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RE[1.3.1] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.1.1] Exigências para enquadramento da regra:
+	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.3.1] Demonstrativo de cálculo:
+	RN[2.4.1] Funcionalidade consequente:
+Matriz de risco:
+Features:
+Scenário Outline:
+	Firebird
+	SQL
+		Regime de Tributação Federal - Lucro Real
+		Regime de Tributação Federal - Lucro Presumido
+			Regime de Tributação Estadual - Normal
+				Incidência tributária não-cumulativa
+				Incidência tributária cumulativa
+				Incidência tributária não-cumulativa e cumulativa (padrão não-cumulativa)
+					Não contribuinte do IPI
+						Alíquota padrão de PIS/COFINS
+						Alíquota específica de PIS/COFINS
+							Regime de competência
+							Regime de caixa
+								Adotando critério de escrituração Consolidada para gerar Sped Contribuições, sem informar itens no Histórico da empresa e informando itens no Histórico do estabelecimento
+								Adotando critério de escrituração Consolidada para gerar Sped Contribuições, sem informar itens no Histórico da empresa e sem informar itens no Histórico do estabelecimento
+								Adotando critério de escrituração Detalhada para gerar Sped Contribuições, informando itens no Histórico da empresa e no Histórico do estabelecimento
+									Atender a um ciclo onde os testes irão passar
+									Atender a um ciclo onde os testes irão dar errado
+									Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou outra por ter especificações diferentes
+									Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou a forma como vinha sendo feito até esta data
+										Informações Adicionais:
+											Operação:
+												Saída
+												Entrada
+											Espécies:
+												Informando mercadorias e/ou serviços
+													NF-e
+													NF-e (terceiros)
+													NF1
+													NFP
+													NFC-e
+													NFVC
+													CF-e
+													CF
+													CT-e
+													CTRC
+													CTeOS
+													NFST
+													BP-e
+													BPR
+													NFSTC
+													NFSC
+													RDD
+													GCO
+											Peculiaridades das notas:
+												Ajudinha
+													Incluir na tela dos lançamentos
+													Ortografia
+												A partir da data até 31/05/2021
+												A partir da data 01/06/2021
+												Com Desconto
+												Mais de 1 item
+												Itens diferentes
+												Mais de 1 corpo
+												Operação Normal
+												Operação de Devolução de Venda
+												Operação de Devolução de Compra
+												Com processo Administrativo/Judiciário
+											Processos para ter atenção ao testar:
+												Controle de Retenções
+													Se ao aplicar a Exclusão do ICMS da B.C. de PIS/COFINS do período não estará interferiando no saldo de retenções de PIS/COFINS
+												Controle de Crédito
+													Se ao aplicar a Exclusão do ICMS da B.C. de PIS/COFINS do período não estará interferiando no saldo de crédito de PIS/COFINS
+											Controle de Crédito:
+												Manual
+												Automático
+													Aproveitando primeiramente o período mais antigo
+													Aproveitando primeiramente o período atual
+																Crédito Período Anterior	Crédito do Período	Débito do Período	Crédito Utilizado no Mês	Crédito para Período Seguinte	COFINS para Período Seguinte	PIS para Período Seguinte
+														12/2020	-							1.000,00			-					-							1.000,00						76,00							16,50
+														01/2021	1.000,00 	 				500,00				500,00				500,00						1.000,00						38,00							8,25
+														02/2021	1.000,00					-					500,00				500,00						500,00							38,00							8,25
+														03/2021	500,00						-					-					-							500,00							38,00							8,25
+														04/2021	500,00						-					300,00				300,00						200,00							15,20							3,30
+														05/2021	200,00						-					200,00				200,00						-								-								-
+														06/2021	-							1.000,00			-					-							1.000,00						76,00							16,50
+														07/2021	1.000,00					-					-					-							1.000,00						76,00							16,50
+														08/2021	1.000,00					-					1.500,00			1.000,00					-								-								-
+											Ferramentas:
+												Utilitários >> Ferramentas >> Preencher Dados PIS e COFINS
+													Informar "Preencher Exclusão da BC PIS/COFINS"
+														Invalidar Apuração
+														Com Filtros
+														Consultar no banco se os valores estão sendo preenchidos com apenas 2 casas decimais a fim de evitar problemas de arredondamento
+												Utilitários >> Ferramentas >> Apagar CST PIS/COFINS
+													Excluir "Preencher Exclusão da BC PIS/COFINS"
+														Invalidar Apuração
+														Com Filtros
+												Utilitários >> Recalcular Tributos Federais
+											Importação:
+												Importação .FS
+													Adequação a leiaute de importação
+												Importação .XML
+													Valor de PIS/COFINS alíquota zero
+													Valor de PIS/COFINS não-tributado
+													Valor de PIS/COFINS misto tributado
+													Valor de PIS/COFINS tributado com diferença valor da base de cálculo de PIS Cofins for igual ao valor do ICMS do item
+													Valor de PIS/COFINS tributado com diferença valor da base de cálculo de PIS Cofins for diferente ao valor do ICMS do item
+											Relatórios:
+												Relatórios >> Tributos Federais >> COFINS, PIS, CSL e IRPJ (Demonstrativo de Cálculo)
+												Relatórios >> Tributos Federais >> DARF
+											Obrigação acessória:
+												Sped Contribuições
+											Auditoria:
+												Auditar invalidação
+												Auditar quando cliente preencher exclusão ou apagar exclusão
+											Testar em Base real de pendências passadas
+Stack:
+Links de testes unitários:
+Links de testes funcionais:
+Recursos:

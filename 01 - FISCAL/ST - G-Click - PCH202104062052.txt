@@ -1,0 +1,111 @@
+Épico: Ao realizar a baixa da atividade do Demonstrativo de cálculo dos tributos federais, na G-click os arquivos não são enviados
+Número do cartão: P CH202104062052
+Ano de publicação: 2021
+Relacionamentos:	G-Click,					Tributos Federais,		DARF PIS,
+					Balancete Contábil,			Apuração PIS,			DARF COFINS,
+					Balanço Patrimonial,		Apuração COFINS,		DARF CSL COTA ÚNICA,
+					Folha de Pagamento,			Apuração IRPJ,			DARF CSL 1a Parc,
+					Adiantamento de Folha,		Apuração CSLL,			DARF CSL 2a Parc,
+					Apuração ICMS,										DARF CSL 3a Parc,
+					Apuração IPI,										DARF IRPJ COTA ÚNICA,
+					DARF IPI,											DARF IRPJ 1a,
+					Anexar Relatório (PDF)								DARF IRPJ 2a,
+																		DARF IRPJ 3a,
+																		DARF CPRB,
+																		DARF RET,
+																		DARF PIS Folha
+Requisitos:
+	RE[1.1.1] Exigências para enquadramento do requisito:
+	RE[1.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RE[1.3.1] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.1.1] Exigências para enquadramento da regra:
+		Site G-CLICK
+		  https://app.gclick.com.br/
+		Usuario: alex.fortes; senha: 123
+		Empresa já vinculada no G-CLICK: 0006 - Demonstração - CNPJ: 00.297.542/0001-78  ; com Estab: 0001 e 0002
+		uma vez após baixar recomento que exclua logo a baixa no g-click pois após um tempo ele não permite excluir
+		Visualisa o relatório e ao sair aparecerá uma janela de integração com G-Click perguntando se deseja Anexar Relatório (PDF)
+	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.3.1] Demonstrativo de cálculo:
+	RN[2.4.1] Funcionalidade consequente:
+Matriz de risco:
+Features:
+Scenário Outline:
+	Firebird
+	SQL
+		Escriturando em 2 estabelecimentos, sendo 1 obrigatoriamente de PI
+			Regime de Tributação Federal - Lucro Real
+				Regime de Tributação Estadual - Normal
+					Regime de competência
+						Informações Adicionais:
+							Operações:
+								Saída
+							Teste funcional das telas e relatórios:
+								Relatórios >> Tributos Federais >> COFINS, PIS, CSL e IRPJ (Demonstrativo de Cálculo)
+									Peculiaridades para baixa no G-Click:
+										Repetir a baixa aguardando resposta: Atividade encontrada, porém foi baixada anteriormente - Apuração xxx - Estab.: xxx
+											Baixar Atividade			Anexar PDF
+											COFINS, PIS, IRPJ, CSL		NÃO
+											COFINS, PIS, IRPJ			NÃO
+											COFINS, PIS					NÃO
+											IRPJ, CSL					NÃO
+											COFINS						NÃO
+											PIS							NÃO
+											IRPJ						NÃO
+											CSL							NÃO
+											COFINS, PIS, IRPJ, CSL		SIM
+											COFINS, PIS, IRPJ			SIM
+											COFINS, PIS					SIM
+											IRPJ, CSL					SIM
+											COFINS						SIM
+											PIS							SIM
+											IRPJ						SIM
+											CSL							SIM
+								Relatórios >> Tributos Federais >> DARF
+									Peculiaridades para baixa no G-Click:
+										Repetir a baixa aguardando resposta: Atividade encontrada, porém foi baixada anteriormente - Apuração xxx - Estab.: xxx
+											Baixar Atividade								Anexar PDF
+											COFINS, PIS, IRPJ COTA ÚNICA, CSL COTA ÚNICA	NÃO
+											COFINS, PIS, IRPJ COTA ÚNICA					NÃO
+											COFINS, PIS										NÃO
+											IRPJ COTA ÚNICA, CSL CSL COTA ÚNICA				NÃO
+											COFINS											NÃO
+											PIS												NÃO
+											IRPJ COTA ÚNICA									NÃO
+											CSL COTA ÚNICA									NÃO
+											IRPJ 1a, CSL 1a Parc							NÃO
+											IRPJ 2a, CSL 2a Parc							NÃO
+											IRPJ 3a, CSL 3a Parc							NÃO
+											CPRB											NÃO
+											RET												NÃO
+											PIS Folha										NÃO
+											IPI												NÃO
+											COFINS, PIS, IRPJ COTA ÚNICA, CSL COTA ÚNICA	SIM
+											COFINS, PIS, IRPJ COTA ÚNICA					SIM
+											COFINS, PIS										SIM
+											IRPJ COTA ÚNICA, CSL CSL COTA ÚNICA				SIM
+											COFINS											SIM
+											PIS												SIM
+											IRPJ COTA ÚNICA									SIM
+											CSL COTA ÚNICA									SIM
+											IRPJ 1a, CSL 1a Parc							SIM
+											IRPJ 2a, CSL 2a Parc							SIM
+											IRPJ 3a, CSL 3a Parc							SIM
+											CPRB											SIM
+											RET												SIM
+											PIS Folha										SIM
+											IPI												SIM
+								Relatórios >> ...
+									Peculiaridades para baixa no G-Click:
+										Repetir a baixa aguardando resposta: Atividade encontrada, porém foi baixada anteriormente - Apuração xxx - Estab.: xxx
+											Baixar Atividade								Anexar PDF
+											Apuração ICMS
+											Apuração IPI
+											Balancete Contábil
+											Balanço Patrimonial
+											Folha de Pagamento
+											Adiantamento de Folha
+Stack:
+Links de testes unitários:
+Links de testes funcionais:

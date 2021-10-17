@@ -1,0 +1,68 @@
+Épico: Sistema deduzindo duas vezes o valor das notas ficais de devolução, na geração do registro M200 e M600 campo 13, do arquivo sped contribuições
+Número do cartão: CH202108013824 
+Ano de publicação: 2021
+Relacionamentos: Alíquota Específica
+Requisitos:
+	RE[1.1.1] Exigências para enquadramento do requisito:
+	RE[1.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RE[1.3.1] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.1.1] Exigências para enquadramento da regra:
+	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.3.1] Demonstrativo de cálculo:
+	RN[2.4.1] Funcionalidade consequente:
+Matriz de risco:
+Features:
+	Firebird
+		Regime de Tributação Federal - Lucro Real
+		Regime de Tributação Federal - Lucro Presumido
+			Regime de Tributação Estadual - Normal
+				Incidência tributária não-cumulativa
+				Incidência tributária cumulativa
+				Incidência tributária não-cumulativa e cumulativa (padrão não-cumulativa)
+					Não contribuinte do IPI
+						Alíquota padrão de PIS/COFINS
+						Alíquota específica de PIS/COFINS
+							Regime de competência
+							Regime de caixa
+								Adotando critério de escrituração Detalhada para gerar Sped Contribuições, informando itens no Histórico da empresa e no Histórico do estabelecimento
+									Atender a um ciclo onde os testes irão passar
+									Atender a um ciclo onde os testes irão dar errado
+									Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou outra por ter especificações diferentes
+									Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou a forma como vinha sendo feito até esta data
+										Informações Adicionais:
+											Operação:
+												Saída
+												Entrada
+											Espécies:
+												NF-e
+												NF-e (Documentos Próprios)
+											Peculiaridades das notas:
+												Operação de Saída Normal
+													CST 01 Alíquota básica
+													CST 02 Alíquota específica
+												Operação de Devolução de Venda
+													CST 50 Alíquota básica
+													CST 50 Alíquota específica
+													CST 98 Alíquota básica
+													CST 98 Alíquota específica
+											Relatórios:
+												Relatórios >> Tributos Federais >> COFINS, PIS, CSL e IRPJ (Demonstrativo de Cálculo)
+												Relatórios >> Tributos Federais >> DARF
+											Obrigação acessória:
+												Sped Contribuições
+												REINF (R-2060)
+											Testar em Base real de pendências passadas
+Scenário Outline:
+Stack:
+Links de testes unitários:
+Links de testes funcionais:
+Recursos:
+	REINF
+		UPDATE EMP
+		SET
+			GUIDHOMOREINF = 'a7a19471-1049-47ea-aa96-6b54857fe945',
+			DTADESAOREINFPROD = NULL,
+			DTADESAOREINFHOMO = '1-JAN-2019 00:00:00',
+			AMBIENTEATIVOREINF = 2
+		WHERE (CODIGO = '0003')

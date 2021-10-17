@@ -1,0 +1,66 @@
+Épico: Inclusão da opção Boleto Bancario em Cadastros > Valores Utilizados nas Contabilizações na opção Vinculo com a Forma de Pagamento no campo Forma de Pagamento
+Número do cartão: CH202011041755 
+Ano de publicação: 2021
+Relacionamentos: Contabilização, Integração Contábil, Formas de Pagamento, NFC-e
+Requisitos:
+	RE[1.1.1] Exigências para enquadramento do requisito:
+		Incluir os meios de pagamentos:
+			15=Boleto Bancário
+			16=Depósito Bancário
+			17=Pagamento Instantâneo (PIX)
+			18=Transferência bancária, Carteira Digital
+			19=Programa de fidelidade, Cashback, Crédito Virtual
+	RE[1.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+		NFC-e
+	RE[1.3.1] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.1.1] Exigências para enquadramento da regra:
+		• Cadastrar uma VUC com vínculo com a forma de pagamento NFC-e
+		• Cadastrar uma contabilização do tipo "Documentos" utilizando o valor da VUC anteriormente criada
+		  Obs.: Não funciona utilizando uma Conta "Conta da Administradora de Cartão (NFC-e/CF-e)" ou "Conta do Serviço"
+	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.3.1] Demonstrativo de cálculo:
+	RN[2.4.1] Funcionalidade consequente:
+Matriz de risco:
+Features:
+	Firebird
+	SQL
+		Informações Adicionais
+			Operações
+				Saída
+			Espécies
+				NFC-e
+				CF-e (Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou outra por ter especificações diferentes)
+			Processos
+				Inclusão da nota manualmente
+				Inclusão da nota por importação (Este processo não contabiliza automaticamente mas preenche os valores na VUC necessários para contabilizar)
+				Recontabilizando por dentro da nota
+				Recontabilizando pela ferramenta "Contabilizar Movimentos"
+					Somando os valores da VUC
+					Subtraindo os valores da VUC
+			Valores Utilizados nas Contabilizações (VUC)
+				Mais de uma VUC para o mesmo lançamento
+					Contendo apenas Descrição
+					Com Descrição e Código
+					Com Descrição, Código e Forma de Pagamento
+			Imortação
+				Importação XML
+				Importação .FS
+					LeiauteImportacaoFortesACFiscal.doc
+					Peculiaridades dos dados de Contabilização na importação
+						Sem VUC (Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou outra por ter especificações diferentes)
+						Com VUC
+							Contendo novas formas de pagamentos conforme RE[1.1.1]
+							Contendo um tipo de forma de pagamento preexistente (Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou outra por ter especificações diferentes)
+				Verificar se ao desfazer importação FS após ter contabilizado não está mantendo prezo os lançamentos contábeis. Para conferir tem de dar um select na tabela LCF após importar, contabilizar e desfazer importação FS para ver se as contabilizações permanecem ou não no banco.
+			Testar em Base real de pendências passadas
+			Exportar para Contabilidade
+Scenário Outline:
+Stack:
+Links de testes unitários:
+Links de testes funcionais:
+Recursos:
+					  Nome do arquivo no padrão:	[Relacionamento principal]-( Se for arquivo Abrasf informar o município e UF )[Município] (UF)-[Observação opcional]
+										Exemplo:	Arquivo para importação: Abrasf-Ponte Nova (MG)-Inscrição Estadual do Participante.xml
+	Nome do arquivo do banco de dados no padrão:	[Iniciais do subsistema]-[Relacionamento principal]-[Ano de publicação]-[Nome da empresa]-[Período]-[Observação opcional]
+										Exemplo:	Banco para testes: ACC-Planilha Financeira-2021-ONE INTERNET SA-042021.rar

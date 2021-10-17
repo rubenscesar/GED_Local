@@ -1,0 +1,52 @@
+Épico: Após importar XML de NFCe valor de ICMS debitado da aba de totais é exibido o valor errado (R$33,84). Ao clicar no botão Recalcular, o valor não é corrigido.
+Número do cartão: P CH202101047959
+Ano de publicação: 2021
+Relacionamentos: Importação XML, NFC-e, NF-e
+Requisitos:
+	RE[1.1.1] Exigências para enquadramento do requisito:
+	RE[1.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RE[1.3.1] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.1.1] Exigências para enquadramento da regra:
+	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.3.1] Demonstrativo de cálculo:
+	RN[2.4.1] Funcionalidade consequente:
+Matriz de risco:
+Features:
+Scenário Outline:
+	Firebird
+		Regime de Tributação Federal - Lucro Real
+			Regime de Tributação Estadual - Normal
+				Informando itens
+				Sem informar itens
+					Informações Adicionais:
+						Operação
+							Saída
+						Espécies
+							NF-e
+							NFC-e
+						Imortação
+							Importação .XML
+						Inventário
+							Utilitários >> Gerar Inventário
+						Recalcular
+							Utilizando a opção por dentro da nota
+							Utilizando a ferramente Utilitários >> Ajustar Tributação ICMS e IPI dos Itens
+						Arredondamento
+							Lançamentos no qual 2 itens tenham como resultados da base de cálculo de ICMS x alíquota de ICMS um valor > 5 na 3ª casa decimal
+							Lançamentos no qual 2 itens tenham como resultados da base de cálculo de ICMS x alíquota de ICMS um valor < 5 na 3ª casa decimal
+								Na tag <total><ICMSTot><vICMS> seja o o mesmo valor
+						Obrigação Acessória
+							Sped ICMS (Para verificar se Sped ICMS critica os valores diferentes devido arredondamento)
+						Analisador Fiscal
+						Mais de 1 item
+						Itens diferentes
+						Mais de 1 corpo
+Stack:
+	01 NFCe - ItemUP
+	02 NFCe - ItemDOWN
+	01 NFe - ItemUP
+	02 NFe - ItemDOWN
+Links de testes unitários:
+Links de testes funcionais:
+Recursos:

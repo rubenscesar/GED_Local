@@ -1,0 +1,77 @@
+Épico:
+Número do cartão: S CH202102037960
+Ano de publicação: 2021
+Relacionamentos: Sped ICMS, Sped Fiscal, C100, C170, C190, C191, Importação XML, FCP, Fecop, UF de PI
+Requisitos:
+	RE[1.1.1] Exigências para enquadramento do requisito:
+		Quando
+			Estabelecimento = (PI), espécie = NF-e e/ou NFC-e, tiver valores de ICMS normal e FCP
+		Então no Sped Fiscal deve escriturar
+			Registro C100.22 (VL_ICMS) = Valor do ICMS normal + Valor do FECOP
+			Registro C170.14 (ALIQ_ICMS) = Alíquota do ICMS normal + Alíquota do FCP
+			Registro C170.15 (VL_ICMS) = Valor do ICMS normal + Valor do FECOP
+			Registro C190.04 (ALIQ_ICMS) = Alíquota do ICMS normal + Alíquota do FCP
+			Registro C190.07 (VL_ICMS) = Corresponde a soma dos campos C170.15 (VL_ICMS), se existirem, que possuam a mesma combinação de CST, CFOP e Alíquota deste registro
+			Registro C191.02 (VL_FCP_OP) = Valor do FCP
+		Observação 1: Nas saídas e entrada documento próprio não é informado o registro C170
+		Observação 2: Não haverá mudança quando se tratar de ICMS substituição tributária. Hoje geramos ICMS substituição apenas para o registro de apuração do ICMS ST (E200 e filhos)
+		Observação 3: Incluir no relatório de documentos consolidados por itens a informação da bc fcp, alíq. e valor do fcp
+		Observação 4: Será necessário para estabelecinentos de PI a partir de 2021, parametrizar na Legislação Estadual, desmarcando "Agrupar Alíquota ICMS Normal e FECOP Normal e valores de ICMS ST e FECOP ST na importação da NF-e WEB/XML"
+		Observação 5: Para estabelecinentos de PI a partir de 2021, o relatório de Apuração de ICMS normal não irá mais bater com o relatório de Apuração do ICMS / Operações Próprias do Sped Fiscal, pois o nosso relatório diferencia o Valor do ICMS normal do Valor do FECOP e no Sped Fiscal será somado, por este motivo houveram mudanças em documentos consolidados por itens
+	RE[1.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+		NF-e
+		NFC-e
+	RE[1.3.1] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.1.1] Exigências para enquadramento da regra:
+	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.3.1] Demonstrativo de cálculo:
+	RN[2.4.1] Funcionalidade consequente:
+Matriz de risco:
+Features:
+Scenário Outline:
+	Firebird
+	SQL
+		Escriturando em 2 estabelecimentos, sendo 1 obrigatoriamente de PI
+			Regime de Tributação Federal - Lucro Real
+			Simples Nacional
+				Regime de Tributação Estadual - Normal
+				Regime de Tributação Estadual - Simples Nacional
+					Regime de competência
+						Informando itens
+						Sem informar itens
+							Parametrizado na Legislação Estadual desmarcando "Agrupar Alíquota ICMS Normal e FECOP Normal e valores de ICMS ST e FECOP ST na importação da NF-e WEB/XML"
+							Parametrizado na Legislação Estadual marcando "Agrupar Alíquota ICMS Normal e FECOP Normal e valores de ICMS ST e FECOP ST na importação da NF-e WEB/XML"
+								Lançamentos até 2020
+								Lançamentos a partir de 2021
+									Atender a um ciclo onde os testes irão passar
+									Atender a um ciclo onde os testes irão dar errado
+									Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou outra por ter especificações diferentes
+									Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou a forma como vinha sendo feito até esta data
+									Refatorar / Eliminar Redundâncias
+										Informações Adicionais:
+											Operações:
+												Saída
+												Entrada
+											Informando mercadorias
+												NF-e
+												NFC-e
+											Peculiaridades das notas de entrada e saída:
+												Incluir notas com mais de 1 corpo e dados diferentes
+												Incluir vários itens diferentes
+											Obrigação acessória:
+												Sped ICMS
+											Conversão:
+												Sped ICMS
+											Imortação:
+												Importação .XML
+													NFC-e
+													NF-e
+											Testar em Base real de pendências passadas
+											Teste funcional das telas e relatórios:
+												Movimentos >> Documentos Consolidados >> Itens
+											Verificar relatórios com filtros
+											Backup/Restore
+Stack:
+Links de testes unitários:
+Links de testes funcionais:

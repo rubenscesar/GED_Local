@@ -1,0 +1,55 @@
+Épico: Empresa passou do lucro real para o lucro presumido regime de cumulatividade e ao gerar o demonstrativo de calculo dos tributos federais o sistema está mostrando a tela de aproveitamento de créditos
+Número do cartão: P PCH202103041981
+Ano de publicação: 2021
+Relacionamentos: Tributos Federais, Crédito
+Requisitos:
+	RE[1.1.1] Exigências para enquadramento do requisito:
+	RE[1.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RE[1.3.1] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.1.1] Exigências para enquadramento da regra:
+	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.3.1] Demonstrativo de cálculo:
+	RN[2.4.1] Funcionalidade consequente:
+Matriz de risco:
+Features:
+Scenário Outline:
+	Firebird
+	SQL
+		Features para Período Anterior
+			Regime de Tributação Federal - Lucro Real
+				Incidência tributária não-cumulativa
+					Alíquota padrão de PIS/COFINS
+					Alíquota específica de PIS/COFINS
+						Informações Adicionais:
+						Controle de Crédito Não Cumulativos lançado no período anterior
+							Informando todos os tipos de crédito para COFINS e PIS
+							Sem informação de aproveitamento de crédito qualquer nenhum período
+		Features para Período Seguinte
+			Regime de Tributação Federal - Lucro Real
+			Regime de Tributação Federal - Lucro Presumido
+				Regime de Tributação Estadual - Normal
+					Incidência tributária não-cumulativa
+					Incidência tributária cumulativa
+					Incidência tributária não-cumulativa e cumulativa (padrão não-cumulativa)
+						Alíquota padrão de PIS/COFINS
+						Alíquota específica de PIS/COFINS
+							Regime de competência
+							Regime de caixa
+								Informações Adicionais:
+								Operação
+									Saída
+								Espécies
+									NF-e
+								Relatório
+									Relatórios >> Tributos Fderais >> COFINS, PIS, CSL e IRPJ (Demonstrativo de Cálculo)
+									Relatórios >> Tributos Fderais >> DARF
+								Obrigação acessória
+									Sped Contribuições										
+								Testar em Base real de pendências passadas
+
+
+Stack:
+Links de testes unitários:
+Links de testes funcionais:
+Recursos:

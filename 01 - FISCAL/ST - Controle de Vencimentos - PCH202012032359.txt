@@ -1,0 +1,61 @@
+Épico: Empresa optante pelo Simples Nacional, trabalha com regime de caixa, ao realizar as baixas dos Títulos de CF-e sistema não atribui automaticamente os valor para o campo de isentas
+Número do cartão: P CH202012032359
+Ano de publicação: 2021
+Relacionamentos: Simples Nacional, Controle de Vencimentos, Baixa, Fatura, Isento
+Requisitos:
+	RE[1.1.1] Exigências para enquadramento do requisito:
+	RE[1.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RE[1.3.1] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.1.1] Exigências para enquadramento da regra:
+		O valor será considerado como isentos não tributados ou outros dependendo de como foi realizado o lançamento No campo de tributação do ICMS e não no campo CSOSN
+	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.3.1] Demonstrativo de cálculo:
+	RN[2.4.1] Funcionalidade consequente:
+Matriz de risco:
+Features:
+Scenário Outline:
+Stack:
+	Firebird
+		Regime de Tributação Federal - Simples Nacional
+			Regime de Tributação Estadual - Simples Nacional
+			Regime de Tributação Estadual - Excluído do Simples Nacional (Normal estado)
+				Regime de caixa
+					Informando itens
+						Receita no Mercado Interno
+							Informações Adicionais
+								Operação
+									Saída
+								Espécies
+									NF-e
+									NFC-e
+									CF-e
+									CT-e
+									CT-eOS
+									NF3-e
+									NFSTC
+									NFSC
+									RDD
+									NFGC
+								Situação
+									Normal
+								Peculiaridades das notas
+									Notas com mais de 1 corpo e dados diferentes
+									Itens diferentes
+									Lançamentos com valor de isenção CSOSNs: x103, x203, x300, x400
+									Lançamentos com todos os CSOSNs para garantir que a funcionalidade não prejudicou a forma como vinha sendo feito até esta data
+								Controle de Vencimentos
+									Gerando a fatura manualmente por dentro da nota
+									Gerando a fatura automaticamente pela tela da espécie do lançamento
+									Realizando a baixa de várias faturas ao mesmo tempo
+									Realizando a baixa de cada fatura individualmente
+								Importação
+									Importação .FS
+								Testar em Base real de pendências passadas
+
+Links de testes unitários:
+Links de testes funcionais:
+Recursos:
+	Banco para testes: ACF-Controle de Vencimentos-2021-FISCAL-012021-Valor de Isentas com Baixa para Simples Nacional.rar
+	Nome do arquivo no padrão:	[Relacionamento principal]-( Se for arquivo Abrasf informar o município e UF )[Município] (UF)-[Observação opcional]
+					  Exemplo:	Arquivo para importação: Abrasf-Ponte Nova (MG)-Inscrição Estadual do Participante.xml

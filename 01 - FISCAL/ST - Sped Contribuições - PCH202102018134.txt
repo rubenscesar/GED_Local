@@ -1,0 +1,53 @@
+Épico: O sistema não está gerando os valores do Bloco F para o registro 0900 quando marcada a opção Documentos Consolidados ocasionando erro na validação da declaração.
+Número do cartão: P CH202102018134
+Ano de publicação: 2021
+Relacionamentos: Sped Contribuições, Sped EFD, Regime de Competência, Lucro Presumido, Consolidado
+Requisitos:
+	RE[1.1.1] Exigências para enquadramento do requisito:
+	RE[1.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RE[1.3.1] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.1.1] Exigências para enquadramento da regra:
+	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.3.1] Demonstrativo de cálculo:
+	RN[2.4.1] Funcionalidade consequente:
+Matriz de risco:
+	ID	| Descrição																																																																							| (P)robabilidade de Ocorrência do Erro para o cartão	| (I)mpacto do Erro para o cartão	| Priorização do Teste = P x I	| Responsável	| Estratégia		| Reavaliar
+	1	| Empresa do Lucro Presumido, Incidência tributária cumulativa, alíquota de PIS/COFINS padrão, regime de competência, adotando critério de escrituração Consolidada para gerar Sped Contribuições, sem informar itens no Histórico da empresa e sem informar itens no Histórico do estabelecimento	| 3 Alta												| 3 Alta							| 9								| Rubens		| Prevenir/Mitigar	| Por Evento
+	2	| Empresa do Lucro Presumido, Incidência tributária cumulativa, alíquota de PIS/COFINS padrão, regime de competência, adotando critério de escrituração Consolidada para gerar Sped Contribuições, sem informar itens no Histórico da empresa e informando itens no Histórico do estabelecimento	| 2 Média												| 3 Alta							| 6								| Rubens		| Prevenir/Mitigar	| Por Evento
+	3	| Empresa do Lucro Presumido, Incidência tributária cumulativa, alíquota de PIS/COFINS padrão, regime de competência, adotando critério de escrituração Detalhada para gerar Sped Contribuições																										| 2 Média												| 3 Alta							| 6								| Rubens		| Prevenir/Mitigar	| Por Evento
+	4	| Empresa do Lucro Presumido, Incidência tributária cumulativa, alíquota de PIS/COFINS padrão, regime de caixa																																														| 1 Baixa												| 1 Baixa							| 1								| Rubens		| Prevenir/Mitigar	| Por Evento
+Features:
+	Empresa do Lucro Presumido, Incidência tributária cumulativa, alíquota de PIS/COFINS padrão, regime de competência, adotando critério de escrituração Consolidada para gerar Sped Contribuições, sem informar itens no Histórico da empresa e sem informar itens no Histórico do estabelecimento
+	Empresa do Lucro Presumido, Incidência tributária cumulativa, alíquota de PIS/COFINS padrão, regime de competência, adotando critério de escrituração Consolidada para gerar Sped Contribuições, sem informar itens no Histórico da empresa e informando itens no Histórico do estabelecimento
+	Empresa do Lucro Presumido, Incidência tributária cumulativa, alíquota de PIS/COFINS padrão, regime de competência, adotando critério de escrituração Detalhada para gerar Sped Contribuições
+	Empresa do Lucro Presumido, Incidência tributária cumulativa, alíquota de PIS/COFINS padrão, regime de caixa
+Scenário Outline:
+	Firebird
+	SQL
+		Lucro Presumido
+			Incidência tributária cumulativa
+				Alíquota de PIS/COFINS padrão
+					Regime de competência
+					Regime de caixa
+						Adotando critério de escrituração Consolidada para gerar Sped Contribuições, sem informar itens no Histórico da empresa e informando itens no Histórico do estabelecimento
+						Adotando critério de escrituração Consolidada para gerar Sped Contribuições, sem informar itens no Histórico da empresa e sem informar itens no Histórico do estabelecimento
+						Adotando critério de escrituração Detalhada para gerar Sped Contribuições
+							Hands On:
+							Lançamentos em 2 estabelecimentos
+							Espécies:
+								NF-e
+								NFC-e
+								CF-e
+								NFS-e
+								CT-e
+								CTeOS
+								BP-e
+								NFSTC
+								NFSC
+								RDD
+							Operação:
+								Saída
+Stack:
+Links de testes unitários:
+Links de testes funcionais:

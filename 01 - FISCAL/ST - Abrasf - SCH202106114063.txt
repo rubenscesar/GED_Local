@@ -1,0 +1,117 @@
+Épico: Adaptação de importação de NFS-e de Campo Grande (MS)
+Número do cartão: S CH202106114063
+Ano de publicação: 2021
+Relacionamentos: Abrasf, ISS, Serviço
+Requisitos:
+	RE[1.1.1] Exigências para enquadramento do requisito:
+		RE[1.1.2] Tributação
+			• Quando no arquivo XML não houver uma tag que defina a tributação da nota a importação deve obedecer esta regra:
+				• Quando no Histórico da Empresa o Regime de Tributação Federal estiver informado - Lucro Real ou Lucro Presumido
+					• No arquivo XML não possuir a tag <OptanteSimplesNacional>
+						• Quando não houver valor nas tags que representam a alíquota de ISS e o valor de ISS
+							A Tributação será considerada "Não-Incidência"
+						• Quando houver valor nas tags que representam a alíquota de ISS e o valor de ISS
+							A Tributação será considerada "Normal"
+					• No arquivo XML na tag <OptanteSimplesNacional> = 1
+						• Quando não houver valor nas tags que representam a alíquota de ISS e o valor de ISS
+							A Tributação será considerada "Não-Incidência"
+						• Quando houver valor nas tags que representam a alíquota de ISS e o valor de ISS
+							A Tributação será considerada "Optantes do Simples Nacional"
+					• No arquivo XML na tag <OptanteSimplesNacional> = 2
+						• Quando não houver valor nas tags que representam a alíquota de ISS e o valor de ISS
+							A Tributação será considerada "Não-Incidência"
+						• Quando houver valor nas tags que representam a alíquota de ISS e o valor de ISS
+							A Tributação será considerada "Normal"
+				• Quando no Histórico da Empresa o Regime de Tributação Federal estiver informado - Simples Nacional
+					• No arquivo XML não possuir a tag <OptanteSimplesNacional>
+						• Quando não houver valor nas tags que representam a alíquota de ISS e o valor de ISS
+							A Tributação será considerada "Não-Incidência"
+						• Quando houver valor nas tags que representam a alíquota de ISS e o valor de ISS
+							A Tributação será considerada "Optantes do Simples Nacional"
+					• No arquivo XML na tag <OptanteSimplesNacional> = 1
+						• Quando não houver valor nas tags que representam a alíquota de ISS e o valor de ISS
+							A Tributação será considerada "Não-Incidência"
+						• Quando houver valor nas tags que representam a alíquota de ISS e o valor de ISS
+							A Tributação será considerada "Optantes do Simples Nacional"
+					• No arquivo XML na tag <OptanteSimplesNacional> = 2
+						• Quando não houver valor nas tags que representam a alíquota de ISS e o valor de ISS
+							A Tributação será considerada "Não-Incidência"
+						• Quando houver valor nas tags que representam a alíquota de ISS e o valor de ISS
+							A Tributação será considerada "Optantes do Simples Nacional"
+			• Quando no arquivo XML houver uma tag que defina a tributação da nota e houver documentação bem definida com o mapeamento das opções de tributação do XML e seu relacionamento com a tela de lançamento da NFS-e, então, a importação deve obedecer esta tag
+	RE[1.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RE[1.3.1] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.1.1] Exigências para enquadramento da regra:
+	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.3.1] Demonstrativo de cálculo:
+	RN[2.4.1] Funcionalidade consequente:
+Matriz de risco:
+Features:
+Scenário Outline:
+	Firebird
+		Escriturando no estabelecimentos, sendo  obrigatoriamente de MS
+			Regime de Tributação Federal - Lucro Real
+			Regime de Tributação Federal - Simples Nacional
+				Regime de Tributação Estadual - Normal
+				Regime de Tributação Estadual - Simples Nacional
+					Informações Adicionais:
+						Operação
+							Saída
+							Entrada
+						Espécies
+							NFS-e
+						Importação
+							NFS-e Padrão Abrasf
+						Adequação a leiaute de importação
+							Configuração / Conversão
+								Serviço ICMS/Serviço ISS/Atividade ISS
+								Fatura padrão
+								Participante padrão
+								Código contábil padrão
+							Status
+								Normal
+								Cancelada
+							Dados do Participante
+								UF = estabelecimento
+								UF <> estabelecimento
+							Tributação
+								Normal
+								Simples Nacional
+							Mais de 1 item
+							Itens diferentes
+							Mais de 1 corpo
+						Testar em Base real de pendências passadas
+Stack:
+	01 Abrasf ___ (__) - Cancelado.xml
+	02 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TributaçãoNormal - ParCPF Retenções.xml
+	03 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TributaçãoNormal - ParCNPJ Retenções.xml
+	04 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TributaçãoNormal - ParCNPJ RetençõesDescontosDeduçõesReduções.xml
+	05 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TributaçãoNormal - ParCNPJ RetençõesDescontosDeduçõesReduções UFsDiferentes LocIncidênciaTomador.xml
+	06 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TributaçãoNormal - ParCNPJ RetençõesDescontosDeduçõesReduções UFsDiferentes LocIncidênciaPrestador.xml
+	07 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TributaçãoNormal - ParCNPJ RetençõesDescontosDeduçõesReduções UFsDiferentes LocIncidênciaPrestaçãoDeServiço.xml
+	08 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TributaçãoNormal - ParCNPJ RetençõesDescontosDeduçõesReduções UFsDiferentes LocIncidênciaÓrgãoGerador.xml
+	09 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TributaçãoNãoIncidência - ParCNPJ.xml
+	10 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TributaçãoIsento - ParCNPJ.xml
+	11 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TributaçãoImune - ParCNPJ.xml
+	12 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TributaçãoSimplesNacional - ParCNPJ.xml
+	13 a 14 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TributaçãoNormal - ParCNPJ RetençõesDescontosDeduçõesReduções VáriasNotas.xml
+	15 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TributaçãoNormal - ParCNPJ Retenções VáriosItens.xml
+	16 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TributaçãoNormal - ParCNPJ ConfiguraçãoSemAtivnoArquivo.xml
+	17 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TributaçãoNormal - ParCNPJ ConfiguraçãoSemServnoArquivo.xml
+	18 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TributaçãoNormal - ParCNPJ ConfiguraçãoSemAtivServnoArquivo.xml
+	19 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TributaçãoNormal - ParCNPJ ConfiguraçãoServnoXmlnãoencontradonoBanco.xml
+	20 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TributaçãoNormal - ParCNPJ ConfiguraçãoTomadorEmBranco.xml
+	21 Abrasf ___ (__) - OperaçãoSaída RegimeSimplesNacional TributaçãoSimplesNacional - ParCNPJ.xml
+	22 Abrasf ___ (__) - OperaçãoSaída RegimeSimplesNacional TributaçãoNãoIncidência - ParCNPJ.xml
+	23 Abrasf ___ (__) - OperaçãoSaída RegimeSimplesNacional TributaçãoNormal - ParCNPJ.xml
+	24 Abrasf ___ (__) - OperaçãoEntrada RegimeNormal TributaçãoNormal - ParCNPJ Retenções VáriosItens.xml
+	25 Abrasf ___ (__) - OperaçãoEntrada RegimeNormal TributaçãoNãoIncidência - ParCNPJ.xml
+	26 Abrasf ___ (__) - OperaçãoEntrada RegimeNormal TributaçãoSimplesNacional - ParCNPJ.xml
+	27 Abrasf ___ (__) - OperaçãoEntrada RegimeSimplesNacional TributaçãoSimplesNacional - ParCNPJ.xml
+	28 Abrasf ___ (__) - OperaçãoEntrada RegimeSimplesNacional TributaçãoNãoIncidência - ParCNPJ.xml
+
+Links de testes unitários:
+Links de testes funcionais:
+Recursos:
+	https://docs.google.com/spreadsheets/d/1vCxVnX64YJbaEz5BwVCQn0Gdhwcra9LlJIlLy6p0eOo/edit#gid=1406440415

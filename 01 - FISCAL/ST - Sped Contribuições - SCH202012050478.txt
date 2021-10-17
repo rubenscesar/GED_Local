@@ -1,0 +1,148 @@
+Épico: Ajustar regra pra geração do SPED Contribuições quando se tratar de operação com CST05
+Número do cartão: S CH202012050478
+Ano de publicação: 2021
+Relacionamentos: Sped Contribuições, Sped EFD, Sped PIS/COFINS, Regime de Competência, Detalhado
+Requisitos:
+	RE[1.1.1] Exigências para enquadramento do requisito:
+	RE[1.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RE[1.3.1] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.1.1] Exigências para enquadramento da regra:
+	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.3.1] Demonstrativo de cálculo:
+	RN[2.4.1] Funcionalidade consequente:
+Matriz de risco:
+Features:
+Scenário Outline:
+	Firebird
+	SQL
+		Escriturando em 2 estabelecimentos, sendo 1 obrigatoriamente de PI
+			Regime de Tributação Federal - Lucro Real
+			Regime de Tributação Federal - Lucro Presumido
+				Regime de Tributação Estadual - Normal
+					Incidência tributária não-cumulativa
+					Incidência tributária cumulativa
+						Alíquota padrão de PIS/COFINS
+						Alíquota específica de PIS/COFINS
+							Regime de competência
+							Regime de caixa
+								Método de Apropriação de Crédito por Rateio Proporcional
+								Método de Apropriação de Direta
+									Adotando critério de escrituração Detalhada para gerar Sped Contribuições, informando itens no Histórico da empresa e no Histórico do estabelecimento
+										Atender a um ciclo onde os testes irão passar
+										Atender a um ciclo onde os testes irão dar errado
+										Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou outra por ter especificações diferentes
+										Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou a forma como vinha sendo feito até esta data
+											Informações Adicionais:
+												Operações:
+													Saída
+												Espécies:
+													NF-e
+													NF-e (terceiros)
+													NF1
+													NFP
+													NFA
+													NFC-e
+													NFVC
+													CF-e
+													CF
+												Peculiaridades das notas:
+													Lançamento com CST PIS/COFINS (05)
+														Com Base de Cálculo
+														Sem Base de Cálculo
+												Ferramentas:
+													Utilitários >> Ferramentas >> Preencher Dados PIS e COFINS
+													Utilitários >> Recalcular Tributos Federais
+												Testar em Base real de pendências passadas
+Stack:
+Links de testes unitários:
+Links de testes funcionais:
+Recursos:
+Fluxo Básico Modelo:
+	- Colocar no invalida saldo
+	- Testar tela com resolução 1366x768, vê se na mesma aparecem todos os campos e são clicáveis
+	- Perfil de Usuário
+	- Leiaute de importação
+	- Visarq
+	- Sintegra
+	- Documentos consolidados (Com pro e Sem pro)
+	- Importação XML (quando se tratar de novo documento eletrônico)
+	- Importação XML (Verificar a importação da forma cancelada)
+	- Ferramentas de Ajustes (Quando necessário) - Transferir Produtos - Transferir Participantes - Avaliar demais ferramentas
+	- AC Auto (para as entradas)
+	- Geração automática de Inventário (quando documento possuir itens)
+	- Backup/Restore (quando se tratar de tabela nova)
+	- Integração Contábil
+	- Listagens diversas
+	- Verificar relatórios com filtros
+	- Quebra de sequência
+	- Livros Fiscais
+	- SPED Contribuições
+	- SPED ECF
+	- Avaliar demais Obrigações Federais
+	- SPED ICMS
+	- Avaliar demais obrigações Estaduais
+	- Apurações (Tributos Federais)
+	- Apurações (Simples Nacional)
+	- Apurações (ICMS Normal)
+	- Apurações (Livro de Apuração do ICMS)
+	- Analisador (Regras Tributárias)
+	- Controle de créditos
+	- Controle de retenções
+	- Controle de Vencimentos
+	- Integração FortesDoc (quando se tratar de novo documento eletrônico)
+	- Auditoria
+	- Situação do Documento, verificar por exemplo quando cancelado se está aparecendo uma linha do participante em branco, quando marcar a opção para ver os dados do mesmo na listagem de saídas.
+	- Se alteração em SQL verificar se modificações devem ir para o .DOC da versão de importação "LeiauteImportacaoFortesACFiscal.doc"
+	- Se modificar o arquivo "LeiauteImportacaoFortesACFiscal.doc", gerar copia da versão anterior
+	- Se modificação de Leiaute gerar teste unitário da versão anterior
+	- Se modificação da estrutura do arquivo .FS "LeiauteImportacaoFortesACFiscal.doc" verificar se versão do arquivo não esta aberta e gerar PDF do arquivo "LeiauteImportacaoFortesACFiscal.doc" para versão
+	- Preencher dados Pis/Cofins, quando tiver mudança verificar se deve ajustar também para Regras Tributarias, variável "AnalisadorFiscal".
+	- Sempre testar incluindo documentos em mais de 1 estabelecimento
+	- Sempre incluir notas com mais de 1 corpo e dados diferentes
+	- Sempre incluir vários itens diferentes
+	- Depois de todos os teste, sempre testar com uma base real, de preferência a base grande, avaliar funcionamento e performance
+	- (Contabilização) Verificar se ao desfazer importação FS após ter contabilizado não está mantendo prezo os lançamentos contábeis. Para conferir tem de dar um select na tabela LCF após importar, contabilizar e desfazer importação FS para ver se as contabilizações permanecem ou não no banco.
+	- Perfil de Usuários
+		Confirmando que a empresa não possui nenhum Dono cadastrado
+		CRUD na tela a ser testada
+			Todos (ADMIN)
+			TA - Total e apenas da Janela
+			I - Inclusão
+			A - Alteração
+			E - Exclusão
+			TE - Todas as janelas Exceto a esta
+		Garantir que está aparecendo apenas para a UF/Município a que a funcionalidade se destina (quando for o caso)
+							Importação
+								Convênio ICMS 115/03 - Nota Fiscal de Telecomunicação
+							Adequação a leiaute de importação
+								Configuração / Conversão
+									CST/CSOSN ICMS
+										Tributado
+										Isento/Não Tributado
+										Outros
+									CST PIS/COFINS
+										Preenchendo base de cálculo
+										Sem preencher base de cálculo
+									CFOP
+										Intermunicipal
+										Interestadual
+										Exterior
+									Serviço ICMS/Serviço ISS/Atividade ISS
+									Fatura padrão
+									Participante padrão
+									Grupo de produto padrão
+									Código contábil padrão
+									Identificador de Contribuição Previdenciária padrão
+								Operação
+									Saída
+									Entrada
+								Status
+									Normal
+									Cancelada
+								Dados do Participante
+									UF = estabelecimento
+									UF <> estabelecimento
+								Mais de 1 item
+								Itens diferentes
+								Mais de 1 corpo

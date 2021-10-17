@@ -1,0 +1,141 @@
+Épico: Foi realizada uma alteração na sistemática do FortesACAtualizador para que em determinados cenários, o processo de atualização não seja permitido.
+Número do cartão: S CH202106111118
+Ano de publicação: 2021
+Relacionamentos: Atualizador, Atualização, FortesACAtualizador
+Requisitos:
+	RE[1.1.1] Exigências para enquadramento do requisito:
+		Conforme conversa com a Rebeca do setor Pessoal pelo hangout, as modalidades podem ser resumidas para as que não tem serviço de manutenção (venda) e as que tem (assinatura). Sendo assim, barra atualização das que não tem serviço de manutenção.
+		As demais licenças vão continuar atualizando normal mesmo com inadimplência.
+Regras de Negócio:
+	RN[2.1.1] Exigências para enquadramento da regra:
+		IP para testes: 10.1.19.243
+Matriz de risco:
+Features:
+Scenário Outline:
+	Firebird
+		D7
+			Utilizando recurso de "Não realizar backup do banco de dados"
+				Com acesso a internet
+					| Licença Para				| Modalidade	| Validade do Reset		| Resultado		| Acesso do Sitema		| Mensagem																																			|
+					| Licença Não Localizada	| Não se aplica	| Não se aplica			| Não Atualiza	| Versão Demonstração	| Licença não encontrada.																															|
+					| FS						| Venda			| Dentro da Validade	| Não Atualiza	| Permanece como antes	| ...Caso esteja sem acesso a internet, aguarde o restabelecimento do serviço para prosseguir com a atualização.	|
+					| FS						| Venda			| Fora da Validade		| Não Atualiza	| Permanece como antes	| Licença não encontrada.																															|
+					| FS, CT, PS				| Venda			| Dentro da Validade	| Não Atualiza	| Permanece como antes	| Informações validadas com sucesso...Caso esteja sem acesso a internet, aguarde o restabelecimento do serviço para prosseguir com a atualização.	|
+					| FS, CT, PS				| Venda			| Fora da Validade		| Não Atualiza	| Permanece como antes	| Licença não encontrada.																															|
+					| FS Assinatura Fora da validade e CT, PS Venda Fora da Validade	| Atualiza		| Versão Demonstração	| 
+					| FS, CT, PS				| Assinatura	| Dentro da Validade	| Atualiza		| Permanece como antes	| 
+					| FS, CT, PS				| Assinatura	| Fora da Validade		| Atualiza		| Versão Demonstração	| 
+					| FS						| Assinatura	| Dentro da Validade	| Atualiza		| Permanece como antes	| Informações validadas com sucesso																													|
+					| FS						| Assinatura	| Fora da Validade		| Atualiza		| Versão Demonstração	| Licença não encontrada.																															|
+					| FS, CT, PS				| Cancelado		| Não se aplica			| Atualiza		| Versão Demonstração	| Licença não encontrada.																															|
+			Sem Utilizar recurso de "Não realizar backup do banco de dados"
+				Sem acesso a internet
+					Não será permitido atualizar
+				Com acesso a internet
+					| Licença Para				| Modalidade	| Validade do Reset		| Resultado		| Acesso do Sitema		| Mensagem																																			|
+					| Licença Não Localizada	| Não se aplica	| Não se aplica			| Não Atualiza	| Versão Demonstração	| ...Caso esteja sem acesso a internet, aguarde o restabelecimento do serviço para prosseguir com a atualização.									|
+					| FS						| Venda			| Dentro da Validade	| Não Atualiza	| Permanece como antes	| ...Caso esteja sem acesso a internet, aguarde o restabelecimento do serviço para prosseguir com a atualização.									|
+					| FS						| Venda			| Fora da Validade		| Não Atualiza	| Permanece como antes	| ...Caso esteja sem acesso a internet, aguarde o restabelecimento do serviço para prosseguir com a atualização.									|
+					| FS, CT, PS				| Venda			| Dentro da Validade	| Não Atualiza	| Permanece como antes	| ...Caso esteja sem acesso a internet, aguarde o restabelecimento do serviço para prosseguir com a atualização.									|
+					| FS, CT, PS				| Venda			| Fora da Validade		| Não Atualiza	| Permanece como antes	| ...Caso esteja sem acesso a internet, aguarde o restabelecimento do serviço para prosseguir com a atualização.									|
+					| FS Assinatura Fora da validade e CT, PS Venda Fora da Validade	| Atualiza		| Versão Demonstração	| 
+					| FS, CT, PS				| Assinatura	| Dentro da Validade	| Atualiza		| Permanece como antes	| 
+					| FS, CT, PS				| Assinatura	| Fora da Validade		| Atualiza		| Versão Demonstração	| 
+					| FS						| Assinatura	| Dentro da Validade	| Atualiza		| Permanece como antes	| 
+					| FS						| Assinatura	| Fora da Validade		| Atualiza		| Versão Demonstração	| 
+					| FS, CT, PS				| Cancelado		| Não se aplica			| Atualiza		| Versão Demonstração	| ...Caso esteja sem acesso a internet, aguarde o restabelecimento do serviço para prosseguir com a atualização.									|
+		Xe6
+			Utilizando recurso de "Não realizar backup do banco de dados"
+				Com acesso a internet
+					| Licença Para				| Modalidade	| Validade do Reset		| Resultado		| Acesso do Sitema		| Mensagem																																			|
+					| Licença Não Localizada	| Não se aplica	| Não se aplica			| Não Atualiza	| Versão Demonstração	| Licença não encontrada.																															|
+					| FS						| Venda			| Dentro da Validade	| Não Atualiza	| Permanece como antes	| Informações validadas com sucesso...Caso esteja sem acesso a internet, aguarde o restabelecimento do serviço para prosseguir com a atualização.	|
+					| FS						| Venda			| Fora da Validade		| Não Atualiza	| Permanece como antes	| Licença não encontrada.																															|
+					| FS, CT, PS				| Venda			| Dentro da Validade	| Não Atualiza	| Permanece como antes	| Informações validadas com sucesso...Caso esteja sem acesso a internet, aguarde o restabelecimento do serviço para prosseguir com a atualização.	|
+					| FS, CT, PS				| Venda			| Fora da Validade		| Não Atualiza	| Permanece como antes	| Licença não encontrada.																															|
+					| FS Assinatura Fora da validade e CT, PS Venda Fora da Validade	| Atualiza		| Versão Demonstração	| 
+					| FS, CT, PS				| Assinatura	| Dentro da Validade	| Atualiza		| Permanece como antes	| 
+					| FS, CT, PS				| Assinatura	| Fora da Validade		| Atualiza		| Versão Demonstração	| 
+					| FS						| Assinatura	| Dentro da Validade	| Atualiza		| Permanece como antes	| Informações validadas com sucesso																													|
+					| FS						| Assinatura	| Fora da Validade		| Atualiza		| Versão Demonstração	| Licença não encontrada.																															|
+					| FS, CT, PS				| Cancelado		| Não se aplica			| Atualiza		| Versão Demonstração	| Licença não encontrada.																															|
+			Sem Utilizar recurso de "Não realizar backup do banco de dados"
+				Sem acesso a internet
+					Não será permitido atualizar
+				Com acesso a internet
+					| Licença Para				| Modalidade	| Validade do Reset		| Resultado		| Acesso do Sitema		| Mensagem																																			|
+					| Licença Não Localizada	| Não se aplica	| Não se aplica			| Não Atualiza	| Versão Demonstração	| ...Caso esteja sem acesso a internet, aguarde o restabelecimento do serviço para prosseguir com a atualização.									|
+					| FS						| Venda			| Dentro da Validade	| Não Atualiza	| Permanece como antes	| ...Caso esteja sem acesso a internet, aguarde o restabelecimento do serviço para prosseguir com a atualização.									|
+					| FS						| Venda			| Fora da Validade		| Não Atualiza	| Permanece como antes	| ...Caso esteja sem acesso a internet, aguarde o restabelecimento do serviço para prosseguir com a atualização.									|
+					| FS, CT, PS				| Venda			| Dentro da Validade	| Não Atualiza	| Permanece como antes	| ...Caso esteja sem acesso a internet, aguarde o restabelecimento do serviço para prosseguir com a atualização.									|
+					| FS, CT, PS				| Venda			| Fora da Validade		| Não Atualiza	| Permanece como antes	| ...Caso esteja sem acesso a internet, aguarde o restabelecimento do serviço para prosseguir com a atualização.									|
+					| FS Assinatura Fora da validade e CT, PS Venda Fora da Validade	| Atualiza		| Versão Demonstração	| 
+					| FS, CT, PS				| Assinatura	| Dentro da Validade	| Atualiza		| Permanece como antes	| 
+					| FS, CT, PS				| Assinatura	| Fora da Validade		| Atualiza		| Versão Demonstração	| 
+					| FS						| Assinatura	| Dentro da Validade	| Atualiza		| Permanece como antes	|
+					| FS						| Assinatura	| Fora da Validade		| Atualiza		| Versão Demonstração	| 
+					| FS, CT, PS				| Cancelado		| Não se aplica			| Atualiza		| Versão Demonstração	| ...Caso esteja sem acesso a internet, aguarde o restabelecimento do serviço para prosseguir com a atualização.									|
+	SQL
+		D7
+			Utilizando recurso de "Não realizar backup do banco de dados"
+				Com acesso a internet
+					| Licença Para				| Modalidade	| Validade do Reset		| Resultado		| Acesso do Sitema		| Mensagem																																			|
+					| Licença Não Localizada	| Não se aplica	| Não se aplica			| Não Atualiza	| Versão Demonstração	| Licença não encontrada.																															|
+					| FS						| Venda			| Dentro da Validade	| Não Atualiza	| Permanece como antes	| ...Caso esteja sem acesso a internet, aguarde o restabelecimento do serviço para prosseguir com a atualização.	|
+					| FS						| Venda			| Fora da Validade		| Não Atualiza	| Permanece como antes	| Licença não encontrada.																															|
+					| FS, CT, PS				| Venda			| Dentro da Validade	| Não Atualiza	| Permanece como antes	| Informações validadas com sucesso...Caso esteja sem acesso a internet, aguarde o restabelecimento do serviço para prosseguir com a atualização.	|
+					| FS, CT, PS				| Venda			| Fora da Validade		| Não Atualiza	| Permanece como antes	| Licença não encontrada.																															|
+					| FS Assinatura Fora da validade e CT, PS Venda Fora da Validade	| Atualiza		| Versão Demonstração	| 
+					| FS, CT, PS				| Assinatura	| Dentro da Validade	| Atualiza		| Permanece como antes	| 
+					| FS, CT, PS				| Assinatura	| Fora da Validade		| Atualiza		| Versão Demonstração	| 
+					| FS						| Assinatura	| Dentro da Validade	| Atualiza		| Permanece como antes	| Informações validadas com sucesso																													|
+					| FS						| Assinatura	| Fora da Validade		| Atualiza		| Versão Demonstração	| Licença não encontrada.																															|
+					| FS, CT, PS				| Cancelado		| Não se aplica			| Atualiza		| Versão Demonstração	| Licença não encontrada.																															|
+			Sem Utilizar recurso de "Não realizar backup do banco de dados"
+				Sem acesso a internet
+					Não será permitido atualizar
+				Com acesso a internet
+					| Licença Para				| Modalidade	| Validade do Reset		| Resultado		| Acesso do Sitema		| Mensagem																																			|
+					| Licença Não Localizada	| Não se aplica	| Não se aplica			| Não Atualiza	| Versão Demonstração	| ...Caso esteja sem acesso a internet, aguarde o restabelecimento do serviço para prosseguir com a atualização.									|
+					| FS						| Venda			| Dentro da Validade	| Não Atualiza	| Permanece como antes	| ...Caso esteja sem acesso a internet, aguarde o restabelecimento do serviço para prosseguir com a atualização.									|
+					| FS						| Venda			| Fora da Validade		| Não Atualiza	| Permanece como antes	| ...Caso esteja sem acesso a internet, aguarde o restabelecimento do serviço para prosseguir com a atualização.									|
+					| FS, CT, PS				| Venda			| Dentro da Validade	| Não Atualiza	| Permanece como antes	| ...Caso esteja sem acesso a internet, aguarde o restabelecimento do serviço para prosseguir com a atualização.									|
+					| FS, CT, PS				| Venda			| Fora da Validade		| Não Atualiza	| Permanece como antes	| ...Caso esteja sem acesso a internet, aguarde o restabelecimento do serviço para prosseguir com a atualização.									|
+					| FS Assinatura Fora da validade e CT, PS Venda Fora da Validade	| Atualiza		| Versão Demonstração	| 
+					| FS, CT, PS				| Assinatura	| Fora da Validade		| Atualiza		| Versão Demonstração	| 
+					| FS						| Assinatura	| Dentro da Validade	| Atualiza		| Permanece como antes	| 
+					| FS						| Assinatura	| Fora da Validade		| Atualiza		| Versão Demonstração	| 
+					| FS, CT, PS				| Cancelado		| Não se aplica			| Atualiza		| Versão Demonstração	| ...Caso esteja sem acesso a internet, aguarde o restabelecimento do serviço para prosseguir com a atualização.									|
+		Xe6
+			Utilizando recurso de "Não realizar backup do banco de dados"
+				Com acesso a internet
+					| Licença Para				| Modalidade	| Validade do Reset		| Resultado		| Acesso do Sitema		| Mensagem																																			|
+					| Licença Não Localizada	| Não se aplica	| Não se aplica			| Não Atualiza	| Versão Demonstração	| Licença não encontrada.																															|
+					| FS						| Venda			| Dentro da Validade	| Não Atualiza	| Permanece como antes	| ...Caso esteja sem acesso a internet, aguarde o restabelecimento do serviço para prosseguir com a atualização.	|
+					| FS						| Venda			| Fora da Validade		| Não Atualiza	| Permanece como antes	| Licença não encontrada.																															|
+					| FS, CT, PS				| Venda			| Dentro da Validade	| Não Atualiza	| Permanece como antes	| Informações validadas com sucesso...Caso esteja sem acesso a internet, aguarde o restabelecimento do serviço para prosseguir com a atualização.	|
+					| FS, CT, PS				| Venda			| Fora da Validade		| Não Atualiza	| Permanece como antes	| Licença não encontrada.																															|
+					| FS Assinatura Fora da validade e CT, PS Venda Fora da Validade	| Atualiza		| Versão Demonstração	| 
+					| FS, CT, PS				| Assinatura	| Fora da Validade		| Atualiza		| Versão Demonstração	| 
+					| FS						| Assinatura	| Dentro da Validade	| Atualiza		| Permanece como antes	| Informações validadas com sucesso																													|
+					| FS						| Assinatura	| Fora da Validade		| Atualiza		| Versão Demonstração	| Licença não encontrada.																															|
+					| FS, CT, PS				| Cancelado		| Não se aplica			| Atualiza		| Versão Demonstração	| Licença não encontrada.																															|
+			Sem Utilizar recurso de "Não realizar backup do banco de dados"
+				Sem acesso a internet
+					Não será permitido atualizar
+				Com acesso a internet
+					| Licença Para				| Modalidade	| Validade do Reset		| Resultado		| Acesso do Sitema		| Mensagem																																			|
+					| Licença Não Localizada	| Não se aplica	| Não se aplica			| Não Atualiza	| Versão Demonstração	| ...Caso esteja sem acesso a internet, aguarde o restabelecimento do serviço para prosseguir com a atualização.									|
+					| FS						| Venda			| Dentro da Validade	| Não Atualiza	| Permanece como antes	| ...Caso esteja sem acesso a internet, aguarde o restabelecimento do serviço para prosseguir com a atualização.									|
+					| FS						| Venda			| Fora da Validade		| Não Atualiza	| Permanece como antes	| ...Caso esteja sem acesso a internet, aguarde o restabelecimento do serviço para prosseguir com a atualização.									|
+					| FS, CT, PS				| Venda			| Dentro da Validade	| Não Atualiza	| Permanece como antes	| ...Caso esteja sem acesso a internet, aguarde o restabelecimento do serviço para prosseguir com a atualização.									|
+					| FS, CT, PS				| Venda			| Fora da Validade		| Não Atualiza	| Permanece como antes	| ...Caso esteja sem acesso a internet, aguarde o restabelecimento do serviço para prosseguir com a atualização.									|
+					| FS Assinatura Fora da validade e CT, PS Venda Fora da Validade	| Atualiza		| Versão Demonstração	| 
+					| FS, CT, PS				| Assinatura	| Dentro da Validade	| Atualiza		| Permanece como antes	| 
+					| FS						| Assinatura	| Dentro da Validade	| Atualiza		| Permanece como antes	| 
+					| FS						| Assinatura	| Fora da Validade		| Atualiza		| Versão Demonstração	| 
+					| FS, CT, PS				| Cancelado		| Não se aplica			| Atualiza		| Versão Demonstração	| ...Caso esteja sem acesso a internet, aguarde o restabelecimento do serviço para prosseguir com a atualização.									|
+Stack:
+Links de testes unitários:
+Links de testes funcionais:
+Recursos:

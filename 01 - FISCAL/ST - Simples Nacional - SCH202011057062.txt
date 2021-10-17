@@ -1,0 +1,99 @@
+Épico: Adequar o sistema a realizar apuração de receitas de Transporte/Comunicação/Telecomunicação para empresas enquadradas no Simples Nacional do Exterior.
+Número do cartão: S CH202011057062 
+Ano de publicação: 2021
+Relacionamentos: Simples Nacional, Exterior
+Requisitos:
+	RE[1.1.1] Exigências para enquadramento do requisito:
+	RE[1.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RE[1.3.1] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.1.1] Exigências para enquadramento da regra:
+	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.3.1] Demonstrativo de cálculo:
+	RN[2.4.1] Funcionalidade consequente:
+Matriz de risco:
+Features:
+Scenário Outline:
+	Firebird
+	SQL
+		Regime de Tributação Federal - Simples Nacional
+			Regime de Tributação Estadual - Simples Nacional
+				Competência
+				Caixa
+					Informando itens
+					Sem informar itens
+						Anexo III
+							Receita Bruta Proporcionalizada
+								Empresa cuja data de abertura for = PA
+								Empresa cuja data de abertura for = (PA - 1 mês)
+								Empresa cuja data de abertura seja um período aleatório entre (PA - 2 meses) e (PA - 11 meses)
+								Empresa cuja data de abertura for = (PA - 12 meses)
+								Empresa cuja data de abertura for = (PA - 13 meses)
+								Empresa cuja data de abertura seja um período aleatório > (PA - 14 meses), porém a data de enquadramento no regime do Simples Nacional = PA
+								Empresa cuja data de abertura seja um período aleatório > (PA - 14 meses), porém a data de enquadramento no regime do Simples Nacional = (PA - 1 mês)
+								Empresa cuja data de abertura seja um período aleatório > (PA - 14 meses), porém a data de enquadramento no regime do Simples Nacional seja um período aleatório entre (PA - 2 meses) e (PA - 11 meses)
+								Empresa cuja data de abertura seja um período aleatório > (PA - 14 meses), porém a data de enquadramento no regime do Simples Nacional = (PA - 12 meses)
+								Empresa cuja data de abertura seja um período aleatório > (PA - 14 meses), porém a data de enquadramento no regime do Simples Nacional = (PA - 13 meses)
+								Empresa cuja data de abertura seja um período aleatório > (PA - 14 meses), porém a data de enquadramento no regime do Simples Nacional seja um período aleatório > (PA - 14 meses)
+							Receita Bruta não proporcionalizada
+								Receita no Mercado Interno
+								Receita no Mercado Externo
+									Valor do RBT12 ou RBT12p = 0,00
+									Valor aleatório do RBT12 ou RBT12p entre 0,01 e (Receita Bruta Máxima da 1ª Faixa - 0,02)
+									Valor do RBT12 ou RBT12p = (Receita Bruta Máxima da 1ª Faixa - 0,01)
+									Valor do RBT12 ou RBT12p = Receita Bruta Máxima da 1ª Faixa
+										Valor de RBA = 0,00
+										Valor aleatório de RBA entre 0,01 e 119.999,99
+										Valor de RBA = 120.000,00
+										Valor de RBA = 120.000,01
+										Valor aleatório de RBA > 120.000,01
+											Valor aleatório da Alíquota Efetiva < (Alíquota Limite - 0,02%)	
+											Valor da Alíquota Efetiva = (Alíquota Limite - 0,01%)	
+											Valor da Alíquota Efetiva = Alíquota Limite	
+											Valor da Alíquota Efetiva = (Alíquota Limite + 0,01%)	
+											Valor aleatório da Alíquota Efetiva > (Alíquota Limite + 0,01%)	
+												Valor aleatório do Percentual de Repartição da 6ª Faixa < (5,00% - 0,02%)
+												Valor do Percentual de Repartição da 6ª Faixa = (5,00% - 0,01%)
+												Valor do Percentual de Repartição da 6ª Faixa = 5,00%
+												Valor do Percentual de Repartição da 6ª Faixa > (5,00% + 0,01%)
+												Valor aleatório do Percentual de Repartição da 6ª Faixa > (5,00% + 0,01%)
+													Informações Adicionais:
+														Operação:
+															Saída
+														Espécies:
+															CT-e
+														Situação:
+															Cancelado
+															CT-e Denegado
+															CT-e Numeração inutilizada
+															Documento Fiscal emitido com base em Regime Especial
+															Documento Fiscal Complementar
+															Normal
+														Peculiaridades das notas:
+															Sem Substituição Tributária em ICMS
+															Com Substituição Tributária em ICMS
+															Anulação
+														Relatório
+															Relatórios >> Simples Nacional >> Espelho PGDAS
+															Relatórios >> Simples Nacional >> Acompanhamento Tributário
+															Relatórios >> Simples Nacional >> Acompanhamento Tributário (Demonstrativo de Cálculo)
+															Relatórios >> Receitas por Estabelecimento
+															Relatórios >> Declaração de Faturamento
+															Relatórios >> Resumo >> Resumo Gerencial de Receitas e Tributos
+															Relatórios >> Comparativo Vendas x Compras
+														Testar em Base real de pendências passadas
+														Utilitários >> Valores dos Estabelecimentos
+														Testar em Base real de pendências passadas
+
+Stack:
+Links de testes unitários:
+Links de testes funcionais:
+Recursos:
+Fluxo Básico Modelo:
+	- SPED ICMS
+	- Sempre testar incluindo documentos em mais de 1 estabelecimento
+	- Sempre incluir notas com mais de 1 corpo e dados diferentes
+	- Sempre incluir vários itens diferentes
+
+BPe BPR RMD não aparece cfop do exterior. Eles devem entrar para a solicitação mesmo? O que será feito da tela d lançamento?
+NFSC não permite informar participante do exterior - Atenção!: O Tomador do Serviço não pode ser do exterior. O que será feito da tela d lançamento?

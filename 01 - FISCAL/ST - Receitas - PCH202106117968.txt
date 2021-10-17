@@ -1,0 +1,126 @@
+Épico:
+Número do cartão: P CH202106117968
+Ano de publicação: 2021
+Relacionamentos: Receita
+Dependência de Cartões: P CH202007068397
+Requisitos:
+	RE[1.1.1] Exigências para enquadramento do requisito:
+		RE[1.1.2]
+			• Receita Bruta = Valor Total do Produto/Serviço + ICMS Substituição Retido + IPI + Devoluções
+			• Devoluções =	• Valor Total do Produto/Serviço + ICMS Substituição Retido + IPI
+							• Lançamentos com CFOP de Entrada de Devolução
+		RE[1.1.3]
+			• Para estabelecimentos (contribuintes do IPI e não contribuintes do IPI) a Receita Total = Receita Bruta (RE[1.1.2]) - ICMS Substituição Retido - IPI - Devoluções (RE[1.1.2])
+			• Será aplicado aos relatórios:
+				Relatórios >> Declaração de Faturamento
+				Relatórios >> Resumo >> Resumo Gerencial de Receitas e Tributos
+				Relatórios >> Receitas por Estabelecimento
+		RE[1.1.4]
+			• Para estabelecimentos (contribuintes do IPI e não contribuintes do IPI) a Receita Total = Receita Bruta (RE[1.1.2]) - Devoluções (RE[1.1.2])
+			• Será aplicado aos relatórios:
+				Relatórios >> Comparativo Vendas x Compras
+		RE[1.1.5] (Ainda a ser validado pois na última pendência alterações neste relatório e obrigações foram postergados)
+			Relatórios >> Tributos Federais >> Resumo de IPI por Participantes (DIPJ) >> Saídas
+
+
+
+			Relatórios >> Simples Nacional >> Espelho PGDAS
+			Relatórios >> Simples Nacional >> Acompanhamento Tributário
+			Relatórios >> Simples Nacional >> Demonstrativo de Cálculo
+			Relatórios >> Simples Nacional >> DEFIS
+		
+	RE[1.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RE[1.3.1] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.1.1] Exigências para enquadramento da regra:
+	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.3.1] Demonstrativo de cálculo:
+	RN[2.4.1] Funcionalidade consequente:
+Matriz de risco:
+Features:
+Scenário Outline:
+	Firebird
+	SQL
+		Escriturando em 1 estabelecimentos obrigatoriamente de UF diferente de RJ e BA
+		Escriturando em 2 estabelecimentos, sendo 1 obrigatoriamente de RJ e outro de BA (Feature postergada)
+			Regime de Tributação Federal - Lucro Real ou Lucro Presumido
+			Regime de Tributação Federal - Simples Nacional
+				Regime de Tributação Estadual - Normal
+				Regime de Tributação Estadual - Simples Nacional
+				Regime de Tributação Estadual - Excluído do Simples Nacional (Normal estado)
+					Informando itens
+					Sem informar itens
+						Contribuinte do IPI
+						Não contribuinte do IPI
+							CFOPs (5.922 e 6.922) marcado "Operação com Produtos Industrializados pelo Estabelecimento" (Feature postergada)
+							CFOPs (5.922 e 6.922) desmarcado "Operação com Produtos Industrializados pelo Estabelecimento" (Feature postergada)
+								Utilizando o recurso de Reconhecer como Receita os CFOPs (5.922 e 6.922) com Remessa de Entrega Futura (Feature postergada)
+									Informações Adicionais
+										Operação
+											Saída
+											Entrada (Devolução)
+										Espécies
+											NFS-e
+											NF-e (com e sem serviço)
+											NFC-e (com e sem serviço)
+											CF-e (com e sem serviço)
+												2 equipamentos
+										Peculiaridades das notas de saída
+											Incluir notas canceladas
+											Incluir notas com mais de 1 corpo e dados diferentes
+											Incluir notas com serviço
+											Incluir notas com IPI
+											Incluir notas sem IPI
+											Incluir notas com ICMS Substituição Retido
+											Incluir notas sem ICMS Substituição
+										Peculiaridades das notas de entrada (devolução)
+											Incluir notas com mais de 1 corpo e dados diferentes
+											Incluir notas com IPI
+											Incluir notas sem IPI
+											Incluir notas com ICMS Substituição Retido
+											Incluir notas sem ICMS Substituição
+										Teste funcional das telas e relatórios
+											(Relatórios >> Simples Nacional >> Espelho PGDAS
+											Relatórios >> Simples Nacional >> Acompanhamento Tributário
+											Relatórios >> Simples Nacional >> Demonstrativo de Cálculo
+											Relatórios >> Simples Nacional >> DEFIS) Não se aplica pois o CFOP utilizado se é de venda ou revenda influencia no cálculo da receita 
+											Relatórios >> Receitas por Estabelecimento
+											Relatórios >> Declaração de Faturamento
+											Relatórios >> Resumo >> Resumo Gerencial de Receitas e Tributos
+											Relatórios >> Comparativo Vendas x Compras
+											Relatórios >> Tributos Federais >> Resumo de IPI por Participantes (DIPJ) >> Saídas (Feature postergada)
+										Obrigação acessória
+											Sped Fiscal (Feature postergada)
+												B500 (Feature postergada)
+											Sped ECF (Feature postergada)
+												Registro Y540 (Feature postergada)
+											DECLAN (RJ) (Feature postergada)
+											SimBahia (Feature postergada)
+										Testar em Base real de pendências passadas
+
+	Verificar se depois de importação FS está invalidando a VRE e os valores de Receita por Estabelecimento está sendo reprocessado ao emitir relatório
+PCH202104039311
+PCH202105034465
+PCH202012047914
+PCH202102018661
+SCH201911107387
+CH202103060448
+CH202102001239
+
+https://trello.com/b/Rl8mtjKT/p-ch202105034465-declan-rj
+https://trello.com/b/LUGugQbQ/p-ch202012047914-ecf-reg-y540-valor-receitas-errado
+https://trello.com/b/QvoMhFAo/s-ch201911107387-declara%C3%A7%C3%A3o-de-faturamento
+https://trello.com/b/NlQhN8TE/p-ch202007068397-decfaturamento-resgeralreceitastributos
+https://trello.com/b/h2u1eIpO/p-ch202106117968-relat%C3%B3rios-de-receita
+
+
+Stack:
+Links de testes unitários:
+Links de testes funcionais:
+Recursos:
+	https://docs.google.com/spreadsheets/d/1w0ibWxiv2MOJcyRr8ucFuwzm3jXj_z62bxLfKsA1THc/edit#gid=2022841897
+	https://docs.google.com/spreadsheets/d/1Qsurp2zf7MebNezVsTjReEoNm00Xfn0imvi4fyT7BI8/edit#gid=370292666
+					  Nome do arquivo no padrão:	[Relacionamento principal]-( Se for arquivo Abrasf informar o município e UF )[Município] (UF)-[Observação opcional]
+										Exemplo:	Arquivo para importação: Abrasf-Ponte Nova (MG)-Inscrição Estadual do Participante.xml
+	Nome do arquivo do banco de dados no padrão:	[Iniciais do subsistema]-[Relacionamento principal]-[Ano de publicação]-[Nome da empresa]-[Período]-[Observação opcional]
+										Exemplo:	Banco para testes: ACC-Planilha Financeira-2021-ONE INTERNET SA-042021.rar

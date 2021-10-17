@@ -1,0 +1,53 @@
+Épico: Adequação a importação de NFS Telecomunicação (Modelo 22) no formado de arquivo do leiaute Convênio ICMS 115/03.
+Número do cartão: S CH202003018135 
+Ano de publicação: 2021
+Relacionamentos: Convênio ICMS 115/03, Imporação, NFSTC, Modelo 22, Telecomunicação
+Requisitos:
+	RE[1.1.1] Exigências para enquadramento do requisito:
+	RE[1.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RE[1.3.1] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.1.1] Exigências para enquadramento da regra:
+	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.3.1] Demonstrativo de cálculo:
+	RN[2.4.1] Funcionalidade consequente:
+Matriz de risco:
+Features:
+Scenário Outline:
+	Firebird
+	SQL
+		Regime de Tributação Federal - Lucro Real
+		Regime de Tributação Simples Nacional
+			Regime de Tributação Estadual - Normal
+			Regime de Tributação Estadual - Simples Nacional
+				Atender a um ciclo onde os testes irão passar
+					Informações Adicionais:
+						Perfil de Usuário
+							Confirmando que a empresa não possui nenhum Dono cadastrado
+								Todos (ADMIN)
+								TA - Total e apenas da Janela
+								TE - Todas as janelas Exceto a esta
+							Garantir que está aparecendo apenas para a UF/Município a que a funcionalidade se destina (quando for o caso)
+						Operações:
+							Saída
+						Espécies:
+							NFSTC
+						Importação
+							Convênio ICMS 115/03 - Nota Fiscal de Telecomunicação
+						Adequação a leiaute de importação
+							Configuração / Conversão
+							Status
+								Normal
+								Cancelada
+							Dados do Participante
+								UF = estabelecimento
+								UF <> estabelecimento
+							Mais de 1 item
+							Itens diferentes
+							Mais de 1 corpo
+						Testar em Base real de pendências passadas
+Stack:
+Links de testes unitários:
+Links de testes funcionais:
+Recursos:
+	https://docs.google.com/spreadsheets/d/1523yWMnZX8B5t4crJAkb4-Jk8nOrELlpo7w6soiDkwQ/edit#gid=1185287495

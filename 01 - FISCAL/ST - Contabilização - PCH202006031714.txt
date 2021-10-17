@@ -1,0 +1,40 @@
+Épico: O Sistema não está contabilizando corretamente o valor do cofins retido, está replicando o valor do pis retido ao contabilizar as notas
+Número do cartão: P CH202006031714
+Ano de publicação: 2021
+Relacionamentos: Contabilização, Integração Contábil
+Requisitos:
+	RE[1.1.1] Exigências para enquadramento do requisito:
+	RE[1.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RE[1.3.1] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.1.1] Exigências para enquadramento da regra:
+	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.3.1] Demonstrativo de cálculo:
+	RN[2.4.1] Funcionalidade consequente:
+Matriz de risco:
+Features:
+Scenário Outline:
+Stack:
+	Firebird
+	SQL
+		Apura retenções de PIS e COFINS Cumulativos e Não-Cumulativos
+			Informações Adicionais:
+				Operações
+					Saída
+					Entrada
+				Status
+					Normal
+				Espécies
+					NFS-e
+					NF-e (mista)
+					NFC-e (mista)
+					CF-e (mista)
+				Processos
+					Inclusão da nota
+					Recontabilizando por dentro da nota
+					Recontabilizando pela ferramenta "Contabilizar Movimentos"
+				Mais de 1 item e diferentes
+				Mais de 1 corpo
+				Testar em Base real de pendências passadas
+Links de testes unitários:
+Links de testes funcionais:

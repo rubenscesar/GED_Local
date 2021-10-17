@@ -1,0 +1,116 @@
+Épico: A partir de 01/06/2021, além do cálculo já existente, deverá ser diminuído o valor do ICMS Normal destacado na nota para encontrar o valor da Base de Cálculo de PIS e COFINS.
+Número do cartão: S CH202106122335
+Ano de publicação: 2021
+Relacionamentos: Sped Contribuições, Sped PIS/COFINS, Exclusão do ICMS da Base de Cálculo de PIS/COFINS
+Requisitos:
+	RE[1.1.1] Exigências para enquadramento do requisito:
+		tela
+			entrada: não diminui, não preenche
+			devolução entrada: diminuir
+			saída: diminuir
+			devolução saída: diminuir
+		ferramenta
+		sped piscofins pag 20-25
+		nesta 1ª fase - foco em cálculo
+		import xml 2ª fase
+	RE[1.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RE[1.3.1] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.1.1] Exigências para enquadramento da regra:
+	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.3.1] Demonstrativo de cálculo:
+	RN[2.4.1] Funcionalidade consequente:
+Matriz de risco:
+Features:
+Scenário Outline:
+	Firebird
+	SQL
+		Regime de Tributação Federal - Lucro Real
+		Regime de Tributação Federal - Lucro Presumido
+			Regime de Tributação Estadual - Normal
+				Incidência tributária não-cumulativa
+				Incidência tributária cumulativa
+				Incidência tributária não-cumulativa e cumulativa (padrão não-cumulativa)
+					Contribuinte do IPI
+					Não contribuinte do IPI
+						Alíquota padrão de PIS/COFINS
+						Alíquota específica de PIS/COFINS
+							Regime de competência
+							Regime de caixa
+								Adotando critério de escrituração Consolidada para gerar Sped Contribuições, sem informar itens no Histórico da empresa e informando itens no Histórico do estabelecimento
+								Adotando critério de escrituração Consolidada para gerar Sped Contribuições, sem informar itens no Histórico da empresa e sem informar itens no Histórico do estabelecimento
+								Adotando critério de escrituração Detalhada para gerar Sped Contribuições, informando itens no Histórico da empresa e no Histórico do estabelecimento
+									Atender a um ciclo onde os testes irão passar
+									Atender a um ciclo onde os testes irão dar errado
+									Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou outra por ter especificações diferentes
+									Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou a forma como vinha sendo feito até esta data
+										Informações Adicionais:
+										Operação:
+											Saída
+											Entrada
+										Espécies:
+											Informando mercadorias e/ou serviços
+												NF-e
+												NF-e (terceiros)
+												NF1
+												NFP
+												NFC-e
+												NFVC
+												CF-e
+												CF
+												CT-e
+												CTRC
+												CTeOS
+												NFST
+												BP-e
+												BPR
+												NFSTC
+												NFSC
+												RDD
+												GCO
+										Peculiaridades das notas:
+											A partir da data até 31/05/2021
+											A partir da data 01/06/2021
+											Com Desconto
+											Mais de 1 item
+											Itens diferentes
+											Mais de 1 corpo
+											Operação Normal
+											Operação de Devolução de Venda
+											Operação de Devolução de Compra
+											Com processo Administrativo/Judiciário
+											Nota Complementar
+											Saídas
+												ICMS Normal
+												ICMS Substituição
+												ICMS Outras
+												CST de PIS/COFINS Tributado
+												CST de PIS/COFINS Substituição
+												CST de PIS/COFINS Isento
+												CST de PIS/COFINS Outros
+											Entradas
+												ICMS Normal
+												ICMS Substituição
+												ICMS Outras
+												CST de PIS/COFINS Tributado
+												CST de PIS/COFINS Substituição
+												CST de PIS/COFINS Isento
+												CST de PIS/COFINS Outros
+										Processos para ter atenção ao testar:
+											Controle de Retenções
+												Se ao aplicar a Exclusão do ICMS da B.C. de PIS/COFINS do período não estará interferiando no saldo de retenções de PIS/COFINS
+											Controle de Crédito
+												Se ao aplicar a Exclusão do ICMS da B.C. de PIS/COFINS do período não estará interferiando no saldo de crédito de PIS/COFINS
+										Ferramentas:
+											Utilitários >> Ferramentas >> Preencher Dados PIS e COFINS
+											Utilitários >> Recalcular Tributos Federais
+										Relatórios:
+											Relatórios >> Tributos Federais >> COFINS, PIS, CSL e IRPJ (Demonstrativo de Cálculo)
+											Relatórios >> Tributos Federais >> DARF
+										Obrigação acessória:
+											Sped Contribuições
+										Testar em Base real de pendências passadas
+Stack:
+Links de testes unitários:
+Links de testes funcionais:
+Recursos:

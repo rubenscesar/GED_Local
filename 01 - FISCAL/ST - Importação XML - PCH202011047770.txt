@@ -1,0 +1,40 @@
+Épico: Ao realizar a importação de arquivo XML de NF-e de entrada o sistema está puxando a informação do Tipo de Fatura na aba Faturas da Configurações para as saídas
+Número do cartão: P CH202011047770 
+Ano de publicação: 2021
+Relacionamentos: Importação XML, NF-e, NFC-e
+Requisitos:
+	RE[1.1.1] Exigências para enquadramento do requisito:
+	RE[1.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RE[1.3.1] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.1.1] Exigências para enquadramento da regra:
+	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.3.1] Demonstrativo de cálculo:
+	RN[2.4.1] Funcionalidade consequente:
+Matriz de risco:
+Features:
+Scenário Outline:
+	Firebird
+		Informações Adicionais:
+			Operação
+				Saída
+				Entrada
+			Imortação
+				Importação .XML
+					NF-e
+					NFC-e
+					CF-e
+			Fatura informada na nota (.XML)
+				à Vista
+				a Prazo
+				Outros
+				Sem Fatura
+			Fatura informada na Confiuração
+				à Vista
+				a Prazo
+				Sem Informação de tipo de fatura
+			Testar em Base real de pendências passadas
+Stack:
+Links de testes unitários:
+Links de testes funcionais:
+Recursos:

@@ -1,0 +1,64 @@
+Épico: Telatório de quebra de sequência não reconhece as notas lançadas manualmente
+Número do cartão: CH202107088111 
+Ano de publicação: 2021
+Relacionamentos: Relatório, Quebra de Sequência
+Requisitos:
+	RE[1.1.1] Exigências para enquadramento do requisito:
+	RE[1.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RE[1.3.1] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.1.1] Exigências para enquadramento da regra:
+	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.3.1] Demonstrativo de cálculo:
+	RN[2.4.1] Funcionalidade consequente:
+Matriz de risco:
+Features:
+	Com AMIDF
+	Sem AMIDF
+		Com Espécie (Fortaleza - CE)
+		Sem Espécie (Juazeiro do Norte - CE)
+			Com Série (Fortaleza - CE)
+			Sem Série (Juazeiro do Norte - CE)
+				NFS
+					Manual
+					Importação FS
+						Lançar notas com número
+							1
+							2 cancelado
+							3
+							5
+							6
+							9
+							apaga a 5
+							5
+							11
+							12
+							13
+							14	apaga a 13
+							1000000
+							{OBSERVAÇÃO
+								É esperado acusar quebra:
+									NFS	4
+									NFS	7 a 8
+									NFS	10
+									NFS	13
+									NFS	15 a 999999}
+					Misto
+						Lançar notas com número
+							Manual		Importado
+							1
+										2	cancelado
+							3
+										4
+							5
+							apaga 3
+										3
+							{OBSERVAÇÃO
+								É esperado não acusar quebra}
+Scenário Outline:
+Stack:
+Links de testes unitários:
+Links de testes funcionais:
+Recursos:
+	Quebra de Sequência-Relacionamento entre lançamentos NFS manuais e importados.fs
+	Quebra de Sequência-NFS.fs

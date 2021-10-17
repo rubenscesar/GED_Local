@@ -1,0 +1,170 @@
+Épico: Sistema não está gerando para o demonstrativo detalhado e consequentemente para o SPED Contribuições as devoluções de vendas
+Número do cartão: CH202109051664
+Ano de publicação: 2021
+Relacionamentos: Alíquota Padrão
+Reproduzir Cenário da pandência:
+	• Em uma empresa com Regime de Tributação Federal - Lucro Presumido
+	• Alíquota padrão de PIS/COFINS
+	• Com 2 lançamentos sendo o primeiro lançamento de devolução de venda tendo CST de PIS/COFINS 98 e valores de base de cálculo, alíquota, valor de imposto e natureza da contribuição de estorno preenchidos
+	• E o próximo lançamento tendo valores de base de cálculo, alíquota, valor de imposto e natureza da contribuição de estorno em branco com CST que não gere crédito
+	• O "Relatórios >> Tributos Federais >> COFINS, PIS, CSL e IRPJ (Demonstrativo de Cálculo)" apresenta resultado desconsiderando a devolução no mesmo relatório sendo "Detalhado"
+Requisitos:
+	RE[1.1.1] Exigências para enquadramento do requisito:
+		Exclusão do ICMS da Base de Cálculo de PIS/COFINS
+		tela
+			entrada: não diminui, não preenche
+			devolução entrada: diminuir
+			saída: diminuir
+			devolução saída: diminuir
+	RE[1.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RE[1.3.1] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.1.1] Exigências para enquadramento da regra:
+	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.3.1] Demonstrativo de cálculo:
+	RN[2.4.1] Funcionalidade consequente:
+Matriz de risco:
+Features:
+	Firebird
+		Regime de Tributação Federal - Lucro Real
+		Regime de Tributação Federal - Lucro Presumido
+			Regime de Tributação Estadual - Normal
+				Incidência tributária não-cumulativa
+				Incidência tributária cumulativa
+				Incidência tributária não-cumulativa e cumulativa (padrão não-cumulativa)
+					Não contribuinte do IPI
+						Alíquota padrão de PIS/COFINS
+							Regime de competência
+							Regime de caixa {devolução não gera estorno em regime de caixa, pois é uma devolução financeira}
+								Adotando critério de escrituração Consolidada para gerar Sped Contribuições, sem informar itens no Histórico da empresa e informando itens no Histórico do estabelecimento
+								Adotando critério de escrituração Consolidada para gerar Sped Contribuições, sem informar itens no Histórico da empresa e sem informar itens no Histórico do estabelecimento
+								Adotando critério de escrituração Detalhada para gerar Sped Contribuições, informando itens no Histórico da empresa e no Histórico do estabelecimento
+									Atender a um ciclo onde os testes irão passar
+									Atender a um ciclo onde os testes irão dar errado
+									Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou outra por ter especificações diferentes
+									Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou a forma como vinha sendo feito até esta data
+										Informações Adicionais:
+											Operação:
+												Saída
+												Entrada
+											Espécies:
+												NF-e
+												NF-e (Documentos Próprios)
+											Peculiaridades das notas:
+												Operação de Saída Normal
+													CST 01 Alíquota básica
+												Operação de Devolução de Venda
+												// Com Direito a Crédito
+													CST 50 Alíquota básica
+													CST 60 Alíquota básica
+													CST 63 Alíquota básica
+													CST 64 Alíquota básica
+													CST 65 Alíquota básica
+													CST 67 Alíquota básica
+													CST 75 Alíquota básica (Com base de Cálculo)
+												// Sem Direito a Crédito
+													CST 70 Alíquota básica
+													CST 71 Alíquota básica
+													CST 72 Alíquota básica
+													CST 73 Alíquota básica
+													CST 74 Alíquota básica
+													CST 75 Alíquota básica (Sem base de Cálculo)
+													CST 98 Alíquota básica
+													CST 99 Alíquota básica
+												Mais de 1 item
+												Itens diferentes
+												Mais de 1 corpo
+											Relatórios:
+												Relatórios >> Tributos Federais >> COFINS, PIS, CSL e IRPJ (Demonstrativo de Cálculo)
+												Relatórios >> Tributos Federais >> DARF
+											Obrigação acessória:
+												Sped Contribuições
+												REINF
+											Testar em Base real de pendências passadas
+Matriz de Lançamentos de NF-e de Entrada (Documento Próprio):
+	| Número	| Cód do Item	| CST PIS/COFINS	| Possui Valores (Base de Cálculo, Alíquota, Imposto, Nat. Cont. Estorno)
+	| 2			| 1				| 98				| Sim
+	| 2			| 1				| 70				| Não
+	| 2			| 2				| 71				| Não
+	| 2			| 3				| 72				| Não
+	| 2			| 1				| 73				| Não
+	| 2			| 2				| 74				| Não
+	| 2			| 3				| 75				| Não
+	| 2			| 1				| 98				| Não
+	| 2			| 2				| 99				| Não
+	-----------------------------------------------------
+	| 4			| 1				| 98				| Sim
+	| 4			| 1				| 50				| Sim
+	| 4			| 2				| 60				| Sim
+	| 4			| 3				| 63				| Sim
+	| 4			| 1				| 64				| Sim
+	| 4			| 2				| 65				| Sim
+	| 4			| 3				| 67				| Sim
+	| 4			| 1				| 75				| Sim
+	| 4			| 2				| 98				| Sim
+	| 4			| 3				| 99				| Sim
+	-----------------------------------------------------
+	| 6			| 1				| 50				| Sim
+	| 6			| 2				| 60				| Sim
+	| 6			| 3				| 63				| Sim
+	| 6			| 1				| 64				| Sim
+	| 6			| 2				| 65				| Sim
+	| 6			| 3				| 67				| Sim
+	| 6			| 1				| 75				| Sim
+	| 6			| 2				| 98				| Sim
+	| 6			| 3				| 99				| Sim
+	| 6			| 1				| 75				| Não
+	| 6			| 2				| 98				| Não
+	| 6			| 3				| 99				| Não
+	-----------------------------------------------------
+	| 8			| 2				| 99				| Sim
+	| 8			| 2				| 70				| Não
+	| 8			| 3				| 71				| Não
+	| 8			| 1				| 72				| Não
+	| 8			| 2				| 73				| Não
+	| 8			| 3				| 74				| Não
+	| 8			| 1				| 75				| Não
+	| 8			| 2				| 98				| Não
+	| 8			| 3				| 99				| Não
+	-----------------------------------------------------
+	| 10		| 2				| 99				| Sim
+	| 10		| 2				| 50				| Sim
+	| 10		| 3				| 60				| Sim
+	| 10		| 1				| 63				| Sim
+	| 10		| 2				| 64				| Sim
+	| 10		| 3				| 65				| Sim
+	| 10		| 1				| 67				| Sim
+	| 10		| 2				| 75				| Sim
+	| 10		| 3				| 98				| Sim
+	| 10		| 1				| 99				| Sim
+	-----------------------------------------------------
+	| 12		| 2				| 50				| Sim
+	| 12		| 3				| 60				| Sim
+	| 12		| 1				| 63				| Sim
+	| 12		| 2				| 64				| Sim
+	| 12		| 3				| 65				| Sim
+	| 12		| 1				| 67				| Sim
+	| 12		| 2				| 75				| Sim
+	| 12		| 3				| 98				| Sim
+	| 12		| 1				| 99				| Sim
+	| 12		| 2				| 70				| Não
+	| 12		| 3				| 71				| Não
+	| 12		| 1				| 72				| Não
+	| 12		| 2				| 73				| Não
+	| 12		| 3				| 74				| Não
+	| 12		| 1				| 75				| Não
+	| 12		| 2				| 98				| Não
+	| 12		| 3				| 99				| Não
+Scenário Outline:
+Stack:
+Links de testes unitários:
+Links de testes funcionais:
+Recursos:
+	REINF
+		UPDATE EMP
+		SET
+			GUIDHOMOREINF = 'a7a19471-1049-47ea-aa96-6b54857fe945',
+			DTADESAOREINFPROD = NULL,
+			DTADESAOREINFHOMO = '1-JAN-2019 00:00:00',
+			AMBIENTEATIVOREINF = 2
+		WHERE (CODIGO = '0003')

@@ -1,0 +1,40 @@
+Épico: Empresa do Simples Nacional até a competência 07/2020 e em 08/2020 passou a ser Lucro Real e ao gerar a DEFIS de 2020 o sistema apresenta o seguinte erro
+Número do cartão: P CH202106117982 
+Ano de publicação: 2021
+Relacionamentos: DEFIS, Simples Nacional, Quadro Societário
+Requisitos:
+	RE[1.1.1] Exigências para enquadramento do requisito:
+	RE[1.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RE[1.3.1] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.1.1] Exigências para enquadramento da regra:
+	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.3.1] Demonstrativo de cálculo:
+	RN[2.4.1] Funcionalidade consequente:
+Matriz de risco:
+Features:
+Scenário Outline:
+	Firebird
+		Quadro Societário cadastrado
+		Quadro Societário não cadastrado
+			Considerando a geração da DEFIS para ano 2020
+				Informações Adicionais
+					Histórico da Empresa contendo
+						1º Histórico				2º Histórico					3º Histórico					Resultado quando possui Quadro Societário cadastrado	Resultado quando não possui Quadro Societário cadastrado
+						2015 - Simples Nacional		não possui														Passa													Não passa (mensagem)
+						2015 - Simples Nacional		01/01/2020 - Lucro Real											Não passa												Passa
+						2015 - Simples Nacional		01/02/2020 - Lucro Real											Passa													Passa
+						2015 - Simples Nacional		31/12/2020 - Lucro Real											Passa													Passa
+						2015 - Simples Nacional		01/01/2020 - Lucro Real			01/05/2020 - Simples Nacional	Passa													Não passa (mensagem)
+						2015 - Lucro Real			não possui														Passa													Não passa
+						2015 - Lucro Real			01/01/2020 - Simples Nacional									Passa													Não passa (mensagem)
+						2015 - Lucro Real			01/02/2020 - Simples Nacional									Passa													Não passa (mensagem)
+						2015 - Lucro Real			31/12/2020 - Simples Nacional									Passa													Não passa (mensagem)
+						2015 - Lucro Real			01/01/2020 - Simples Nacional	01/05/2020 - Lucro Real			Passa													Não passa (mensagem)
+					Relatório
+						Relatórios >> Simples Nacional >> DEFIS
+					Testar em Base real de pendências passadas
+Stack:
+Links de testes unitários:
+Links de testes funcionais:
+Recursos:

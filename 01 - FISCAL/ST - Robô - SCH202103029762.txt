@@ -1,0 +1,43 @@
+Épico: Criação de Robô para emissão de Relatórios - Lançamentos Contábeis - Consolidados
+Número do cartão: S CH202103029762
+Épico: Criação de Robô para emissão de Relatórios - Lançamentos Contábeis - Saídas
+Número do cartão: S CH202107027456
+Ano de publicação: 2021
+Relacionamentos: Robô, Robotização, Contabilização, Relatórios, Lançamentos Contábeis, Consolidados
+Requisitos:
+	RE[1.1.1] Exigências para enquadramento do requisito:
+	RE[1.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RE[1.3.1] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.1.1] Exigências para enquadramento da regra:
+	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.3.1] Demonstrativo de cálculo:
+	RN[2.4.1] Funcionalidade consequente:
+Matriz de risco:
+Features:
+Scenário Outline:
+	Firebird
+	SQL
+		Escriturando em 2 estabelecimentos
+			Informações Adicionais:
+				Robotização
+					CRUD
+						Executando Agora
+						Agendado
+							Empresa específica
+							Todas as empresas
+								Por estabelecimento
+								Todos os estabelecimentos
+									Relatório do Último mês
+									Relatório dos Últimos 7 meses
+										Novo Processo > Personalizado
+										Novo Processo > Utilizando um processo modelo
+					Relatório
+						Relatórios >> Lançamentos Contábeis >> Consolidados
+						Relatórios >> Lançamentos Contábeis >> Saídas
+							Com Filtros
+				Testar em Base real de pendências passadas
+Stack:
+Links de testes unitários:
+Links de testes funcionais:
+Recursos:

@@ -1,0 +1,47 @@
+Épico: Erro ao importar arquivo FS, registro PNM e INM no campo base de calculo FECOP, quando a informação esta preenchido CSOSN 0102.
+Número do cartão: P CH202011048504
+Ano de publicação: 2021
+Relacionamentos: FCP Normal, Importação fs, FECOP
+Requisitos:
+	RE[1.1.1] Exigências para enquadramento do requisito:
+	RE[1.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RE[1.3.1] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.1.1] Exigências para enquadramento da regra:
+	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.3.1] Demonstrativo de cálculo:
+	RN[2.4.1] Funcionalidade consequente:
+Matriz de risco:
+Features:
+Scenário Outline:
+	Firebird
+	SQL
+		Escriturando em 2 estabelecimentos, sendo 1 diferente do CE
+			Regime de Tributação Federal - Simples Nacional
+				Regime de Tributação Estadual - Simples Nacional
+					Regime de competência
+						Informando itens
+							Informações Adicionais:
+							Operação:
+								Saída
+								Entrada
+								Devolução de compra
+								Devolução de venda
+							Espécies:
+								NF-e
+								NFC-e
+							Peculiaridades das notas de entrada e saída:
+								Incluir notas com mais de 1 corpo e CSOSN diferentes
+								Incluir notas com 1 item
+								Incluir vários itens diferentes
+								Incluir notas com CSOSN x102
+								Incluir notas com todos os CSOSN
+								Incluir notas com FCP
+								Incluir notas sem FCP
+							Imortação:
+								Importação .fs
+							Testar em Base real de pendências passadas
+Stack:
+Links de testes unitários:
+Links de testes funcionais:
+Recursos:

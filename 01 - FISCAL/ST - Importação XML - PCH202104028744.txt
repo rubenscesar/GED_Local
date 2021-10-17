@@ -1,0 +1,143 @@
+Épico:	• Cliente está tentando realizar a importação de NF-e´s via chave de acesso e depois de realizar a importação da primeira nota ao tentar realizar a segunda importação o sistema apresenta a mensagem de Falha de Conexão com a Internet e em seguida fecha o sistema impossibilitando pegar a imagem do erro.
+		• Adaptação para nova metodologia de imnportação Web
+Número do cartão: CH202104028744 
+Ano de publicação: 2021
+Relacionamentos: Importação XML, NF-e
+Requisitos:
+Regras de Negócio:
+	RN[2.1.1] Exigências para enquadramento da regra:
+		RN[2.1.2]
+			Criada nova funcionalidade que permite configurar o método de importação de NF-e em Utilitários >> Configuração // Fiscal // Importação NF-e/NFC-e/CF-e
+				• Descrição: "Utilizar nova importação NFe Web"
+				• Padrão: Marcada
+		RN[2.1.3]
+			Para viabilizar a homologação do cartão foi criado os seguintes artifícios:
+				• AutenticaNFe.zip copiar para c:\Fortes\AC\AutenticaNFeWeb
+				• Renomeia o arquivo XML para NFEWeb e cola na pasta c:\Fortes\AC\AutenticaNFeWeb
+				• Acessar o sistema com o usuário FORTES
+	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+		NF-e
+Matriz de risco:
+Features:
+Scenário Outline:
+Stack:
+	Firebird
+	SQL
+		Regime de Tributação Federal - Lucro Real ou Lucro Presumido
+		Regime de Tributação Federal - Simples Nacional
+			Regime de Tributação Estadual - Normal
+			Regime de Tributação Estadual - Simples Nacional
+			Regime de Tributação Estadual - Excluído do Simples Nacional (Normal estado)
+				Informando itens
+				Sem informar itens
+					Contribuinte do IPI
+					Não contribuinte do IPI
+						Empresa PJ em Geral
+						Empresa Pessoa Física (Produtor Rural)
+							VM Windows 10 Pro
+							VM Windows 10 Home Single Language
+							VM Windows XP
+								Informações Adicionais
+									Importação
+										Importação WEB
+										Importação .XML
+											Espécie NF-e
+												Operação e Tipo
+													Saída (Documento Próprio)
+													Saída (Devolução com Documento Próprio)
+													Saída (Devolução de Terceiros)
+													Saída (Com Serviço)
+													Saída (Transferência)
+													Saída (Medicamentos)
+													Saída (Complementar)
+													Saída (ICMS de Desoneração)
+													Saída (Cancelado)
+													Saída (Documento Referenciado)
+													Saída (Com Imunidade (CST de ICMS x50))
+													Saída (Erros já ajustados em versões anteriores)
+														• Erro Float Inválido
+														• Access Violation
+													Saída (FCP)
+													Saída (Tributação Monofásica (CST PIS/COFINS 04)
+													Saída (Segmento Automotivo)
+													Saída (Intermunicipal)
+													Saída (Substituição Tributária Retida)
+													Saída (Exterior)
+													Saída (Com dados de outra empresa)
+													Saída (Alíquota PIS/COFINS específica)
+													Entrada (Documento de Terceiros)
+													Entrada (Devolução com Documento Próprio)
+													Entrada (Com Serviço)
+													Entrada (Transferência)
+													Entrada (Medicamentos)
+													Entrada (Complementar)
+													Entrada (ICMS de Desoneração)
+													Entrada (Cancelado)
+													Entrada (Documento Referenciado)
+													Entrada (Com Imunidade (CST de ICMS x50))
+													Entrada (Erros já ajustados em versões anteriores)
+														• Erro Float Inválido
+														• Access Violation
+													Entrada (FCP)
+													Entrada (Tributação Monofásica (CST PIS/COFINS 04)
+													Entrada (Segmento Automotivo)
+													Entrada (Intermunicipal)
+													Entrada (Substituição Tributária Retida)
+													Entrada (Substituição Tributária a Recolher)
+													Entrada (Antecipado)
+													Entrada (Diferencial de Alíquota)
+													Entrada (Importação)
+													Entrada (Com dados de outra empresa)
+													Entrada (Alíquota PIS/COFINS específica)
+												Configuração
+													Grupo de Produto Configurado
+													Não - Grupo de Produto Configurado
+													Preencher o Gênero do Produto com base nos dois primeiros dígitos do Código NCM
+													Não - Preencher o Gênero do Produto com base nos dois primeiros dígitos do Código NCM
+													Abrir tela de Mapeamento de Tributação por Fornecedor
+													Não - Abrir tela de Mapeamento de Tributação por Fornecedor
+													Importar somente notas autorizadas
+													Não - Importar somente notas autorizadas
+													Localizar produto na importação de NFe através do código de barras
+													Não - Localizar produto na importação de NFe através do código de barras
+													Utilizar como Serviço (ISS) Padrão o Serviço do Documento XML
+													Não - Utilizar como Serviço (ISS) Padrão o Serviço do Documento XML
+													Atualiza dados dos Participantes já cadastrados
+													Não - Atualiza dados dos Participantes já cadastrados
+														Gerar Históricos dos Participantes
+														Não - Gerar Históricos dos Participantes
+													Atualizar dados dos Produtos já cadastrados
+													Não - Atualizar dados dos Produtos já cadastrados
+														Gerar Históricos dos Produtos
+														Não - Gerar Históricos dos Produtos
+													Validar se CNPJ/CPF está preenchido quando Participante não for do Exterior
+													Não - Validar se CNPJ/CPF está preenchido quando Participante não for do Exterior
+												Verificar dados da nota
+													Participante
+													Produtos
+													GRID dos itens
+													Impostos
+													Fatura informada na nota (.XML)
+														à Vista
+														a Prazo
+														Outros
+														Sem Fatura
+														Fatura informada na Configuração
+															à Vista
+															a Prazo
+															Sem Informação de tipo de fatura
+													Transporte
+													DIFAL
+													Arredondamento
+														Lançamentos no qual 2 itens tenham como resultados da base de cálculo de ICMS x alíquota de ICMS um valor > 5 na 3ª casa decimal
+														Lançamentos no qual 2 itens tenham como resultados da base de cálculo de ICMS x alíquota de ICMS um valor < 5 na 3ª casa decimal
+															Na tag <total><ICMSTot><vICMS> seja o o mesmo valor
+													Mais de 1 item
+													Itens diferentes
+													Mais de 1 corpo
+													Se está obedecendo o mapeamento das marcações ICMS/IPI/COFINS/PIS monofásico e/ou substituição da aba Simples Nacional do cadastro do produto
+													Se está obedecendo o mapeamento das marcações ICMS/IPI/COFINS/PIS monofásico e/ou substituição da Configuração quando o produto não estiver cadastrado ou não houver marcações na sua aba Simples Nacional
+												Testar em Base real de pendências passadas
+Links de testes unitários:
+Links de testes funcionais:
+Recursos:

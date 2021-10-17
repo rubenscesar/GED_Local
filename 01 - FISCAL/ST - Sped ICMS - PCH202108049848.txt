@@ -1,0 +1,53 @@
+Épico:
+Número do cartão: P CH202108049848
+Ano de publicação: 2021
+Relacionamentos: Sped ICMS, Sped Fiscal, Bloco B, Registro B020, Registro B025, Registro B450, Registro B470
+Requisitos:
+	RE[1.1.1] Exigências para enquadramento do requisito:
+		Foi definido nos registros B020.17, B020.20, B025.3, B025.5, B420.3, B420.6, B470.8 e B470.10 seria informado a soma dos valores de ISS retido e o não retido
+	RE[1.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RE[1.3.1] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.1.1] Exigências para enquadramento da regra:
+		A UF da Empresa tem de ser DF
+		Lançamentos de serviço em NFS-e, NFC-e e NF-e
+	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.3.1] Demonstrativo de cálculo:
+	RN[2.4.1] Funcionalidade consequente:
+Matriz de risco:
+Features:
+Scenário Outline:
+	Firebird
+	SQL
+		Regime de Tributação Federal - Lucro Real ou Lucro Presumido
+		Regime de Tributação Federal - Simples Nacional
+			Regime de Tributação Estadual - Normal
+			Regime de Tributação Estadual - Simples Nacional
+				Informando itens
+				Sem informar itens
+					Informações Adicionais
+						Operação
+							Saída
+							Entrada
+						Espécies
+							NFS-e
+							NF-e (com serviço)
+							NFC-e (com serviço)
+						Peculiaridades das notas de entrada e saída
+							nota cancelada
+							Incluir notas com mais de 1 corpo e dados diferentes
+							Incluir vários itens de serviço diferentes
+							Incluir valores de ISS retido
+							Incluir valores de ISS a recolher
+						Obrigação acessória
+							Sped Fiscal
+								Perfil A
+								Perfil B
+								Perfil C
+						Conversão
+							Sped ICMS
+						Testar em Base real de pendências passadas
+Stack:
+Links de testes unitários:
+Links de testes funcionais:
+Recursos:

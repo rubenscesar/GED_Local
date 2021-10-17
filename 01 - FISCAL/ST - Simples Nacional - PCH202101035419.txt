@@ -1,0 +1,76 @@
+Épico: Ao informar o CFOP 5922 o sistema não esta calculando o IPI no Demonstrativo de Cálculo do Simples Nacional mesmo estando marcado "Operação com Produtos Industrializados pelo Estabelecimento" e no HEM "Reconhecer como Receita os CFOPs (5.922 e 6.922) com Remessa de Entrega Futura"
+Número do cartão: P CH202101035419
+Ano de publicação: 2021
+Relacionamentos: Simples Nacional, Demonstrativo de Cálculo, 5.922, 6.922, Remessa de Entrega Futura, Operação com Produtos Industrializados pelo Estabelecimento, Anexo II, IPI
+Requisitos:
+	RE[1.0] Exigências para enquadramento do requisito:
+	RE[1.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RE[1.2] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.0] Exigências para enquadramento da regra:
+	RN[2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.2] Demonstrativo de cálculo:
+	RN[2.3] Funcionalidade consequente:
+Features / Matriz de risco:
+
+	1 Empresa do Simples Nacional, no Regime de Competência, Informando Itens, enquadrada no Anexo I
+	2 Empresa do Simples Nacional, no Regime de Caixa, Informando Itens, enquadrada no Anexo I
+	3 Empresa do Simples Nacional, no Regime de Competência, Sem informar itens, enquadrada no Anexo I
+	4 Empresa do Simples Nacional, no Regime de Competência, Informando Itens, enquadrada no Anexo II, Contribuinte do IPI
+	5 Empresa do Simples Nacional, no Regime de Competência, Informando Itens, enquadrada no Anexo II, Não contribuinte do IPI
+	6 Empresa do Simples Nacional, no Regime de Caixa, Informando Itens, enquadrada no Anexo II, Contribuinte do IPI
+	7 Empresa do Simples Nacional, no Regime de Caixa, Informando Itens, enquadrada no Anexo II, Não contribuinte do IPI
+	8 Empresa do Simples Nacional, no Regime de Competência, Sem informar itens, enquadrada no Anexo II, Contribuinte do IPI
+	9 Empresa do Simples Nacional, no Regime de Competência, Sem informar itens, enquadrada no Anexo II, Não contribuinte do IPI
+	10 Excluído do Simples Nacional (Normal estado), no Regime de Competência, Informando Itens, enquadrada no Anexo I
+	11 Excluído do Simples Nacional (Normal estado), no Regime de Caixa, Informando Itens, enquadrada no Anexo I
+	12 Excluído do Simples Nacional (Normal estado), no Regime de Competência, Informando Itens, enquadrada no Anexo II, Contribuinte do IPI
+	13 Excluído do Simples Nacional (Normal estado), no Regime de Competência, Informando Itens, enquadrada no Anexo II, Não contribuinte do IPI
+	14 Excluído do Simples Nacional (Normal estado), no Regime de Caixa, Informando Itens, enquadrada no Anexo II, Contribuinte do IPI
+	15 Excluído do Simples Nacional (Normal estado), no Regime de Caixa, Informando Itens, enquadrada no Anexo II, Não contribuinte do IPI
+
+Scenário Outline:
+
+	Firebird	
+	SQL	
+		Vários estabelecimentos: UF CE
+		Vários estabelecimentos: UF RJ
+			Simples Nacional
+			Excluído do Simples Nacional (Normal estado)
+			Normal
+				Competência
+				Caixa
+					Contribuinte do IPI
+					Não contribuinte do IPI
+						Informando itens
+						Sem informar itens
+							Anexo I
+							Anexo II
+								CFOPs (5.922 e 6.922) marcado "Operação com Produtos Industrializados pelo Estabelecimento"
+								CFOPs (5.922 e 6.922) desmarcado "Operação com Produtos Industrializados pelo Estabelecimento"
+									Utilizando o recurso de Reconhecer como Receita os CFOPs (5.922 e 6.922) com Remessa de Entrega Futura
+										Hands On:
+										Operação de Saída
+										Espécies
+											NF-e
+											NFC-e
+											CF-e
+												2 equipamentos
+										Lançamento com IPI
+										Lançamento sem IPI
+										Teste funcional das telas e relatórios:	
+											Utilitários >> Valores dos Estabelecimentos
+											Relatórios >> Simples Nacional >> Espelho PGDAS
+											Relatórios >> Simples Nacional >> Acompanhamento Tributário
+											Relatórios >> Simples Nacional >> Acompanhamento Tributário (Demonstrativo de Cálculo)
+											Relatórios >> Simples Nacional >> DEFIS
+											Relatórios >> Receitas por Estabelecimento
+											Relatórios >> Declaração de Faturamento
+											Relatórios >> Resumo >> Resumo Gerencial de Receitas e Tributos
+										Verificar relatórios com filtros
+										Receita Bruta não proporcionalizada
+										Testar em Base real de pendências passadas
+
+Stack:
+Links de testes unitários:
+Links de testes funcionais:
