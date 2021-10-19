@@ -39,20 +39,22 @@ Features:
 					Somando os valores da VUC
 					Subtraindo os valores da VUC
 			Valores Utilizados nas Contabilizações (VUC)
-				Mais de uma VUC para o mesmo lançamento
-					Contendo apenas Descrição
-					Com Descrição e Código
-					Com Descrição, Código e Forma de Pagamento
-			Imortação
+				Contendo apenas Descrição
+				Com Descrição e Código
+				Com Descrição, Código e Forma de Pagamento
+			Importação
 				Importação XML
 				Importação .FS
 					LeiauteImportacaoFortesACFiscal.doc
 					Peculiaridades dos dados de Contabilização na importação
 						Sem VUC (Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou outra por ter especificações diferentes)
 						Com VUC
-							Contendo novas formas de pagamentos conforme RE[1.1.1]
 							Contendo um tipo de forma de pagamento preexistente (Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou outra por ter especificações diferentes)
+							Contendo novas formas de pagamentos conforme RE[1.1.1]
+						Mais de uma VUC para o mesmo lançamento
 				Verificar se ao desfazer importação FS após ter contabilizado não está mantendo prezo os lançamentos contábeis. Para conferir tem de dar um select na tabela LCF após importar, contabilizar e desfazer importação FS para ver se as contabilizações permanecem ou não no banco.
+			Sincronização de Cadastros
+				Contabilizações
 			Testar em Base real de pendências passadas
 			Exportar para Contabilidade
 Scenário Outline:
@@ -60,7 +62,6 @@ Stack:
 Links de testes unitários:
 Links de testes funcionais:
 Recursos:
-					  Nome do arquivo no padrão:	[Relacionamento principal]-( Se for arquivo Abrasf informar o município e UF )[Município] (UF)-[Observação opcional]
-										Exemplo:	Arquivo para importação: Abrasf-Ponte Nova (MG)-Inscrição Estadual do Participante.xml
+	Arquivo para importação: Contabilização-Novas Opções de Forma de Pagamento para NFC-e.fs
 	Nome do arquivo do banco de dados no padrão:	[Iniciais do subsistema]-[Relacionamento principal]-[Ano de publicação]-[Nome da empresa]-[Período]-[Observação opcional]
 										Exemplo:	Banco para testes: ACC-Planilha Financeira-2021-ONE INTERNET SA-042021.rar
