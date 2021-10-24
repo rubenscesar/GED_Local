@@ -1,0 +1,101 @@
+Épico: Sistema não está ajustando as informações do ICMS Substituição ao utilizar a ferramenta de Ajustar Tributação ICMS e IPI dos Itens
+Número do cartão: CH202106099778
+Ano de publicação: 2021
+Relacionamentos: Ajustar Tributação, Substituição Tributária, ICMS
+Requisitos:
+	RE[1.1.1] Exigências para enquadramento do requisito:
+		CE
+			IPI soma na substituição e antecipação e diferencial e normal
+		MG IPI soma na substituição e antecipação
+			IPI não soma do diferencial de alíquota
+		BA IPI soma na substituição e antecipação
+			IPI não soma do diferencial de alíquota
+		SC IPI soma na substituição e antecipação
+			Talvez (IPI soma no diferencial de alíquota)
+	RE[1.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RE[1.3.1] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.1.1] Exigências para enquadramento da regra:
+	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.3.1] Demonstrativo de cálculo:
+	RN[2.4.1] Funcionalidade consequente:
+Matriz de risco:
+Features:
+Scenário Outline:
+Stack:
+	Firebird
+		Escriturando em 4 estabelecimentos, sendo 3 obrigatoriamente de MG, BA e SC
+			Contribuinte do IPI
+			Não Contribuinte do IPI
+				Regime de Tributação Federal - Lucro Real ou Lucro Presumido
+				Regime de Tributação Federal - Simples Nacional
+					Regime de Tributação Estadual - Normal
+					Regime de Tributação Estadual - Simples Nacional
+						Informando itens
+							Informações Adicionais
+								Operação
+									Entrada
+									Saída
+								Espécies
+									NF-e
+								Peculiaridades das notas de entrada e saída:
+									Incluir notas com mais de 1 corpo e dados diferentes
+									Incluir vários itens diferentes
+										Com ICMS Substituição Tributária
+											Retido
+											A recolher
+												Tipo - Agregação
+												Tipo - Pauta Fiscal
+												Tipo - Preço Tabelado ou Máximo Sugerido
+										Com ICMS Antecipado
+										Com ICMS Diferencial de Alíquota
+										Com ICMS Normal
+								Ajustar Tributação ICMS e IPI dos Itens
+									Com ICMS Normal
+										IPI compor a Base de Cálculo do ICMS
+										IPI Não compor a Base de Cálculo do ICMS
+									Com ICMS Antecipado
+									Com ICMS Diferencial de Alíquota
+									Com ICMS Substituição Tributária
+										Retido
+										A recolher
+											Tipo - Agregação
+											Tipo - Pauta Fiscal
+											Tipo - Preço Tabelado ou Máximo Sugerido
+												Agregação = 10%
+												Agregação = nulo
+													Com Base de Cálculo e Alíquota
+													Sem Base de Cálculo e Alíquota
+														ICMS ST/Antecipado Já Recolhido
+														ICMS ST/Antecipado Não Recolhido
+								Testar em Base real de pendências passadas
+Links de testes unitários:
+Links de testes funcionais:
+Recursos:
+					  Nome do arquivo no padrão:	[Relacionamento principal]-( Se for arquivo Abrasf informar o município e UF )[Município] (UF)-[Observação opcional]
+										Exemplo:	Arquivo para importação: Abrasf-Ponte Nova (MG)-Inscrição Estadual do Participante.xml
+	Nome do arquivo do banco de dados no padrão:	[Iniciais do subsistema]-[Relacionamento principal]-[Ano de publicação]-[Nome da empresa]-[Período]-[Observação opcional]
+										Exemplo:	Banco para testes: ACC-Planilha Financeira-2021-ONE INTERNET SA-042021.rar
+Fluxo Básico Modelo:
+	- Atender a um ciclo onde os testes irão passar
+	- Atender a um ciclo onde os testes irão dar errado
+	- Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou outra por ter especificações diferentes
+	- Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou a forma como vinha sendo feito até esta data
+
+
+
+			Contribuinte do IPI
+			Não Contribuinte do IPI
+				Regime de Tributação Federal - Lucro Real ou Lucro Presumido
+				Regime de Tributação Federal - Simples Nacional
+					Regime de Tributação Estadual - Normal
+					Regime de Tributação Estadual - Simples Nacional
+										Com ICMS Substituição Tributária
+										Com ICMS Antecipado
+										Com ICMS Diferencial de Alíquota
+										Com ICMS Normal
+
+
+LR - Não Contribuinte do IPI - Regime Estadual Normal - Com ICMS ST, Antecipado, Diferencial de Alíquota, ICMS Normal
+SN - Contribuinte do IPI - Regime Estadual Simples Nacional - Com ICMS ST, Antecipado, Diferencial de Alíquota, ICMS Normal
+SN - Não Contribuinte do IPI - Regime Estadual Simples Nacional - Com ICMS ST, Antecipado, Diferencial de Alíquota, ICMS Normal
