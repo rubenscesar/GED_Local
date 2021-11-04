@@ -72,30 +72,9 @@ Stack:
 Links de testes unitários:
 Links de testes funcionais:
 Recursos:
-					  Nome do arquivo no padrão:	[Relacionamento principal]-( Se for arquivo Abrasf informar o município e UF )[Município] (UF)-[Observação opcional]
-										Exemplo:	Arquivo para importação: Abrasf-Ponte Nova (MG)-Inscrição Estadual do Participante.xml
-	Nome do arquivo do banco de dados no padrão:	[Iniciais do subsistema]-[Relacionamento principal]-[Ano de publicação]-[Nome da empresa]-[Período]-[Observação opcional]
-										Exemplo:	Banco para testes: ACC-Planilha Financeira-2021-ONE INTERNET SA-042021.rar
+	Exemplo:	Arquivo para importação: ACF-Ajustar Tributação ICMS e IPI dos Itens-(CE)(MG)(SC)(BA)-Com ICMS ST, Antecipado, Diferencial de Alíquota, ICMS Normal.rar
 Fluxo Básico Modelo:
 	- Atender a um ciclo onde os testes irão passar
 	- Atender a um ciclo onde os testes irão dar errado
 	- Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou outra por ter especificações diferentes
 	- Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou a forma como vinha sendo feito até esta data
-
-
-
-			Contribuinte do IPI
-			Não Contribuinte do IPI
-				Regime de Tributação Federal - Lucro Real ou Lucro Presumido
-				Regime de Tributação Federal - Simples Nacional
-					Regime de Tributação Estadual - Normal
-					Regime de Tributação Estadual - Simples Nacional
-										Com ICMS Substituição Tributária
-										Com ICMS Antecipado
-										Com ICMS Diferencial de Alíquota
-										Com ICMS Normal
-
-
-LR - Não Contribuinte do IPI - Regime Estadual Normal - Com ICMS ST, Antecipado, Diferencial de Alíquota, ICMS Normal
-SN - Contribuinte do IPI - Regime Estadual Simples Nacional - Com ICMS ST, Antecipado, Diferencial de Alíquota, ICMS Normal
-SN - Não Contribuinte do IPI - Regime Estadual Simples Nacional - Com ICMS ST, Antecipado, Diferencial de Alíquota, ICMS Normal
