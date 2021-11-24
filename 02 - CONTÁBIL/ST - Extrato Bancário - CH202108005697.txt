@@ -1,0 +1,54 @@
+Épico: Ao tentar realizar a exclusão do extrato bancário apresenta mensagem de erro
+Número do cartão: CH202108005697
+Ano de publicação: 2021
+Relacionamentos: Extrato Bancário
+Requisitos:
+	RE[1.1.1] Exigências para enquadramento do requisito:
+	RE[1.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RE[1.3.1] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.1.1] Exigências para enquadramento da regra:
+	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.3.1] Demonstrativo de cálculo:
+	RN[2.4.1] Funcionalidade consequente:
+Matriz de risco:
+Features:
+Scenário Outline:
+Stack:
+	Firebird	
+		Atender a um ciclo onde os testes irão passar
+		Atender a um ciclo onde os testes irão dar errado
+		Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou outra por ter especificações diferentes
+		Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou a forma como vinha sendo feito até esta data
+			Informações Adicionais
+				Lançamentos com valor diferente de zero e natureza
+					Importar Extrato (Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou outra por ter especificações diferentes)
+				Lançamentos com valor zerado e sem natureza
+					CRUD (Verificar se está apresentando mensagem: Existe(m) lançamento(s) com natureza não definida. Deseja continuar?Confirmação: Existe(m) lançamento(s) com natureza não definida. Deseja continuar?)
+					Fazer vários lançamentos
+						Aplicando análise combinatória
+						Extrato 1	Lançamento com valor zerado e sem natureza
+									Lançamento com valor zerado e sem natureza
+									Lançamento com valor zerado e sem natureza
+						Extrato 2	Lançamento com valor zerado e sem natureza
+									Lançamentos com valor diferente de zero e natureza
+									Lançamentos com valor diferente de zero e natureza
+						Extrato 3	Lançamento com valor zerado e sem natureza
+									Lançamentos com valor diferente de zero e natureza
+									Lançamento com valor zerado e sem natureza
+						Extrato 4	Lançamentos com valor diferente de zero e natureza
+									Lançamentos com valor diferente de zero e natureza
+									Lançamento com valor zerado e sem natureza
+						Extrato 5	Lançamento com valor zerado e sem natureza
+									Lançamento com valor zerado e sem natureza
+									Lançamentos com valor diferente de zero e natureza
+						Extrato 6	Lançamentos com valor diferente de zero e natureza
+									Lançamento com valor zerado e sem natureza
+									Lançamento com valor zerado e sem natureza
+						Extrato 7	Lançamento com valor zerado e sem natureza
+									Lançamentos com valor diferente de zero e natureza
+									Lançamento com valor zerado e sem natureza
+					Testar em Base real de pendências passadas
+Links de testes unitários:
+Links de testes funcionais:
+Recursos:

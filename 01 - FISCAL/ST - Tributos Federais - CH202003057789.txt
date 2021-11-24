@@ -1,0 +1,61 @@
+Épico: Incluir Ajustes de COFINS / PIS - Valor do Imposto para empresas Alíquotas Específicas
+Número do cartão: CH202003057789 
+Ano de publicação: 2021
+Relacionamentos: Tributos Federais, Ajustes de COFINS/PIS, Valor do Imposto, Ajuste de Redução, Ajuste de Acréscimo
+Requisitos:
+	RE[1.1.1] Exigências para enquadramento do requisito:
+	RE[1.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RE[1.3.1] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.1.1] Exigências para enquadramento da regra:
+	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.3.1] Demonstrativo de cálculo:
+	RN[2.4.1] Funcionalidade consequente:
+Matriz de risco:
+Features:
+Scenário Outline:
+Stack:
+	Firebird
+		Escriturando em 2 estabelecimentos
+			Regime de Tributação Federal - Lucro Real
+			Regime de Tributação Federal - Lucro Presumido
+				Incidência tributária não-cumulativa
+				Incidência tributária cumulativa
+				Incidência tributária não-cumulativa e cumulativa (padrão não-cumulativa)
+					Regime de Tributação Estadual - Normal
+						Alíquota padrão de PIS/COFINS
+						Alíquota específica de PIS/COFINS
+							Regime de competência
+							Regime de caixa (Tudo é apurado com base no código de receita padrão)
+								Ajuste de redução
+								Ajuste de acréscimo
+									Com Processo Administrativo e Judicial
+									Sem Processo Administrativo e Judicial
+										Informações Adicionais
+											Operações
+												Saída
+											Espécies
+												NF-e
+												Tela de Ajustes
+											Peculiaridades das notas
+												Incluir notas com mais de 1 corpo e códigos de receita diferentes
+													Lucro Real
+														Código da Receita Padrão de COFINS:	585601
+														Código da Receita Padrão de PIS:	691201
+														Código da Receita Específica de COFINS:	585608
+														Código da Receita Específica de PIS:	691208
+													Lucro Presumido
+														Código da Receita Padrão de COFINS:	217201
+														Código da Receita Padrão de PIS:	810902
+														Código da Receita Específica de COFINS:	
+														Código da Receita Específica de PIS:	
+												Valor do item cujo Código da Receita seja o Padrão deve ser menor que o valor do Ajuste de Redução (Conferir se está diminuindo do valor total ou só do código da receita padrão)
+											Relatórios
+												Relatórios >> Tributos Federais >> COFINS, PIS, CSL e IRPJ (Demonstrativo de Cálculo)
+												Relatórios >> Tributos Federais >> COFINS, PIS, CSL e IRPJ (Demonstrativo de Cálculo) - Detalhado
+												Relatórios >> Tributos Federais >> COFINS, PIS, CSL e IRPJ (Demonstrativo de Cálculo) - Detalhado por Código da Receita
+												Relatórios >> Tributos Federais >> DARF
+											Obrigação acessória
+												Sped Contribuições (M210/M200/M205, M610/M600/M605)
+											Ferramentas
+												Recalcular Tributos Federais

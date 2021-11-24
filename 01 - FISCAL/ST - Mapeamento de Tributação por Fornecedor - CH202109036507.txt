@@ -1,0 +1,46 @@
+Épico: Empresa tem um xml de entrada ( Modelo 55) com o cfop 6933 (serviços), ao importar este XML, não esta convertendo para o CFOP 2933(entrada), importando com o mesmo cfop que esta no xml
+Número do cartão: CH202109036507
+Ano de publicação: 2021
+Relacionamentos: Mapeamento de Tributação por Fornecedor, Importação XML, Importação Web, NF-e
+Requisitos:
+	RE[1.1.1] Exigências para enquadramento do requisito:
+	RE[1.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RE[1.3.1] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.1.1] Exigências para enquadramento da regra:
+	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.3.1] Demonstrativo de cálculo:
+	RN[2.4.1] Funcionalidade consequente:
+Matriz de risco:
+Features:
+Scenário Outline:
+Stack:
+	Firebird
+	SQL
+		Regime de Tributação Federal - Lucro Real ou Lucro Presumido
+		Regime de Tributação Federal - Simples Nacional
+			Regime de Tributação Estadual - Normal
+			Regime de Tributação Estadual - Simples Nacional
+			Regime de Tributação Estadual - Excluído do Simples Nacional (Normal estado)
+				Informando itens
+				Sem informar itens
+					Informações Adicionais
+						Importação
+							Importação WEB
+							Importação .XML
+						Espécie
+							NF-e
+						Operação
+							Entrada
+							Saída (cód contábil) (Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou outra por ter especificações diferentes)
+						Mapeamento de Tributação por Fornecedor
+							mapeamento diveros
+							mapeamento (cod contábil) (Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou outra por ter especificações diferentes)
+					Com CST/CSOSN/Fornecedor de origem
+					Com Fornecedor de origem
+					Com CST/CSOSN de origem
+					Sem CST/CSOSN/Fornecedor de origem
+					Sem Fornecedor de origem
+					Sem CST/CSOSN de origem
+Links de testes unitários:
+Links de testes funcionais:

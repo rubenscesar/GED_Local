@@ -14,6 +14,19 @@ Regras de Negócio:
 		Empresa já vinculada no G-CLICK: 0006 - Demonstração - CNPJ: 00.297.542/0001-78  ; com Estab: 0001 e 0002
 		uma vez após baixar recomento que exclua logo a baixa no g-click pois após um tempo ele não permite excluir
 		Visualisa o relatório e ao sair aparecerá uma janela de integração com G-Click perguntando se deseja Anexar Relatório (PDF)
+
+		RN[2.1.2] Até a presente data de homologação do cartão a receita havia passado um comunicado:
+			Código de barras
+			Atualmente, um número limitado de
+			códigos de receita são impressos
+			pelo SicalcWeb com o código de barra
+			(6106, 1394, 1402, 6621, 7254, 3008,
+			7267, 8256, 3961, 7282, 7295, 3014,
+			7310, 7322, 3978, 7335, 7348, 3037,
+			3990 e 5411). A Implementação
+			do código de barras para as outras
+			receitas está sendo feita de forma
+			gradativa.
 	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
 	RN[2.3.1] Demonstrativo de cálculo:
 	RN[2.4.1] Funcionalidade consequente:

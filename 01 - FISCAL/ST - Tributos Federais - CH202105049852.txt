@@ -1,0 +1,68 @@
+Épico: Calcular tributos federais com base no cadastro de atividades ISS depois com base no cadastro de serviços ISS depois com base nas configurações
+Número do cartão: CH202105049852
+Ano de publicação: 2021
+Relacionamentos: Tributos Federais, Atividades ISS, Serviços ISS, Recalculo de Tributos Federais, Percentual CSL e IRPJ
+Requisitos:
+	RE[1.1.1] Exigências para enquadramento do requisito:
+		RE[1.1.2] Ordem de Recálculo de Tributos Federais (CSL/IRPJ):
+			1º Atividades (ISS)
+			2º Serviços
+			3º Configuração
+		RE[1.1.3] Será informado o percentual de CSL e IRPJ na aba Tributos Federais das notas RE[1.2.1] conforme
+				  parametrizado em RE[1.1.2] após utilizar a ferramenta de Recalcular Tributos Federais e a empresa ser do regime cumulativo
+	RE[1.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+		• NFS
+		• NFS-e
+	RE[1.3.1] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.1.1] Exigências para enquadramento da regra:
+	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.3.1] Demonstrativo de cálculo:
+	RN[2.4.1] Funcionalidade consequente:
+Matriz de risco:
+Features:
+Scenário Outline:
+Stack:
+	Firebird
+	SQL
+		Escriturando em 2 estabelecimentos
+			Regime de Tributação Federal - Lucro Real (Garantir)
+			Regime de Tributação Federal - Lucro Presumido
+			Regime de Tributação Federal - Simples Nacional (Garantir)
+				Incidência tributária não-cumulativa (Garantir)
+				Incidência tributária cumulativa
+					Regime de Tributação Estadual - Normal
+					Regime de Tributação Estadual - Simples Nacional (Garantir)
+						Alíquota padrão de PIS/COFINS
+						Alíquota específica de PIS/COFINS (Garantir)
+							Regime de competência
+							Regime de caixa
+								Informando itens
+								Sem informar itens (Garantir)
+									Adotando critério de escrituração Consolidada para gerar Sped Contribuições, sem informar itens no Histórico da empresa e informando itens no Histórico do estabelecimento
+									Adotando critério de escrituração Detalhada para gerar Sped Contribuições, informando itens no Histórico da empresa e no Histórico do estabelecimento
+										Informações Adicionais
+											CRUD
+											Operações
+												Saída
+											Espécies
+												NFS
+												NFS-e
+												NF-e (Serviço) (Garantir)
+											Peculiaridades das notas
+												Atividade (ISS) com percentual de CSL/IRPJ em branco, Serviço com percentual de CSL/IRPJ em branco
+												Atividade (ISS) com percentual de CSL/IRPJ em branco, Serviço com percentual de CSL/IRPJ personalizado diferente da Configuração
+												Atividade (ISS) com percentual de CSL/IRPJ personalizado diferente do Serviço e Configuração, Serviço com percentual de CSL/IRPJ em branco
+												Atividade (ISS) com percentual de CSL/IRPJ personalizado diferente do Serviço e Configuração, Serviço com percentual de CSL/IRPJ personalizado diferente da Configuração
+												Incluir notas com mais de 1 corpo
+												Recalcular tributos por dentro da nota
+											Relatórios
+												Relatórios >> Tributos Federais >> COFINS, PIS, CSL e IRPJ (Demonstrativo de Cálculo)
+												Relatórios >> Tributos Federais >> COFINS, PIS, CSL e IRPJ (Demonstrativo de Cálculo) - Detalhado
+												Relatórios >> Tributos Federais >> COFINS, PIS, CSL e IRPJ (Demonstrativo de Cálculo) - Detalhado por Código da Receita
+												Relatórios >> Tributos Federais >> DARF
+											Obrigação acessória
+												Sped ECF (P200/P400)
+											Ferramentas
+												Utilitários >> Recalcular Tributos Federais
+											Testar em Base real de pendências passadas

@@ -22,10 +22,13 @@ Regras de Negócio:
 	RN[2.1.1] Exigências para enquadramento da regra:
 		Site G-CLICK
 		  https://app.gclick.com.br/
-		Usuario: alex.fortes; senha: 123
+		Usuario: alex.fortes; senha: 147; id: 110
 		Empresa já vinculada no G-CLICK: 0006 - Demonstração - CNPJ: 00.297.542/0001-78  ; com Estab: 0001 e 0002
 		uma vez após baixar recomento que exclua logo a baixa no g-click pois após um tempo ele não permite excluir
 		Visualisa o relatório e ao sair aparecerá uma janela de integração com G-Click perguntando se deseja Anexar Relatório (PDF)
+		
+		Para consultar no G-CLick:
+			Nas Atividades em Departamento: Contabilidade; Por Obrigação: Tarefas Fortes
 	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
 	RN[2.3.1] Demonstrativo de cálculo:
 	RN[2.4.1] Funcionalidade consequente:
