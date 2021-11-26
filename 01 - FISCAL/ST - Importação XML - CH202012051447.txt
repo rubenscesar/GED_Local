@@ -1,0 +1,67 @@
+Épico: Adequar o Fortes Fiscal para que seja possível importar arquivos de NF-e de saída emitidas por terceiros via XML, porquê atualmente é possível exclusivamente por importação WEB
+Número do cartão: CH202012051447
+Ano de publicação: 2021
+Relacionamentos: Importação XML, Devolução de Saída de Terceiros, NF-e
+Requisitos:
+	RE[1.1.1] Exigências para enquadramento do requisito:
+		RE[1.1.2] Metodologia utilizada atualmente pelas empresas para escriturar uma devolução de saída de terceiros:
+			• Eventualmente, esta operação ocorre entre contribuintes de ICMS, em situações de devolução de compra de mercadoria,
+			  onde ao invés do cliente que comprou a mercadoria, emitir a nota devolvendo, o próprio fornecedor da mercadoria emite
+			  a nota fiscal de devolução. É importante apenas destacar, que essa situação possui algumas divergências de entendimentos,
+			  mas em virtude de ser uma prática de mercado foi realizada a implementação.
+
+			1 - Operação de Compra: Fornecedor emite nota fiscal de venda e é escriturada uma entrada no Fortes Fiscal pelo Comprador.
+			  CFOP da NFe CFOP Escrituração
+			  5.102 → 1.102
+			  Emitente: Fornecedor
+			  Destinatário: Comprador (Estabelecimento Fortes Fiscal)
+
+			2 - Operação de Devolução: Normalmente, na operação de devolução de compra, o Comprador emite e escritura uma nota fiscal
+			  com um CFOP de saída, pois se trata de uma saída própria. (Ex. 5.201, 5.202, 5.411, etc.). A situação que tem ocorrido é:
+			  O Fornecedor emite a nota fiscal como sua entrada própria em nome do Comprador, utilizando um CFOP de devolução de venda
+			  (Ex. 1.202, 1.201, 1.411) e o Comprador precisa escriturar essa nota em suas Saídas, mas como de terceiros, pois não foi
+			  ele que emitiu a nota, mas com todas as características de uma operação de saída.
+
+			  CFOP da NFe CFOP Escrituração
+			  1.202 → 5.202
+			  Emitente: Fornecedor
+			  Destinatário: Comprador (Estabelecimento Fortes Fiscal)
+
+			• Como a nota fiscal possui um CFOP de entrada, a operação no documento é Entrada e o Estabelecimento no Fortes Fiscal é o
+			  destinatário na operação, então deve a mesma ser lançada em Saída de Terceiros.
+	RE[1.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RE[1.3.1] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.1.1] Exigências para enquadramento da regra:
+		RN[2.1.2] Atualmente existe:
+			Funcionalidade que permite configurar o método de importação de NF-e em Utilitários >> Configuração // Fiscal // Importação NF-e/NFC-e/CF-e
+				• Descrição: "Utilizar nova importação NFe Web"
+				• Padrão: Marcada
+	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+		NF-e
+	RN[2.3.1] Demonstrativo de cálculo:
+	RN[2.4.1] Funcionalidade consequente:
+Matriz de risco:
+Features:
+Scenário Outline:
+Stack:
+	Firebird
+		Informações Adicionais:
+			Operação
+				Saída Terceiros
+				Entrada (Garantir)
+			Imortação
+				Importação .XML
+					NF-e
+				Importação WEB
+					NF-e (Garantir)
+			Obrigação Acessória
+				Sped ICMS (Garantir)
+			Testar em Base real de pendências passadas
+Links de testes unitários:
+Links de testes funcionais:
+Recursos:
+					  Nome do arquivo no padrão:	[Relacionamento principal]-( Se for arquivo Abrasf informar o município e UF )[Município] (UF)-[Observação opcional]
+										Exemplo:	Arquivo para importação: Abrasf-Ponte Nova (MG)-Inscrição Estadual do Participante.xml
+	Nome do arquivo do banco de dados no padrão:	[Iniciais do subsistema]-[Relacionamento principal]-[Ano de publicação]-[Nome da empresa]-[Período]-[Observação opcional]
+										Exemplo:	Banco para testes: ACC-Planilha Financeira-2021-ONE INTERNET SA-042021.rar

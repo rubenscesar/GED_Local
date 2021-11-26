@@ -1,0 +1,30 @@
+Épico: Ajustar os atualizadores, permitindo a realização das atualizações sem efetuar o backup dos bancos de dados
+Número do cartão: CH202111042589
+Ano de publicação: 2021
+Relacionamentos: Atualizador, Atualização, FortesACAtualizador, Nuvem
+Requisitos:
+	RE[1.1] Exigências para enquadramento do requisito:
+		RE[1.1.1] Para permitir a atualização sem realizar o backup dos bancos de dados. Substituindo o usuário SKYDOCS do atualizador um genérico para que não seja necessário criar outro usuário caso venha ter outros parceiros:
+			Usuário:	ParceiroNuvem
+			Senha:		2VrZC7HSuX
+			Atendendo aos módulos AC e Patrimônio.
+Regras de Negócio:
+	RN[2.1] Exigências para enquadramento da regra:
+Matriz de risco:
+Features:
+Scenário Outline:
+Stack:
+	Firebird
+		D7
+			Utilizando recurso de "Não realizar backup do banco de dados"
+			Sem Utilizar recurso de "Não realizar backup do banco de dados"
+		Xe6
+			Utilizando recurso de "Não realizar backup do banco de dados"
+			Sem Utilizar recurso de "Não realizar backup do banco de dados"
+	SQL
+		D7
+			Utilizando recurso de "Não realizar backup do banco de dados"
+			Sem Utilizar recurso de "Não realizar backup do banco de dados"
+		Xe6
+			Utilizando recurso de "Não realizar backup do banco de dados"
+			Sem Utilizar recurso de "Não realizar backup do banco de dados"
