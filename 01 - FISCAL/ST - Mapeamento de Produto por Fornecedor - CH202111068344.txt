@@ -1,0 +1,72 @@
+Épico: Sefaz/AM emitiu comunicado aos clientes sobre a escrituração do registro C170, afim de evitar a incoerência das movimentações dos itens para o inventário, o nosso sistema não gera o campo 04 do registro c170, que é a descrição complementar do item, a Sefaz está confrontando o campo 04 com o 0200, como não leva a descrição do item apresenta pendencia.
+Número do cartão: CH202111068344
+Ano de publicação: 2021
+Relacionamentos: Mapeamento de Produto por Fornecedor, Importação XML, Sped ICMS, Registro C170, Descrição Complementar, Sefaz/AM
+Requisitos:
+	RE[1.1.1] Exigências para enquadramento do requisito:
+	RE[1.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RE[1.3.1] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.1.1] Exigências para enquadramento da regra:
+	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.3.1] Demonstrativo de cálculo:
+	RN[2.4.1] Funcionalidade consequente:
+Matriz de risco:
+Features:
+Scenário Outline:
+Stack:
+	Firebird
+	SQL
+		Regime de Tributação Federal - Lucro Real ou Lucro Presumido
+		Regime de Tributação Federal - Simples Nacional
+			Regime de Tributação Estadual - Normal
+			Regime de Tributação Estadual - Simples Nacional
+				Informando itens
+				Sem informar itens (Garantir)
+					Informações Adicionais
+						Operação
+							Entradas
+							Saídas (Garantir)
+						Espécies
+							NF-e
+						Importação
+							Importação WEB
+							Importação .XML
+								Descrição Igual
+								Descrição Diferente
+									No processso de importação
+										Importar na versão anterior ~ Desfazer na versão de homologação ~ Importar na versão de homologação (Cenário que os clientes terão de relizar para atender a exigência da Sefaz/MA na época desta liberação)
+										Importar na versão de homologação
+											Mapeando produto (Selecionando produto já cadastrado)
+											Mapeamento novo (Sem selecionar nenhum produto para relacionamento)
+											Mapeamento preexistente (Produto já mapeado anteriormente)
+						Cadastros >> Mapeamento de Importação (NF-e) >> Produto por Fornecedor
+							Teste GUI (Graphical User Interface)
+								GRID dos itens
+								Teste de Análise do Valor Limite
+							CRUD
+						Utilitários >> Configuração
+							Abrir tela de Mapeamento de Tributação por Fornecedor
+							Não - Abrir tela de Mapeamento de Tributação por Fornecedor
+						Obrigação Acessória
+							Sped ICMS
+								Perfil A
+								Perfil B
+								Perfil C
+						Analisador Fiscal
+						Itens diferentes
+						Relatórios
+							Cadastros >> Mapeamento de Importação (NF-e) >> Produto por Fornecedor > Listar
+						Ferramentas
+							Transferir Movimentação dos Produtos
+						Auditoria
+						Backup/Restore
+						Teste de Carga
+						Testar em Base real de pendências passadas
+						Atender a um ciclo onde os testes irão passar
+						Atender a um ciclo onde os testes irão dar errado
+						Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou outra por ter especificações diferentes
+						Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou a forma como vinha sendo feito até esta data
+
+
+O teste GUI é realizado para verificar os recursos visíveis a um usuário, como menus, botões, ícones, caixas de texto, listas, caixas de diálogo, etc. Também garante que os elementos de aparência, como fontes e imagens, estejam em conformidade com as especificações de design . O teste de GUI ocorre no nível de teste do sistema
