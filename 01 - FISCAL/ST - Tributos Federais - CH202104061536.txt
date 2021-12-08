@@ -1,0 +1,73 @@
+Épico: Em testes realizados, o sistema está gerando o arquivo SPED com informações dos Registros F600 e M200/M600 dos respectivos valores de retenções na fonte. Porém o sistema realiza o abatimento dos valores de retenções da base de cálculo dos tributos de apuração normal (Faturamento). No exemplo abaixo, foi lançada uma NFS-e de 15.000,00 com retenções de PIS/COFINS respectivamente 50,00 e 250,00, totalizando 300,00. Após a baixa do valor, o sistema considera como faturamento 14.700,00 e ainda apresenta as retenções no demonstrativo de cálculo, causando uma dupla compensação.
+Número do cartão: CH202104061536
+Ano de publicação: 2021
+Relacionamentos: Tributos Federais, Retenções, Regime de Caixa, Controle de Vencimentos
+Requisitos:
+	RE[1.1.1] Exigências para enquadramento do requisito:
+	RE[1.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RE[1.3.1] Demonstrativo de cálculo:
+		Demonstrativo de cálculo:
+		> Saídas (recebimentos) = Valor dos títulos + retenções
+		 
+		SPED Contribuições:
+		>F500 - Campo 02 (Receita Recebida) = Valor dos títulos + retenções
+			  - Campo 05 (Valor da base de cálculo do PIS/PASEP )= Valor dos títulos + retenções
+		 
+		>F525 - Campo 02 (Valor total da receita recebida) = Valor dos títulos + retenções
+		 
+		O valor das retenções de PIS e COFINS são deduzidos na operação apenas nos campos de Retido na Fonte.
+		 
+		Da forma como hoje o sitema está, ele está deduzindo do total da receita e novamente no campo de retenção.
+		Ou seja, está deduzindo 2x.
+Regras de Negócio:
+	RN[2.1.1] Exigências para enquadramento da regra:
+	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.3.1] Demonstrativo de cálculo:
+	RN[2.4.1] Funcionalidade consequente:
+		REINF
+			UPDATE EMP
+			SET
+				GUIDHOMOREINF = 'a7a19471-1049-47ea-aa96-6b54857fe945',
+				DTADESAOREINFPROD = NULL,
+				DTADESAOREINFHOMO = '1-JAN-2019 00:00:00',
+				AMBIENTEATIVOREINF = 2
+			WHERE (CODIGO = '0003')
+Matriz de risco:
+Features:
+Scenário Outline:
+Stack:
+	Firebird
+		Escriturando em 2 estabelecimentos
+			Regime de Tributação Federal - Lucro Real (Garantir)
+			Regime de Tributação Federal - Lucro Presumido
+				Incidência tributária não-cumulativa (Garantir)
+				Incidência tributária cumulativa
+					Marcado "Na geração dos títulos deduzir o valor das retenções (ISS, INSS, IR, CSL, PIS e COFINS)"
+					Desmarcado "Na geração dos títulos deduzir o valor das retenções (ISS, INSS, IR, CSL, PIS e COFINS)" (Garantir)
+						Alíquota padrão de PIS/COFINS
+							Regime de competência (Garantir)
+							Regime de caixa (Tudo é apurado com base no código de receita padrão. Devolução não gera estorno em regime de caixa, pois é uma devolução financeira)
+								Informando itens
+								Sem informar itens
+									Gerando Títulos por dentro da nota
+									Gerando Títulos pela GRID de lançamentos
+										Informações Adicionais
+											Operações
+												Saída
+											Espécies
+												NFS-e
+												NF-e (com serviço)
+												CF-e (com serviço)
+												NFC-e (com serviço)
+											Controle de Vencimentos
+												CRUD
+											Relatórios
+												Relatórios >> Tributos Federais >> COFINS, PIS, CSL e IRPJ (Demonstrativo de Cálculo)
+												Relatórios >> Tributos Federais >> COFINS, PIS, CSL e IRPJ (Demonstrativo de Cálculo) - Detalhado
+												Relatórios >> Tributos Federais >> COFINS, PIS, CSL e IRPJ (Demonstrativo de Cálculo) - Detalhado por Código da Receita
+												Relatórios >> Tributos Federais >> DARF
+											Obrigação acessória
+												Sped Contribuições (M210/M200/M205, M610/M600/M605)
+												Sped ECF (P200/P400)
+											Contabilização
+											Testar em Base real de pendências passadas
