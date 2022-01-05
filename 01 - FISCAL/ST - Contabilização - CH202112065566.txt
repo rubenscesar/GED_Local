@@ -1,0 +1,49 @@
+Épico: Contabilizar notas de serviço quando o documento era contabilizado em um determinado mês e no mês seguinte era contabilizado somente as baixas.
+Número do cartão: CH202112065566 
+Ano de publicação: 2022
+Relacionamentos: Importação .FS, Contabilização, Integração Contábil
+Requisitos:
+	RE[1.1.1] Exigências para enquadramento do requisito:
+		RE[1.1.2] Requisitos para simular o problema:
+			• NFS de entrada com baixa
+			• Fatura com data posterior a data do documento
+			• Possuir uma contabilização para o documento
+			• Possuir uma contabilização para a baixa
+			• Contabilizar o documento
+			• Contabilizar a baixa
+			
+			Foi ajustado somente a forma como ele pega o valor sequencial que compoe a chave primaria da tabela (O campo GRUPO).
+			O problema era apenas para notas de serviço quando o documento era contabilizado em um determinado mês e no mês 
+			seguinte era contabilizado somente as baixas.
+
+	RE[1.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RE[1.3.1] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.1.1] Exigências para enquadramento da regra:
+	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.3.1] Demonstrativo de cálculo:
+	RN[2.4.1] Funcionalidade consequente:
+Matriz de risco:
+Features:
+Scenário Outline:
+Stack:
+	Firebird
+	SQL
+		Informações Adicionais
+			Operações
+				Saída
+				Entrada
+			Espécies
+				NFS-e
+			1 Documento
+			2 Documentos
+				Documento e Baixa em períodos diferentes
+				Documento e Baixa em períodos iguais
+			Processos
+				Inclusão da nota
+				Recontabilizando por dentro da nota
+				Recontabilizando pela ferramenta "Contabilizar Movimentos"
+				Imortação
+					Importação .FS
+						Verificar se ao desfazer importação FS após ter contabilizado não está mantendo preso os lançamentos contábeis. Para conferir tem de dar um select na tabela LCF após importar, contabilizar e desfazer importação FS para ver se as contabilizações permanecem ou não no banco.
+			Testar em Base real de pendências passadas
