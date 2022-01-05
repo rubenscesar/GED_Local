@@ -1,0 +1,84 @@
+Épico:
+Número do cartão: CH202103035197
+Ano de publicação: 2021
+Relacionamentos: Importação XML
+Requisitos:
+	RE[1.1.1] Exigências para enquadramento do requisito:
+	RE[1.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RE[1.3.1] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.1.1] Exigências para enquadramento da regra:
+		RN[2.1.2] Na importação de NF-e cuso o Mapeamento de Produtos por Fornecedor esteja realizado:
+			Estando o campo de ICMS Antecipado preenchido, deve importar a nota sem a necessidade de abrir a janela de mapeamento
+			Estando o campo de ICMS Antecipado em branco, deve importar a nota e abrir a janela de mapeamento
+	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.3.1] Demonstrativo de cálculo:
+	RN[2.4.1] Funcionalidade consequente:
+Matriz de risco:
+Features:
+Scenário Outline:
+Stack:
+	Firebird
+	SQL
+		Regime de Tributação Federal - Lucro Real ou Lucro Presumido
+		Regime de Tributação Federal - Simples Nacional
+			Regime de Tributação Estadual - Normal
+			Regime de Tributação Estadual - Simples Nacional
+				Informando itens
+				Sem informar itens (Garantir)
+					Informações Adicionais
+						Cadastros >> Mapeamento de Importação (NF-e) >> Produto por Fornecedor
+							Teste GUI (Graphical User Interface)
+								GRID dos itens
+								Teste de Análise do Valor Limite
+								Testar tela com resolução 1366x768, vê se na mesma aparecem todos os campos e são clicáveis
+								Passagem de campos
+								Passagem de campos na importação
+							CRUD
+						Importação
+							Operação
+								Entrada (Documento de Terceiros)
+								Entrada (Devolução com Documento Próprio)
+								Entrada (Com Serviço)
+								Entrada (Transferência)
+							Espécies
+								NF-e
+									Do mesmo Estado
+									De Outro Estado
+									De outro País
+										XML tributada			(deve habilitar campo novo)
+										XML com substituição	(não deve habilitar campo novo)
+										XML de tranferência		(não deve habilitar campo novo)
+										XML não tributada		(não deve habilitar campo novo)
+							Utilitários >> Configuração
+								Exibir informações de ICMS à Recolher no Mapeamento de Produtos por Fornecedor
+									Marcado
+									Desmarcado
+									Teste GUI (Graphical User Interface)
+										Passagem de campos
+										Ortografia
+							Importação WEB
+							Importação .XML
+								No processso de importação
+									Importar na versão anterior ~ Desfazer na versão de homologação ~ Importar na versão de homologação
+									Importar na versão de homologação
+										Mapeando produto (Selecionando produto já cadastrado)
+										Mapeamento novo (Sem selecionar nenhum produto para relacionamento)
+										Mapeamento preexistente (Produto já mapeado anteriormente)
+											Com informação de ICMS Antecipao preenchido
+											Com informação de ICMS Antecipao em branco
+										Com exceção
+							Mais de 1 item
+							Itens diferentes
+							Mais de 1 corpo
+							Teste realizado no mapeamento cadastrado antes da atualização
+							Garantir que disponibiliza os novos campos apenas quando o CFOP informado for diferente de Imobilizado ou Uso e Consumo
+						Relatórios
+							Cadastros >> Mapeamento de Importação (NF-e) >> Produto por Fornecedor > Listar
+						Backup/Restore
+						Teste de Carga
+						Testar em Base real de pendências passadas
+						Atender a um ciclo onde os testes irão passar
+						Atender a um ciclo onde os testes irão dar errado
+						Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou outra por ter especificações diferentes
+						Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou a forma como vinha sendo feito até esta data

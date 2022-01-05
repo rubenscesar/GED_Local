@@ -1,0 +1,30 @@
+Para calcular o simples nacional e necessita limpar os valores de RBT12 VS12
+É necessário apagar a tabela wed conforme os seus códigos de info
+Segue código da info da tabela VED
+vedDebCOFINS       = 1; // Débito de COFINS para o próximo período
+  vedDebPIS          = 2; // Débito de PIS para o próximo período
+  vedDebCSL          = 3; // Débito de CSL para o próximo período
+  vedDebIRPJ         = 4; // Débito de IRPJ para o próximo período
+//  vedSdoIPI          = 5; // Saldo do IPI para o próximo período
+  vedDebSimples      = 6; // Débito do Simples para o próximo período
+  vedRecAcumuladaAno = 7; // Receita Acumulada do ano
+  vedReceitaPeriodo  = 8; // Receita do Período (mês)
+  vedDebCOFINSMista  = 9; // Débito de COFINS Apuração Mista para o próximo período
+  vedDebPISMista     = 10; // Débito de PIS Apuração Mista para o próximo período
+  vedReceitaPeriodoExcetoExportacao  = 11; // Receita do Período, exceto de exportacao de mercadorias (mês)
+  vedReceitaPeriodoExportacao  = 12; // Receita do Período, exportacao de mercadorias (mês)
+  vedRPAInternoApenasCaixa  = 25; // Receita do Período valores referente a CAIXA pelas baixas(mês) quando cliente é regime de CAIXA(INTERNO).
+  vedRPAExternoApenasCaixa  = 26; // Receita do Período valores referente a CAIXA pelas baixas(mês) quando cliente é regime de CAIXA(EXPORTAÇÃO).
+  vedIRPJPGDAS   = 13; // IRPJ da apuração no PGDAS
+  vedCSLLPGDAS   = 14; // CSLL da apuração no PGDAS
+  vedCOFINSPGDAS = 15; // COFINS da apuração no PGDAS
+  vedPISPGDAS    = 16; // PIS da apuração no PGDAS
+  vedINSSPGDAS   = 17; // INSS da apuração no PGDAS
+  vedICMSPGDAS   = 18; // ICMS da apuração no PGDAS
+  vedIPIPGDAS    = 19; // IPI da apuração no PGDAS
+  vedISSPGDAS    = 20; // ISS da apuração no PGDAS
+  vedTotalPGDAS  = 21; // Total da apuração no PGDAS
+  //Pis Sobre Folha
+  vedValorPISSobreFolha  = 22; // PIS sobre Folha - Valor da folha
+  vedValorExclusoesPisSobreFolha  = 23; // PIS sobre Folha - Valor das Exclusões
+  vedValorFolhaComEncargos = 24; //Valor referente a folha de salário do mês, para utilizar no relatório simples nascional anexo.
