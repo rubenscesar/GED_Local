@@ -1,0 +1,54 @@
+Épico: Falha na sincronização dos estabelecimentos do AC  com o conecta. 
+Número do cartão: CH202108053174
+Ano de publicação: 2021	
+Relacionamentos: Integração conecta, Estabelecimentos. 
+Requisitos:
+	RE[1.1.1] Exigências para enquadramento do requisito:
+		RE [1.1.2] O que é necessario para integrar a Folha com o conecta:
+		Para integrar a folha com o conecta é necessario que nas configurações: Utilitarios>configurações>Geral Conecta esteja com as flags marcadas
+		e no ambiente web no conecta no ambiente gestão contabil na ferramenta>usuario>usuarios do escrtorio e deixar as flags de funcionalidades marcadas. 
+		Para habilitar as opções de ferias e rescisão no ambiente cliente do conetca, é necessario ter pelo menos um colaborador cadastrado no AC. 
+		Para habilitar a opção de invetario é necessario o escritorio ter solicitado ao cliente pelo AC o inventario. 
+	RE[1.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RE[1.3.1] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.1.1] Exigências para enquadramento da regra:
+	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.3.1] Demonstrativo de cálculo:
+	RN[2.4.1] Funcionalidade consequente:
+Matriz de risco:
+Features:
+Scenário Outline:
+Stack:
+Firebird
+SQL
+    FISCAL
+    CONTÁBIL
+        Estabelecimento - CRUD - Create
+        Estabelecimento - CRUD - Update
+        Estabelecimento - CRUD - Delete
+            Telas que possuem campo de estabelecimento
+                Ocorrências da Folha (Filtros na GRID)
+                    Vai apresentar os estabelecimentos conforme competência selecionada que houve movimentação de ocorrência
+                Nova Ocorrências da Folha
+                    Vai apresentar os estabelecimentos que houverem colaboradores cadastrados
+                Ocorrências da Folha em Lote
+                    Vai apresentar os estabelecimentos que houverem colaboradores cadastrados
+                Admissão (Filtros na GRID)
+                    Vai apresentar todos os estabelecimentos
+                Nova Admissão
+                    Vai apresentar todos os estabelecimentos
+                Férias (Filtros na GRID)
+                    Vai apresentar todos os estabelecimentos
+                Solicitação de Férias
+                    Vai apresentar os estabelecimentos que houverem colaboradores cadastrados
+                Solicitação de Férias em lote
+                    Vai apresentar os estabelecimentos que houverem colaboradores cadastrados
+                Rescisões (Filtros na GRID)
+                    Vai apresentar todos os estabelecimentos
+                Solicitação de Rescisão
+                    Vai apresentar os estabelecimentos que houverem colaboradores cadastrados
+                Solicitação de Rescisão em lote
+                    Vai apresentar os estabelecimentos que houverem colaboradores cadastrados
+
+	
