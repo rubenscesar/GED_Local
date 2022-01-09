@@ -1,0 +1,63 @@
+Épico: Na geração do arquivo sped fiscal, o  registro 1400,venham com o campo código do item, de acordo com a atividade da empresa
+Número do cartão: CH202104037731
+Ano de publicação: 2022
+Relacionamentos: Registro 1400, Registro de Produtos Primários, PRI, (PI)
+Requisitos:
+	RE[1.1] Exigências para enquadramento do requisito:
+	RE[1.2] Espécies de lançamentos que produzirão impacto nos resultados:
+	RE[1.3] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.1] Exigências para enquadramento da regra:
+		RN[2.1.1] A UF da Empresa tem de ser PI
+		RN[2.1.2] Vigência:
+			• Antes de 01/01/2021 deve preencher o registro 1400 com o código padrão (TR99991)
+			• A partir de 01/01/2021 deve preencher o registro 1400 conforme RN[2.2.1]
+
+	RN[2.2] Espécies de lançamentos que produzirão impacto nos resultados:
+		RN[2.2.1] Segregação por Códigos dos Itens, Espécies e Operações:
+			PI002 - Distribuidoras de energia elétrica 
+				• Quando os lançamentos forem das espécies 'CEE'
+				• Estabelecimento estiver marcado "presta serviços de Distribuição de Energia"
+			Código PI003 - Prestadores de serviços de comunicação e telecomunicação
+				• Quando os lançamentos forem das espécies 'NSC', 'NST', 'NFSC', 'NFSTC'
+				• Estabelecimento estiver marcado "presta serviços de Comunicação" ou "presta serviços de Telecomunicação"
+				• Operação de Saída para o próprio estado
+			Código PI004 - Prestadores de serviço de transporte rodoviário intermunicipal e interestadual de passageiros e de cargas
+				• Quando os lançamentos forem das espécies 'CA', 'CTA', 'CTAC', 'CTFC', 'CTRC', 'CTE', 'NFST', 'RBM', 'PRB', 'PRC', 'RMD', 'BPE', 'CTEOS', 'NTC'
+				• Estabelecimento estiver marcado "presta serviços de Transporte"
+				• Operação de Saída
+			Demais casos deve mandar o código padrão (TR99991)
+
+	RN[2.3] Demonstrativo de cálculo:
+	RN[2.4] Funcionalidade consequente:
+Matriz de risco:
+Features:
+Scenário Outline:
+Stack:
+	Firebird
+	SQL
+		Escriturando em estabelecimento de PI
+			Regime de Tributação Federal - Lucro Real ou Lucro Presumido
+				Regime de Tributação Estadual - Normal
+					Parametrizado na Legislação Estadual o Código da Receita de ICMS Normal = 113000
+						Lançamentos até o ano 2020
+						Lançamentos a partir do ano 2021
+							Informações Adicionais
+								Operação
+									Saída
+								Espécies
+									CT-e
+									CTRC
+									CT-eOS
+									BP-e
+									NFSC
+									NFSTC
+								Obrigação acessória
+									Sped Fiscal
+										Perfil A
+										Perfil B
+								Testar em Base real de pendências passadas
+Links de testes unitários:
+Links de testes funcionais:
+Recursos:
+	Banco para testes: ACF-Registro1400-2022-FISCAL-012021.rar
