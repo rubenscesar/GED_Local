@@ -1,0 +1,103 @@
+Épico: Inclusão da ferramenta "Recalcular Saldo Retido PIS COFINS" para que preencha os detalhes das retenções automaticamente
+Número do cartão: CH202110054383
+Ano de publicação: 2022
+Relacionamentos: Controle de Retenção, Recalcular Saldo Retido PIS COFINS
+Requisitos:
+	RE[1.1] Exigências para enquadramento do requisito:
+	RE[1.2] Espécies de lançamentos que produzirão impacto nos resultados:
+	RE[1.3] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.1] Exigências para enquadramento da regra:
+		RE[2.1.1] Ferramenta "Utilitários >> Recalcular Saldo Retido PIS COFINS" estará visível apenas para o usuário "FORTES"
+	RN[2.2] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.3] Demonstrativo de cálculo:
+	RN[2.4] Funcionalidade consequente:
+Matriz de risco:
+Features:
+Scenário Outline:
+Stack:
+	Firebird
+	SQL
+		Escriturando em 2 empresas para garantir que as informações de retenções de uma empresa não está sendo visualizado por outra
+		Escriturando em 2 estabelecimentos
+			Regime de Tributação Federal - Lucro Real
+			Regime de Tributação Federal - Lucro Presumido
+			Regime de Tributação Federal como Simples Nacional e no mês que pretende tirar o DARF é incluído um novo histórico como Lucro Presumido ou Lucro Real
+				Incidência tributária não-cumulativa
+				Incidência tributária cumulativa
+				Incidência tributária não-cumulativa e cumulativa (padrão não-cumulativa)
+					Apura Retenções de PIS, COFINS e CSL à Compensar com Base nas Baixas dos Vencimentos a Receber (Doc. de Saída)
+						Regime de Tributação Estadual - Normal
+							Alíquota padrão de PIS/COFINS
+							Alíquota específica de PIS/COFINS
+								Regime de competência
+								Regime de caixa
+									Informações Adicionais
+										Operações
+											Saída
+											Entrada
+										Espécies
+											NFS-e
+										Controle de Retenção
+											Período	| Informação																										| Observação				| Débito do período	| Crédito do período	| Retenção do período	| COFINS	| Crédito + Retenção para o período seguinte
+											jan/21	| Utilizando toda a Retenção do período no próprio período gerando DARF a pagar										| Débito > Retenção			| 100,00 		 	| 						| 30,00 	 			| 70,00		|
+											fev/21	| Utilizando toda a Retenção do período no próprio período gerando DARF a pagar										| Débito > Retenção			| 200,00 		 	|						| 90,00 				| 110,00	|
+											mar/21	| Utilizando parte do Retenção do período no próprio período gerando Retenção para o período seguinte				| Débito < Retenção			| 300,00 		 	|						| 800,00   	 			|			| 500,00
+											abr/21	| Utilizando parte do Retenção do período anterior no próprio período gerando Retenção para o período seguinte		| Débito < Retenção			| 400,00 		 	|						| 80,00					|			| 180,00
+											mai/21	| Utilizando toda a Retenção do período anterior no próprio período gerando DARF a pagar							| Débito > Retenção			| 500,00 			|						| 						| 320,00	|
+											jun/21	| Sem movimento																										|							|					|						|						|			|
+											jul/21	| Sem movimento																										|							|					|						|						|			|
+											ago/21	| Utilizando toda a Retenção do período no próprio período gerando valor zero para DARF								| Débito = Retenção		 	| 600,00 		 	|						| 600,00				|			|
+											set/21	| Sem retenção no próprio período gerando DARF a pagar																| Débito > Retenção		 	| 700,00 			| 						|						| 700,00	|
+										Controle de Crédito
+											Manual
+											Automático
+												Aproveitando primeiramente o período mais antigo
+												Aproveitando primeiramente o período atual
+													Período	| Informação																										| Observação				| Débito do período	| Crédito do período	| Retenção do período	| COFINS	| Crédito + Retenção para o período seguinte
+													jan/21	| Utilizando todo Crédito do período no próprio período gerando DARF a pagar										| Débito > Crédito			| 100,00 		 	| 30,00 	 			| 						| 70,00		|
+													fev/21	| Utilizando todo Crédito do período no próprio período gerando DARF a pagar										| Débito > Crédito			| 200,00 		 	| 90,00 	 			| 						| 110,00	|
+													mar/21	| Utilizando parte do Crédito do período no próprio período gerando Crédito para o período seguinte					| Débito < Crédito			| 300,00 		 	| 800,00 				|   	 				|			| 500,00
+													abr/21	| Utilizando parte do Crédito do período anterior no próprio período gerando Crédito para o período seguinte		| Débito < Crédito			| 400,00 		 	| 80,00 				|   	 				|			| 180,00
+													mai/21	| Utilizando todo Crédito do período anterior no próprio período gerando DARF a pagar								| Débito > Crédito			| 500,00 			|						| 						| 320,00	|
+													jun/21	| Sem movimento																										|							|					|						|						|			|
+													jul/21	| Sem movimento																										|							|					|						|						|			|
+													ago/21	| Utilizando todo Crédito do período no próprio período gerando valor zero para DARF								| Débito = Crédito		 	| 600,00 		 	| 600,00				|						|			|
+													set/21	| Sem crédito no próprio período gerando DARF a pagar																| Débito > Crédito		 	| 700,00 			| 						|						| 700,00	|
+										Controle de Retenção + Crédito
+											Período	| Informação																														| Observação					| Débito do período	| Crédito do período	| Retenção do período	| COFINS	| Crédito + Retenção para o período seguinte
+											jan/21	| Utilizando todo Crédito + Retenção do período no próprio período gerando DARF a pagar												| Débito > Crédito + Retenção	| 100,00 		 	| 15,00					| 15,00 	 			| 70,00		|
+											fev/21	| Utilizando todo Crédito + Retenção do período no próprio período gerando DARF a pagar												| Débito > Crédito + Retenção	| 200,00 		 	| 45,00					| 45,00 				| 110,00	|
+											mar/21	| Utilizando parte do Crédito + Retenção do período no próprio período gerando Crédito + Retenção para o período seguinte			| Débito < Crédito + Retenção	| 300,00 		 	| 400,00				| 400,00   	 			|			| 500,00
+											abr/21	| Utilizando parte do Crédito + Retenção do período anterior no próprio período gerando Crédito + Retenção para o período seguinte	| Débito < Crédito + Retenção	| 400,00 		 	| 40,00					| 40,00					|			| 180,00
+											mai/21	| Utilizando todo Crédito + Retenção do período anterior no próprio período gerando DARF a pagar									| Débito > Crédito + Retenção	| 500,00 			|						| 						| 320,00	|
+											jun/21	| Sem movimento																														|								|					|						|						|			|
+											jul/21	| Sem movimento																														|								|					|						|						|			|
+											ago/21	| Utilizando todo Crédito + Retenção do período no próprio período gerando valor zero para DARF										| Débito = Crédito + Retenção	| 600,00 		 	| 300,00				| 300,00				|			|
+											set/21	| Sem crédito ou retenção no próprio período gerando DARF a pagar																	| Débito > Crédito + Retenção	| 700,00 			| 						|						| 700,00	|
+										Quando possui informação de Créditos Utilizados
+										Quando não possui informação de Créditos Utilizados (Excluir tabela "CUR". Observação: Tabela pai é "CCR")
+											Rodar Ferramenta "Utilitários >> Recalcular Saldo Retido PIS COFINS" obedecendo RE[2.1.1]
+										Obrigação acessória
+											Sped Contribuições (M205, M605)
+										Ferramentas
+											Utilitários >> Ferramentas >> Preencher Dados PIS e COFINS
+												Informar "Preencher Exclusão da BC PIS/COFINS"
+													Invalidar Apuração
+													Com Filtros
+													Consultar no banco se os valores estão sendo preenchidos com apenas 2 casas decimais a fim de evitar problemas de arredondamento
+											Utilitários >> Ferramentas >> Apagar CST PIS/COFINS
+												Excluir "Preencher Exclusão da BC PIS/COFINS"
+													Invalidar Apuração
+													Com Filtros
+											Utilitários >> Recalcular Tributos Federais
+
+Links de testes unitários:
+Links de testes funcionais:
+Recursos:
+					  Nome do arquivo no padrão:	[Relacionamento principal]-( Se for arquivo Abrasf informar o município e UF )[Município] (UF)-[Observação opcional]
+										Exemplo:	Arquivo para importação: Abrasf-Ponte Nova (MG)-Inscrição Estadual do Participante.xml
+	Nome do arquivo do banco de dados no padrão:	[Iniciais do subsistema]-[Relacionamento principal]-[Ano de publicação]-[Nome da empresa]-[Período]-[Observação opcional]
+										Exemplo:	Banco para testes: ACC-Planilha Financeira-2021-ONE INTERNET SA-042021.rar
+
+
