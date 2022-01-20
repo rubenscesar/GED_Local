@@ -142,4 +142,4 @@ Stack:
 Links de testes unitários:
 Links de testes funcionais:
 Recursos:
-"D:\1_CONTÊINERES\3_Bancos para teste\5_Banco para testes do Sped Contribuições\P CH202105079114 Sped Contribuições - Banco para teste Funcional de Crédtios.rar"
+	P CH202105079114 Sped Contribuições - Banco para teste Funcional de Crédtios.rar
