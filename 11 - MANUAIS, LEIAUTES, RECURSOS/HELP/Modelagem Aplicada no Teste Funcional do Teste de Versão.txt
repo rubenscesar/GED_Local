@@ -1,0 +1,128 @@
+╔═══════════════════════════════════════╗
+║ MODELAGEM APLICADA NO TESTE FUNCIONAL	║
+╠═════════════════╦═════════════════════╝
+║ TESTE DE VERSÃO ║
+╚═════════════════╝
+
+Project Suite	= VERSAO
+Project			= FORTES AC
+.				= PATRIMÔNIO
+.				= VERSAO ACADÊMICA FORTES AC
+Script			= 1 Instalação
+Script			= 2 Instalação de Terminal
+Script			= 3 Atualização
+Script			= 4 Licença de Uso
+Script			= 5 Backup e Restauração
+Script			= 6 Diversos
+
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+
+1 Instalação
+─────────────────────────────────────────────
+• Apaga todos os Firebirds
+• Instala Firebird 2.1.7
+• Com Firebird do próprio Instalador em
+  máquina que tem outro firebird
+• Abrir o sistema
+• Liberar licença de uso
+• Apaga todos os Firebirds
+• Com Firebird do próprio Instalador
+• Abrir o sistema
+• Liberar licença de uso
+• Com Firebird preexistente
+• Abrir o sistema
+• Liberar licença de uso
+• Conferir versão do leiaute do Fiscal na
+  instalação (162)
+• Conferir versão do leiaute do Contábil na
+  instalação (10)
+
+
+2 Instalação de Terminal
+─────────────────────────────────────────────
+3 Atualização
+─────────────────────────────────────────────
+• Atualização em Banco Firebird cuja versão
+  seja imediatamente anterior na versão de
+  Firebird oficial da Fortes
+• Banco Firebird interrompendo a atualização
+  e restaurando
+• Marcando "Não realizar backup do banco de
+  dados"
+• Atualização em Banco Firebird cuja versão
+  seja 2 anteriores a versão atual na versão
+  de Firebird oficial da Fortes
+• Atualização em Banco Firebird cuja versão
+  seja a partir de 3 anteriores a versão
+  atual na versão de Firebird oficial da
+  Fortes
+• Apaga todos os Firebirds
+• Atualização em Banco Firebird com Firebird
+  na versão 2.1.7
+• Instala Firebird 2.1.7
+
+4 Licença de Uso
+─────────────────────────────────────────────
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Instala o AC
+	Instala na plataforma Delphi 7
+		verificar se possui a pasta fortes/ac
+			se sim =	renomeia a pasta ac para ac(testeversao)
+			se não =	instala o ac
+		verifica se toda a janela do instalador está conforme esperado (posição dos campos, descrição dos campos, passagem dos campos, críticas esperadas dos campos, qtd caracteres suportados em cada campo, tipo de informação suportada por cada campo)
+		instala o sistema com o próprio firebird
+		instala o sistema com o firebird 2.1.7
+		instala o sistema com sql
+			após instalado verifica se todas as dlls estão na pasta
+			após instalado verifica se todas os leiautes estão na pasta conforme esperado e na versão correta
+			após instalado verifica se o FortesTotemSetup.exe está na pasta
+				Entra no sistema e libera a licença de uso
+				Entra no sistema e atualiza as tabelas internas
+					Sai do sistema sem realizar backup
+
+
+Check_PastaAC
+	verificar se possui a pasta fortes/ac
+		se sim =	renomeia a pasta ac para ac(testeversao)
+		se não =	instala o ac
+Instalacao
+Instala o AC
+	Instala na plataforma Delphi 7
+		verifica se toda a janela do instalador está conforme esperado (posição dos campos, descrição dos campos, passagem dos campos, críticas esperadas dos campos, qtd caracteres suportados em cada campo, tipo de informação suportada por cada campo)
+	Instala na plataforma Delphi 7
+		instala o sistema com o próprio firebird
+			após instalado verifica se todas as dlls estão na pasta
+			após instalado verifica se todas os leiautes estão na pasta conforme esperado e na versão correta
+			após instalado verifica se o FortesTotemSetup.exe está na pasta
+				Entra no sistema e libera a licença de uso
+					Entra no sistema e atualiza as tabelas internas
+						Sai do sistema sem realizar backup
+	Instala na plataforma Delphi 7
+		instala o sistema com o firebird 2.1.7
+			Entra no sistema e libera a licença de uso
+			Entra no sistema e atualiza as tabelas internas
+				Sai do sistema sem realizar backup
+	Instala na plataforma Delphi 7
+		instala o sistema com sql
+			Entra no sistema e libera a licença de uso
+			Entra no sistema e atualiza as tabelas internas
+				Sai do sistema sem realizar backup

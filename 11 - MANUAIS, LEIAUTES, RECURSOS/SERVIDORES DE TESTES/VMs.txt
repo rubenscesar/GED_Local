@@ -1,0 +1,117 @@
+BB8
+usuário: dev_fisco
+senha: @build20111
+
+unitário
+3 vm
+
+https://fisco:8333/ui/#
+OPTIMUS
+ROSE
+SASORI
+SMITH
+
+ROBOCOP é o responsável pelo TeamCity
+
+
+Através dessas máquinas que se pode entrar nas VMs
+╔───────────────┬─────────────┬─────────────────────┬───────────╗
+│IP				│MÁQUINA	  │	VM					│IP			│
+╠───────────────┼─────────────┼─────────────────────┼───────────╣
+│				 BB8			OPTIMUS				│			│
+│								SASORI				│			│
+│								ROSE				│			│
+│								SMITH				│			│
+╠───────────────┼─────────────┼─────────────────────┼───────────╣
+│10.1.254.24	 KICKS			ACXE6_Fisco_Three	│			│ D:\Virtual Machines
+│								ACXE6_Fisco_Four	│			│ D:\Virtual Machines
+│								ACXE6_Fisco_Teste	│			│ C:\VM
+╠───────────────┼─────────────┼─────────────────────┼───────────╣
+│10.1.254.112	 KAKASHI		ACXE6_Fisco_TF1		│			│
+│								ACXE6_Fisco_TF2		│			│
+│								ACXE6_Fisco_TF3		│			│
+╠───────────────┼─────────────┼─────────────────────┼───────────╣
+│10.1.254.238	 ROBOCOP		HAL9000v2			│			│funcional
+│								SENTINELA			│			│funcional
+│								ATLAS				│10.1.17.216│unitáro
+│													│			│
+│								Roda o TeamCity		│			│
+╠───────────────┼─────────────┼─────────────────────┼───────────╣
+│pelo link no IE VM_Teste_Dell	ROSE2				 10.1.17.54	│
+│								VERÔNICA			 10.1.17.147│
+│								BAYMAX				 10.1.17.2	│
+│								ReadRichards		 10.1.18.33	│	Usuário: Administrador Senha: @Fisco
+╚───────────────────────────────────────────────────────────────╝
+
+pelo endereço no IE: https://vm-gerente.grupofortes.local/
+é possível visualizar as máquinas:
+	BAYMAX
+	VERONICA
+	ROSE2
+	READRICHARDS
+	ATLAS
+	HAL9000v2
+	Sentinela
+
+Máquinas que devem estar conectadas:
+BB8
+OPTIMUS
+ROSE
+SASORI
+SMITH
+ULTRON
+VERONICA
+ZERO
+BENDER
+ACXE6_Fisco_Teste
+ACXE6_Fisco_TF1
+ACXE6_Fisco_TF2
+ACXE6_Fisco_TF3
+ACXE6_Fisco_Three
+ACXE6_Fisco_Four
+BAYMAX
+ATLAS
+GIPPSY DANGER
+SENTINELA
+HAL 9000
+MEGAMAN
+ROBOCOP
+KAKASHI
+ACXE6_Fisco_TF1
+ACXE6_Fisco_TF2
+ACXE6_Fisco_TF3
+KICKS
+
+VM_Teste_Del
+	Verônica
+	Baymax
+	Rose2
+	ReadRichards
+Fisco
+	SMITH
+	SASORI
+	OPTIMUS
+	
+	
+	
+ATLAS
+	Tem o usuário dev_fisco
+	Que eu criei
+	E o padrão que é 
+
+	administrador
+
+	senha: @Fisco2011
+	alterado para: superv
+HAL9000
+
+	10.1.17.217
+O HAL9000 eu renomeei pra HAL9000v2 pq já tem um outro na rede com esse nome
+
+Sentinela
+
+	10.1.17.215
+
+	Administrador
+
+	superv

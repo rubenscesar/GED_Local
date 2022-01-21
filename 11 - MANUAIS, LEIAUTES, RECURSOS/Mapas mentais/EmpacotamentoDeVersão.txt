@@ -1,0 +1,143 @@
+Leiaute D7:
+\\10.1.254.70\x\Programacao\Pronto\AC\CD\Help
+\\10.1.254.70\x\Programacao\Pronto\AC\Atualizador
+Leiaute XE6:
+\\10.1.254.70\x\Programacao\Pronto\ACXE6\Atualizador
+\\10.1.254.70\x\Programacao\Pronto\ACXE6\CD\Help
+
+baymax maq roda xe6
+ultron maq roda d7
+no ultron entra na pasta projetos
+roda gerador de ver
+seleciona a versão
+copia o histórico para o email
+
+
+
+depois de empacotado e precisar incluir mais algumas coisa
+como correção no VER, deve commitar no trunk e na tag
+depois se commits já estiverem liberados
+não precisa pausar nada, apenas rodar o 4.
+
+se der problema informando que é no número da versão
+	• verificar se não no VER da tag não está colocada o número da ver errado
+	• estando o número da versão correta, deve ir na pasta C:\Projetos\"tag"\Fontes\Testes e rodar
+	o arquivo AjustaVersao.bat
+	• depois commita o arquivo que foi criado mandando commitar a pasta fontes que assim irá mostrar só o
+	arquivo que quer, mas antes de commitar clica 2 vezes para ver a diferença se era a versão mesmo ou não
+
+Rodar Deploy manualmente
+	• Na maq Ultron, baixa a tag da versão na pasta projetos
+	• renomear a pasta da tag para AC
+	• Se dentro da pasta C:\Projetos\ a pasta AC estiver como AC(Atualizando), deve renomear novamente para AC
+	• Na pasta Fontes cria uma pasta chamada "Deploy", ficando C:\Projetos\AC\Fontes\Deploy
+	• entra na pasta C:\Projetos\AC\Fontes\Testes e roda o arquivo Deploy.bat
+	• ele vai abrir o command que de vez em quando vai solicitar que tecle enter até concluir
+	• feito isso agora é só entrar na pasta do pronto, rodar instalador e atualizador para ver se estão corretos
+
+14
+Se alguem commitar algo, automaticamente vai jogar todos os projetos para aba Build Queue
+	Neste caso pode apagar todos os build queue (independente se é pessoal ou fiscal)
+	Volta para Projects, clica em Run de um por um em todos que estão vermelho (quebrando) menos aqueles que estão em Métricas, Liberar Versao AC, Testes Patrio, Testes Comum, Testes AC Pessoal ..., Acessórios Fisco e Métricas Patrio
+	Volta para aba Build Queue e clica em Resume Build Queue e fica atualizando a página para ver quando restaram para rodar (número ao lado da aba), quando estabilizar em um número significa que todas os servidores de testes disponíveis já estão em uso, então volta a pausar tudo
+	Necessário pausar por que se algum teste quebrar ele volta automaticamente para a fila se não estiver pausado e assim perderíamos o controle e demoraria mais
+Obs.: A aba Build Queue é como se fosse uma fila dos projetos a serem testados. Não significa que estão sendo testados mas sim os que serão os próximos a serem testados
+	Tem que ficar direto em pause e resume durante a liberação da versão. Ficar sempre de olho
+
+
+Ocorreu de dar problema ao empacotar o XE6
+	Gerou com nº na versão errada
+		Neste caso tem que entrar no Ultron na pasta da tag da versão c:\Projetos\AC\Fontes\Testes e rodar o AjustaVersao.bat
+		Ele vai alterar um arquivo em c:\Projetos\AC\Fontes chamado ACVersion.rc
+		Compara as alterações dele para ver se alterou o DatabaseVersion, FileDescription e FileVersion para o código do banco correto
+		Se estiver correto commita para a tag da versão
+		Entra no Baymax em C:\Utils tem um Xe6DeployTag.bat que ajusta a versão e que ocorreu nesta vez foi que altera todo código "6." para "7." assim acabava alterando o código indevidamente e pode ser que acabe ocorrendo novamente quando sair versão com 7.**6.** que por ter "6." vai acabar indo para "7."
+		Altera o .bat colocando de ("6." para "7.") para ("6.1" para "7.1")
+		Depois vai no TeamCity, roda AC_XE_EmpacotarVersao novamente
+		Quando terminar, volta nesse arquivo do Baymax e volta ao que era antes
+
+
+
+DmFC
+C:\Projetos\AC\Fontes\
+ShowLog
+
+Empacotar
+Em Build Queue. Pausa tudo. Remove Tudo
+1. Iniciar Liberacao
+	Run
+	Em Build Queue. Resume depois Pausa tudo
+3. Finalizar Liberacao sem Dependências
+	Run
+	Em Build Queue. Resume depois Pausa tudo
+no XE6 é em AC_XE6_EmpacotarVersão
+
+Reempacotar
+4. Empacotar Versão
+	Run
+	Em Build Queue não faz diferença se tem algo na fila nem se tem algo rodando, pq a tag já foi criada e o Empacotar versão roda um servidor separado que não precisa nem liberar no Build Queue
+no XE6 é em AC_XE6_EmpacotarVersão
+
+
+
+"C:\Projetos\DeployAC\DeployAC.fbl7". O arquivo já está sendo usado por outro processo
+Já fui na pasta do AC e já conseguiu renomear e voltar
+• Entra no Ultron fecha tudo com excessão do "TeamCity Build Agent"
+Obs: "TeamCity Build Agent" é o Agent que tem que estar rodando nos servidores para iniciar o empacotamento da versão
+
+kicks
+máquina tree e four é nossa a do pessoal é 1 e 2
+
+
+#EMPACOTAR XE6
+Em Build Queue. Remove tudo depois Pausa tudo
+Em Projects
+AC_XE6_EmpacotarVersão
+	Run
+	Em Build Queue. Resume depois Pausa tudo
+
+Caso rode o empacotar versão XE6 com sucesso e mesmo assim gere a versão errada em \\10.1.254.1\x\Outros\PRONTO\Homologação
+	Entra em \\10.1.254.70\x\Programacao\Pronto\ACXE6\Atualizador verifica se a versão do AC.exe está correta.
+	Se estiver vá no \\10.1.254.1\x\Outros\PRONTO\Homologação e apague o atualizador gerado errado e depois em
+	\\10.1.254.1\x\Outros\PRONTO\PORTAL e apague a pasta que possivelmente tenha sido criada da versão
+	depois rode novamente o AC_XE6_EmpacotarVersão no TeamCity. As vezes isso ocorre. Tem umas 2 a 3 vezes para ver se dá certo
+	
+Criar no tag
+	Baixo a última tag
+	Abrir o AC.VER
+	incluir nova informação ex:
+    <Versao id="6.170.0.2" bd="739" data="01/02/2021">
+      <Modulo nome="Contábil">
+	    <Item motivo="PCH202102000891">SPED ECF - Ajuste ao atualizar tabelas dinâmicas referente adequação ao leiaute 2021.</Item>
+      </Modulo>
+	  <Modulo nome="Pessoal">
+        <Item>Não houve alteração para este subsistema</Item>
+      </Modulo>
+      <Modulo nome="Fiscal">
+	    <Item motivo="PCH202102000891">SPED ECF - Ajuste ao atualizar tabelas dinâmicas referente adequação ao leiaute 2021.</Item>
+      </Modulo>
+      <Modulo nome="SPED Fácil">
+        <Item>Não houve alteração para este subsistema</Item>
+      </Modulo>
+      <Modulo nome="Gestão">
+        <Item>Não houve alteração para este subsistema</Item>
+      </Modulo>
+	</Versao>
+	não esquecer de alterar id da versão do banco e data
+	copiar o conteúdo do ac.ver conforme exemplo anterior
+	baixa o trunk
+	edita o ac.ver
+	cola a mesma informação que foi colocado na tag igual ao exemplo acima. Não esquecer que se já foi iniciado nova versão no ac.ver do trunk
+	então deve colar a nova informação empurrando a última pra cima
+	salva e commita informando que é ajuste no ver re tag x.xxx.x.x
+	na pasta da tag baixada Executa ajustaversao.bat
+	clica com o botão direito na pasta da tag
+	em tortoise\branch tag
+	em To path: acrescenta a versão da tag
+	marca Working copy
+	depois
+	em tortoise\switch
+	em To path: seleciona a tag criada
+	renomeia a pasta para AC
+	roda Deploy.bat
+	

@@ -1,0 +1,83 @@
+Decreto PB 38.889/2018 e manual de orientação
+o valor do DAS terá que constar no campo 15 do Registro E110,
+gerar o Registro E115 com os respectivos códigos de ajustes
+constantes no manual de orientação e o E116 com os respectivos
+códigos da receita também informados no manual
+Para estabelecimentos com UF de PB
+
+Requisitos
+Geração SPED ICMS com valor do ICMS a ser recolhido pelo Simples Nacional (Valor declarado no PGDASD)
+• Será gerado apenas quando o estabelecimento for da UF de PA
+• No Histórico do Estabelecimento deve estar marcado "Gerar ICMS Simples Nacional Automaticamente p/ Débitos Especiais"
+>```
+O valor do ICMS a ser recolhido será gravado na tabela VRE e a configuração até este ponto é pré-requisito para que este conceito incluindo o de invalidação da VRE seja aplicada
+```
+• Na Legislação Estadual de PB deve estar informado o código da receita (1113) e dia do vencimento em "ICMS Simples Nacional"
+• Deve haver lançamento que gere valor positivo de ICMS no Demonstrativo de Cálculo do Simples Nacional
+
+SPED ICMS
+• Regime do Simples Nacional (com e sem itens, apuração por competência e caixa).
+• Quando o estabelecimento for da UF de PA.
+• No Histórico do Estabelecimento deve estar marcado "Gerar ICMS Simples Nacional Automaticamente p/ Débitos Especiais"
+• Serão cadastrados em "Códigos de Ajustes Fiscais" no menu "Cadastros" os códigos a serem utilizados na geração do SPED ICMS: 
+>```
+"PB050005" com Descrição "Ajuste para Apuração ICMS Simples Nacional" e Classificação "Débitos Especiais"
+"PB310001" com Descrição "Valor do faturamento Simples Nacional" e Classificação "Valores Declaratórios"
+```
+• Irá gerar automaticamente valores para a ICD (ICMS - Outros Débitos/Créditos, Estornos ...) como "Estornos de créditos" com o CAF "PB010002" e valor do ICMS a ser recolhido pelo Simples Nacional (Valor declarado no PGDASD)
+• Irá gerar automaticamente valores para a ICD (ICMS - Outros Débitos/Créditos, Estornos ...) como "Valores Declaratórios" com o CAF "PB310001" e valor do faturamento Simples Nacional (RPA do estabelecimento)
+• Irá gerar automaticamente valores para a ICD (ICMS - Outros Débitos/Créditos, Estornos ...) como "Débitos Especiais" com o CAF "PB050005" e valor do ICMS a ser recolhido pelo Simples Nacional (Valor declarado no PGDASD)
+• Na ICD será informada na coluna Origem da grid "Ajustes Provenientes de Documento Fiscal", ao consultar terá uma observação descrita como "Ajustes Provenientes de Documento Fiscal" e este registro não poderá ser editado
+• Deve gerar o valor do ICMS a ser recolhido pelo Simples Nacional (Valor declarado no PGDASD):
+   E110 = campo 15 (Valor do ICMS a ser recolhido pelo Simples Nacional (Valor declarado no PGDASD) conforme Mov. ICMS - Outros Débitos/Créditos, Estornos, Deduções, Observações, Val. Declaratórios e Déb. Especiais)
+   1º E111 = campo 2 ("PB050002" conforme Mov. ICMS - Outros Débitos/Créditos, Estornos, Deduções, Observações, Val. Declaratórios e Déb. Especiais)
+   E111 = campo 2 ("PB050005" conforme Mov. ICMS - Outros Débitos/Créditos, Estornos, Deduções, Observações, Val. Declaratórios e Déb. Especiais)
+   E111 = campo 3 ("Ajuste para Apuração ICMS Simples Nacional" conforme Mov. ICMS - Outros Débitos/Créditos, Estornos, Deduções, Observações, Val. Declaratórios e Déb. Especiais)
+   E111 = campo 4 (Valor do ICMS a ser recolhido pelo Simples Nacional (Valor declarado no PGDASD). Igual ao informado no campo 15 do registro E110
+   E115 = campo 2 ("PB310001" Valor do faturamento Simples Nacional
+      ou
+   E115 = campo 2 ("PB310002" Valor da alíquota ICMS - Simples Nacional (somente até Dezembro de 2017, após esta data não é necessário informar alíquota)
+
+
+
+
+
+Criar configuração
+Criar ICD
+Criar VRE
+
+Na geração do SPED so pega os valores.
+Vai ter o conceito de invalida VRE.
+
+Não vai ter mensagem no SPED
+
+
+Não esquecer de testar com matriz e filial pq vai influenciar na informação
+
+
+
+
+
+
+PB
+CE
+	Matriz (PB)
+	Matriz e Filial (PB)
+	Matriz (PB) e Filial (CE)
+	Matriz (CE) e Filial (PB)
+		Competência
+		Caixa
+			Com itens
+			Sem ites
+				Configurado no HES
+				Não Configurado no HES
+					Possui valor de ICMS
+					Isento de ICMS
+						ICD pre cadastrado
+						ICD limpo
+							VRE preexistente
+							Invalidando VRE
+CRUD Cad Legislação de outras UFS
+BKP
+Auditoria
+HES verificar se est´á obedecendo a data

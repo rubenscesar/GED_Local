@@ -1,0 +1,30 @@
+Estabelecimento com UF de "BA"
+Estabelecimento prestador de serviço de transporte
+Requisitos para gerar registro 1400 por espécie:
+1. Com código "BAE01"
+	NFM:	• NFM de entrada de mercadoria
+			• Participante deve estar marcado a opção "Fornecedor de produtos primários"
+			• No lançamento do documento fiscal, a nota com o CFOP "1.653", "2.653"
+3. Com código "BAE99"
+	NFM:	• NFM de entrada de mercadoria
+			• Participante deve estar marcado a opção "Fornecedor de produtos primários"
+
+Estabelecimento não é prestador de serviço de transporte
+Requisitos para gerar registro 1400 por espécie:
+1. Com código "BAE01"
+	NFM:	• NFM de entrada de mercadoria
+			• Participante deve estar marcado a opção "Fornecedor de produtos primários"
+			• No lançamento do documento fiscal, a nota com o CFOP "1.653", "2.653"
+2. Com código "BAE14"
+	NFM:	• NFM de entrada de mercadoria
+			• Participante deve estar marcado a opção "Fornecedor de produtos primários"
+			• Caso o participante esteja cadastrado com CNPJ, este não deve ter inscrição estadual
+			• Caso o participante esteja cadastrado com CPF, este deve ter inscrição estadual
+			• No cadastro de produtos, precisa estar classificado em "Gênero (Produto Primários)" com "56- Pastas ("ouates"), feltros e falsos tecidos; fios especiais; cordéis, cordas e cabos; artigos de cordoaria"
+			• No lançamento do documento fiscal, a nota com o produto em questão precisa estar com o CST x51
+			• No lançamento do documento fiscal, a nota com o CFOP "1.653", "2.653"
+3. Com código "BAE99"
+	NFM:	• NFM de entrada de mercadoria
+			• Participante deve estar marcado a opção "Fornecedor de produtos primários"
+4. Com código "BAS01"
+	CTE		• No lançamento do documento fiscal, a nota com o CFOP "5351", "5352", "5353", "5354", "5355", "5356", "5357", "5359", "5932", "6351", "6352", "6353", "6354", "6355", "6356", "6357", "6359", "6932", "7358"

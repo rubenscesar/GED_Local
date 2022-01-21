@@ -1,0 +1,590 @@
+<map version="0.9.0">
+<!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
+<node CREATED="1592956118327" ID="ID_1746918483" MODIFIED="1592957218435" TEXT="LALUR">
+<node CREATED="1592956165052" ID="ID_635776373" MODIFIED="1592956384263" POSITION="right">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Decreto n&#186; 3.000, de 26 de mar&#231;o de 1999
+    </p>
+  </body>
+</html></richcontent>
+<richcontent TYPE="NOTE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p class="MsoNormal">
+      <b><i><u><font face="Comic Sans MS" color="rgb(255,0,0)" size="12,0000pt">Art.&#160;229.</font></u></i></b><font face="Comic Sans MS" color="rgb(0,0,0)" size="12,0000pt">&#160;&#160;Para efeito de pagamento, a pessoa jur&#237;dica poder&#225;&#160;</font><b><font face="Comic Sans MS" color="rgb(255,0,0)" size="12,0000pt">deduzir do imposto apurado no m&#234;s</font></b><font face="Comic Sans MS" color="rgb(0,0,0)" size="12,0000pt">, o imposto pago ou retido na fonte sobre as receitas que integraram a base de c&#225;lculo, bem como os incentivos de dedu&#231;&#227;o do imposto relativos ao&#160;</font><b><font face="Comic Sans MS" color="rgb(255,0,0)" size="12,0000pt">Programa de Alimenta&#231;&#227;o do Trabalhador</font></b><font face="Comic Sans MS" color="rgb(0,0,0)" size="12,0000pt">, doa&#231;&#245;es aos Fundos da Crian&#231;a e do Adolescente, Atividades Culturais ou Art&#237;sticas, Atividade Audiovisual, e Vale-Transporte, este &#250;ltimo at&#233; 31 de dezembro de 1997, observados os limites e prazos previstos para estes incentivos (</font><a href="#art34"><u><font face="Comic Sans MS" color="rgb(17,85,204)" size="12,0000pt">Lei n&#186; 8.981, de 1995, art. 34</font></u></a><font face="Comic Sans MS" color="rgb(0,0,0)" size="12,0000pt">,&#160;</font><a href="#art1"><u><font face="Comic Sans MS" color="rgb(17,85,204)" size="12,0000pt">Lei n&#186; 9.065, de 1995, art. 1&#186;</font></u></a><font face="Comic Sans MS" color="rgb(0,0,0)" size="12,0000pt">,&#160;</font><a href="#art2"><u><font face="Comic Sans MS" color="rgb(17,85,204)" size="12,0000pt">Lei n&#186; 9.430, de 1996, art. 2&#186;</font></u></a><font face="Comic Sans MS" color="rgb(0,0,0)" size="12,0000pt">, e&#160;</font><a href="#art82iif"><u><font face="Comic Sans MS" color="rgb(17,85,204)" size="12,0000pt">Lei n&#186; 9.532, de 1997, art. 82, inciso II, al&#237;nea &quot;f&quot;</font></u></a><font face="Comic Sans MS" color="rgb(0,0,0)" size="12,0000pt">).</font><font face="Calibri" size="13,0000pt"><o p="#DEFAULT"></o></font>
+    </p>
+    <p class="MsoNormal" style="margin-bottom: 0; text-indent: 0; text-align: left; background-color: rgb(255,255,255); background-image: null; background-repeat: repeat; background-attachment: scroll; background-position: null">
+      <font face="Comic Sans MS" color="rgb(0,0,0)" size="12,0000pt">Par&#225;grafo&#160;&#250;nico.&#160;&#160;No caso em que o imposto retido na fonte seja superior ao devido, a diferen&#231;a poder&#225; ser compensada com o imposto mensal a pagar relativo aos meses subsequentes.</font><font face="Times New Roman" color="rgb(80,0,80)" size="12,0000pt"><o p="#DEFAULT"></o></font>
+    </p>
+    <p class="MsoNormal" style="margin-bottom: 0; text-indent: 0; text-align: left; background-color: rgb(255,255,255); background-image: null; background-repeat: repeat; background-attachment: scroll; background-position: null">
+      <b><i><u><font face="Comic Sans MS" color="rgb(255,0,0)" size="12,0000pt">Art.&#160;262.&#160;&#160;No LALUR, a pessoa jur&#237;dica dever&#225;</font></u></i></b><font face="Comic Sans MS" color="rgb(255,0,0)" size="12,0000pt">&#160;</font><font face="Comic Sans MS" color="rgb(0,0,0)" size="12,0000pt">(</font><a href="#art8i"><u><font face="Comic Sans MS" color="rgb(17,85,204)" size="12,0000pt">Decreto-Lei n&#186; 1.598, de 1977, art. 8&#186;, inciso I)</font></u></a><font face="Comic Sans MS" color="rgb(0,0,0)" size="12,0000pt">:</font><font face="Times New Roman" color="rgb(80,0,80)" size="12,0000pt"><o p="#DEFAULT"></o></font>
+    </p>
+    <p class="MsoNormal" style="margin-bottom: 0; text-indent: 0; text-align: left; background-color: rgb(255,255,255); background-image: null; background-repeat: repeat; background-attachment: scroll; background-position: null">
+      <font face="Comic Sans MS" color="rgb(0,0,0)" size="12,0000pt">I&#160;-&#160;lan&#231;ar os ajustes do lucro l&#237;quido do per&#237;odo de apura&#231;&#227;o;</font><font face="Times New Roman" color="rgb(80,0,80)" size="12,0000pt"><o p="#DEFAULT"></o></font>
+    </p>
+    <p class="MsoNormal" style="margin-bottom: 0; text-indent: 0; text-align: left; background-color: rgb(255,255,255); background-image: null; background-repeat: repeat; background-attachment: scroll; background-position: null">
+      <font face="Comic Sans MS" color="rgb(0,0,0)" size="12,0000pt">II&#160;-&#160;transcrever a demonstra&#231;&#227;o do lucro real;</font><font face="Times New Roman" color="rgb(80,0,80)" size="12,0000pt"><o p="#DEFAULT"></o></font>
+    </p>
+    <p class="MsoNormal" style="margin-bottom: 0; text-indent: 0; text-align: left; background-color: rgb(255,255,255); background-image: null; background-repeat: repeat; background-attachment: scroll; background-position: null">
+      <font face="Comic Sans MS" color="rgb(0,0,0)" size="12,0000pt">III&#160;-&#160;manter os registros de controle de preju&#237;zos fiscais a compensar em per&#237;odos de apura&#231;&#227;o subsequentes, do lucro inflacion&#225;rio a realizar, da deprecia&#231;&#227;o acelerada incentivada, da exaust&#227;o mineral, com base na receita bruta, bem como dos demais valores que devam influenciar a determina&#231;&#227;o do lucro real de per&#237;odos de apura&#231;&#227;o futuros e n&#227;o constem da escritura&#231;&#227;o comercial;</font><font face="Times New Roman" color="rgb(80,0,80)" size="12,0000pt"><o p="#DEFAULT"></o></font>
+    </p>
+    <p class="MsoNormal" style="margin-bottom: 0; text-indent: 0; text-align: left; background-color: rgb(255,255,255); background-image: null; background-repeat: repeat; background-attachment: scroll; background-position: null">
+      <font face="Comic Sans MS" color="rgb(0,0,0)" size="12,0000pt">IV&#160;</font><b><i><u><font face="Comic Sans MS" color="rgb(255,0,0)" size="12,0000pt">-&#160;manter os registros de controle dos valores excedentes a serem utilizados no c&#225;lculo das dedu&#231;&#245;es nos per&#237;odos de apura&#231;&#227;o subsequentes, dos disp&#234;ndios com programa de alimenta&#231;&#227;o ao trabalhador, vale-transporte e outros previstos neste Decreto.</font></u></i></b><font face="Times New Roman" color="rgb(80,0,80)" size="12,0000pt"><o p="#DEFAULT"></o></font>
+    </p>
+    <p class="MsoNormal" style="margin-bottom: 0; text-align: left; background-color: rgb(255,255,255); background-image: null; background-repeat: repeat; background-attachment: scroll; background-position: null">
+      <font face="Comic Sans MS" color="rgb(80,0,80)" size="12,0000pt">&#160;</font><font face="Times New Roman" color="rgb(80,0,80)" size="12,0000pt"><o p="#DEFAULT"></o></font>
+    </p>
+  </body>
+</html></richcontent>
+</node>
+<node CREATED="1592957599022" ID="ID_1200465885" MODIFIED="1592957602075" POSITION="right" TEXT="Apura&#xe7;&#xe3;o">
+<node CREATED="1592957225169" ID="ID_1816132967" MODIFIED="1593175710341" TEXT="Anual">
+<node CREATED="1592957622199" ID="ID_267613861" MODIFIED="1593175711962" TEXT="Incid&#xea;ncia tribut&#xe1;ria">
+<node CREATED="1592957254839" ID="ID_1603172506" MODIFIED="1593175733169" TEXT="N&#xe3;o-cumulativa">
+<node CREATED="1592957394176" ID="ID_1465641507" MODIFIED="1593175734952" TEXT="Regime de pagamento">
+<node CREATED="1592957458489" ID="ID_1171730782" MODIFIED="1593175737723" TEXT="Compet&#xea;ncia">
+<node CREATED="1592957310280" ID="ID_1867408582" MODIFIED="1593175740290" TEXT="Al&#xed;quota PIS, COFINS">
+<node CREATED="1592957652335" ID="ID_1651106770" MODIFIED="1593175742792" TEXT="Padr&#xe3;o">
+<node CREATED="1592957712183" ID="ID_1931533485" MODIFIED="1593176104322" TEXT="Hands On">
+<node CREATED="1592957470502" ID="ID_6345707" MODIFIED="1592957471876" TEXT="GUI"/>
+<node CREATED="1592957475647" ID="ID_513483396" MODIFIED="1592957477315" TEXT="Relat&#xf3;rios"/>
+<node CREATED="1592957481928" FOLDED="true" ID="ID_303187863" MODIFIED="1592958197592" TEXT="Obriga&#xe7;&#xe3;o acess&#xf3;ria">
+<node CREATED="1592957493607" ID="ID_588987283" MODIFIED="1592957497099" TEXT="Sped ECF">
+<node CREATED="1592957511983" ID="ID_998305939" MODIFIED="1592957529692" TEXT="Aten&#xe7;&#xe3;o nas descri&#xe7;&#xf5;es no registro N620 e N660"/>
+</node>
+<node CREATED="1592957498079" ID="ID_109181649" MODIFIED="1592957502522" TEXT="Sped ECD"/>
+</node>
+<node CREATED="1592957559215" FOLDED="true" ID="ID_324206135" MODIFIED="1592958199201" TEXT="Outros">
+<node CREATED="1592957540839" ID="ID_1693771732" MODIFIED="1592957542675" TEXT="CH201911007988"/>
+<node CREATED="1592957547502" ID="ID_747541119" MODIFIED="1592957548139" TEXT="DARF"/>
+<node CREATED="1592957551815" ID="ID_571317692" MODIFIED="1592957552883" TEXT="Permiss&#xe3;o de usu&#xe1;rios"/>
+<node CREATED="1592957556118" ID="ID_1165789095" MODIFIED="1592957558307" TEXT="Fazer em v&#xe1;rios meses para garantir que n&#xe3;o est&#xe1; repetindo o vlr de reten&#xe7;&#xe3;o"/>
+</node>
+<node CREATED="1592957342472" FOLDED="true" ID="ID_1785910930" MODIFIED="1592958200161" TEXT="Dedu&#xe7;&#xe3;o no Fiscal">
+<node CREATED="1592957379862" ID="ID_358987046" MODIFIED="1592957381308" TEXT="Sim"/>
+<node CREATED="1592957381606" ID="ID_749646393" MODIFIED="1592957383492" TEXT="N&#xe3;o"/>
+</node>
+<node CREATED="1592957764662" FOLDED="true" ID="ID_1746667484" MODIFIED="1592958200738" TEXT="Reten&#xe7;&#xf5;es">
+<node CREATED="1592957771686" ID="ID_1014071315" MODIFIED="1592957780866" TEXT="PIS, COFINS"/>
+<node CREATED="1592957781622" ID="ID_865808274" MODIFIED="1592957788930" TEXT="IR, CSLL"/>
+</node>
+</node>
+</node>
+<node CREATED="1592957326095" FOLDED="true" ID="ID_855015012" MODIFIED="1592958173449" TEXT="Espec&#xed;fica">
+<node CREATED="1592957712183" FOLDED="true" ID="ID_90825170" MODIFIED="1592958169233" TEXT="Processo">
+<node CREATED="1592957470502" ID="ID_1378355451" MODIFIED="1592957471876" TEXT="GUI"/>
+<node CREATED="1592957475647" ID="ID_1429136097" MODIFIED="1592957477315" TEXT="Relat&#xf3;rios"/>
+<node CREATED="1592957481928" FOLDED="true" ID="ID_1332631869" MODIFIED="1592958168146" TEXT="Obriga&#xe7;&#xe3;o acess&#xf3;ria">
+<node CREATED="1592957493607" ID="ID_254059774" MODIFIED="1592958167770" TEXT="Sped ECF">
+<node CREATED="1592957511983" ID="ID_1077332700" MODIFIED="1592957529692" TEXT="Aten&#xe7;&#xe3;o nas descri&#xe7;&#xf5;es no registro N620 e N660"/>
+</node>
+<node CREATED="1592957498079" ID="ID_1074427781" MODIFIED="1592957502522" TEXT="Sped ECD"/>
+</node>
+<node CREATED="1592957559215" FOLDED="true" ID="ID_1230010464" MODIFIED="1592958153633" TEXT="Outros">
+<node CREATED="1592957540839" ID="ID_609564253" MODIFIED="1592957542675" TEXT="CH201911007988"/>
+<node CREATED="1592957547502" ID="ID_1111683080" MODIFIED="1592957548139" TEXT="DARF"/>
+<node CREATED="1592957551815" ID="ID_1455762676" MODIFIED="1592957552883" TEXT="Permiss&#xe3;o de usu&#xe1;rios"/>
+<node CREATED="1592957556118" ID="ID_500181222" MODIFIED="1592957558307" TEXT="Fazer em v&#xe1;rios meses para garantir que n&#xe3;o est&#xe1; repetindo o vlr de reten&#xe7;&#xe3;o"/>
+</node>
+<node CREATED="1592957342472" FOLDED="true" ID="ID_1560567705" MODIFIED="1592958154896" TEXT="Dedu&#xe7;&#xe3;o no Fiscal">
+<node CREATED="1592957379862" ID="ID_615377339" MODIFIED="1592957381308" TEXT="Sim"/>
+<node CREATED="1592957381606" ID="ID_188040073" MODIFIED="1592957383492" TEXT="N&#xe3;o"/>
+</node>
+<node CREATED="1592957764662" FOLDED="true" ID="ID_1737260377" MODIFIED="1592958155745" TEXT="Reten&#xe7;&#xf5;es">
+<node CREATED="1592957771686" ID="ID_1112314159" MODIFIED="1592957780866" TEXT="PIS, COFINS"/>
+<node CREATED="1592957781622" ID="ID_1222328108" MODIFIED="1592957788930" TEXT="IR, CSLL"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1592957282776" FOLDED="true" ID="ID_213102281" MODIFIED="1592958282649" TEXT="N&#xe3;o-cumulativa e cumulativa">
+<node CREATED="1592957394176" FOLDED="true" ID="ID_1925163910" MODIFIED="1592958265225" TEXT="Regime de pagamento">
+<node CREATED="1592957458489" FOLDED="true" ID="ID_36570234" MODIFIED="1592958263009" TEXT="Compet&#xea;ncia">
+<node CREATED="1592957310280" FOLDED="true" ID="ID_1772459464" MODIFIED="1592958258169" TEXT="Al&#xed;quota PIS, COFINS">
+<node CREATED="1592957652335" FOLDED="true" ID="ID_1725444741" MODIFIED="1592958213417" TEXT="Padr&#xe3;o">
+<node CREATED="1592957712183" FOLDED="true" ID="ID_746493914" MODIFIED="1592958212233" TEXT="Processo">
+<node CREATED="1592957470502" ID="ID_1861805469" MODIFIED="1592957471876" TEXT="GUI"/>
+<node CREATED="1592957475647" ID="ID_1836497114" MODIFIED="1592957477315" TEXT="Relat&#xf3;rios"/>
+<node CREATED="1592957481928" FOLDED="true" ID="ID_1895397449" MODIFIED="1592958211457" TEXT="Obriga&#xe7;&#xe3;o acess&#xf3;ria">
+<node CREATED="1592957493607" ID="ID_925017790" MODIFIED="1592957497099" TEXT="Sped ECF">
+<node CREATED="1592957511983" ID="ID_677271919" MODIFIED="1592957529692" TEXT="Aten&#xe7;&#xe3;o nas descri&#xe7;&#xf5;es no registro N620 e N660"/>
+</node>
+<node CREATED="1592957498079" ID="ID_1505935505" MODIFIED="1592957502522" TEXT="Sped ECD"/>
+</node>
+<node CREATED="1592957559215" FOLDED="true" ID="ID_708255314" MODIFIED="1592958209489" TEXT="Outros">
+<node CREATED="1592957540839" ID="ID_1151572550" MODIFIED="1592957542675" TEXT="CH201911007988"/>
+<node CREATED="1592957547502" ID="ID_872485776" MODIFIED="1592957548139" TEXT="DARF"/>
+<node CREATED="1592957551815" ID="ID_1651221717" MODIFIED="1592957552883" TEXT="Permiss&#xe3;o de usu&#xe1;rios"/>
+<node CREATED="1592957556118" ID="ID_120906401" MODIFIED="1592957558307" TEXT="Fazer em v&#xe1;rios meses para garantir que n&#xe3;o est&#xe1; repetindo o vlr de reten&#xe7;&#xe3;o"/>
+</node>
+<node CREATED="1592957342472" FOLDED="true" ID="ID_1902023938" MODIFIED="1592958208673" TEXT="Dedu&#xe7;&#xe3;o no Fiscal">
+<node CREATED="1592957379862" ID="ID_1376467696" MODIFIED="1592957381308" TEXT="Sim"/>
+<node CREATED="1592957381606" ID="ID_660099490" MODIFIED="1592957383492" TEXT="N&#xe3;o"/>
+</node>
+<node CREATED="1592957764662" FOLDED="true" ID="ID_366906897" MODIFIED="1592958207945" TEXT="Reten&#xe7;&#xf5;es">
+<node CREATED="1592957771686" ID="ID_1350664510" MODIFIED="1592957780866" TEXT="PIS, COFINS"/>
+<node CREATED="1592957781622" ID="ID_128071376" MODIFIED="1592957788930" TEXT="IR, CSLL"/>
+</node>
+</node>
+</node>
+<node CREATED="1592957326095" FOLDED="true" ID="ID_565713831" MODIFIED="1592958223617" TEXT="Espec&#xed;fica">
+<node CREATED="1592957712183" FOLDED="true" ID="ID_876505475" MODIFIED="1592958223001" TEXT="Processo">
+<node CREATED="1592957470502" ID="ID_671027439" MODIFIED="1592957471876" TEXT="GUI"/>
+<node CREATED="1592957475647" ID="ID_281592844" MODIFIED="1592957477315" TEXT="Relat&#xf3;rios"/>
+<node CREATED="1592957481928" FOLDED="true" ID="ID_423109732" MODIFIED="1592958222401" TEXT="Obriga&#xe7;&#xe3;o acess&#xf3;ria">
+<node CREATED="1592957493607" ID="ID_1032602990" MODIFIED="1592957497099" TEXT="Sped ECF">
+<node CREATED="1592957511983" ID="ID_429611617" MODIFIED="1592957529692" TEXT="Aten&#xe7;&#xe3;o nas descri&#xe7;&#xf5;es no registro N620 e N660"/>
+</node>
+<node CREATED="1592957498079" ID="ID_477528409" MODIFIED="1592957502522" TEXT="Sped ECD"/>
+</node>
+<node CREATED="1592957559215" FOLDED="true" ID="ID_1988583805" MODIFIED="1592958221497" TEXT="Outros">
+<node CREATED="1592957540839" ID="ID_740468518" MODIFIED="1592957542675" TEXT="CH201911007988"/>
+<node CREATED="1592957547502" ID="ID_92489958" MODIFIED="1592957548139" TEXT="DARF"/>
+<node CREATED="1592957551815" ID="ID_1169105360" MODIFIED="1592957552883" TEXT="Permiss&#xe3;o de usu&#xe1;rios"/>
+<node CREATED="1592957556118" ID="ID_1703424454" MODIFIED="1592957558307" TEXT="Fazer em v&#xe1;rios meses para garantir que n&#xe3;o est&#xe1; repetindo o vlr de reten&#xe7;&#xe3;o"/>
+</node>
+<node CREATED="1592957342472" FOLDED="true" ID="ID_1646615778" MODIFIED="1592958220753" TEXT="Dedu&#xe7;&#xe3;o no Fiscal">
+<node CREATED="1592957379862" ID="ID_603866239" MODIFIED="1592957381308" TEXT="Sim"/>
+<node CREATED="1592957381606" ID="ID_457093712" MODIFIED="1592957383492" TEXT="N&#xe3;o"/>
+</node>
+<node CREATED="1592957764662" FOLDED="true" ID="ID_1820798332" MODIFIED="1592958220240" TEXT="Reten&#xe7;&#xf5;es">
+<node CREATED="1592957771686" ID="ID_19291516" MODIFIED="1592957780866" TEXT="PIS, COFINS"/>
+<node CREATED="1592957781622" ID="ID_1398813448" MODIFIED="1592957788930" TEXT="IR, CSLL"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node BACKGROUND_COLOR="#ff0000" CREATED="1592957462015" FOLDED="true" ID="ID_278137366" MODIFIED="1592958262272" TEXT="Caixa">
+<node CREATED="1592957310280" FOLDED="true" ID="ID_350601188" MODIFIED="1592958257265" TEXT="Al&#xed;quota PIS, COFINS">
+<node CREATED="1592957652335" FOLDED="true" ID="ID_1813326984" MODIFIED="1592958239985" TEXT="Padr&#xe3;o">
+<node CREATED="1592957712183" FOLDED="true" ID="ID_244079330" MODIFIED="1592958238977" TEXT="Processo">
+<node CREATED="1592957470502" ID="ID_1103987573" MODIFIED="1592957471876" TEXT="GUI"/>
+<node CREATED="1592957475647" ID="ID_1085862021" MODIFIED="1592957477315" TEXT="Relat&#xf3;rios"/>
+<node CREATED="1592957481928" FOLDED="true" ID="ID_627612155" MODIFIED="1592958225889" TEXT="Obriga&#xe7;&#xe3;o acess&#xf3;ria">
+<node CREATED="1592957493607" ID="ID_1658425040" MODIFIED="1592957497099" TEXT="Sped ECF">
+<node CREATED="1592957511983" ID="ID_1889864993" MODIFIED="1592957529692" TEXT="Aten&#xe7;&#xe3;o nas descri&#xe7;&#xf5;es no registro N620 e N660"/>
+</node>
+<node CREATED="1592957498079" ID="ID_629152581" MODIFIED="1592957502522" TEXT="Sped ECD"/>
+</node>
+<node CREATED="1592957559215" FOLDED="true" ID="ID_1017535260" MODIFIED="1592958227161" TEXT="Outros">
+<node CREATED="1592957540839" ID="ID_1382971664" MODIFIED="1592957542675" TEXT="CH201911007988"/>
+<node CREATED="1592957547502" ID="ID_1885015629" MODIFIED="1592957548139" TEXT="DARF"/>
+<node CREATED="1592957551815" ID="ID_132163490" MODIFIED="1592957552883" TEXT="Permiss&#xe3;o de usu&#xe1;rios"/>
+<node CREATED="1592957556118" ID="ID_679367965" MODIFIED="1592957558307" TEXT="Fazer em v&#xe1;rios meses para garantir que n&#xe3;o est&#xe1; repetindo o vlr de reten&#xe7;&#xe3;o"/>
+</node>
+<node CREATED="1592957342472" FOLDED="true" ID="ID_1875840438" MODIFIED="1592958227888" TEXT="Dedu&#xe7;&#xe3;o no Fiscal">
+<node CREATED="1592957379862" ID="ID_1476855672" MODIFIED="1592957381308" TEXT="Sim"/>
+<node CREATED="1592957381606" ID="ID_867395978" MODIFIED="1592957383492" TEXT="N&#xe3;o"/>
+</node>
+<node CREATED="1592957764662" FOLDED="true" ID="ID_1392303549" MODIFIED="1592958228449" TEXT="Reten&#xe7;&#xf5;es">
+<node CREATED="1592957771686" ID="ID_1113812340" MODIFIED="1592957780866" TEXT="PIS, COFINS"/>
+<node CREATED="1592957781622" ID="ID_938687766" MODIFIED="1592957788930" TEXT="IR, CSLL"/>
+</node>
+</node>
+</node>
+<node CREATED="1592957326095" FOLDED="true" ID="ID_1729622366" MODIFIED="1592958246577" TEXT="Espec&#xed;fica">
+<node CREATED="1592957712183" FOLDED="true" ID="ID_1328199814" MODIFIED="1592958245705" TEXT="Processo">
+<node CREATED="1592957470502" ID="ID_986880896" MODIFIED="1592957471876" TEXT="GUI"/>
+<node CREATED="1592957475647" ID="ID_796820660" MODIFIED="1592957477315" TEXT="Relat&#xf3;rios"/>
+<node CREATED="1592957481928" FOLDED="true" ID="ID_1276865876" MODIFIED="1592958242017" TEXT="Obriga&#xe7;&#xe3;o acess&#xf3;ria">
+<node CREATED="1592957493607" ID="ID_405309128" MODIFIED="1592957497099" TEXT="Sped ECF">
+<node CREATED="1592957511983" ID="ID_418298895" MODIFIED="1592957529692" TEXT="Aten&#xe7;&#xe3;o nas descri&#xe7;&#xf5;es no registro N620 e N660"/>
+</node>
+<node CREATED="1592957498079" ID="ID_1814452845" MODIFIED="1592957502522" TEXT="Sped ECD"/>
+</node>
+<node CREATED="1592957559215" FOLDED="true" ID="ID_783931894" MODIFIED="1592958242785" TEXT="Outros">
+<node CREATED="1592957540839" ID="ID_707069417" MODIFIED="1592957542675" TEXT="CH201911007988"/>
+<node CREATED="1592957547502" ID="ID_287514391" MODIFIED="1592957548139" TEXT="DARF"/>
+<node CREATED="1592957551815" ID="ID_1124470294" MODIFIED="1592957552883" TEXT="Permiss&#xe3;o de usu&#xe1;rios"/>
+<node CREATED="1592957556118" ID="ID_1131854898" MODIFIED="1592957558307" TEXT="Fazer em v&#xe1;rios meses para garantir que n&#xe3;o est&#xe1; repetindo o vlr de reten&#xe7;&#xe3;o"/>
+</node>
+<node CREATED="1592957342472" FOLDED="true" ID="ID_1482961287" MODIFIED="1592958244313" TEXT="Dedu&#xe7;&#xe3;o no Fiscal">
+<node CREATED="1592957379862" ID="ID_1769624528" MODIFIED="1592957381308" TEXT="Sim"/>
+<node CREATED="1592957381606" ID="ID_808848469" MODIFIED="1592957383492" TEXT="N&#xe3;o"/>
+</node>
+<node CREATED="1592957764662" FOLDED="true" ID="ID_803398036" MODIFIED="1592958244977" TEXT="Reten&#xe7;&#xf5;es">
+<node CREATED="1592957771686" ID="ID_1502955001" MODIFIED="1592957780866" TEXT="PIS, COFINS"/>
+<node CREATED="1592957781622" ID="ID_281398562" MODIFIED="1592957788930" TEXT="IR, CSLL"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1592957231471" FOLDED="true" ID="ID_1735457683" MODIFIED="1592958280409" TEXT="Mensal obrigado a ser Lucro Real">
+<node CREATED="1592957622199" FOLDED="true" ID="ID_1513872368" MODIFIED="1592958278408" TEXT="Incid&#xea;ncia tribut&#xe1;ria">
+<node CREATED="1592957254839" FOLDED="true" ID="ID_648302248" MODIFIED="1592958267353" TEXT="N&#xe3;o-cumulativa">
+<node CREATED="1592957394176" FOLDED="true" ID="ID_1592606652" MODIFIED="1592958265793" TEXT="Regime de pagamento">
+<node CREATED="1592957458489" FOLDED="true" ID="ID_1684305570" MODIFIED="1592958264472" TEXT="Compet&#xea;ncia">
+<node CREATED="1592957310280" FOLDED="true" ID="ID_723688840" MODIFIED="1592958258737" TEXT="Al&#xed;quota PIS, COFINS">
+<node CREATED="1592957652335" FOLDED="true" ID="ID_394689332" MODIFIED="1592958202137" TEXT="Padr&#xe3;o">
+<node CREATED="1592957712183" FOLDED="true" ID="ID_202842429" MODIFIED="1592958201481" TEXT="Processo">
+<node CREATED="1592957470502" ID="ID_1094523950" MODIFIED="1592957471876" TEXT="GUI"/>
+<node CREATED="1592957475647" ID="ID_858305196" MODIFIED="1592957477315" TEXT="Relat&#xf3;rios"/>
+<node CREATED="1592957481928" FOLDED="true" ID="ID_245785947" MODIFIED="1592958197592" TEXT="Obriga&#xe7;&#xe3;o acess&#xf3;ria">
+<node CREATED="1592957493607" ID="ID_160211350" MODIFIED="1592957497099" TEXT="Sped ECF">
+<node CREATED="1592957511983" ID="ID_43997824" MODIFIED="1592957529692" TEXT="Aten&#xe7;&#xe3;o nas descri&#xe7;&#xf5;es no registro N620 e N660"/>
+</node>
+<node CREATED="1592957498079" ID="ID_1460866790" MODIFIED="1592957502522" TEXT="Sped ECD"/>
+</node>
+<node CREATED="1592957559215" FOLDED="true" ID="ID_203381669" MODIFIED="1592958199201" TEXT="Outros">
+<node CREATED="1592957540839" ID="ID_1465388576" MODIFIED="1592957542675" TEXT="CH201911007988"/>
+<node CREATED="1592957547502" ID="ID_543748092" MODIFIED="1592957548139" TEXT="DARF"/>
+<node CREATED="1592957551815" ID="ID_1362932042" MODIFIED="1592957552883" TEXT="Permiss&#xe3;o de usu&#xe1;rios"/>
+<node CREATED="1592957556118" ID="ID_762180708" MODIFIED="1592957558307" TEXT="Fazer em v&#xe1;rios meses para garantir que n&#xe3;o est&#xe1; repetindo o vlr de reten&#xe7;&#xe3;o"/>
+</node>
+<node CREATED="1592957342472" FOLDED="true" ID="ID_1679643511" MODIFIED="1592958200161" TEXT="Dedu&#xe7;&#xe3;o no Fiscal">
+<node CREATED="1592957379862" ID="ID_707976718" MODIFIED="1592957381308" TEXT="Sim"/>
+<node CREATED="1592957381606" ID="ID_327991493" MODIFIED="1592957383492" TEXT="N&#xe3;o"/>
+</node>
+<node CREATED="1592957764662" FOLDED="true" ID="ID_1768390575" MODIFIED="1592958200738" TEXT="Reten&#xe7;&#xf5;es">
+<node CREATED="1592957771686" ID="ID_1878003078" MODIFIED="1592957780866" TEXT="PIS, COFINS"/>
+<node CREATED="1592957781622" ID="ID_927799903" MODIFIED="1592957788930" TEXT="IR, CSLL"/>
+</node>
+</node>
+</node>
+<node CREATED="1592957326095" FOLDED="true" ID="ID_293408967" MODIFIED="1592958173449" TEXT="Espec&#xed;fica">
+<node CREATED="1592957712183" FOLDED="true" ID="ID_418909208" MODIFIED="1592958169233" TEXT="Processo">
+<node CREATED="1592957470502" ID="ID_1620712527" MODIFIED="1592957471876" TEXT="GUI"/>
+<node CREATED="1592957475647" ID="ID_11052214" MODIFIED="1592957477315" TEXT="Relat&#xf3;rios"/>
+<node CREATED="1592957481928" FOLDED="true" ID="ID_509336427" MODIFIED="1592958168146" TEXT="Obriga&#xe7;&#xe3;o acess&#xf3;ria">
+<node CREATED="1592957493607" ID="ID_1464677992" MODIFIED="1592958167770" TEXT="Sped ECF">
+<node CREATED="1592957511983" ID="ID_1678817780" MODIFIED="1592957529692" TEXT="Aten&#xe7;&#xe3;o nas descri&#xe7;&#xf5;es no registro N620 e N660"/>
+</node>
+<node CREATED="1592957498079" ID="ID_1355246117" MODIFIED="1592957502522" TEXT="Sped ECD"/>
+</node>
+<node CREATED="1592957559215" FOLDED="true" ID="ID_200115394" MODIFIED="1592958153633" TEXT="Outros">
+<node CREATED="1592957540839" ID="ID_1167873495" MODIFIED="1592957542675" TEXT="CH201911007988"/>
+<node CREATED="1592957547502" ID="ID_1953677548" MODIFIED="1592957548139" TEXT="DARF"/>
+<node CREATED="1592957551815" ID="ID_520909428" MODIFIED="1592957552883" TEXT="Permiss&#xe3;o de usu&#xe1;rios"/>
+<node CREATED="1592957556118" ID="ID_1245642336" MODIFIED="1592957558307" TEXT="Fazer em v&#xe1;rios meses para garantir que n&#xe3;o est&#xe1; repetindo o vlr de reten&#xe7;&#xe3;o"/>
+</node>
+<node CREATED="1592957342472" FOLDED="true" ID="ID_996764251" MODIFIED="1592958154896" TEXT="Dedu&#xe7;&#xe3;o no Fiscal">
+<node CREATED="1592957379862" ID="ID_260716790" MODIFIED="1592957381308" TEXT="Sim"/>
+<node CREATED="1592957381606" ID="ID_666858800" MODIFIED="1592957383492" TEXT="N&#xe3;o"/>
+</node>
+<node CREATED="1592957764662" FOLDED="true" ID="ID_651976833" MODIFIED="1592958155745" TEXT="Reten&#xe7;&#xf5;es">
+<node CREATED="1592957771686" ID="ID_1896646643" MODIFIED="1592957780866" TEXT="PIS, COFINS"/>
+<node CREATED="1592957781622" ID="ID_980767193" MODIFIED="1592957788930" TEXT="IR, CSLL"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1592957282776" FOLDED="true" ID="ID_1557656624" MODIFIED="1592958266913" TEXT="N&#xe3;o-cumulativa e cumulativa">
+<node CREATED="1592957394176" FOLDED="true" ID="ID_1371479784" MODIFIED="1592958265225" TEXT="Regime de pagamento">
+<node CREATED="1592957458489" FOLDED="true" ID="ID_1178336347" MODIFIED="1592958263009" TEXT="Compet&#xea;ncia">
+<node CREATED="1592957310280" FOLDED="true" ID="ID_1929508435" MODIFIED="1592958258169" TEXT="Al&#xed;quota PIS, COFINS">
+<node CREATED="1592957652335" FOLDED="true" ID="ID_1853950078" MODIFIED="1592958213417" TEXT="Padr&#xe3;o">
+<node CREATED="1592957712183" FOLDED="true" ID="ID_1490349564" MODIFIED="1592958212233" TEXT="Processo">
+<node CREATED="1592957470502" ID="ID_1658987660" MODIFIED="1592957471876" TEXT="GUI"/>
+<node CREATED="1592957475647" ID="ID_1967408695" MODIFIED="1592957477315" TEXT="Relat&#xf3;rios"/>
+<node CREATED="1592957481928" FOLDED="true" ID="ID_1782232712" MODIFIED="1592958211457" TEXT="Obriga&#xe7;&#xe3;o acess&#xf3;ria">
+<node CREATED="1592957493607" ID="ID_1797268430" MODIFIED="1592957497099" TEXT="Sped ECF">
+<node CREATED="1592957511983" ID="ID_186716686" MODIFIED="1592957529692" TEXT="Aten&#xe7;&#xe3;o nas descri&#xe7;&#xf5;es no registro N620 e N660"/>
+</node>
+<node CREATED="1592957498079" ID="ID_117736876" MODIFIED="1592957502522" TEXT="Sped ECD"/>
+</node>
+<node CREATED="1592957559215" FOLDED="true" ID="ID_186669174" MODIFIED="1592958209489" TEXT="Outros">
+<node CREATED="1592957540839" ID="ID_1469022811" MODIFIED="1592957542675" TEXT="CH201911007988"/>
+<node CREATED="1592957547502" ID="ID_857199912" MODIFIED="1592957548139" TEXT="DARF"/>
+<node CREATED="1592957551815" ID="ID_1465576262" MODIFIED="1592957552883" TEXT="Permiss&#xe3;o de usu&#xe1;rios"/>
+<node CREATED="1592957556118" ID="ID_1213241857" MODIFIED="1592957558307" TEXT="Fazer em v&#xe1;rios meses para garantir que n&#xe3;o est&#xe1; repetindo o vlr de reten&#xe7;&#xe3;o"/>
+</node>
+<node CREATED="1592957342472" FOLDED="true" ID="ID_1628972121" MODIFIED="1592958208673" TEXT="Dedu&#xe7;&#xe3;o no Fiscal">
+<node CREATED="1592957379862" ID="ID_432741429" MODIFIED="1592957381308" TEXT="Sim"/>
+<node CREATED="1592957381606" ID="ID_1135600111" MODIFIED="1592957383492" TEXT="N&#xe3;o"/>
+</node>
+<node CREATED="1592957764662" FOLDED="true" ID="ID_1874823002" MODIFIED="1592958207945" TEXT="Reten&#xe7;&#xf5;es">
+<node CREATED="1592957771686" ID="ID_1977186913" MODIFIED="1592957780866" TEXT="PIS, COFINS"/>
+<node CREATED="1592957781622" ID="ID_67952144" MODIFIED="1592957788930" TEXT="IR, CSLL"/>
+</node>
+</node>
+</node>
+<node CREATED="1592957326095" FOLDED="true" ID="ID_784646826" MODIFIED="1592958223617" TEXT="Espec&#xed;fica">
+<node CREATED="1592957712183" FOLDED="true" ID="ID_1454678484" MODIFIED="1592958223001" TEXT="Processo">
+<node CREATED="1592957470502" ID="ID_1172906383" MODIFIED="1592957471876" TEXT="GUI"/>
+<node CREATED="1592957475647" ID="ID_108371194" MODIFIED="1592957477315" TEXT="Relat&#xf3;rios"/>
+<node CREATED="1592957481928" FOLDED="true" ID="ID_1001917511" MODIFIED="1592958222401" TEXT="Obriga&#xe7;&#xe3;o acess&#xf3;ria">
+<node CREATED="1592957493607" ID="ID_558987703" MODIFIED="1592957497099" TEXT="Sped ECF">
+<node CREATED="1592957511983" ID="ID_84120578" MODIFIED="1592957529692" TEXT="Aten&#xe7;&#xe3;o nas descri&#xe7;&#xf5;es no registro N620 e N660"/>
+</node>
+<node CREATED="1592957498079" ID="ID_915055370" MODIFIED="1592957502522" TEXT="Sped ECD"/>
+</node>
+<node CREATED="1592957559215" FOLDED="true" ID="ID_1211300415" MODIFIED="1592958221497" TEXT="Outros">
+<node CREATED="1592957540839" ID="ID_85674930" MODIFIED="1592957542675" TEXT="CH201911007988"/>
+<node CREATED="1592957547502" ID="ID_150803955" MODIFIED="1592957548139" TEXT="DARF"/>
+<node CREATED="1592957551815" ID="ID_1120578426" MODIFIED="1592957552883" TEXT="Permiss&#xe3;o de usu&#xe1;rios"/>
+<node CREATED="1592957556118" ID="ID_784051836" MODIFIED="1592957558307" TEXT="Fazer em v&#xe1;rios meses para garantir que n&#xe3;o est&#xe1; repetindo o vlr de reten&#xe7;&#xe3;o"/>
+</node>
+<node CREATED="1592957342472" FOLDED="true" ID="ID_762238210" MODIFIED="1592958220753" TEXT="Dedu&#xe7;&#xe3;o no Fiscal">
+<node CREATED="1592957379862" ID="ID_1017888" MODIFIED="1592957381308" TEXT="Sim"/>
+<node CREATED="1592957381606" ID="ID_336097536" MODIFIED="1592957383492" TEXT="N&#xe3;o"/>
+</node>
+<node CREATED="1592957764662" FOLDED="true" ID="ID_791101329" MODIFIED="1592958220240" TEXT="Reten&#xe7;&#xf5;es">
+<node CREATED="1592957771686" ID="ID_1698509232" MODIFIED="1592957780866" TEXT="PIS, COFINS"/>
+<node CREATED="1592957781622" ID="ID_3757758" MODIFIED="1592957788930" TEXT="IR, CSLL"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node BACKGROUND_COLOR="#ff0000" CREATED="1592957462015" FOLDED="true" ID="ID_1665882637" MODIFIED="1592958262272" TEXT="Caixa">
+<node CREATED="1592957310280" FOLDED="true" ID="ID_264644807" MODIFIED="1592958257265" TEXT="Al&#xed;quota PIS, COFINS">
+<node CREATED="1592957652335" FOLDED="true" ID="ID_1230745815" MODIFIED="1592958239985" TEXT="Padr&#xe3;o">
+<node CREATED="1592957712183" FOLDED="true" ID="ID_1363597650" MODIFIED="1592958238977" TEXT="Processo">
+<node CREATED="1592957470502" ID="ID_1709438967" MODIFIED="1592957471876" TEXT="GUI"/>
+<node CREATED="1592957475647" ID="ID_815793365" MODIFIED="1592957477315" TEXT="Relat&#xf3;rios"/>
+<node CREATED="1592957481928" FOLDED="true" ID="ID_1104352459" MODIFIED="1592958225889" TEXT="Obriga&#xe7;&#xe3;o acess&#xf3;ria">
+<node CREATED="1592957493607" ID="ID_1477182577" MODIFIED="1592957497099" TEXT="Sped ECF">
+<node CREATED="1592957511983" ID="ID_1490687848" MODIFIED="1592957529692" TEXT="Aten&#xe7;&#xe3;o nas descri&#xe7;&#xf5;es no registro N620 e N660"/>
+</node>
+<node CREATED="1592957498079" ID="ID_1423551157" MODIFIED="1592957502522" TEXT="Sped ECD"/>
+</node>
+<node CREATED="1592957559215" FOLDED="true" ID="ID_556299845" MODIFIED="1592958227161" TEXT="Outros">
+<node CREATED="1592957540839" ID="ID_563977908" MODIFIED="1592957542675" TEXT="CH201911007988"/>
+<node CREATED="1592957547502" ID="ID_747839421" MODIFIED="1592957548139" TEXT="DARF"/>
+<node CREATED="1592957551815" ID="ID_1375464861" MODIFIED="1592957552883" TEXT="Permiss&#xe3;o de usu&#xe1;rios"/>
+<node CREATED="1592957556118" ID="ID_582290281" MODIFIED="1592957558307" TEXT="Fazer em v&#xe1;rios meses para garantir que n&#xe3;o est&#xe1; repetindo o vlr de reten&#xe7;&#xe3;o"/>
+</node>
+<node CREATED="1592957342472" FOLDED="true" ID="ID_649219515" MODIFIED="1592958227888" TEXT="Dedu&#xe7;&#xe3;o no Fiscal">
+<node CREATED="1592957379862" ID="ID_1742410360" MODIFIED="1592957381308" TEXT="Sim"/>
+<node CREATED="1592957381606" ID="ID_829081794" MODIFIED="1592957383492" TEXT="N&#xe3;o"/>
+</node>
+<node CREATED="1592957764662" FOLDED="true" ID="ID_957538461" MODIFIED="1592958228449" TEXT="Reten&#xe7;&#xf5;es">
+<node CREATED="1592957771686" ID="ID_371591787" MODIFIED="1592957780866" TEXT="PIS, COFINS"/>
+<node CREATED="1592957781622" ID="ID_377722279" MODIFIED="1592957788930" TEXT="IR, CSLL"/>
+</node>
+</node>
+</node>
+<node CREATED="1592957326095" FOLDED="true" ID="ID_669895279" MODIFIED="1592958246577" TEXT="Espec&#xed;fica">
+<node CREATED="1592957712183" FOLDED="true" ID="ID_934370180" MODIFIED="1592958245705" TEXT="Processo">
+<node CREATED="1592957470502" ID="ID_444303171" MODIFIED="1592957471876" TEXT="GUI"/>
+<node CREATED="1592957475647" ID="ID_505316362" MODIFIED="1592957477315" TEXT="Relat&#xf3;rios"/>
+<node CREATED="1592957481928" FOLDED="true" ID="ID_302371005" MODIFIED="1592958242017" TEXT="Obriga&#xe7;&#xe3;o acess&#xf3;ria">
+<node CREATED="1592957493607" ID="ID_1179968107" MODIFIED="1592957497099" TEXT="Sped ECF">
+<node CREATED="1592957511983" ID="ID_1809383318" MODIFIED="1592957529692" TEXT="Aten&#xe7;&#xe3;o nas descri&#xe7;&#xf5;es no registro N620 e N660"/>
+</node>
+<node CREATED="1592957498079" ID="ID_1150991349" MODIFIED="1592957502522" TEXT="Sped ECD"/>
+</node>
+<node CREATED="1592957559215" FOLDED="true" ID="ID_1594777604" MODIFIED="1592958242785" TEXT="Outros">
+<node CREATED="1592957540839" ID="ID_1560337064" MODIFIED="1592957542675" TEXT="CH201911007988"/>
+<node CREATED="1592957547502" ID="ID_571618056" MODIFIED="1592957548139" TEXT="DARF"/>
+<node CREATED="1592957551815" ID="ID_1984656163" MODIFIED="1592957552883" TEXT="Permiss&#xe3;o de usu&#xe1;rios"/>
+<node CREATED="1592957556118" ID="ID_1273435708" MODIFIED="1592957558307" TEXT="Fazer em v&#xe1;rios meses para garantir que n&#xe3;o est&#xe1; repetindo o vlr de reten&#xe7;&#xe3;o"/>
+</node>
+<node CREATED="1592957342472" FOLDED="true" ID="ID_865732513" MODIFIED="1592958244313" TEXT="Dedu&#xe7;&#xe3;o no Fiscal">
+<node CREATED="1592957379862" ID="ID_386806906" MODIFIED="1592957381308" TEXT="Sim"/>
+<node CREATED="1592957381606" ID="ID_1207256762" MODIFIED="1592957383492" TEXT="N&#xe3;o"/>
+</node>
+<node CREATED="1592957764662" FOLDED="true" ID="ID_486239967" MODIFIED="1592958244977" TEXT="Reten&#xe7;&#xf5;es">
+<node CREATED="1592957771686" ID="ID_1420557157" MODIFIED="1592957780866" TEXT="PIS, COFINS"/>
+<node CREATED="1592957781622" ID="ID_126114967" MODIFIED="1592957788930" TEXT="IR, CSLL"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1592957242719" FOLDED="true" ID="ID_583332503" MODIFIED="1592958302201" TEXT="Mensal (Estimativa)">
+<node CREATED="1592957622199" FOLDED="true" ID="ID_1691179082" MODIFIED="1592958301057" TEXT="Incid&#xea;ncia tribut&#xe1;ria">
+<node CREATED="1592957254839" FOLDED="true" ID="ID_531791402" MODIFIED="1592958267353" TEXT="N&#xe3;o-cumulativa">
+<node CREATED="1592957394176" FOLDED="true" ID="ID_1773781382" MODIFIED="1592958265793" TEXT="Regime de pagamento">
+<node CREATED="1592957458489" FOLDED="true" ID="ID_1386221958" MODIFIED="1592958264472" TEXT="Compet&#xea;ncia">
+<node CREATED="1592957310280" FOLDED="true" ID="ID_1117532879" MODIFIED="1592958258737" TEXT="Al&#xed;quota PIS, COFINS">
+<node CREATED="1592957652335" FOLDED="true" ID="ID_1269925868" MODIFIED="1592958202137" TEXT="Padr&#xe3;o">
+<node CREATED="1592957712183" FOLDED="true" ID="ID_785982471" MODIFIED="1592958201481" TEXT="Processo">
+<node CREATED="1592957470502" ID="ID_1957524289" MODIFIED="1592957471876" TEXT="GUI"/>
+<node CREATED="1592957475647" ID="ID_1868638885" MODIFIED="1592957477315" TEXT="Relat&#xf3;rios"/>
+<node CREATED="1592957481928" FOLDED="true" ID="ID_1228667219" MODIFIED="1592958197592" TEXT="Obriga&#xe7;&#xe3;o acess&#xf3;ria">
+<node CREATED="1592957493607" ID="ID_1999481296" MODIFIED="1592957497099" TEXT="Sped ECF">
+<node CREATED="1592957511983" ID="ID_131583961" MODIFIED="1592957529692" TEXT="Aten&#xe7;&#xe3;o nas descri&#xe7;&#xf5;es no registro N620 e N660"/>
+</node>
+<node CREATED="1592957498079" ID="ID_557558810" MODIFIED="1592957502522" TEXT="Sped ECD"/>
+</node>
+<node CREATED="1592957559215" FOLDED="true" ID="ID_299954637" MODIFIED="1592958199201" TEXT="Outros">
+<node CREATED="1592957540839" ID="ID_327654180" MODIFIED="1592957542675" TEXT="CH201911007988"/>
+<node CREATED="1592957547502" ID="ID_1570213198" MODIFIED="1592957548139" TEXT="DARF"/>
+<node CREATED="1592957551815" ID="ID_1239262963" MODIFIED="1592957552883" TEXT="Permiss&#xe3;o de usu&#xe1;rios"/>
+<node CREATED="1592957556118" ID="ID_161715545" MODIFIED="1592957558307" TEXT="Fazer em v&#xe1;rios meses para garantir que n&#xe3;o est&#xe1; repetindo o vlr de reten&#xe7;&#xe3;o"/>
+</node>
+<node CREATED="1592957342472" FOLDED="true" ID="ID_602045706" MODIFIED="1592958200161" TEXT="Dedu&#xe7;&#xe3;o no Fiscal">
+<node CREATED="1592957379862" ID="ID_814500317" MODIFIED="1592957381308" TEXT="Sim"/>
+<node CREATED="1592957381606" ID="ID_833523675" MODIFIED="1592957383492" TEXT="N&#xe3;o"/>
+</node>
+<node CREATED="1592957764662" FOLDED="true" ID="ID_752198107" MODIFIED="1592958200738" TEXT="Reten&#xe7;&#xf5;es">
+<node CREATED="1592957771686" ID="ID_1479924191" MODIFIED="1592957780866" TEXT="PIS, COFINS"/>
+<node CREATED="1592957781622" ID="ID_161295948" MODIFIED="1592957788930" TEXT="IR, CSLL"/>
+</node>
+</node>
+</node>
+<node CREATED="1592957326095" FOLDED="true" ID="ID_1374210402" MODIFIED="1592958173449" TEXT="Espec&#xed;fica">
+<node CREATED="1592957712183" FOLDED="true" ID="ID_298140247" MODIFIED="1592958169233" TEXT="Processo">
+<node CREATED="1592957470502" ID="ID_1850282042" MODIFIED="1592957471876" TEXT="GUI"/>
+<node CREATED="1592957475647" ID="ID_1999127859" MODIFIED="1592957477315" TEXT="Relat&#xf3;rios"/>
+<node CREATED="1592957481928" FOLDED="true" ID="ID_1862764166" MODIFIED="1592958168146" TEXT="Obriga&#xe7;&#xe3;o acess&#xf3;ria">
+<node CREATED="1592957493607" ID="ID_1320207720" MODIFIED="1592958167770" TEXT="Sped ECF">
+<node CREATED="1592957511983" ID="ID_600714022" MODIFIED="1592957529692" TEXT="Aten&#xe7;&#xe3;o nas descri&#xe7;&#xf5;es no registro N620 e N660"/>
+</node>
+<node CREATED="1592957498079" ID="ID_990567712" MODIFIED="1592957502522" TEXT="Sped ECD"/>
+</node>
+<node CREATED="1592957559215" FOLDED="true" ID="ID_1759834667" MODIFIED="1592958153633" TEXT="Outros">
+<node CREATED="1592957540839" ID="ID_1393029254" MODIFIED="1592957542675" TEXT="CH201911007988"/>
+<node CREATED="1592957547502" ID="ID_640066571" MODIFIED="1592957548139" TEXT="DARF"/>
+<node CREATED="1592957551815" ID="ID_274802497" MODIFIED="1592957552883" TEXT="Permiss&#xe3;o de usu&#xe1;rios"/>
+<node CREATED="1592957556118" ID="ID_93889076" MODIFIED="1592957558307" TEXT="Fazer em v&#xe1;rios meses para garantir que n&#xe3;o est&#xe1; repetindo o vlr de reten&#xe7;&#xe3;o"/>
+</node>
+<node CREATED="1592957342472" FOLDED="true" ID="ID_869891716" MODIFIED="1592958154896" TEXT="Dedu&#xe7;&#xe3;o no Fiscal">
+<node CREATED="1592957379862" ID="ID_1123606147" MODIFIED="1592957381308" TEXT="Sim"/>
+<node CREATED="1592957381606" ID="ID_1690760347" MODIFIED="1592957383492" TEXT="N&#xe3;o"/>
+</node>
+<node CREATED="1592957764662" FOLDED="true" ID="ID_478980128" MODIFIED="1592958155745" TEXT="Reten&#xe7;&#xf5;es">
+<node CREATED="1592957771686" ID="ID_1124182161" MODIFIED="1592957780866" TEXT="PIS, COFINS"/>
+<node CREATED="1592957781622" ID="ID_1032612579" MODIFIED="1592957788930" TEXT="IR, CSLL"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1592957282776" FOLDED="true" ID="ID_585853860" MODIFIED="1592958300385" TEXT="N&#xe3;o-cumulativa e cumulativa">
+<node CREATED="1592957394176" FOLDED="true" ID="ID_1477960806" MODIFIED="1592958299473" TEXT="Regime de pagamento">
+<node CREATED="1592957458489" FOLDED="true" ID="ID_978027712" MODIFIED="1592958263009" TEXT="Compet&#xea;ncia">
+<node CREATED="1592957310280" FOLDED="true" ID="ID_82011285" MODIFIED="1592958258169" TEXT="Al&#xed;quota PIS, COFINS">
+<node CREATED="1592957652335" FOLDED="true" ID="ID_678201692" MODIFIED="1592958213417" TEXT="Padr&#xe3;o">
+<node CREATED="1592957712183" FOLDED="true" ID="ID_1342952008" MODIFIED="1592958212233" TEXT="Processo">
+<node CREATED="1592957470502" ID="ID_55598820" MODIFIED="1592957471876" TEXT="GUI"/>
+<node CREATED="1592957475647" ID="ID_1187455718" MODIFIED="1592957477315" TEXT="Relat&#xf3;rios"/>
+<node CREATED="1592957481928" FOLDED="true" ID="ID_55071110" MODIFIED="1592958211457" TEXT="Obriga&#xe7;&#xe3;o acess&#xf3;ria">
+<node CREATED="1592957493607" ID="ID_955870239" MODIFIED="1592957497099" TEXT="Sped ECF">
+<node CREATED="1592957511983" ID="ID_865713848" MODIFIED="1592957529692" TEXT="Aten&#xe7;&#xe3;o nas descri&#xe7;&#xf5;es no registro N620 e N660"/>
+</node>
+<node CREATED="1592957498079" ID="ID_1642435122" MODIFIED="1592957502522" TEXT="Sped ECD"/>
+</node>
+<node CREATED="1592957559215" FOLDED="true" ID="ID_1128259095" MODIFIED="1592958209489" TEXT="Outros">
+<node CREATED="1592957540839" ID="ID_373867665" MODIFIED="1592957542675" TEXT="CH201911007988"/>
+<node CREATED="1592957547502" ID="ID_1983331640" MODIFIED="1592957548139" TEXT="DARF"/>
+<node CREATED="1592957551815" ID="ID_108207425" MODIFIED="1592957552883" TEXT="Permiss&#xe3;o de usu&#xe1;rios"/>
+<node CREATED="1592957556118" ID="ID_827550974" MODIFIED="1592957558307" TEXT="Fazer em v&#xe1;rios meses para garantir que n&#xe3;o est&#xe1; repetindo o vlr de reten&#xe7;&#xe3;o"/>
+</node>
+<node CREATED="1592957342472" FOLDED="true" ID="ID_1484043349" MODIFIED="1592958208673" TEXT="Dedu&#xe7;&#xe3;o no Fiscal">
+<node CREATED="1592957379862" ID="ID_45225920" MODIFIED="1592957381308" TEXT="Sim"/>
+<node CREATED="1592957381606" ID="ID_139077195" MODIFIED="1592957383492" TEXT="N&#xe3;o"/>
+</node>
+<node CREATED="1592957764662" FOLDED="true" ID="ID_1604187980" MODIFIED="1592958207945" TEXT="Reten&#xe7;&#xf5;es">
+<node CREATED="1592957771686" ID="ID_678795291" MODIFIED="1592957780866" TEXT="PIS, COFINS"/>
+<node CREATED="1592957781622" ID="ID_419641525" MODIFIED="1592957788930" TEXT="IR, CSLL"/>
+</node>
+</node>
+</node>
+<node CREATED="1592957326095" FOLDED="true" ID="ID_1083855452" MODIFIED="1592958223617" TEXT="Espec&#xed;fica">
+<node CREATED="1592957712183" FOLDED="true" ID="ID_1561996910" MODIFIED="1592958223001" TEXT="Processo">
+<node CREATED="1592957470502" ID="ID_950149233" MODIFIED="1592957471876" TEXT="GUI"/>
+<node CREATED="1592957475647" ID="ID_1636128005" MODIFIED="1592957477315" TEXT="Relat&#xf3;rios"/>
+<node CREATED="1592957481928" FOLDED="true" ID="ID_42325058" MODIFIED="1592958222401" TEXT="Obriga&#xe7;&#xe3;o acess&#xf3;ria">
+<node CREATED="1592957493607" ID="ID_1286501238" MODIFIED="1592957497099" TEXT="Sped ECF">
+<node CREATED="1592957511983" ID="ID_1998431772" MODIFIED="1592957529692" TEXT="Aten&#xe7;&#xe3;o nas descri&#xe7;&#xf5;es no registro N620 e N660"/>
+</node>
+<node CREATED="1592957498079" ID="ID_381164110" MODIFIED="1592957502522" TEXT="Sped ECD"/>
+</node>
+<node CREATED="1592957559215" FOLDED="true" ID="ID_40989214" MODIFIED="1592958221497" TEXT="Outros">
+<node CREATED="1592957540839" ID="ID_404440404" MODIFIED="1592957542675" TEXT="CH201911007988"/>
+<node CREATED="1592957547502" ID="ID_8414252" MODIFIED="1592957548139" TEXT="DARF"/>
+<node CREATED="1592957551815" ID="ID_439380501" MODIFIED="1592957552883" TEXT="Permiss&#xe3;o de usu&#xe1;rios"/>
+<node CREATED="1592957556118" ID="ID_1916456941" MODIFIED="1592957558307" TEXT="Fazer em v&#xe1;rios meses para garantir que n&#xe3;o est&#xe1; repetindo o vlr de reten&#xe7;&#xe3;o"/>
+</node>
+<node CREATED="1592957342472" FOLDED="true" ID="ID_870924285" MODIFIED="1592958220753" TEXT="Dedu&#xe7;&#xe3;o no Fiscal">
+<node CREATED="1592957379862" ID="ID_1026043684" MODIFIED="1592957381308" TEXT="Sim"/>
+<node CREATED="1592957381606" ID="ID_475986230" MODIFIED="1592957383492" TEXT="N&#xe3;o"/>
+</node>
+<node CREATED="1592957764662" FOLDED="true" ID="ID_1601014514" MODIFIED="1592958220240" TEXT="Reten&#xe7;&#xf5;es">
+<node CREATED="1592957771686" ID="ID_1377282237" MODIFIED="1592957780866" TEXT="PIS, COFINS"/>
+<node CREATED="1592957781622" ID="ID_1066513555" MODIFIED="1592957788930" TEXT="IR, CSLL"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node BACKGROUND_COLOR="#ff0000" CREATED="1592957462015" FOLDED="true" ID="ID_1076515584" MODIFIED="1592958298537" TEXT="Caixa">
+<node CREATED="1592957310280" FOLDED="true" ID="ID_1346296571" MODIFIED="1592958297033" TEXT="Al&#xed;quota PIS, COFINS">
+<node CREATED="1592957652335" FOLDED="true" ID="ID_1426499119" MODIFIED="1592958296281" TEXT="Padr&#xe3;o">
+<node CREATED="1592957712183" FOLDED="true" ID="ID_1732041320" MODIFIED="1592958295713" TEXT="Processo">
+<node CREATED="1592957470502" ID="ID_1925621213" MODIFIED="1592957471876" TEXT="GUI"/>
+<node CREATED="1592957475647" ID="ID_1026115151" MODIFIED="1592957477315" TEXT="Relat&#xf3;rios"/>
+<node CREATED="1592957481928" FOLDED="true" ID="ID_1355331007" MODIFIED="1592958294809" TEXT="Obriga&#xe7;&#xe3;o acess&#xf3;ria">
+<node CREATED="1592957493607" ID="ID_377954359" MODIFIED="1592957497099" TEXT="Sped ECF">
+<node CREATED="1592957511983" ID="ID_938735196" MODIFIED="1592957529692" TEXT="Aten&#xe7;&#xe3;o nas descri&#xe7;&#xf5;es no registro N620 e N660"/>
+</node>
+<node CREATED="1592957498079" ID="ID_163681219" MODIFIED="1592957502522" TEXT="Sped ECD"/>
+</node>
+<node CREATED="1592957559215" FOLDED="true" ID="ID_452820170" MODIFIED="1592958227161" TEXT="Outros">
+<node CREATED="1592957540839" ID="ID_1459913272" MODIFIED="1592957542675" TEXT="CH201911007988"/>
+<node CREATED="1592957547502" ID="ID_820076490" MODIFIED="1592957548139" TEXT="DARF"/>
+<node CREATED="1592957551815" ID="ID_212828493" MODIFIED="1592957552883" TEXT="Permiss&#xe3;o de usu&#xe1;rios"/>
+<node CREATED="1592957556118" ID="ID_1158778462" MODIFIED="1592957558307" TEXT="Fazer em v&#xe1;rios meses para garantir que n&#xe3;o est&#xe1; repetindo o vlr de reten&#xe7;&#xe3;o"/>
+</node>
+<node CREATED="1592957342472" FOLDED="true" ID="ID_1858235370" MODIFIED="1592958227888" TEXT="Dedu&#xe7;&#xe3;o no Fiscal">
+<node CREATED="1592957379862" ID="ID_1889466047" MODIFIED="1592957381308" TEXT="Sim"/>
+<node CREATED="1592957381606" ID="ID_106278448" MODIFIED="1592957383492" TEXT="N&#xe3;o"/>
+</node>
+<node CREATED="1592957764662" FOLDED="true" ID="ID_1590424083" MODIFIED="1592958228449" TEXT="Reten&#xe7;&#xf5;es">
+<node CREATED="1592957771686" ID="ID_1061338467" MODIFIED="1592957780866" TEXT="PIS, COFINS"/>
+<node CREATED="1592957781622" ID="ID_1260891455" MODIFIED="1592957788930" TEXT="IR, CSLL"/>
+</node>
+</node>
+</node>
+<node CREATED="1592957326095" FOLDED="true" ID="ID_287822686" MODIFIED="1592958246577" TEXT="Espec&#xed;fica">
+<node CREATED="1592957712183" FOLDED="true" ID="ID_1856989927" MODIFIED="1592958245705" TEXT="Processo">
+<node CREATED="1592957470502" ID="ID_1204381359" MODIFIED="1592957471876" TEXT="GUI"/>
+<node CREATED="1592957475647" ID="ID_619058720" MODIFIED="1592957477315" TEXT="Relat&#xf3;rios"/>
+<node CREATED="1592957481928" FOLDED="true" ID="ID_242063866" MODIFIED="1592958242017" TEXT="Obriga&#xe7;&#xe3;o acess&#xf3;ria">
+<node CREATED="1592957493607" ID="ID_1228633920" MODIFIED="1592957497099" TEXT="Sped ECF">
+<node CREATED="1592957511983" ID="ID_1800071901" MODIFIED="1592957529692" TEXT="Aten&#xe7;&#xe3;o nas descri&#xe7;&#xf5;es no registro N620 e N660"/>
+</node>
+<node CREATED="1592957498079" ID="ID_277653853" MODIFIED="1592957502522" TEXT="Sped ECD"/>
+</node>
+<node CREATED="1592957559215" FOLDED="true" ID="ID_1749543039" MODIFIED="1592958242785" TEXT="Outros">
+<node CREATED="1592957540839" ID="ID_216565828" MODIFIED="1592957542675" TEXT="CH201911007988"/>
+<node CREATED="1592957547502" ID="ID_39112512" MODIFIED="1592957548139" TEXT="DARF"/>
+<node CREATED="1592957551815" ID="ID_1049844426" MODIFIED="1592957552883" TEXT="Permiss&#xe3;o de usu&#xe1;rios"/>
+<node CREATED="1592957556118" ID="ID_136233885" MODIFIED="1592957558307" TEXT="Fazer em v&#xe1;rios meses para garantir que n&#xe3;o est&#xe1; repetindo o vlr de reten&#xe7;&#xe3;o"/>
+</node>
+<node CREATED="1592957342472" FOLDED="true" ID="ID_446839631" MODIFIED="1592958244313" TEXT="Dedu&#xe7;&#xe3;o no Fiscal">
+<node CREATED="1592957379862" ID="ID_1619082335" MODIFIED="1592957381308" TEXT="Sim"/>
+<node CREATED="1592957381606" ID="ID_174574340" MODIFIED="1592957383492" TEXT="N&#xe3;o"/>
+</node>
+<node CREATED="1592957764662" FOLDED="true" ID="ID_642681888" MODIFIED="1592958244977" TEXT="Reten&#xe7;&#xf5;es">
+<node CREATED="1592957771686" ID="ID_81996435" MODIFIED="1592957780866" TEXT="PIS, COFINS"/>
+<node CREATED="1592957781622" ID="ID_202124913" MODIFIED="1592957788930" TEXT="IR, CSLL"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</map>

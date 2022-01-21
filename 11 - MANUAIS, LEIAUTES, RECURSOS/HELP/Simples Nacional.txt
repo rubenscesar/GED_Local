@@ -1,0 +1,29 @@
+receita					sem devolução
+receita					devolução com isento/N.tributado
+espécies diferentes
+normal/substituição		devolução com isento/N.tributado/normal/substituição
+competência/caixa
+mercado interno/externo
+1ª Faixa
+5ª Faixa AE baixa
+5ª Faixa AE alta
+6ª Faixa AE baixa
+6ª Faixa AE alta
+Receita bruta proporcionalizada
+Redução aplica-se a RJ, PB, PR
+Com itens
+Sem itens
+
+Anexo I e II
+
+testar P20190900027
+
+
+Anexo I
+Empresa Recém enquadrada no Simples Nacional
+Receita bruta proporcionalizada
+	DA
+	PA com 1 mês de atividade
+	PA entre o 2º e 12º mês de atividade
+
+Empresa enquadrada no Simples Nacional a mais de 1 ano

@@ -1,0 +1,505 @@
+Leiaute D7:
+\\10.1.254.70\x\Programacao\Pronto\AC\CD\Help
+\\10.1.254.70\x\Programacao\Pronto\AC\Atualizador
+Leiaute XE6:
+\\10.1.254.70\x\Programacao\Pronto\ACXE6\Atualizador
+\\10.1.254.70\x\Programacao\Pronto\ACXE6\CD\Help
+
+baymax maq roda xe6
+ultron maq roda d7
+no ultron entra na pasta projetos
+roda gerador de ver
+seleciona a versão
+copia o histórico para o email
+
+
+
+depois de empacotado e precisar incluir mais algumas coisa
+como correção no VER, deve commitar no trunk e na tag
+depois se commits já estiverem liberados
+não precisa pausar nada, apenas rodar o 4.
+
+se der problema informando que é no número da versão
+	• verificar se não no VER da tag não está colocada o número da ver errado
+	• estando o número da versão correta, deve ir na pasta C:\Projetos\"tag"\Fontes\Testes e rodar
+	o arquivo AjustaVersao.bat
+	• depois commita o arquivo que foi criado mandando commitar a pasta fontes que assim irá mostrar só o
+	arquivo que quer, mas antes de commitar clica 2 vezes para ver a diferença se era a versão mesmo ou não
+
+Rodar Deploy manualmente
+	• Na maq Ultron, baixa a tag da versão na pasta projetos
+	• renomear a pasta da tag para AC
+	• Se dentro da pasta C:\Projetos\ a pasta AC estiver como AC(Atualizando), deve renomear novamente para AC
+	• Na pasta Fontes cria uma pasta chamada "Deploy", ficando C:\Projetos\AC\Fontes\Deploy
+	• entra na pasta C:\Projetos\AC\Fontes\Testes e roda o arquivo Deploy.bat
+	• ele vai abrir o command que de vez em quando vai solicitar que tecle enter até concluir
+	• feito isso agora é só entrar na pasta do pronto, rodar instalador e atualizador para ver se estão corretos
+
+Rodar Deploy do Xe6 manualmente
+	• Se tiver quebrado somente no último Step do TeamCity "EmpacotarXe6" então pode seguir com esses passos
+	• Na VM Baymax
+	• Baixo a tag
+	• Ajusto o AC.ver colocando de 6 para 7
+		De:
+		<?xml version="1.0" encoding="windows-1252"?>
+		  <Versoes>
+			<Versao id="6.176.0" bd="750" data="23/06/2021">
+			  <Modulo nome="Contábil">
+				<Item motivo="PCH202106018103">SPED ECD - Ajuste na geração referente a quantidades de linhas de determinados registro quando o ambiente é nuvem.</Item>
+			  </Modulo>
+			  <Modulo nome="Pessoal">
+				<Item motivo="PCH202104000485">Simulação Rescisão - Ajuste na data da projeção do aviso indenizado quando a data de desligamento informada é igual ao dia e mês de admissão de algum empregado.</Item>
+				...
+		Para:
+		<?xml version="1.0" encoding="windows-1252"?>
+		  <Versoes>
+			<Versao id="7.176.0" bd="750" data="23/06/2021">
+			  <Modulo nome="Contábil">
+				<Item motivo="PCH202106018103">SPED ECD - Ajuste na geração referente a quantidades de linhas de determinados registro quando o ambiente é nuvem.</Item>
+			  </Modulo>
+			  <Modulo nome="Pessoal">
+				<Item motivo="PCH202104000485">Simulação Rescisão - Ajuste na data da projeção do aviso indenizado quando a data de desligamento informada é igual ao dia e mês de admissão de algum empregado.</Item>
+				...
+	• Salva mas não commita
+	• Renomeia a pasta da tag para AC
+	• Entra na pasta C:\Utils e roda Detox.bat qua aí ele vai criar uma pasta Fontes_XE6 em C:\Projetos\ac
+	• Entra na pasta C:\Projetos\ac\Fontes_XE6\Testes e roda ImportFortesLib_XE6.bat
+	• Na pasta C:\Projetos\ac\Fontes_XE6\Testes roda Deploy_XE6.bat
+
+
+
+Se alguem commitar algo, automaticamente vai jogar todos os projetos para aba Build Queue
+	Neste caso pode apagar todos os build queue (independente se é pessoal ou fiscal)
+	Volta para Projects, clica em Run de um por um em todos que estão vermelho (quebrando) menos aqueles que estão em Métricas, Liberar Versao AC, Testes Patrio, Testes Comum, Testes AC Pessoal ..., Acessórios Fisco e Métricas Patrio
+	Volta para aba Build Queue e clica em Resume Build Queue e fica atualizando a página para ver quando restaram para rodar (número ao lado da aba), quando estabilizar em um número significa que todas os servidores de testes disponíveis já estão em uso, então volta a pausar tudo
+	Necessário pausar por que se algum teste quebrar ele volta automaticamente para a fila se não estiver pausado e assim perderíamos o controle e demoraria mais
+Obs.: A aba Build Queue é como se fosse uma fila dos projetos a serem testados. Não significa que estão sendo testados mas sim os que serão os próximos a serem testados
+	Tem que ficar direto em pause e resume durante a liberação da versão. Ficar sempre de olho
+
+
+Ocorreu de dar problema ao empacotar o XE6
+	Gerou com nº na versão errada
+		Neste caso tem que entrar no Ultron na pasta da tag da versão c:\Projetos\AC\Fontes\Testes e rodar o AjustaVersao.bat
+		Ele vai alterar um arquivo em c:\Projetos\AC\Fontes chamado ACVersion.rc
+		Compara as alterações dele para ver se alterou o DatabaseVersion, FileDescription e FileVersion para o código do banco correto
+		Se estiver correto commita para a tag da versão
+		Entra no Baymax em C:\Utils tem um Xe6DeployTag.bat que ajusta a versão e que ocorreu nesta vez foi que altera todo código "6." para "7." assim acabava alterando o código indevidamente e pode ser que acabe ocorrendo novamente quando sair versão com 7.**6.** que por ter "6." vai acabar indo para "7."
+		Altera o .bat colocando de ("6." para "7.") para ("6.1" para "7.1")
+		Depois vai no TeamCity, roda AC_XE_EmpacotarVersao novamente
+		Quando terminar, volta nesse arquivo do Baymax e volta ao que era antes
+
+
+
+DmFC
+C:\Projetos\AC\Fontes\
+ShowLog
+
+Empacotar
+Em Build Queue. Pausa tudo. Remove Tudo
+1. Iniciar Liberacao
+	Run
+	Em Build Queue. Resume depois Pausa tudo
+3. Finalizar Liberacao sem Dependências
+	Run
+	Em Build Queue. Resume depois Pausa tudo
+no XE6 é em AC_XE6_EmpacotarVersão
+
+Reempacotar
+4. Empacotar Versão
+	Run
+	Em Build Queue não faz diferença se tem algo na fila nem se tem algo rodando, pq a tag já foi criada e o Empacotar versão roda um servidor separado que não precisa nem liberar no Build Queue
+no XE6 é em AC_XE6_EmpacotarVersão
+
+
+
+"C:\Projetos\DeployAC\DeployAC.fbl7". O arquivo já está sendo usado por outro processo
+Já fui na pasta do AC e já conseguiu renomear e voltar
+• Entra no Ultron fecha tudo com excessão do "TeamCity Build Agent"
+Obs: "TeamCity Build Agent" é o Agent que tem que estar rodando nos servidores para iniciar o empacotamento da versão
+
+kicks
+máquina tree e four é nossa a do pessoal é 1 e 2
+
+
+#EMPACOTAR XE6
+Em Build Queue. Remove tudo depois Pausa tudo
+Em Projects
+AC_XE6_EmpacotarVersão
+	Run
+	Em Build Queue. Resume depois Pausa tudo
+
+Caso rode o empacotar versão XE6 com sucesso e mesmo assim gere a versão errada em \\10.1.254.1\x\Outros\PRONTO\ACXE6\Homologacao
+	Entra em \\10.1.254.70\x\Programacao\Pronto\ACXE6\Atualizador verifica se a versão do AC.exe está correta.
+	Se estiver vá no rHomologação e apague o atualizador gerado errado e depois em
+	\\10.1.254.1\x\Outros\PRONTO\ACXE6\Portal e apague a pasta que possivelmente tenha sido criada da versão
+	depois rode novamente o AC_XE6_EmpacotarVersão no TeamCity. As vezes isso ocorre. Tem umas 2 a 3 vezes para ver se dá certo
+	
+Criar nova tag
+	Baixo a última tag
+	Abrir o AC.VER
+	incluir nova informação ex:
+    <Versao id="6.170.0.2" bd="739" data="01/02/2021">
+      <Modulo nome="Contábil">
+	    <Item motivo="PCH202102000891">SPED ECF - Ajuste ao atualizar tabelas dinâmicas referente adequação ao leiaute 2021.</Item>
+      </Modulo>
+	  <Modulo nome="Pessoal">
+        <Item>Não houve alteração para este subsistema</Item>
+      </Modulo>
+      <Modulo nome="Fiscal">
+	    <Item motivo="PCH202102000891">SPED ECF - Ajuste ao atualizar tabelas dinâmicas referente adequação ao leiaute 2021.</Item>
+      </Modulo>
+      <Modulo nome="SPED Fácil">
+        <Item>Não houve alteração para este subsistema</Item>
+      </Modulo>
+      <Modulo nome="Gestão">
+        <Item>Não houve alteração para este subsistema</Item>
+      </Modulo>
+	</Versao>
+	não esquecer de alterar id da versão do banco e data
+	copiar o conteúdo do ac.ver conforme exemplo anterior
+	baixa o trunk
+	edita o ac.ver
+	cola a mesma informação que foi colocado na tag igual ao exemplo acima. Não esquecer que se já foi iniciado nova versão no ac.ver do trunk
+	então deve colar a nova informação empurrando a última pra cima
+	salva e commita informando que é ajuste no ver re tag x.xxx.x.x
+	na pasta da tag baixada Executa ajustaversao.bat
+	clica com o botão direito na pasta da tag
+	em tortoise\branch tag
+	em To path: acrescenta a versão da tag
+		Obs.: o caminho tem que ter ...tag\...
+	marca Working copy
+	depois
+		{não fa isso
+		em tortoise\switch
+		em To path: seleciona a tag criada
+		renomeia a pasta para AC
+		roda Deploy.bat}
+
+Para gerar Versao Prévia (Simplificada):
+	1º Criar a tag da versão simplificada
+		• Tem que ser feito no Ultron (A minha máquina não vai rodar o ajustaversão.bat)
+		• Baixo a última tag (obs.: não é o trunk é a tag da última versão, então, conferir se alguém fez alguma alteração no ac.ver de algo que tenha esquecido de commitar ao sair a versão anterior e deve ir nessa)
+		# Na Tag
+			• Abrir o AC.VER
+			• incluir nova informação ex:
+				<Versao id="6.177.0.2" bd="751" data="26/07/2021">
+				  <Modulo nome="Contábil">
+					<Item>Não houve alteração para este subsistema</Item>
+				  </Modulo>
+				  <Modulo nome="Pessoal">
+					<Item>Não houve alteração para este subsistema</Item>
+				  </Modulo>
+				  <Modulo nome="Fiscal">
+					<Item>Não houve alteração para este subsistema</Item>
+				  </Modulo>
+				  <Modulo nome="SPED Fácil">
+					<Item>Não houve alteração para este subsistema</Item>
+				  </Modulo>
+				  <Modulo nome="Gestão">
+					<Item>Não houve alteração para este subsistema</Item>
+				  </Modulo>
+				</Versao>
+			• não esquecer de alterar a data. O id da versão do banco não deve ser alterado
+			• copiar o conteúdo do ac.ver conforme exemplo anterior
+		# No Trunk
+			• baixa o trunk
+			• edita o ac.ver
+			• cola a mesma informação que foi colocado na tag igual ao exemplo acima. Não esquecer que se já foi iniciado nova versão no ac.ver do trunk
+			  então deve colar a nova informação empurrando a última pra cima
+			• salva e commita informando que é "Ajuste no AC.ver referente criação da tag x.xxx.x.x"
+		# Na Tag
+			• na pasta da tag baixada Executa AjustaVersao.bat
+			• clica com o botão direito na pasta da tag
+			• Vai em tortoise\branch tag
+				• em To path: acrescenta a versão da tag
+				  Obs.: o caminho tem que ter ...tag\...
+				• marca Working copy
+											{não faz isso (algo para ser melhor anotado depois):
+												em tortoise\switch
+												em To path: seleciona a tag criada
+												renomeia a pasta para AC
+												roda Deploy.bat}
+	2º Passar e-mail informando que irá iniciar uma versão simplificada, ex:
+		Para: desenvolvimento.pessoal@grupofortes.com.br, desenvolvimento.fisco@grupofortes.com.br, produto.fisco@fortestecnologia.com.br, produto.pessoal@fortestecnologia.com.br
+		Assunto: Versão Simplificada 6.177.0.2
+		Bom dia,
+
+		Iniciando o processo da Versão Simplificada 6.177.0.2 com base na Tag 6.177.0.1.
+
+		Tag criada: https://10.1.254.7/svn/ac/tags/6_177_0_2
+	3º Aguardar todos DEVs concluírem commitar o que deveria para a tag da versão simplificada
+	
+	Obs.: A versão Simplificada está sendo rodada manualmente no Ultron, não possui mais chamada no TeamCity
+	
+	4º Empacotar a versão simplificada
+		• Conferir se existe:
+			P:\PRONTO\AC
+			O:\PRONTO\AC
+			O:\PRONTO\AC\Homologacao
+			O:\PRONTO\AC\Homologacao\Nuvem
+			O:\PRONTO\AC\Documentos
+			verificar se copiou P:\PRONTO\AC\CD\Help\AC.ver para O:\PRONTO\AC\Documentos
+		• Baixa a tag
+		• Renomeia para pasta "AC" resultando em "C:\Projetos\AC\"
+			Esse Passo é muito importante.
+			Já aconteceu 2 vezes de dar erro porque não renomeei para "AC" e acaba dando erro:
+				ACPesoalServiceCL:
+					... pasta não localizada
+					[dcc] ./ACPessoalServiceCL.dpr
+					...
+		• Executa: AC/Fontes/Testes/Deploy_VersaoBeta.bat
+		• Depois no TeamCity roda AC_XE6_VersaoBeta
+
+Se por engano ir no TeamCity e rodar o passo "1. Iniciar Liberacao" quando a intenção era de rodar a Versão Simplificada
+	• Dá um Update na pasta AC do Trunk
+	• Dá um Show Log no AC.ver
+	• Verifica se em Message foi adicionada "Fechando versao 6.xxx.0.1"
+	• Caso tenha sido adicionado, será necessário dar um revert no AC.ver:
+		• Vá em "TortoiseSVN/Update to revision..."
+		• Na janela, vá em Show Log selecione o registro anterior do "Fechando versao 6.xxx.0.1" e dê "Ok"
+	• Depois verifica no AC.ver se houve alteração na data para "data="xxx/xxx/2021">" e altera para "data="__/__/2021">"
+	• Commita
+	• Volta ao processo normal para gerar Versão Simplificada descrita em um outro tópico
+
+
+Erros:
+• Quando apresenta erro [dcc] CreateProcess:O sistema não pode encontrar o arquivo especificado
+	Significa que foi um erro ao compilar e provavelmente basta copiar a sua pasta "Ferrametas" para sobrepor a da máquina. Atenção se é D7 ou Xe6 pq são pastas diferentes
+
+• Para liberar para o teste rodar em outros Agents:
+	Entra em Overview do teste em questão
+	Entra em Edit Configuration Settings
+	Entra em Agent Requirements
+	Na grid, clica em Edit
+	Em Value e Condition pode ser configurado como achar melhor. Ex: Value: Informa ACXE6_Fisco e Condition: contains. Assim libera para todos os agents que começam com ACXE6_Fisco
+
+• Quando der erro
+	[17:55:23][Step 1/1]       [Criar Tag da Versão]
+	[17:55:23][Step 1/1]           
+	[17:55:23][Step 1/1]           Starting Directory: C:\Projetos\AC
+	[17:55:23][Step 1/1]           Parameters: copy --force-log --message "Criando Tag da Versão 6.175.0.1" --non-interactive --password [suppressed] --revision HEAD --username ic  https://10.1.254.7/svn/ac/trunk https://10.1.254.7/svn/ac/tags/6_175_0_1
+	[17:55:24][Step 1/1]             
+	[17:55:24][Step 1/1]             svn: Path 'tags/6_175_0_1/trunk' already exists
+	[17:55:24][Step 1/1]           Subversion copy failed with return code 1
+	[17:55:24][Step 1/1]           Command line was : svn copy --force-log --message "Criando Tag da Versão 6.175.0.1" --non-interactive --password [suppressed] --revision HEAD --username ic  https://10.1.254.7/svn/ac/trunk https://10.1.254.7/svn/ac/tags/6_175_0_1
+	[17:55:24][Step 1/1]       
+	[17:55:26][Step 1/1]       [End ActionList: Finalizar Liberacao]
+	E a tag não tiver sido criada deve:
+	Ajustar AC.ver que provavelmente pode ter ocorrido algum problema no nº da versão. Sendo isso basta ajustar para que feche a versão ex.:
+		<?xml version="1.0" encoding="windows-1252"?>
+		  <Versoes>
+			<Versao id="6.176.0" bd="749" data="23/06/2021">
+			  <Modulo nome="Contábil">
+				<Item motivo="PCH202106018103">SPED ECD - Ajuste na geração referente a quantidades de linhas de determinados registro quando o ambiente é nuvem.</Item>
+			  </Modulo>
+			  <Modulo nome="Pessoal">
+				<Item motivo="PCH202106032708">Faseamento do eSocial: Alteração da data de carga da fase 4 do 1º grupo em razão do adiamento no envio dos eventos de SST.</Item>
+			  </Modulo>
+			  <Modulo nome="Fiscal">
+				<Item motivo="SCH202102037960">Adequação à versão 1.2 do Guia Prático da EFD ICMS IPI - do Estado do Piauí. Na geração do arquivo do SPED Fiscal a alíquota de ICMS será gerada de forma consolidada, somando o valor do ICMS Normal e o valor correspondente ao FECOP.</Item>	  
+			  </Modulo>
+			  <Modulo nome="SPED Fácil">
+				<Item>Não houve alteração para este subsistema</Item>
+			  </Modulo>
+			  <Modulo nome="Gestão">
+				<Item>Não houve alteração para este subsistema</Item>
+			  </Modulo>
+			</Versao>
+		...
+	Depois roda AjustaVersao.bat em C:\Projetos\AC\Fontes\Testes no Ultron de preferência já que até o momento o Want não está rodando na minha máquina
+	Depois na pasta AC do Trunk roda o Check for modifications e dá um Diff no ACVersion.rc verificando se foi alterado para o correto que seria o que vc inseriu por último ex: Versao id="6.176.0" bd="749", etc.
+	Depois Commita os 2 arquivos e roda no TeamCity o passo 3. Finalizar Liberacao sem Dependências
+	Quando terminar de rodar sem erros será necessário editar o AC.ver abrindo uma nova versão. Isso se já não tiver sido feito automaticamente. Ex.:
+		<?xml version="1.0" encoding="windows-1252"?>
+		  <Versoes>
+			<Versao id="6.177.0" bd="749" data="__/__/2021">
+			  <Modulo nome="Contábil">
+				<Item>Não houve alteração para este subsistema</Item>
+			  </Modulo>
+			  <Modulo nome="Pessoal">
+				<Item>Não houve alteração para este subsistema</Item>
+			  </Modulo>
+			  <Modulo nome="Fiscal">
+				<Item>Não houve alteração para este subsistema</Item>
+			  </Modulo>
+			  <Modulo nome="SPED Fácil">
+				<Item>Não houve alteração para este subsistema</Item>
+			  </Modulo>
+			  <Modulo nome="Gestão">
+				<Item>Não houve alteração para este subsistema</Item>
+			  </Modulo>
+			</Versao>
+		...
+	Depois Commitar o AC.ver
+
+
+
+# Quando apenas o leiaute está incorreto na versão
+	• Copia a pasta AC completa do P:\Pronto\ para C:\Pronto
+	• Entra na pasta C:\Pronto\PRONTO\AC\Atualizador e coloca a versão do leiaute correta
+	• Entra na pasta C:\Pronto\PRONTO\AC\Internet e apaga FortesACAtualizador.exe e/ou FortesACInstalador.exe, dependendo de em qual deles estava com a versão do leiaute incorreta, se no atualizador, instalador ou os 2
+	• Na pasta C:\Pronto\PRONTO\AC\Internet roda makea.bat para gerar FortesACAtualizador.exe ou makei.bat para gerar FortesACInstalador.exe ou makea-makei.bat para gerar os 2
+	
+	
+ac/fontes_xe6/testes/exenuvemxe6.bat
+
+
+# Quando apresenta erros semelhante a:
+	[10:01:07][Step 10/11]        [shell] Error validating server certificate for 
+	[10:01:07][Step 10/11]        [shell] 'https://10.1.254.7:443': 
+	[10:01:07][Step 10/11]        [shell]  - The certificate is not issued by a trusted authority. Use 
+	[10:01:07][Step 10/11]        [shell] the 
+	[10:01:07][Step 10/11]        [shell]    fingerprint to validate the certificate manually! 
+	[10:01:07][Step 10/11]        [shell]  - The certificate hostname does not match. 
+	[10:01:07][Step 10/11]        [shell] Certificate information: 
+	[10:01:07][Step 10/11]        [shell]  - Hostname: COMMANDER.GRUPOFORTES.LOCAL 
+	[10:01:07][Step 10/11]        [shell]  - Valid: from Fri, 13 Aug 2021 16:06:10 GMT until Mon, 11 
+	[10:01:07][Step 10/11]        [shell] Aug 2031 16:06:10 GMT 
+	[10:01:07][Step 10/11]        [shell]  - Issuer: COMMANDER.GRUPOFORTES.LOCAL 
+	[10:01:07][Step 10/11]        [shell]  - Fingerprint: 
+	[10:01:07][Step 10/11]        [shell] 1b:37:82:df:e7:6c:06:2d:31:c5:63:d7:4d:a0:0b:2f:d5:f9:ca:ae 
+	[10:01:07][Step 10/11]        [shell] (R)eject, accept (t)emporarily or accept (p)ermanently? svn: 
+	[10:01:07][Step 10/11]        [shell] E175002: Unable to connect to a repository at URL 
+	[10:01:07][Step 10/11]        [shell] 'https://10.1.254.7/svn/synapse-bin/tags/synapse-dxe6-40' 
+	[10:01:07][Step 10/11]        [shell] svn: E175002: OPTIONS of 
+	[10:01:07][Step 10/11]        [shell] 'https://10.1.254.7/svn/synapse-bin/tags/synapse-dxe6-40': 
+	[10:01:07][Step 10/11]        [shell] Server certificate verification failed: certificate issued 
+	[10:01:07][Step 10/11]        [shell] for a different hostname, issuer is not trusted 
+	[10:01:07][Step 10/11]        [shell] (https://10.1.254.7) 
+	[10:01:07][Step 10/11]        [shell] Copiando...  
+	[10:01:07][Step 10/11]        [shell] Arquivo nÆo encontrado  - Synapse 
+	[10:01:07][Step 10/11]        [shell] 0 arquivo(s) copiado(s) 
+	[10:01:07][Step 10/11]        [shell]  
+	[10:01:07][Step 10/11]        [shell] ----- 
+	[10:01:07][Step 10/11]        [shell] ATENCAO!!! 
+	[10:01:07][Step 10/11]        [shell]  
+	[10:01:07][Step 10/11]        [shell] NAO FOI POSSIVEL ACESSAR O REPOSITORIO DO PACOTE.  
+	[10:01:07][Step 10/11]        [shell] VERIFIQUE A CONEXAO DE REDE OU SE A URL ESTA CORRETA. 
+	• Basta entrar na máquina onde rodou o teste e dar update.
+	• Provavelmente o SVN irá perguntar se vai aceitar o certificado permanentemente o qual dirá sim
+
+# Quando apresenta erros semelhante a:
+	[08:25:13][Step 8/12] CriaBancoFirebird:  
+	[08:25:13][Step 8/12]     [firebird] database = 127.0.0.1:C:\Dados\AC\AC.gdb 
+	[08:25:13][Step 8/12]     [firebird] make 
+	[08:25:17][Step 8/12]     [firebird] done. 
+	[08:25:17][Step 8/12]  
+	[08:25:17][Step 8/12] ControlVersion:  
+	[08:25:17][Step 8/12]        [shell] ControlVersion 
+	[08:25:17][Step 8/12]        [shell] Gerando controle de versao 
+	[08:25:17][Step 8/12]        [shell] c:\Projetos\ac\Fontes_XE6\AC.ver 
+	[08:25:17][Step 8/12]        [shell] c:\Projetos\ac\Fontes_XE6\ACVersion.rc 
+	[08:25:17][Step 8/12]        [shell]  
+	[08:25:17][Step 8/12]  
+	[08:25:33][Step 8/12] PreparaBancoFirebird:  
+	[08:25:33][Step 8/12]    [runscript] script = c:\Projetos\ac\Fontes_XE6\AC.sql 
+	[08:25:33][Step 8/12]    [runscript] database = 127.0.0.1:C:\Dados\AC\AC.gdb 
+	[08:27:21][Step 8/12]    [runscript] 10 
+	[08:27:21][Step 8/12]    [runscript] 20 
+	[08:27:21][Step 8/12]    [runscript] 30 
+	[08:27:21][Step 8/12]    [runscript] 40 
+	[08:27:21][Step 8/12]    [runscript] 50 
+	[08:27:21][Step 8/12]    [runscript] 60 
+	[08:29:46][Step 8/12]    [runscript] 70 
+	[08:29:46][Step 8/12]    [runscript] 80 
+	[08:29:46][Step 8/12]    [runscript] 90 
+	[08:29:46][Step 8/12]    [runscript] 100 
+	[08:29:46][Step 8/12]    [runscript] done(263s). 
+	[08:29:46][Step 8/12]        [shell] copy 
+	[08:29:46][Step 8/12]        [shell]         1 arquivo(s) copiado(s). 
+	[08:29:46][Step 8/12]        [shell]  
+	[08:29:46][Step 8/12]  
+	[08:29:46][Step 8/12] AtualizaBancoFirebird:  
+	[08:29:46][Step 8/12]        [shell] copy 
+	[08:29:46][Step 8/12]        [shell] O sistema não pode encontrar o arquivo especificado. 
+	[08:29:46][Step 8/12]        [shell]  
+	[08:29:46][Step 8/12]        [shell] Exit code was 1 
+	• Uma maneira de descobrir o problema seria entrando na máquina onde rodou o teste
+	• Abre o want.xml que está na pasta C:\Projetos\AC_TRUNK\Fontes\Testes e procura pela tag AtualizaBancoFirebird e avalia o que está para ocorrer neste passo a fim de entender o problema
+	• Pelo CMD entra até a pasta C:\Projetos\AC_TRUNK\Fontes\Testes
+	• Executa: want AtualizaBancoFirebird -verbose
+	• avalia se está ocorrendo algum problema
+	• Se não identificar nenhum problema verifica se não é dependencia da tag anterior PreparaBancoFirebird
+	
+# Se unitários do Pessoal quebra por cobertura de metas pode zerar a cobertura
+	• Dentro de C:\Projetos\AC_TRUNK\Fontes\Testes
+	• Ajusta os arquivos TestadorACCO.metas, TestadorACCT.metas, TestadorACFC.metas
+		Importante: NÃO altera o TestadorACPS.metas, pois este é do pessoal e deve rodar
+	• Dentro de [JustifiedCoverageUnits], inclui o Kernel que deu problema e zerar
+	• Ex quando vier:
+[17:49:14][Step 2/3] AssertCodeCoverageCT_Reduzido:  
+[17:49:14][Step 2/3]         [move] to . 
+[17:49:14][Step 2/3]        [shell] dr.exe 
+[17:49:14][Step 2/3]        [shell] Meta = 100,00% 
+[17:49:14][Step 2/3]        [shell] Cobertura Total = 10,62% 
+[17:49:14][Step 2/3]        [shell] Cobertura Negocio = 16,03% obs: eh unitário 
+[17:49:14][Step 2/3]        [shell]   KrEncerrarMovimentos 
+[17:49:14][Step 2/3]        [shell]     TListaFOL.GetItem = 0,00% esperado 100% 
+[17:49:14][Step 2/3]        [shell]     TFol.Create = 0,00% esperado 100% 
+[17:49:14][Step 2/3]        [shell]     TipoFolhaParaTipoFiltro = 0,00% esperado 100% 
+[17:49:14][Step 2/3]        [shell]     PegarListaFiltros = 0,00% esperado 100% 
+[17:49:14][Step 2/3]        [shell]     AddTipoFolhaAoArray = 0,00% esperado 100% 
+[17:49:14][Step 2/3]        [shell]     TFol.PegarFolhaPodeSerEncerrada = 0,00% esperado 100% 
+[17:49:14][Step 2/3]        [shell]   SvEncerrarMovimentos 
+[17:49:14][Step 2/3]        [shell]     TSvEncerrarMovimentos.Create = 0,00% esperado 100% 
+[17:49:14][Step 2/3]        [shell]     TSvEncerrarMovimentos.EncerrarFolhas = 0,00% esperado 
+[17:49:14][Step 2/3]        [shell] 100% 
+[17:49:14][Step 2/3]        [shell]     TSvEncerrarMovimentos.ConfigurarIntegracaoContabilidade 
+[17:49:14][Step 2/3]        [shell] = 0,00% esperado 100% 
+[17:49:14][Step 2/3]        [shell]     TSvEncerrarMovimentos.GerarLancamentosContabeis = 0,00% 
+[17:49:14][Step 2/3]        [shell] esperado 100% 
+[17:49:14][Step 2/3]        [shell]     TSvEncerrarMovimentos.RegistrarAuditoria = 0,00% 
+[17:49:14][Step 2/3]        [shell] esperado 100% 
+[17:49:14][Step 2/3]        [shell]     TSvEncerrarMovimentos.ExecutarUpdateEncerrar = 0,00% 
+[17:49:14][Step 2/3]        [shell] esperado 100% 
+[17:49:14][Step 2/3]        [shell]     TSvEncerrarMovimentos.PegarSqlUpdateEncerrar = 0,00% 
+[17:49:14][Step 2/3]        [shell] esperado 100% 
+[17:49:14][Step 2/3]        [shell]     TSvEncerrarMovimentos.AddFeedback = 0,00% esperado 100% 
+[17:49:14][Step 2/3]        [shell]     TSvEncerrarMovimentos.AddItem = 0,00% esperado 100% 
+[17:49:14][Step 2/3]        [shell]     TSvEncerrarMovimentos.Destroy = 0,00% esperado 100% 
+[17:49:15][Step 2/3]        [shell]     TSvEncerrarMovimentos.ExibirFeedback = 0,00% esperado 
+[17:49:15][Step 2/3]        [shell] 100% 
+[17:49:22][Step 2/3]        [shell]     TSvEncerrarMovimentos.ContabilOnMessage = 0,00% esperado 
+[17:49:22][Step 2/3]        [shell] 100% 
+[17:49:22][Step 2/3]        [shell]   SvProcessosEmLote 
+[17:49:22][Step 2/3]        [shell]     TProcessosEmLote.DisponibilizaEFO = 0,00% esperado 100% 
+[17:49:22][Step 2/3]        [shell]  
+[17:49:22][Step 2/3]        [shell] Exit code was 1 
+	• Ps Kerneis serão: KrEncerrarMovimentos, SvEncerrarMovimentos, SvProcessosEmLote
+	• Inclui:
+	KrEncerrarMovimentos=0
+	SvEncerrarMovimentos=0
+	SvProcessosEmLote=0
+
+# Quando tiver [dcc] significa que quebrou algo na compilação
+
+# 
+[10:43:47]ExeNuvem:  
+[10:43:47]       [mkdir] ./bin 
+[10:43:47]         [dcc] ./ACXE6.dpr 
+[10:43:47]         [dcc] ../FortesLib/FRBASIC.PAS (201)
+[10:43:47]         [dcc] Hint: H2443 Inline function 
+[10:43:47]         [dcc] 'TCustomAction.SetCustomActionList' has not been expanded 
+[10:43:47]         [dcc] because unit 'System.Actions' is not specified in USES list 
+[10:43:47]         [dcc] ../FortesLib/FRBASIC.PAS (324)
+...
+[10:46:06]         [dcc] USES list 
+[10:46:06]         [dcc] ./DmImpNotasDeclararAM.pas (120)
+[10:46:06]         [dcc] Hint: H2443 Inline function 'TObjectList.Remove' has not 
+[10:46:06]         [dcc] been expanded because unit 'System.Types' is not specified 
+[10:46:06]         [dcc] in USES list 
+[10:46:06]         [dcc] ./DgAssociarItensNFe.pas (280)
+[10:46:06]         [dcc] Hint: H2443 Inline function 'TFont.GetStyle' has not been 
+[10:46:06]         [dcc] expanded because unit 'System.UITypes' is not specified in 
+[10:46:06]         [dcc] USES list 
+[10:46:06]         [dcc] ./DgAssociarItensNFe.pas (282)
+[10:46:35]         [dcc] Hint: H2443 Inline function 'TFont.GetStyle' has not been 
+[10:46:35]         [dcc] expanded because unit 'System.UITypes' is not specified in 
+[10:46:35]         [dcc] USES list 
+[10:46:35]         [dcc] ./dgGerarArquivoFC.pas (8)
+[10:46:35]         [dcc] Fatal: F1026 File not found: 
+[10:46:35]         [dcc] 'C:\Projetos\ac\Fontes_XE6\sPanel.dcu' 
+[10:46:35] 
+[10:46:35]BUILD FAILED
+[10:46:35]Pressione qualquer tecla para continuar. . . 
+[10:46:35]Process exited with code 0

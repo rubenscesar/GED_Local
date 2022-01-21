@@ -1,0 +1,34 @@
+PARA DECLARAR AS COMPRA DE AÇÕES NO BRASIL NO IRPF
+
+• Acessa o canal do CEI: https://cei.b3.com.br/CEI_Responsivo/
+• Em Extratos e Informativos > Negociação de ativos
+• Pegando os dados de cada Instituição e informando a data de 01/01/20xx até 31/12/20xx
+  {Lembrando que deve ser declarado cada instituição separadamente}
+• No final do relatório será útil as informações de Resumo dos negócios no período
+• Para descobrir a quantidade de ações (QTD_AÇÕES) pegue a informação da coluna "Qtde.Compra"
+  e subtraia a "Qtde. Venda"
+• No IRPF em "Bens e Direitos" inclua um novo bem com o código 31 - Ações (inclusive as
+  provenientes de linha telefônica).
+• Localização: 105 - Brasil
+• CNPJ da Corretora
+• em Discriminação informa: (QTD_AÇÕES) AÇÕES DA (NOME DO ATIVO) ((CÓDIGO DO ATIVO)) ADIQUIRIDA
+  AO PREÇO MÉDIO DE R$ XX,XX
+• Em Situação em 31/12/20xx informa o resultado de QTD_AÇÕES x Preço Médio Compra
+
+
+PARA DECLARAR AS VENDAS DE AÇÕES NO BRASIL NO IRPF
+
+Lembre-se que quando uma ação foi adiquirida no ano retrasado e vendido no ano passado e você quiser informar a venda
+esta ação tem de ter sida informada também no IRPF passado para poder informar a venda dela agora.
+
+• Acessa o canal do CEI: https://cei.b3.com.br/CEI_Responsivo/
+• Em Extratos e Informativos > Negociação de ativos
+• Pegando os dados de cada Instituição e informando a data de 01/01/20xx até 31/12/20xx
+  {Lembrando que pode ser declarado todas as instituições juntas}
+• No final do relatório será útil as informações de Resumo dos negócios no período
+• Para descobrir a quantidade de ações (QTD_AÇÕES) pegue a informação da coluna "Qtde.Compra"
+  e subtraia a "Qtde. Venda"
+• No IRPF em "Rendimentos Isento e Não Tributáveis" inclua um novo rendimento com o código 21 - Ganhos
+  líquidos em operações com ouro, ativo financeiro, nas alienações realizadas até R$ 20.000,00 em cada mês
+• Titular de Beneficiário: Titular
+• Em Valor informa o resultado de Qtde. Venda x Preço Médio Venda

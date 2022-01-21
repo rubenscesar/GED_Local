@@ -1,0 +1,56 @@
+Teste na GUI da NFCe aba Produtos
+
+Dados de entrada e resultados
+	alfabético
+		ACEITA		-	informa letras, passa o campo e confirma que foi digitada
+		NAODIGITA	-	informa letras, passa o campo e confirma que a letra não foi digitada
+	inteiro
+	real<casas_decimais>
+		ACEITA		-	informa valores inteiros e com centavos até <casas_decimais> casas decimais, passa o campo e confirma que foi digitada
+		NAODIGITA	-	informa valores inteiros e com centavos até <casas_decimais> casas decimais, passa o campo e confirma que o valor não foi digitado
+	nulo
+		SIM	-	apaga o conteúdo do campo, passa o campo e confirma que não deu nenhuma mensagem de erro e o campo permanece em branco
+		NAO	-	apaga o conteúdo do campo, passa o campo e confirma que apresentou mensagem de erro
+	positivo
+		SIMEXCLUSIVAMENTE	-	informa valor inteiro positivo, passa o campo e confirma o que foi digitado
+								informa valor inteiro negativo, passa o campo e confirma que apresentou mensagem de erro
+		NAOEXCLUSIVAMENTE	-	informa valor inteiro positivo, passa o campo e confirma que apresentou mensagem de erro
+								informa valor inteiro negativo, passa o campo e confirma o que foi digitado
+		AMBOS	-	informa valor inteiro positivo, passa o campo e confirma o que foi digitado
+					informa valor inteiro negativo, passa o campo e confirma o que foi digitado
+	livre
+Resultado dos cálculos
+	prenche todos desonerado maior valor digitado
+	prenche todos desonerado menor valor digitado
+	prenche todos com exceção de frete
+	prenche todos com exceção de frete, seguro
+	prenche todos com exceção de frete, seguro, out desp
+	prenche todos com exceção de frete, seguro, out desp, desc
+	prenche todos com exceção de frete, seguro, out desp, desc, desoneracao
+	preenche vb, fre, desoneracao
+	preenche vb, seg, desoneracao
+	preenche vb, out desp, desoneracao
+	preenche vb, desc, desoneracao
+	prenche desonerado menor valor digitado
+	prenche todos desonerado maior que o resultado gerando valor total negativo
+
+	
+	Cada campo de valor ser o menor valor digitado
+	Cada campo de valor ser o maior valor digitado
+	Cada campo de valor estar no intervalo entre o ser um valor digitado
+
+
+
+
+Teste Perfil de Usuários
+
+Confirmando que a empresa não possui nenhum Dono cadastrado
+CRUD na tela a ser testada
+	Todos (ADMIN)
+	TA - Total e apenas da Janela
+	I - Inclusão
+	A - Alteração
+	E - Exclusão
+	TE - Todas as janelas Exceto a esta
+Garantir que está aparecendo apenas para a UF/Município a que a funcionalidade se destina (quando for o caso)
+

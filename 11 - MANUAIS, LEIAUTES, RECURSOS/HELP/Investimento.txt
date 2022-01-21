@@ -1,0 +1,7 @@
+ETFs EUA:
+	VOO replica o S&P500
+	IVV replica o S&P500
+		verificar qual a melhor (VOO ou IVV)
+	VNQ replica o índice de REITs
+	NOBL segue o índice Dividends Aristocrats (empresas que crecem a distribuição de dividendos a mais de 25 anos)
+	URTH replica o índice das maiores empresas do mundo dos países desenvolvidos
