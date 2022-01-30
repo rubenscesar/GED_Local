@@ -29,6 +29,10 @@ Regras de Negócio:
 		
 		Para consultar no G-CLick:
 			Nas Atividades em Departamento: Contabilidade; Por Obrigação: Tarefas Fortes
+		
+		Usuário para transmitir para G-Click:
+			Criar um usuário com nome ALEX
+			Obs.: Em Configurações > Minha Empresa, foi feito o relacionamento do usuário G-Click com o usuário da Fortes
 	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
 	RN[2.3.1] Demonstrativo de cálculo:
 	RN[2.4.1] Funcionalidade consequente:
