@@ -1,0 +1,51 @@
+Épico: Na importação de (NF-e, CF-e e NFC-e) e geração do Sped ICMS o sistema deve desconsiderar as informações das Tag's <cEAN>SEM GTIN</cEAN> e <cEANTrib>SEM GTIN</cEANTrib> quando as mesmas contiverem a expressão SEM GTIN
+Número do cartão: P CH202202019506
+Ano de publicação: 2022
+Relacionamentos: Sped ICMS, Produto, Registro 0200, Registro 0220
+Requisitos:
+	RE[1.1.1] Exigências para enquadramento do requisito:
+	RE[1.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RE[1.3.1] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.1.1] Exigências para enquadramento da regra:
+	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.3.1] Demonstrativo de cálculo:
+	RN[2.4.1] Funcionalidade consequente:
+Matriz de risco:
+Features:
+Scenário Outline:
+Stack:
+	Firebird
+	SQL
+		Regime de Tributação Federal - Lucro Real ou Lucro Presumido
+		Regime de Tributação Federal - Simples Nacional
+			Regime de Tributação Estadual - Normal
+			Regime de Tributação Estadual - Simples Nacional
+				Informando itens
+				Sem informar itens
+					Com código de barras "SEM GTIN"
+					Com código de barras
+					Sem código de barras
+						Incluindo o cadastro do produto
+						Atualizando o cadastro do produto
+							Incluindo o cadastro de outras unidades de medida do produto
+								Até 31/12/2021
+								A partir de 01/01/2022
+									Informações Adicionais
+										Operações
+											Saída
+											Entrada
+										Espécies
+											Importação NF-e
+											Importação NFC-e
+											Importação CF-e
+										Peculiaridades das notas
+											Import XML
+											Import WEB
+											Import fs
+											Conversão Sped
+											Manual
+										Sped ICMS
+											Perfil A
+											Perfil B
+											Perfil C

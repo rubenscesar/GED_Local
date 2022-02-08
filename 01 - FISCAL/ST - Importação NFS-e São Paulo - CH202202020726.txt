@@ -1,0 +1,31 @@
+Épico: Ao importar arquivos de serviços prestados de São Paulo-SP o sistema solicita o cadastro de atividades, sendo que a mesma já está cadastrada.
+	   Ao comparar com o leiaute, identificado que o sistema está pulando uma posição de início do código, pois a posição inicia no 478 e o sistema está lendo a partir do 479.
+Número do cartão: CH202202020726
+Ano de publicação: 2022
+Relacionamentos: Importação txt (SP)
+Requisitos:
+	RE[1.1.1] Exigências para enquadramento do requisito:
+	RE[1.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RE[1.3.1] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.1.1] Exigências para enquadramento da regra:
+	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.3.1] Demonstrativo de cálculo:
+	RN[2.4.1] Funcionalidade consequente:
+Matriz de risco:
+Features:
+Scenário Outline:
+Stack:
+	Código previamente cadastrado em Cadastros >> Serviços (ISS) com o campo "Serviço (São Paulo - SP)" começando com dígito = zero contendo 5 caracteres
+		Código previamente cadastrado em Cadastros >> Atividades (ISS) com o campo "Código Padrão" começando com dígito = zero contendo 5 caracteres
+		Código a ser cadastrado em Cadastros >> Atividades (ISS) durante importação com o campo no arquivo txt "Código do Serviço Prestado na Nota Fiscal" começando com dígito = zero contendo 5 caracteres
+	Código a ser cadastrado em Cadastros >> Serviços (ISS) durante importação com o campo no arquivo txt "Código do Serviço Prestado na Nota Fiscal" começando com dígito = zero contendo 5 caracteres
+		Código previamente cadastrado em Cadastros >> Atividades (ISS) com o campo "Código Padrão" começando com dígito = zero contendo 5 caracteres
+		Código a ser cadastrado em Cadastros >> Atividades (ISS) durante importação com o campo no arquivo txt "Código do Serviço Prestado na Nota Fiscal" começando com dígito = zero contendo 5 caracteres
+	Código no arquivo txt, campo "Código do Serviço Prestado na Nota Fiscal" contendo informação inexistente da tabela de "Serviço (São Paulo - SP)"
+		Informações Adicionais
+			Operação
+				Saída
+				Entrada
+Obs.:	1 - Todos os códigos da tabela de "Serviço (São Paulo - SP)", possuem 4 dígitos e nunca o 1º dígito começa com zero
+		2 - Quando o código "Código do Serviço Prestado na Nota Fiscal" que veio no arquivo txt não existe na tabela "Serviço (São Paulo - SP)" o sistema cadastra

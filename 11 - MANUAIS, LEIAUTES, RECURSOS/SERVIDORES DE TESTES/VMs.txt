@@ -115,3 +115,9 @@ Sentinela
 	Administrador
 
 	superv
+	
+VM Siri
+Essa máquina não tem nada instalado. Está sem uso por enquanto
+	IP: 10.1.17.192
+	Usuário: build
+	Senha: superv

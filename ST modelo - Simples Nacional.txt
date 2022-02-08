@@ -137,6 +137,7 @@ Fluxo Básico Modelo:
 	- Sempre incluir vários itens diferentes
 	- Depois de todos os teste, sempre testar com uma base real, de preferência a base grande, avaliar funcionamento e performance
 	- (Contabilização) Verificar se ao desfazer importação FS após ter contabilizado não está mantendo prezo os lançamentos contábeis. Para conferir tem de dar um select na tabela LCF após importar, contabilizar e desfazer importação FS para ver se as contabilizações permanecem ou não no banco.
+	- Na "exportação/geração de arquivo de obrigação acessória", sempre validar o arquivo no validador
 	- Perfil de Usuários
 		Confirmando que a empresa não possui nenhum Dono cadastrado
 		CRUD na tela a ser testada
