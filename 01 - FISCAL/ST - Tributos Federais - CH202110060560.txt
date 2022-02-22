@@ -1,0 +1,161 @@
+Épico:	Empresa de transporte (lucro presumido / regime competência ), onde tem lançamento com CTE cfop (anulação), sistema não esta deduzindo esta Anulação para calcular IR e CSLL.
+		No lançamento da CTE nao tem campo para informar IR e CSLL.
+Número do cartão: S CH202110060560
+Ano de publicação: 2022
+Relacionamentos: Tributos Federais, Sped Contribuições, Sped PIS/COFINS, CT-e anulação, Registro P100, R-2060
+Requisitos:
+	RE[1.1] Exigências para enquadramento do requisito:
+		RE[1.1.1]
+			• CT-e a ser substituído deve estar com a situação autorizada (não pode estar cancelado ou denegado)
+			• CNPJ/CPF do remetente do CT-e substituto deve ser igual ao informado no CT-E Substituído
+		RE[1.1.2]
+			• Tornar visível os campos de IR e CSLL na aba Tributos Federais apenas do CT-e do tipo "Normal" e "Anulação" nas operações de "Entrada"
+		RE[1.1.3]	
+			• A Anulação/Devolução deve abater o valor da Receita, tal qual ocorre com a nota de devolução de mercadoria
+	RE[1.2] Espécies de lançamentos que produzirão impacto nos resultados:
+		RE[1.2.1] Conforme já é feito atualmente na importação NF-e, os valores de IR e CSLL não são importados via XML.
+				  Após importação XML é necessário mandar recalcular.
+	RE[1.3] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.1] Exigências para enquadramento da regra:
+	RN[2.2] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.3] Demonstrativo de cálculo:
+	RN[2.4] Funcionalidade consequente:
+Matriz de risco:
+Features:
+	| Regime de Tributação Federal	| Incidência tributária	| Regime		|
+	| Lucro Real					| não-cumulativa		| competência	|
+	| Lucro Presumido				| cumulativa			| competência	|
+	| Lucro Presumido				| cumulativa			| caixa			|
+Scenário Outline:
+	Firebird
+	SQL
+		Lançamentos em 2 estabelecimentos
+			Regime de Tributação Federal - Lucro Real
+			Regime de Tributação Federal - Lucro Presumido
+			Regime de Tributação Federal - Simples Nacional (Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou a forma como vinha sendo feito até esta data)
+				Incidência tributária não-cumulativa
+				Incidência tributária cumulativa
+					Regime de Tributação Estadual - Normal
+						Alíquota padrão de PIS/COFINS
+							Regime de competência
+							Regime de caixa
+								Informando itens
+								Sem informar itens
+									Método de Apropriação de Crédito por Rateio Proporcional
+									Método de Apropriação de Direta
+										Atender a um ciclo onde os testes irão passar
+										Atender a um ciclo onde os testes irão dar errado
+										Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou outra por ter especificações diferentes
+										Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou a forma como vinha sendo feito até esta data
+											Informações Adicionais
+												Teste GUI (Graphical User Interface)
+													GRID dos itens
+													Testar tela com resolução 1366x768, vê se na mesma aparecem todos os campos e são clicáveis
+													Passagem de campos
+													Atalhos dos botões
+													Ortografia
+													Condição para habilitar ou tonar vísível os campos conforme RE[1.1.2]
+												CRUD
+												Operação
+													Saída
+													Entrada (Documento de terceiros)
+													Entrada (Documento Próprio)
+													Tributos Federais >> Ajuste de COFINS/PIS >> Base de Cálculo - Ajuste de Redução
+												Espécies
+													CT-e
+													CTRC (Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou a forma como vinha sendo feito até esta data)
+												Peculiaridades das notas
+													CT-e do Tipo
+														Normal
+														Substituição
+														Anulação
+												Importação/Exportação
+													Visarq
+													Importação .FS
+														Adequação a leiaute de importação
+														LeiauteImportacaoFortesACFiscal.pdf
+													Importação .XML (Conforme RE[1.2.1])
+												Relatórios
+													Relatórios >> Tributos Federais >> COFINS, PIS, CSL, IRPJ e INSS (Bases de Cálculo, Receitas e Retenções) >> Entradas
+													Relatórios >> Tributos Federais >> COFINS, PIS, CSL e IRPJ (Demonstrativo de Cálculo)
+													Relatórios >> Tributos Federais >> DARF
+													Relatórios >> Receitas por Estabelecimento
+													Relatórios >> Declaração de Faturamento
+													Relatórios >> Resumo >> Resumo Gerencial de Receitas e Tributos
+													Relatórios >> Comparativo Vendas x Compras
+												Ferramentas
+													Marcando em Configuração >> Fiscal >> Tributos Federais > "Sugerir a aba Tributos Federais com base na tributação dos itens" o item "Notas Fiscais de Serviço de Transporte, Comunicação, Telecomunicação"
+													Desmarcando em Configuração >> Fiscal >> Tributos Federais > "Sugerir a aba Tributos Federais com base na tributação dos itens" o item "Notas Fiscais de Serviço de Transporte, Comunicação, Telecomunicação"
+														Modificando o percentual em Configuração >> Fiscal >> Tributos Federais > "Percentual da CSL e IRPJ" o item "CSL para Mercadorias e Serviços de Transporte" e "IRPJ para Mercadorias e Serviços de Transporte de Cargas"
+															Utilitários >> Recalcular Tributos Federais
+												Obrigação acessória
+													Sped Contribuições
+													Sped ECF
+													DCTF
+														Na "exportação/geração de arquivo de obrigação acessória", sempre validar o arquivo no validador
+												Conversão
+													Sped ICMS
+													Sintegra
+												Auditoria
+												Controle de Vencimentos
+												Backup/Restore
+												Cenários
+													CT-e de Anulação emitido na mesma competência do CT-e anulado
+														Incidência tributária não-cumulativa
+															UC1
+																Contribuinte A
+																	CT-e de Saída do Tipo Normal
+																	CT-e (Terceiros) de Entrada do Tipo Anulação (com CFOP 1.206 ou 2.206 e CST de PIS/COFINS 50)
+																	CT-e de Saída do Tipo Substituição
+															UC2
+																Contribuinte A
+																	CT-e de Saída do Tipo Normal
+																	CT-e (Documento Próprio) de Entrada do Tipo Anulação (com CFOP 1.206 ou 2.206 e CST de PIS/COFINS 50)
+																	CT-e de Saída do Tipo Substituição
+													CT-e de Anulação emitido em competência posterior ao CT-e anulado
+														Incidência tributária não-cumulativa
+															UC3
+																Contribuinte A
+																	CT-e de Saída do Tipo Normal (emitido no mês 1)
+																	CT-e (Terceiros) de Entrada do Tipo Anulação (emitido no mês 2) (com CFOP 1.206 ou 2.206 e CST de PIS/COFINS 50)
+																	CT-e de Saída do Tipo Substituição (emitido no mês 2)
+															UC4
+																Contribuinte A
+																	CT-e de Saída do Tipo Normal (emitido no mês 1)
+																	CT-e (Documento Próprio) de Entrada do Tipo Anulação (emitido no mês 2)
+																	CT-e de Saída do Tipo Substituição (emitido no mês 2)
+													CT-e de Anulação emitido na mesma competência do CT-e anulado
+														Incidência tributária cumulativa
+															UC5
+																Contribuinte A
+																	CT-e de Saída do Tipo Normal (emitido no mês 1)
+																	CT-e (Terceiros) de Entrada do Tipo Anulação (emitido no mês 1) (com CFOP 1.206 ou 2.206 e CST de PIS/COFINS 98 com Base de Cálculo de PIS/COFINS e Natureza de Contribuição do Estorno 51)
+																	CT-e de Saída do Tipo Substituição (emitido no mês 1)
+															UC6
+																Contribuinte A
+																	CT-e de Saída do Tipo Normal (emitido no mês 1)
+																	CT-e (Documento Próprio) de Entrada do Tipo Anulação (emitido no mês 1) (com CFOP 1.206 ou 2.206 e CST de PIS/COFINS 98 ou 99 com Base de Cálculo de PIS/COFINS e Natureza de Contribuição do Estorno 51)
+																	CT-e de Saída do Tipo Substituição (emitido no mês 1)
+													CT-e de Anulação emitido em competência posterior ao CT-e anulado
+														Incidência tributária cumulativa
+															UC7
+																Contribuinte A
+																	CT-e de Saída do Tipo Normal (emitido no mês 1)
+																	CT-e (Terceiros) de Entrada do Tipo Anulação (emitido no mês 2) (com CFOP 1.206 ou 2.206 e CST de PIS/COFINS 98 ou 99 sem Base de Cálculo de PIS/COFINS e Natureza de Contribuição do Estorno)
+																	Tributos Federais >> Ajuste de COFINS/PIS >> Base de Cálculo - Ajuste de Redução (emitido no mês 2) com Código de Ajuste "Vendas canceladas de receitas tributadas em períodos anteriores" e CST de PIS/COFINS 98 ou 99 com Base de Cálculo
+																	CT-e de Saída do Tipo Substituição (emitido no mês 2)
+															UC8
+																Contribuinte A
+																	CT-e de Saída do Tipo Normal (emitido no mês 1)
+																	CT-e (Documento Próprio) de Entrada do Tipo Anulação (emitido no mês 2) (com CFOP 1.206 ou 2.206 e CST de PIS/COFINS 98 ou 99 sem Base de Cálculo de PIS/COFINS e Natureza de Contribuição do Estorno)
+																	Tributos Federais >> Ajuste de COFINS/PIS >> Base de Cálculo - Ajuste de Redução (emitido no mês 2) com Código de Ajuste "Vendas canceladas de receitas tributadas em períodos anteriores" e CST de PIS/COFINS 98 ou 99 com Base de Cálculo
+																	CT-e de Saída do Tipo Substituição (emitido no mês 2)
+															
+Lançamentos atendendo ao Contribuinte B existente nas planílhas é desnecessário, pois, em todos os cenários os lançamentos eram:
+	Contribuinte B
+		CT-e (Terceiros) de Entrada do Tipo Normal
+		CT-e de Saída do Tipo Anulação
+Ou seja, entrada e saída normal mudando apenas o "Tipo" mas em questão de valores não eram nada menos do que uma entrada e uma saída de mesmo valor, no máximo mudava de período
+Recursos:
+	https://docs.google.com/spreadsheets/d/1oTIQmg78SksN9Ddx5Cj6apxLc8ORziomcbxXAbVH6Iw/edit#gid=321927227

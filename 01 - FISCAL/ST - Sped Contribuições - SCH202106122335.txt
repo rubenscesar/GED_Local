@@ -1,4 +1,4 @@
-Épico: A partir de 01/06/2021, além do cálculo já existente, deverá ser diminuído o valor do ICMS Normal destacado na nota para encontrar o valor da Base de Cálculo de PIS e COFINS.
+iÉpico: A partir de 01/06/2021, além do cálculo já existente, deverá ser diminuído o valor do ICMS Normal destacado na nota para encontrar o valor da Base de Cálculo de PIS e COFINS.
 Número do cartão: S CH202106122335
 Ano de publicação: 2021
 Relacionamentos: Sped Contribuições, Sped PIS/COFINS, Exclusão do ICMS da Base de Cálculo de PIS/COFINS

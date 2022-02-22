@@ -1,0 +1,51 @@
+Épico:	O sistema está atualizando o cadastro dos produtos na importação de entradas de NFe XML/WEB. Identificamos que o problema ocorre somente quando associamos o produto,
+		quando o mesmo já existe a associação do produto e fornecedor não é atualizado.
+Número do cartão: CH202202028103
+Ano de publicação: 2022
+Relacionamentos: Importação XML, Importação WEB, Atualização de cadastro de Produto
+Requisitos:
+	RE[1.1] Exigências para enquadramento do requisito:
+		RE[1.1.1] Nova regra para atualização do cadastro do produto na importação WEB e XML
+			Só deve atualizar os dados dos produtos se:
+				• Informa itens no Doc. Fiscal
+				• Estiver marcado a opção "Atualizar dados dos Produtos já cadastrados" em Utilitários >> Configuração > Fiscal > Importação
+				• For uma operação de Saída
+	RE[1.2] Espécies de lançamentos que produzirão impacto nos resultados:
+	RE[1.3] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.1] Exigências para enquadramento da regra:
+	RN[2.2] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.3] Demonstrativo de cálculo:
+	RN[2.4] Funcionalidade consequente:
+Matriz de risco:
+Features:
+Scenário Outline:
+Stack:
+	Firebird
+		Informando itens
+		Sem informar itens (Garantir)
+			Marcado a opção "Atualizar dados dos Produtos já cadastrados" em Utilitários >> Configuração > Fiscal > Importação
+				Marcado a opção "Gerar Históricos dos Produtos" em Utilitários >> Configuração > Fiscal > Importação
+				Desmarcado a opção "Gerar Históricos dos Produtos" em Utilitários >> Configuração > Fiscal > Importação
+			Desmarcado a opção "Atualizar dados dos Produtos já cadastrados" em Utilitários >> Configuração > Fiscal > Importação
+					Com estabelecimento obrigado a informar o Código Contábil
+					Com estabelecimento desobrigado a informar o Código Contábil
+						Informações Adicionais
+							Entrada
+								Importação WEB
+								Importação XML
+									Com o mapeamento de produto por fornecedor já realizado
+									Com o mapeamento de produto por fornecedor não realizado
+										NF-e
+							Saída
+								Importação WEB
+								Importação XML
+									NF-e
+								Importação XML
+									NFC-e
+									CF-e
+							Mais de 1 item
+							Itens diferentes
+							Mais de 1 corpo
+							Teste de Carga
+							Testar em Base real de pendências passadas

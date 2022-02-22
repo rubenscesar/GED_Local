@@ -1,0 +1,14 @@
+Scenário Outline:
+	Teste GUI (Graphical User Interface)
+		GRID dos itens
+		Teste de Análise do Valor Limite
+		Testar tela com resolução 1366x768, vê se na mesma aparecem todos os campos e são clicáveis
+		Passagem de campos
+		Atalhos dos botões
+		Ortografia
+		Condição para habilitar ou tonar vísível os campos conforme RE[
+	CRUD
+	Operação
+		Saída
+		Entrada
+		Tributos Federais >> Ajuste de COFINS/PIS >> Base de Cálculo - Ajuste de Redução

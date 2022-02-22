@@ -1,0 +1,53 @@
+Épico: Não está permitindo importar a mesma NFSC com a mesmo numeração mesmo sendo em meses diferentes
+Número do cartão: P CH202111096780
+Ano de publicação: 2022
+Relacionamentos: Importação fs, NFSC
+Requisitos:
+	RE[1.1] Exigências para enquadramento do requisito:
+		RE[1.1.1] Conforme passado pela equipe de #produto existe uma circunstância onde permite lançar a mesma NFSC desde que seja em meses diferentes e não tenha atingido a numeração 999999999 no mesmo mês.
+				  Para o sistema se adequar a esta regra foi implementado que pode lançar NFSC desde que seja uma data diferente, ou seja, pode ser no dia seguinte.
+	RE[1.2] Espécies de lançamentos que produzirão impacto nos resultados:
+	RE[1.3] Demonstrativo de cálculo:
+Regras de Negócio:
+	RN[2.1] Exigências para enquadramento da regra:
+	RN[2.2] Espécies de lançamentos que produzirão impacto nos resultados:
+	RN[2.3] Demonstrativo de cálculo:
+	RN[2.4] Funcionalidade consequente:
+Matriz de risco:
+Features:
+Scenário Outline:
+Stack:
+	Firebird
+		Escriturando em 2 estabelecimentos
+			Informando itens
+			Sem informar itens
+				Informações Adicionais
+				Operação
+					Saída
+					Entrada
+				Espécies
+					NFSC
+				Peculiaridades das importarção das notas de entrada e saída
+					Atendendo ao RE[1.1.1], importando NFSC em dias diferentes
+						Sem AIDF
+							Cancelado
+							Com mesma série e subsérie
+							Com série diferente e mesma subsérie
+						Com AIDF
+							Cancelado
+							Com mesma série e subsérie
+							Com série diferente e mesma subsérie
+					Contrariando ao RE[1.1.1], importando NFSC no mesmo dia (esperando erro na importação .fs e consequentemente conversões)
+						Sem AIDF
+							Cancelado
+							Com mesma série e subsérie
+							Com série diferente e mesma subsérie
+						Com AIDF
+							Cancelado
+							Com mesma série e subsérie
+							Com série diferente e mesma subsérie
+				Imortação
+					Importação .fs
+				Conversão
+					Sped ICMS
+				Testar em Base real de pendências passadas
