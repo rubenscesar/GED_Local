@@ -105,9 +105,9 @@ Scenário Outline:
 														Incidência tributária não-cumulativa
 															UC1
 																Contribuinte A
-																	CT-e de Saída do Tipo Normal
-																	CT-e (Terceiros) de Entrada do Tipo Anulação (com CFOP 1.206 ou 2.206 e CST de PIS/COFINS 50)
-																	CT-e de Saída do Tipo Substituição
+																	CT-e de Saída do Tipo Normal (emitido no mês 1)
+																	CT-e (Terceiros) de Entrada do Tipo Anulação (emitido no mês 1) (com CFOP 1.206 ou 2.206 e CST de PIS/COFINS 50)
+																	CT-e de Saída do Tipo Substituição (emitido no mês 1)
 															UC2
 																Contribuinte A
 																	CT-e de Saída do Tipo Normal
