@@ -1,0 +1,194 @@
+Épico:	Quando não existe Mapeamento de Produto por Fornecedor cadastrado, o produto está cadastrado e importar 2 NFe de entrada contendo um item que se repete na outra nota, o item está reaparecendo no segundo
+		relacionamento indevidamente já que foi cadastrado e mapeado e o mapeamento está ficando duplicado
+Número do cartão: CH202202075249
+Ano de publicação: 2022
+Relacionamentos: Mapeamento de Produto por Fornecedor, Importação XML, Imnporação Web
+Requisitos:
+	RE[1] Exigências para enquadramento do requisito:
+		RE[1.1] Com Configuração preenchida
+					Estando desmarcado na Configuração "Abrir tela de Mapeamento de Tributação por Fornecedor"
+						Quando Mapeamento de Produto por Fornecedor
+							Existe
+								e o produto está cadastrado
+									deve
+										• importar com todas as definições aplicadas conforme parametrizado sem apresentar nenhuma tela						
+							Não existe
+								e o produto está cadastrado
+									deixando a célula "Cód. do Prod. (AC)" sem preencher
+										e deixando as células "CFOP (AC)", "CST (AC)", "CSOSN (AC)" e "Cód. Contábil" sem preencher
+											deve
+												• gravar o Mapeamento de Produto por Fornecedor com o produto já existente pois será identificado por código do produto e NCM
+												• lançar a nota com o produto já cadastrado
+												• gravar o Mapeamento de Produto por Fornecedor com exceção das informações de "Relacionamento CFOP - CST - CSOSN"
+												• as informações na nota "CFOP (AC)", "CST (AC)" e "CSOSN (AC)" devem assumir o que foi preenchido na Configuração
+												• o Mapeamento de Tributação por Fornecedor não deve ser preenchido
+										e preenchendo as células "CFOP (AC)", "CST (AC)", "CSOSN (AC)" e "Cód. Contábil"
+											deve
+												• gravar o Mapeamento de Produto por Fornecedor com o produto já existente pois será identificado por código do produto e NCM
+												• lançar a nota com o produto já cadastrado
+												• gravar o Mapeamento de Produto por Fornecedor completo, com as informações de "Relacionamento CFOP - CST - CSOSN"
+												• as informações na nota "CFOP (AC)", "CST (AC)", "CSOSN (AC)" e "Cód. Contábil" devem assumir o que foi preenchido no Mapeamento de Produto por Fornecedor
+												• o Mapeamento de Tributação por Fornecedor não deve ser preenchido
+								e o produto não está cadastrado
+									deixando a célula "Cód. do Prod. (AC)" sem preencher
+										e deixando as células "CFOP (AC)", "CST (AC)", "CSOSN (AC)" e "Cód. Contábil" sem preencher
+											deve
+												• cadastrar o produto no grupo definido na Configuração
+												• gravar o Mapeamento de Produto por Fornecedor com exceção das informações de "Relacionamento CFOP - CST - CSOSN"
+												• as informações na nota "CFOP (AC)", "CST (AC)" e "CSOSN (AC)" devem assumir o que foi preenchido na Configuração
+												• o Mapeamento de Tributação por Fornecedor não deve ser preenchido
+										e preenchendo as células "CFOP (AC)", "CST (AC)", "CSOSN (AC)" e "Cód. Contábil"
+											deve
+												• cadastrar o produto no grupo definido na Configuração
+												• gravar o Mapeamento de Produto por Fornecedor completo, com as informações de "Relacionamento CFOP - CST - CSOSN"
+												• as informações na nota "CFOP (AC)", "CST (AC)", "CSOSN (AC)" e "Cód. Contábil" devem assumir o que foi preenchido no Mapeamento de Produto por Fornecedor
+												• o Mapeamento de Tributação por Fornecedor não deve ser preenchido
+		RE[1.2]	Com Configuração preenchida
+					Estando marcado na Configuração "Abrir tela de Mapeamento de Tributação por Fornecedor"
+						Quando Mapeamento de Produto por Fornecedor
+							Existe
+								e o produto está cadastrado
+									deve
+										• importar com todas as definições aplicadas conforme parametrizado sem apresentar nenhuma tela						
+							Não existe
+								e o produto está cadastrado
+									deixando a célula "Cód. do Prod. (AC)" sem preencher
+										e deixando as células "CFOP (AC)", "CST (AC)", "CSOSN (AC)" e "Cód. Contábil" sem preencher
+											deve
+												• gravar o Mapeamento de Produto por Fornecedor com o produto já existente pois será identificado por código do produto e NCM
+												• lançar a nota com o produto já cadastrado
+												• gravar o Mapeamento de Produto por Fornecedor com exceção das informações de "Relacionamento CFOP - CST - CSOSN"
+												• as informações na nota "CFOP (AC)", "CST (AC)" e "CSOSN (AC)" devem assumir o que foi preenchido na Configuração
+												• o Mapeamento de Tributação por Fornecedor não deve ser preenchido
+										e preenchendo as células "CFOP (AC)", "CST (AC)", "CSOSN (AC)" e "Cód. Contábil"
+											deve
+												• gravar o Mapeamento de Produto por Fornecedor com o produto já existente pois será identificado por código do produto e NCM
+												• lançar a nota com o produto já cadastrado
+												• gravar o Mapeamento de Produto por Fornecedor completo, com as informações de "Relacionamento CFOP - CST - CSOSN"
+												• as informações na nota "CFOP (AC)", "CST (AC)", "CSOSN (AC)" e "Cód. Contábil" devem assumir o que foi preenchido no Mapeamento de Produto por Fornecedor
+												• o Mapeamento de Tributação por Fornecedor não deve ser preenchido
+								e o produto não está cadastrado
+									deixando a célula "Cód. do Prod. (AC)" sem preencher
+										e deixando as células "CFOP (AC)", "CST (AC)", "CSOSN (AC)" e "Cód. Contábil" sem preencher
+											deve
+												• cadastrar o produto no grupo definido na Configuração
+												• gravar o Mapeamento de Produto por Fornecedor com exceção das informações de "Relacionamento CFOP - CST - CSOSN"
+												• as informações na nota "CFOP (AC)", "CST (AC)" e "CSOSN (AC)" devem assumir o que foi preenchido na Configuração
+												• o Mapeamento de Tributação por Fornecedor não deve ser preenchido
+										e preenchendo as células "CFOP (AC)", "CST (AC)", "CSOSN (AC)" e "Cód. Contábil"
+											deve
+												• cadastrar o produto no grupo definido na Configuração
+												• gravar o Mapeamento de Produto por Fornecedor completo, com as informações de "Relacionamento CFOP - CST - CSOSN"
+												• as informações na nota "CFOP (AC)", "CST (AC)", "CSOSN (AC)" e "Cód. Contábil" devem assumir o que foi preenchido no Mapeamento de Produto por Fornecedor
+												• o Mapeamento de Tributação por Fornecedor não deve ser preenchido
+		RE[1.3]	Com Configuração sem preencher
+					Estando desmarcado na Configuração "Abrir tela de Mapeamento de Tributação por Fornecedor"
+						Quando Mapeamento de Produto por Fornecedor
+							Existe
+								e o produto está cadastrado
+									deve
+										• importar com todas as definições aplicadas conforme parametrizado sem apresentar nenhuma tela						
+							Não existe
+								e o produto está cadastrado
+									deixando a célula "Cód. do Prod. (AC)" sem preencher
+										e deixando as células "CFOP (AC)", "CST (AC)", "CSOSN (AC)" e "Cód. Contábil" sem preencher
+											deve
+												• gravar o Mapeamento de Produto por Fornecedor com o produto já existente pois será identificado por código do produto e NCM
+												• lançar a nota com o produto já cadastrado
+												• gravar o Mapeamento de Produto por Fornecedor com exceção das informações de "Relacionamento CFOP - CST - CSOSN"
+												• as informações na nota "CFOP (AC)", "CST (AC)" e "CSOSN (AC)" devem assumir o que foi preenchido na Configuração
+												• o Mapeamento de Tributação por Fornecedor não deve ser preenchido
+										e preenchendo as células "CFOP (AC)", "CST (AC)", "CSOSN (AC)" e "Cód. Contábil"
+											deve
+												• gravar o Mapeamento de Produto por Fornecedor com o produto já existente pois será identificado por código do produto e NCM
+												• lançar a nota com o produto já cadastrado
+												• gravar o Mapeamento de Produto por Fornecedor completo, com as informações de "Relacionamento CFOP - CST - CSOSN"
+												• as informações na nota "CFOP (AC)", "CST (AC)", "CSOSN (AC)" e "Cód. Contábil" devem assumir o que foi preenchido no Mapeamento de Produto por Fornecedor
+												• o Mapeamento de Tributação por Fornecedor não deve ser preenchido
+								e o produto não está cadastrado
+									deixando a célula "Cód. do Prod. (AC)" sem preencher
+										e deixando as células "CFOP (AC)", "CST (AC)", "CSOSN (AC)" e "Cód. Contábil" sem preencher
+											deve
+												• cadastrar o produto no grupo definido na Configuração
+												• gravar o Mapeamento de Produto por Fornecedor com exceção das informações de "Relacionamento CFOP - CST - CSOSN"
+												• as informações na nota "CFOP (AC)", "CST (AC)" e "CSOSN (AC)" devem assumir o que foi preenchido na Configuração
+												• o Mapeamento de Tributação por Fornecedor não deve ser preenchido
+										e preenchendo as células "CFOP (AC)", "CST (AC)", "CSOSN (AC)" e "Cód. Contábil"
+											deve
+												• cadastrar o produto no grupo definido na Configuração
+												• gravar o Mapeamento de Produto por Fornecedor completo, com as informações de "Relacionamento CFOP - CST - CSOSN"
+												• as informações na nota "CFOP (AC)", "CST (AC)", "CSOSN (AC)" e "Cód. Contábil" devem assumir o que foi preenchido no Mapeamento de Produto por Fornecedor
+												• o Mapeamento de Tributação por Fornecedor não deve ser preenchido
+		RE[1.4]	Com Configuração sem preencher
+					Estando marcado na Configuração "Abrir tela de Mapeamento de Tributação por Fornecedor"
+						Quando Mapeamento de Produto por Fornecedor
+							Existe
+								e o produto está cadastrado
+									deve
+										• importar com todas as definições aplicadas conforme parametrizado sem apresentar nenhuma tela						
+							Não existe
+								e o produto está cadastrado
+									deixando a célula "Cód. do Prod. (AC)" sem preencher
+										e deixando as células "CFOP (AC)", "CST (AC)", "CSOSN (AC)" e "Cód. Contábil" sem preencher
+											deve
+												• gravar o Mapeamento de Produto por Fornecedor com o produto já existente pois será identificado por código do produto e NCM
+												• lançar a nota com o produto já cadastrado
+												• gravar o Mapeamento de Produto por Fornecedor com exceção das informações de "Relacionamento CFOP - CST - CSOSN"
+												• as informações na nota "CFOP (AC)", "CST (AC)" e "CSOSN (AC)" devem assumir o que foi preenchido na Configuração
+												• o Mapeamento de Tributação por Fornecedor não deve ser preenchido
+										e preenchendo as células "CFOP (AC)", "CST (AC)", "CSOSN (AC)" e "Cód. Contábil"
+											deve
+												• gravar o Mapeamento de Produto por Fornecedor com o produto já existente pois será identificado por código do produto e NCM
+												• lançar a nota com o produto já cadastrado
+												• gravar o Mapeamento de Produto por Fornecedor completo, com as informações de "Relacionamento CFOP - CST - CSOSN"
+												• as informações na nota "CFOP (AC)", "CST (AC)", "CSOSN (AC)" e "Cód. Contábil" devem assumir o que foi preenchido no Mapeamento de Produto por Fornecedor
+												• o Mapeamento de Tributação por Fornecedor não deve ser preenchido
+								e o produto não está cadastrado
+									deixando a célula "Cód. do Prod. (AC)" sem preencher
+										e deixando as células "CFOP (AC)", "CST (AC)", "CSOSN (AC)" e "Cód. Contábil" sem preencher
+											deve
+												• cadastrar o produto no grupo definido na Configuração
+												• gravar o Mapeamento de Produto por Fornecedor com exceção das informações de "Relacionamento CFOP - CST - CSOSN"
+												• as informações na nota "CFOP (AC)", "CST (AC)" e "CSOSN (AC)" devem assumir o que foi preenchido na Configuração
+												• o Mapeamento de Tributação por Fornecedor não deve ser preenchido
+										e preenchendo as células "CFOP (AC)", "CST (AC)", "CSOSN (AC)" e "Cód. Contábil"
+											deve
+												• cadastrar o produto no grupo definido na Configuração
+												• gravar o Mapeamento de Produto por Fornecedor completo, com as informações de "Relacionamento CFOP - CST - CSOSN"
+												• as informações na nota "CFOP (AC)", "CST (AC)", "CSOSN (AC)" e "Cód. Contábil" devem assumir o que foi preenchido no Mapeamento de Produto por Fornecedor
+												• o Mapeamento de Tributação por Fornecedor não deve ser preenchido
+Matriz de risco:
+Features:
+Scenário Outline:
+	Firebird
+		Regime de Tributação Federal - Lucro Real ou Lucro Presumido
+		Regime de Tributação Federal - Simples Nacional
+			Regime de Tributação Estadual - Normal
+			Regime de Tributação Estadual - Simples Nacional
+			Regime de Tributação Estadual - Excluído do Simples Nacional (Normal no HES)
+				Empresa PJ em Geral
+				Empresa Pessoa Física (Produtor Rural)
+					Informações Adicionais
+						Importação
+							Importação WEB
+							Importação .XML
+								Contribuinte do IPI
+								Não contribuinte do IPI
+									Entrada
+										Documento de Terceiros
+										Devolução com Documento Próprio (Não deve abrir relacionamento)
+									Saída
+										Devolução com Documento de Terceiros
+										Devolução com Documento Próprio (Não deve abrir relacionamento)
+										Documento Próprio (Não deve abrir relacionamento)
+										Documento Próprio com Serviço (quando está marcado na Configuração "Abrir tela de Mapeamento de Tributação por Fornecedor" deve abrir relacionamento)
+											Transferência
+						Matriz de lançamentos
+							Nota 1 contendo 2 itens sendo que 1 item se repete na nota 2 e 3
+							Nota 2 contendo 1 item sendo que este item se repete na nota 1 mas com CFOP diferente
+							Nota 3 contendo 2 itens sendo que todos os itens se repetem apenas na nota 4
+							Nota 4 contendo 2 itens sendo que todos os itens se repetem apenas na nota 3
+Stack:
+Links de testes unitários:
+Links de testes funcionais:
+Recursos:

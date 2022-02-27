@@ -1,0 +1,110 @@
+Épico:	De acordo com o Lei Kandir e Convênio de ICMS 25/1990, o fato gerador do ICMS é o início da prestação do serviço de transporte (Informação da UF e Município de Coleta), cabendo ao estado de origem
+		da prestação do serviço o crédito tributário
+		Lei Kandir, art. 11, II, 'a' e art. 12, V
+		http://www.planalto.gov.br/ccivil_03/leis/lcp/lcp87.htm
+Número do cartão: CH202102038603
+Ano de publicação: 2022
+Relacionamentos: Simples Nacional, Anexo III - ISS
+Requisitos:
+	RE[1] Exigências para enquadramento do requisito:
+		RE[1.1] Requisitos para segregação da receita por UF e Município de Coleta
+			• Lançamento não estar marcado "ICMS Substituição"
+			• Lançamentos pelas espécies: CT-e
+		RE[1.2] Impacto
+			• Envio da informação para PGDAS, podendo ser verificado pelo arquivo AC.log no formato Json ao utilizar usuário FORTES e /log
+			• Em "Relatórios >> Simples Nacional >> Espelho PGDAS" será apresentado informações das receitas divididas por UF e Município na classificação "Prestação de serviços de Transporte sem substituição tributária de ICMS"
+			  Ex.:	Prestação de serviços de Transporte sem substituição tributária de ICMS
+						Receita total:	10.000,00
+						UF	Município				   Receita
+						--	----------------------	----------
+						CE	Fortaleza				  3.000,00
+						RJ	Rio de Janeiro			  7.000,00
+					
+					Prestação de serviços de Transporte com substituição tributária de ICMS
+						Receita total:	 5.000,00
+
+					Prestação de serviços de Transporte intermunicipal e interestadual de carga para o exterior
+						Receita total:	 6.000,00
+Matriz de risco:
+Features:
+Scenário Outline:
+	Firebird
+	SQL
+		Regime de Tributação Federal - Simples Nacional
+			Regime de Tributação Estadual - Simples Nacional
+				Competência
+				Caixa
+					Informando itens
+					Sem informar itens
+						Anexo III
+							Receita Bruta Proporcionalizada
+								Empresa cuja data de abertura for = PA
+								Empresa cuja data de abertura for = (PA - 1 mês)
+								Empresa cuja data de abertura seja um período aleatório entre (PA - 2 meses) e (PA - 11 meses)
+								Empresa cuja data de abertura for = (PA - 12 meses)
+								Empresa cuja data de abertura for = (PA - 13 meses)
+								Empresa cuja data de abertura seja um período aleatório > (PA - 14 meses), porém a data de enquadramento no regime do Simples Nacional = PA
+								Empresa cuja data de abertura seja um período aleatório > (PA - 14 meses), porém a data de enquadramento no regime do Simples Nacional = (PA - 1 mês)
+								Empresa cuja data de abertura seja um período aleatório > (PA - 14 meses), porém a data de enquadramento no regime do Simples Nacional seja um período aleatório entre (PA - 2 meses) e (PA - 11 meses)
+								Empresa cuja data de abertura seja um período aleatório > (PA - 14 meses), porém a data de enquadramento no regime do Simples Nacional = (PA - 12 meses)
+								Empresa cuja data de abertura seja um período aleatório > (PA - 14 meses), porém a data de enquadramento no regime do Simples Nacional = (PA - 13 meses)
+								Empresa cuja data de abertura seja um período aleatório > (PA - 14 meses), porém a data de enquadramento no regime do Simples Nacional seja um período aleatório > (PA - 14 meses)
+							Receita Bruta não proporcionalizada
+								Receita no Mercado Interno
+								Receita no Mercado Externo
+									Valor do RBT12 ou RBT12p = 0,00
+									Valor do RBT12 ou RBT12p = (Receita Bruta Máxima da 1ª Faixa - 0,01)
+									Valor do RBT12 ou RBT12p = Receita Bruta Máxima da 1ª Faixa
+									Valor do RBT12 ou RBT12p no qual a Receita Bruta esteja enquadrada na 5ª Faixa
+									Valor do RBT12 ou RBT12p no qual a Receita Bruta esteja enquadrada na 6ª Faixa
+										Valor de RBA = 119.999,99
+										Valor de RBA = 120.000,00
+										Valor de RBA = 120.000,01
+											Valor de RBAA = 0,00
+											Valor de RBAA = (Sublimite adotado pelo estado - 0,01)
+											Valor de RBAA = Sublimite adotado pelo estado
+											Valor de RBAA = (Sublimite adotado pelo estado + 0,01)
+												Valor da Alíquota Efetiva = (Alíquota Limite - 0,01%)
+												Valor da Alíquota Efetiva = Alíquota Limite
+												Valor da Alíquota Efetiva = (Alíquota Limite + 0,01%)
+													Valor do Percentual de Repartição da 6ª Faixa = (5,00% - 0,01%)
+													Valor do Percentual de Repartição da 6ª Faixa = 5,00%
+													Valor do Percentual de Repartição da 6ª Faixa = (5,00% + 0,01%)
+														Informações Adicionais
+															Operação
+																Saída
+															Espécies
+																CT-e
+																CT-e OS
+																BP-e
+																NFSTC
+																NFSC
+																RMD
+															Situação
+																Normal
+																Cancelado
+																CT-e Denegado
+																CT-e Numeração inutilizada
+																Documento Fiscal emitido com base em Regime Especial
+																Documento Fiscal Complementar
+															Peculiaridades das notas
+																Sem nenhuma marcação, isenção ou redução de ICMS
+																Marcado Substituição Tributária em ICMS
+																Com UF e Município de coleta diferente
+																Com UF e Município de coleta igual
+																Com UF e Município de entrega diferente
+																Com UF e Município de entrega igual
+																Para exterior
+															Relatório
+																Relatórios >> Simples Nacional >> Espelho PGDAS
+																Relatórios >> Simples Nacional >> Acompanhamento Tributário
+																Relatórios >> Simples Nacional >> Acompanhamento Tributário (Demonstrativo de Cálculo)
+																Relatórios >> Receitas por Estabelecimento
+																Relatórios >> Declaração de Faturamento
+																Relatórios >> Resumo >> Resumo Gerencial de Receitas e Tributos
+																Relatórios >> Comparativo Vendas x Compras
+															Testar em Base real de pendências passadas
+															Utilitários >> Valores dos Estabelecimentos
+															Testar em Base real de pendências passadas
+Recursos:
+	https://docs.google.com/spreadsheets/d/1zeXoDc9PtvkQgCY0z3TldD8oc3Ym2eFb_qa6KtYNN-M/edit#gid=0
