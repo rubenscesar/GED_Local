@@ -12,13 +12,13 @@ Requisitos:
 			• Lançamentos pelas espécies: CT-e
 		RE[1.2] Impacto
 			• Envio da informação para PGDAS, podendo ser verificado pelo arquivo AC.log no formato Json ao utilizar usuário FORTES e /log
-			• Em "Relatórios >> Simples Nacional >> Espelho PGDAS" será apresentado informações das receitas divididas por UF e Município na classificação "Prestação de serviços de Transporte sem substituição tributária de ICMS"
+			• Em "Relatórios >> Simples Nacional >> Espelho PGDAS" será apresentado informações das receitas divididas por UF na classificação "Prestação de serviços de Transporte sem substituição tributária de ICMS"
 			  Ex.:	Prestação de serviços de Transporte sem substituição tributária de ICMS
 						Receita total:	10.000,00
-						UF	Município				   Receita
-						--	----------------------	----------
-						CE	Fortaleza				  3.000,00
-						RJ	Rio de Janeiro			  7.000,00
+						UF	   Receita
+						--	----------
+						CE	  3.000,00
+						RJ	  7.000,00
 					
 					Prestação de serviços de Transporte com substituição tributária de ICMS
 						Receita total:	 5.000,00

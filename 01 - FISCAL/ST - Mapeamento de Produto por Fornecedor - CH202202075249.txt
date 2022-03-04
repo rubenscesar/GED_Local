@@ -161,6 +161,7 @@ Matriz de risco:
 Features:
 Scenário Outline:
 	Firebird
+	SQL
 		Regime de Tributação Federal - Lucro Real ou Lucro Presumido
 		Regime de Tributação Federal - Simples Nacional
 			Regime de Tributação Estadual - Normal
@@ -174,15 +175,19 @@ Scenário Outline:
 							Importação .XML
 								Contribuinte do IPI
 								Não contribuinte do IPI
-									Entrada
-										Documento de Terceiros
-										Devolução com Documento Próprio (Não deve abrir relacionamento)
-									Saída
-										Devolução com Documento de Terceiros
-										Devolução com Documento Próprio (Não deve abrir relacionamento)
-										Documento Próprio (Não deve abrir relacionamento)
-										Documento Próprio com Serviço (quando está marcado na Configuração "Abrir tela de Mapeamento de Tributação por Fornecedor" deve abrir relacionamento)
-											Transferência
+									Ao informar produtos, utilizar códigos alfanuméricos para os produtos no XML
+									Ao informar produtos, utilizar códigos numéricos e contendo zeros a esquerda para os produtos no XML
+									Ao informar produtos, utilizar códigos numéricos sem zeros a esquerda para os produtos no XML
+										Entrada
+											Documento de Terceiros
+											Devolução com Documento Próprio (Não deve abrir relacionamento)
+											Documento de Terceiros com Serviço (quando está marcado na Configuração "Abrir tela de Mapeamento de Tributação por Fornecedor" deve abrir relacionamento)
+										Saída
+											Devolução com Documento de Terceiros
+											Devolução com Documento Próprio (Não deve abrir relacionamento)
+											Documento Próprio (Não deve abrir relacionamento)
+											Documento Próprio com Serviço (quando está marcado na Configuração "Abrir tela de Mapeamento de Tributação por Fornecedor" deve abrir relacionamento)
+												Transferência
 						Matriz de lançamentos
 							Nota 1 contendo 2 itens sendo que 1 item se repete na nota 2 e 3
 							Nota 2 contendo 1 item sendo que este item se repete na nota 1 mas com CFOP diferente
@@ -192,3 +197,20 @@ Stack:
 Links de testes unitários:
 Links de testes funcionais:
 Recursos:
+
+
+
+Entrada (E)
+Documento Próprio (P)
+Documento Próprio com Devolução (PD)
+Documento Próprio com Serviço (PS)
+Documento de Terceiros (T)
+Documento de Terceiros com Devolução (TD)
+Documento de Terceiros com Transferência (TT)
+Saída (S)
+Documento Próprio (P)
+Documento Próprio com Devolução (PD)
+Documento Próprio com Serviço (PS)
+Documento Próprio com Transferência (PT)
+Documento de Terceiros (T)
+Documento de Terceiros com Devolução (TD)
