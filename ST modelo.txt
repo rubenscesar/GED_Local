@@ -51,9 +51,6 @@ Fluxo Básico Modelo:
 	- Auditoria
 	- Situação do Documento, verificar por exemplo quando cancelado se está aparecendo uma linha do participante em branco, quando marcar a opção para ver os dados do mesmo na listagem de saídas.
 	- Se alteração em SQL verificar se modificações devem ir para o .DOC da versão de importação "LeiauteImportacaoFortesACFiscal.doc"
-	- Se modificar o arquivo "LeiauteImportacaoFortesACFiscal.doc", gerar copia da versão anterior
-	- Se modificação de Leiaute gerar teste unitário da versão anterior
-	- Se modificação da estrutura do arquivo .FS "LeiauteImportacaoFortesACFiscal.doc" verificar se versão do arquivo não esta aberta e gerar PDF do arquivo "LeiauteImportacaoFortesACFiscal.doc" para versão
 	- Preencher dados Pis/Cofins, quando tiver mudança verificar se deve ajustar também para Regras Tributarias, variável "AnalisadorFiscal".
 	- Sempre testar incluindo documentos em mais de 1 estabelecimento
 	- Sempre incluir notas com mais de 1 corpo e dados diferentes
@@ -67,6 +64,7 @@ Fluxo Básico Modelo:
 	- Na "exportação/geração de arquivo de obrigação acessória", sempre validar o arquivo no validador
 	- Quando houver mudança no leiaute de alguma obrigação acessória como SPED ICMS avaliar essas mudanças pelo layout da importação da NFe também
 	- Quando houver alguma mudança que interfira no cadastro do produto avaliar a sua importação WEB e XML pela NF-e, NFC-e e CF-e
+	- Quando editar alguma informação verificar se não ficou sujeira no banco (Ex.: Editar uma CT-e de Anulação para Normal e permanecer informações de IR e CSLL no banco interfere no demonstrativo de cálculo)
 	- Perfil de Usuários
 		Confirmando que a empresa não possui nenhum Dono cadastrado
 		CRUD na tela a ser testada

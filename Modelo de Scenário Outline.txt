@@ -1,14 +1,15 @@
 Scenário Outline:
 	Teste GUI (Graphical User Interface)
-		GRID dos itens
+		Dados na GRID dos registros
 		Teste de Análise do Valor Limite
 		Testar tela com resolução 1366x768, vê se na mesma aparecem todos os campos e são clicáveis
 		Passagem de campos
 		Atalhos dos botões
-		Ortografia
+		Ortografia e Gramática
 		Condição para habilitar ou tonar vísível os campos conforme RE[
+		Na inclusão está obedecendo o histórico dos dados (Quando tem que abrir a tela já com os dados do último registro salvo como sugestão)
 	CRUD
-	Operação
-		Saída
-		Entrada
-		Tributos Federais >> Ajuste de COFINS/PIS >> Base de Cálculo - Ajuste de Redução
+		Inclusão com passagem campo a campo
+		Inclusão com uso do mouse para concluir a gravação abreviando o tempo (Ok)
+		Inclusão com uso do atalho para concluir a gravação abreviando o tempo (F9)
+		Quando editar alguma informação, verificar se não ficou sujeira no banco

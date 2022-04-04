@@ -1,0 +1,141 @@
+Épico: Calcular DIFAL na saída para não contribuinte do ICMS conforme LC190/22
+Número do cartão: CH202201061807
+Ano de publicação: 2022
+Relacionamentos: Sped Fiscal, Sped ICMS, Registro C101, Registro E310, Registro E316, DIFAL, Base de Cálculo Dupla, Não Contribuinte
+Requisitos:
+	RE[1] Exigências para enquadramento do requisito:
+Matriz de risco:
+Features:
+Scenário Outline:
+Stack:
+Execute uma Atividade com os respectivos Procedimentos Iniciais obedecendo uma Estratégia de Teste que esteja dentro do Plano de Testes para aplicar uma Matriz de Lançamentos a fim de obter um Resultado
+	Plano de Testes
+		Escopo do Teste
+			Será Testado
+				Movimentos >> Legislação >> Estadual
+			Não Será Testado
+				Cadastros >> Histórico do Estabelecimento (Opção já existia)
+	Procedimentos de Testes
+		Atividade
+			Firebird
+				Escriturando em estabelecimento de CE
+				Escriturando em estabelecimento de PE
+				Escriturando em estabelecimento de SP
+				Escriturando em estabelecimento de BA
+					Regime de Tributação Federal - Lucro Real ou Lucro Presumido
+					Regime de Tributação Federal - Simples Nacional
+						Regime de Tributação Estadual - Normal
+						Regime de Tributação Estadual - Simples Nacional
+							Informando itens
+							Sem informar itens
+		Procedimentos Iniciais
+			Estabelecimento de CE
+			Estabelecimento de PE
+			Estabelecimento de SP
+			Estabelecimento de BA
+		Estratégia de Teste
+			Operação
+				Saída
+					Documento Próprio
+			Espécies
+				NF-e
+				CT-e
+			Teste GUI (Graphical User Interface)
+				Testar tela com resolução 1366x768, vê se na mesma aparecem todos os campos e são clicáveis
+				Ortografia e Gramática
+				Na inclusão está obedecendo o histórico dos dados (Quando tem que abrir a tela já com os dados do último registro salvo como sugestão)
+					NF-e
+					CT-e
+					Movimentos >> Legislação >> Estadual
+			CRUD
+				Inclusão com passagem campo a campo
+				Inclusão com uso do mouse para concluir a gravação abreviando o tempo (Ok)
+				Inclusão com uso do atalho para concluir a gravação abreviando o tempo (F9)
+				Quando editar alguma informação, verificar se não ficou sujeira no banco
+					NF-e
+					CT-e
+					Movimentos >> Legislação >> Estadual
+			Incluir notas com mais de 1 corpo e dados diferentes
+			Incluir vários itens diferentes
+			Verificar relatórios com filtros
+			Na "exportação/geração de arquivo de obrigação acessória", sempre validar o arquivo no validador
+			Quando houver mudança no leiaute de alguma obrigação acessória como SPED ICMS avaliar essas mudanças pelo layout da importação da NFe também
+			Garantir operações anteriores
+				Garantir que DIFAL antigo de cada estado não mude
+			Relatórios
+				Movimentos >> Documentos Consolidados >> Documentos
+				Movimentos >> Documentos Consolidados >> Itens
+				Relatórios >> Listagem das Saídas >> ICMS & IPI
+				Relatórios >> Listagem das Saídas >> Itens
+				Relatórios >> ICMS >> ICMS Diferencial de Alíquotas >> Saídas
+				Relatórios >> ICMS >> ICMS Diferencial de Alíquotas >> Demonstrativo de Cálculo
+				Relatórios >> ICMS >> ICMS Normal (Demonstrativo de Cálculo)
+				Relatórios >> Livros Fiscais >> Registro de Saídas
+				Relatórios >> Resumo >> Resumo por CFOP
+			Ferramentas
+				Utilitários >> Analisador Fiscal
+				Utilitários >> Ajustar tributação ICMS e IPI dos itens
+				Utilitários >> Ferramentas de Manutenção >> Preencher ICMS e IPI Sem Itens
+			Obrigações Acessórias
+				Sped Fiscal
+					Perfil A
+					Perfil B
+					Perfil C
+			Importação/Exportação
+				Importação .XML
+				Importação .fs
+					NF-e
+					CT-e
+					Visarq
+					LeiauteImportacaoFortesACFiscal.pdf
+				WEB
+					NF-e
+			Conversão
+				Sped Fiscal
+			Auditoria
+			Cópia/Restauração
+			Testar em Base real de pendências passadas
+	Casos de Testes
+		Matriz de Lançamentos
+			Lançamentos Interestaduais de estabelecimento CE com Diferencial de Alíquotas
+				Para PE
+				Para SP
+				Para BA
+			Lançamentos Interestaduais de estabelecimento PE com Diferencial de Alíquotas
+				Para CE
+				Para SP
+				Para BA
+			Lançamentos Interestaduais de estabelecimento SP com Diferencial de Alíquotas
+				Para CE
+				Para PE
+				Para BA
+			Lançamentos Interestaduais de estabelecimento BA com Diferencial de Alíquotas
+				Para CE
+				Para PE
+				Para SP
+			Lançamentos Interestaduais de estabelecimento CE sem Diferencial de Alíquotas (CST 090)
+				Para PE
+			Lançamentos Interestaduais de estabelecimento PE sem Diferencial de Alíquotas (CST 090)
+				Para CE
+			Lançamentos Interestaduais de estabelecimento SP sem Diferencial de Alíquotas (CST 090)
+				Para CE
+			Lançamentos Interestaduais de estabelecimento BA sem Diferencial de Alíquotas (CST 090)
+				Para CE
+			Lançamentos Interestaduais de estabelecimento CE sem ser Operação com Consumidor Final
+				Para PE
+			Lançamentos Interestaduais de estabelecimento PE sem ser Operação com Consumidor Final
+				Para CE
+			Lançamentos Interestaduais de estabelecimento SP sem ser Operação com Consumidor Final
+				Para CE
+			Lançamentos Interestaduais de estabelecimento BA sem ser Operação com Consumidor Final
+				Para CE
+		Resultados
+
+
+Links de testes unitários:
+Links de testes funcionais:
+Recursos:
+					  Nome do arquivo no padrão:	[Relacionamento principal]-( Se for arquivo Abrasf informar o município e UF )[Município] (UF)-[Observação opcional]
+										Exemplo:	Arquivo para importação: Abrasf-Ponte Nova (MG)-Inscrição Estadual do Participante.xml
+	Nome do arquivo do banco de dados no padrão:	[Iniciais do subsistema]-[Relacionamento principal]-[Ano de publicação]-[Nome da empresa]-[Período]-[Observação opcional]
+										Exemplo:	Banco para testes: ACC-Planilha Financeira-2021-ONE INTERNET SA-042021.rar

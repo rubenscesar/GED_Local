@@ -84,32 +84,33 @@ Scenário Outline:
 						Testar em Base real de pendências passadas
 Stack:
 	01 Abrasf ___ (__) - Cancelado.xml
-	02 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TributaçãoNormal - ParCPF Retenções.xml
-	03 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TributaçãoNormal - ParCNPJ Retenções.xml
-	04 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TributaçãoNormal - ParCNPJ RetençõesDescontosDeduçõesReduções.xml
-	05 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TributaçãoNormal - ParCNPJ RetençõesDescontosDeduçõesReduções UFsDiferentes LocIncidênciaTomador.xml
-	06 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TributaçãoNormal - ParCNPJ RetençõesDescontosDeduçõesReduções UFsDiferentes LocIncidênciaPrestador.xml
-	07 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TributaçãoNormal - ParCNPJ RetençõesDescontosDeduçõesReduções UFsDiferentes LocIncidênciaPrestaçãoDeServiço.xml
-	08 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TributaçãoNormal - ParCNPJ RetençõesDescontosDeduçõesReduções UFsDiferentes LocIncidênciaÓrgãoGerador.xml
+	02 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TribNormal - ParCPF Retenções.xml
+	03 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TribNormal - ParCNPJ Retenções.xml
+	04 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TribNormal - ParCNPJ RetDescDedRed.xml
+	05 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TribNormal - ParCNPJ RetDescDedRed UFsDif LocIncidTomador.xml
+	06 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TribNormal - ParCNPJ RetDescDedRed UFsDif LocIncidPrestador.xml
+	07 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TribNormal - ParCNPJ RetDescDedRed UFsDif LocIncidPrestaçãoDeServiço.xml
+	08 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TribNormal - ParCNPJ RetDescDedRed UFsDif LocIncidÓrgãoGerador.xml
 	09 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TributaçãoNãoIncidência - ParCNPJ.xml
 	10 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TributaçãoIsento - ParCNPJ.xml
 	11 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TributaçãoImune - ParCNPJ.xml
 	12 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TributaçãoSimplesNacional - ParCNPJ.xml
-	13 a 14 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TributaçãoNormal - ParCNPJ RetençõesDescontosDeduçõesReduções VáriasNotas.xml
-	15 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TributaçãoNormal - ParCNPJ Retenções VáriosItens.xml
-	16 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TributaçãoNormal - ParCNPJ ConfiguraçãoSemAtivnoArquivo.xml
-	17 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TributaçãoNormal - ParCNPJ ConfiguraçãoSemServnoArquivo.xml
-	18 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TributaçãoNormal - ParCNPJ ConfiguraçãoSemAtivServnoArquivo.xml
-	19 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TributaçãoNormal - ParCNPJ ConfiguraçãoServnoXmlnãoencontradonoBanco.xml
-	20 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TributaçãoNormal - ParCNPJ ConfiguraçãoTomadorEmBranco.xml
+	13 a 14 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TribNormal - ParCNPJ RetDescDedRed VáriasNotas.xml
+	15 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TribNormal - ParCNPJ Retenções VáriosItens.xml
+	16 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TribNormal - ParCNPJ ConfiguraçãoSemAtivnoArquivo.xml
+	17 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TribNormal - ParCNPJ ConfiguraçãoSemServnoArquivo.xml
+	18 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TribNormal - ParCNPJ ConfiguraçãoSemAtivServnoArquivo.xml
+	19 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TribNormal - ParCNPJ ConfiguraçãoServnoXmlnãoencontradonoBanco.xml
+	20 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TribNormal - ParCNPJ ConfiguraçãoTomadorEmBranco.xml
 	21 Abrasf ___ (__) - OperaçãoSaída RegimeSimplesNacional TributaçãoSimplesNacional - ParCNPJ.xml
 	22 Abrasf ___ (__) - OperaçãoSaída RegimeSimplesNacional TributaçãoNãoIncidência - ParCNPJ.xml
-	23 Abrasf ___ (__) - OperaçãoSaída RegimeSimplesNacional TributaçãoNormal - ParCNPJ.xml
-	24 Abrasf ___ (__) - OperaçãoEntrada RegimeNormal TributaçãoNormal - ParCNPJ Retenções VáriosItens.xml
-	25 Abrasf ___ (__) - OperaçãoEntrada RegimeNormal TributaçãoNãoIncidência - ParCNPJ.xml
-	26 Abrasf ___ (__) - OperaçãoEntrada RegimeNormal TributaçãoSimplesNacional - ParCNPJ.xml
-	27 Abrasf ___ (__) - OperaçãoEntrada RegimeSimplesNacional TributaçãoSimplesNacional - ParCNPJ.xml
-	28 Abrasf ___ (__) - OperaçãoEntrada RegimeSimplesNacional TributaçãoNãoIncidência - ParCNPJ.xml
+	23 Abrasf ___ (__) - OperaçãoSaída RegimeSimplesNacional TribNormal - ParCNPJ.xml
+	24 Abrasf ___ (__) - OperaçãoEntrada RegimeNormal TribNormal - ParCNPJ Retenções VáriosItens.xml
+	25 Abrasf ___ (__) - OperaçãoEntrada RegimeNormal TribNormal - ParCNPJ.xml
+	26 Abrasf ___ (__) - OperaçãoEntrada RegimeNormal TributaçãoNãoIncidência - ParCNPJ.xml
+	27 Abrasf ___ (__) - OperaçãoEntrada RegimeNormal TributaçãoSimplesNacional - ParCNPJ.xml
+	28 Abrasf ___ (__) - OperaçãoEntrada RegimeSimplesNacional TributaçãoSimplesNacional - ParCNPJ.xml
+	29 Abrasf ___ (__) - OperaçãoEntrada RegimeSimplesNacional TributaçãoNãoIncidência - ParCNPJ.xml
 
 Links de testes unitários:
 Links de testes funcionais:

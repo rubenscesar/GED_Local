@@ -33,6 +33,9 @@ Regras de Negócio:
 		Usuário para transmitir para G-Click:
 			Criar um usuário com nome ALEX
 			Obs.: Em Configurações > Minha Empresa, foi feito o relacionamento do usuário G-Click com o usuário da Fortes
+		
+		Para criar nova empresa:
+			O apelido da empresa deve ser modelo e CNPJ da empresa deve ser 00297542000178 e estar configurado integração
 	RN[2.2.1] Espécies de lançamentos que produzirão impacto nos resultados:
 	RN[2.3.1] Demonstrativo de cálculo:
 	RN[2.4.1] Funcionalidade consequente:
