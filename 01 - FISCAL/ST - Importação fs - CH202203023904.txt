@@ -1,0 +1,86 @@
+Épico: Sistema esta com lentidão na importação da NFSE padrao abrasf
+Número do cartão: CH202203023904
+Ano de publicação: 2022
+Relacionamentos: Importação .fs, Participantes, Lentidão, Desempenho, Carga
+Requisitos:
+	RE[1] Exigências para enquadramento do requisito:
+Matriz de risco:
+Scenário Outline:
+	Procedimentos de Testes
+		Atividades
+			Firebird
+			SQL
+		Procedimentos Iniciais
+			PI[1] Participantes já cadastrados:
+				• Com CNPJ 63.542.443/0001-24,	Participantes com nome (Participante X),	Inscrição Estadual (060000015),	UF (CE),	Indicador do ICMS (Contribuinte)
+				• Participante do Exterior,		Participante com nome (Exterior)
+
+		Estratégia de Teste
+			Importação
+				Importar centenas de arquivos separadamente com 1 nota em cada um a fim de examinar e assegurar o RE[1]
+				Importar um único arquivo com centenas de notas a fim de examinar e assegurar o RE[1]
+			Testar em Base real de pendências passadas
+			
+	Plano de Testes
+		Requisitos
+			RE[1] Exigências para enquadramento do requisito:
+				• Será afetado apenas a importação .fs
+				• O sistema irá dividir o arquivo de importação .fs de 100 em 100 notas e também irá fechar o recurso para importação e abrir novamente neste momento de modo imperceptível para o usuário.
+		Escopo do Teste
+			Será Testado
+				Importação .fs
+				NF-e
+				NFC-e
+				CF-e
+				RDD
+			Não Será Testado
+				Conversões
+		Matriz de Risco
+
+	Casos de Testes
+		Matriz de Lançamentos
+			Importa arquivos atendendo ao PI[1]
+				ML[1] Apresentarão resultado conforme RES[1]:
+					Participante com CNPJ 63.542.443/0001-24,		Participante com o mesmo nome (Participante X),		Inscrição Estadual diferente (33743109),		UF diferente (BA),	Indicador do ICMS igual (Contribuinte)
+					Participante com CNPJ 63.542.443/0001-24,		Participante com o mesmo nome (Participante X),		Inscrição Estadual diferente (0143253104084),	UF diferente (AC),	Indicador do ICMS diferente (Não Contribuinte)
+					Participante com CNPJ 63.542.443/0001-24,		Participante com o mesmo nome (Participante XY),	Inscrição Estadual diferente (248925849),		UF diferente (AL),	Indicador do ICMS diferente (Não Contribuinte)
+					Participante com CNPJ 63.542.443/0001-24,		Participante com o mesmo nome (Participante XY),	Inscrição Estadual diferente (888924259),		UF diferente (AM),	Indicador do ICMS igual (Contribuinte)
+					Participante com CNPJ 00.000.000/0001-91,		Participante com nome diferente (Participante XY),	Inscrição Estadual diferente (032656807),		UF diferente (AP),	Indicador do ICMS igual (Contribuinte)
+					Participante com CNPJ 00.000.000/0001-91,		Participante com nome diferente (Participante XY),	Inscrição Estadual diferente (0782401700126),	UF diferente (DF),	Indicador do ICMS diferente (Não Contribuinte)
+					Participante com CNPJ 00.000.000/0001-91,		Participante com nome diferente (Participante XY),	Inscrição Estadual diferente (060000007),		UF igual (CE),		Indicador do ICMS diferente (Não Contribuinte)
+					Participante com CNPJ 00.000.000/0001-91,		Participante com nome diferente (Participante XY),	Inscrição Estadual diferente (060000023),		UF igual (CE),		Indicador do ICMS igual (Contribuinte)
+					Participante com CNPJ 00.000.000/0001-91,		Participante com o mesmo nome (Participante X),   	Inscrição Estadual diferente (025387537),		UF diferente (ES),	Indicador do ICMS igual (Contribuinte)
+					Participante com CNPJ 00.000.000/0001-91,		Participante com o mesmo nome (Participante X),   	Inscrição Estadual diferente (158963083),		UF diferente (GO),	Indicador do ICMS diferente (Não Contribuinte)
+					Participante com CNPJ 00.000.000/0001-91,		Participante com o mesmo nome (Participante X),   	Inscrição Estadual diferente (060000031),		UF igual (CE),		Indicador do ICMS diferente (Não Contribuinte)
+					Participante sem CNPJ,				      		Participante com nome diferente (Participante XY),	Sem Inscrição Estadual,							UF diferente (MA),	Indicador do ICMS igual (Contribuinte)
+					Participante sem CNPJ,				      		Participante com nome diferente (Participante XY),	Sem Inscrição Estadual,							UF diferente (MG),	Indicador do ICMS diferente (Não Contribuinte)
+					Participante sem CNPJ,				      		Participante com nome diferente (Participante XY),	Sem Inscrição Estadual,							UF igual (CE),		Indicador do ICMS diferente (Não Contribuinte)
+					Participante sem CNPJ,				      		Participante com nome diferente (Participante XY),	Sem Inscrição Estadual,							UF igual (CE),		Indicador do ICMS igual (Contribuinte)
+					Participante sem CNPJ,				      		Participante com o mesmo nome (Participante X),   	Sem Inscrição Estadual,							UF diferente (MS),	Indicador do ICMS igual (Contribuinte)
+					Participante sem CNPJ,				      		Participante com o mesmo nome (Participante X),   	Sem Inscrição Estadual,							UF diferente (MT),	Indicador do ICMS diferente (Não Contribuinte)
+				ML[2] Apresentarão resultado conforme RES[2], importando arquivo adjacente ao ML[1]:
+					Participante sem CNPJ,				      		Participante com o mesmo nome (Participante X),   	Sem Inscrição Estadual,							UF igual (CE),		Indicador do ICMS diferente (Não Contribuinte)
+					Participante sem CNPJ,				      		Participante com o mesmo nome (Participante X),   	Sem Inscrição Estadual,							UF igual (CE),		Indicador do ICMS igual (Contribuinte)
+					Participante do Exterior,						Participante com nome diferente (Participante XY)
+					Participante do Exterior,						Participante com o mesmo nome (Exterior)
+					Participante com CNPJ 00.000.000/0001-91,		Participante com o mesmo nome (Participante X),		Inscrição Estadual diferente (060000040),		UF igual (CE),		Indicador do ICMS igual (Contribuinte)
+					Participante com CNPJ 63.542.443/0001-24,		Participante com o mesmo nome (Participante X),		Inscrição Estadual igual (060000015),			UF igual (CE),		Indicador do ICMS igual (Contribuinte)
+					Participante com CNPJ 63.542.443/0001-24,		Participante com o mesmo nome (Participante X),		Inscrição Estadual igual (060000015),			UF igual (CE),		Indicador do ICMS diferente (Não Contribuinte)
+					Participante com CNPJ 63.542.443/0001-24,		Participante com nome diferente (Participante XY),	Inscrição Estadual igual (060000015),			UF igual (CE),		Indicador do ICMS diferente (Não Contribuinte)
+					Participante com CNPJ 63.542.443/0001-24,		Participante com nome diferente (Participante XY),	Inscrição Estadual igual (060000015),			UF igual (CE),		Indicador do ICMS igual (Contribuinte)
+		Resultados
+			Fluxos Básicos
+				RES[1] Importa e inclui um novo participante
+			Fluxos Alternativos
+				RES[2] Importa e atualiza o participante
+
+
+
+	Execute uma Atividade com os respectivos Procedimentos Iniciais obedecendo uma Estratégia de Teste que esteja dentro do Plano de Testes para aplicar uma Matriz de Lançamentos a fim de obter um Resultado
+
+	Plano de Testes
+		Atividade
+			Procedimentos Iniciais
+				Estratégia de Teste
+						Matriz de Lançamentos
+							Resultado

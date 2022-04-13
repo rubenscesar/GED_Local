@@ -1,0 +1,113 @@
+Épico:	Valores não deveriam ser apresentados no relatório. Isso devido a empresa em questão está exclusa do Simples Nacional no âmbito estadual, não havendo qualquer cálculo ou informação relacionada ao
+		ICMS a ser demonstrada. Diante disso, é desnecessária a informação da sessão "Isenção de ICMS devido ao Decreto Nº 4.676 do Estado do Pará" no relatório.
+Número do cartão: CH202202050089
+Ano de publicação: 2022
+Relacionamentos: Simples Nacional, ICMS Isento, Excluído do Simples Nacional no Estado, UF de PA, Decreto 4.676 do Estado do PA
+Requisitos:
+	RE[1] Exigências para enquadramento do requisito:
+		RE[1.1] Isenção do ICMS no estado do PA
+			• Conforme decreto 4.676 do Estado do PA. Empresas do Simples Nacional ME ou EPP que tenha realizado o volume de negócios de até R$ 120.000,00 nos últimos 12 meses incluindo o próprio mês da apuração fica isento da parcela do ICMS mensal
+		RE[1.2] Não participa do Simples Nacional do âmbito estadual
+			• Quando for marcado que no histórico do estabelecimento que não participa do simples nacional o valor de isenção nos relatórios não deverão aparecer já que o valor do ICMS será calculado por fora.
+Matriz de risco:
+Features:
+Scenário Outline:
+Stack:
+Procedimentos de Testes
+	Atividades
+		• Firebird
+			Regime de Tributação Federal - Simples Nacional
+				Regime de Tributação Estadual - Simples Nacional
+					Competência
+						Informando itens
+							Anexo I
+		• Firebird
+			Regime de Tributação Federal - Simples Nacional
+				Regime de Tributação Estadual - Simples Nacional
+					Competência
+						Sem informar itens
+							Anexo I
+		• Firebird
+			Regime de Tributação Federal - Simples Nacional
+				Regime de Tributação Estadual - Simples Nacional
+					Caixa
+						Informando itens
+							Anexo I
+		• Firebird
+			Regime de Tributação Federal - Simples Nacional
+				Excluído do Simples Nacional (Normal no âmbito estadadual)
+					Competência
+						Informando itens
+							Anexo I
+		• Firebird
+			Regime de Tributação Federal - Simples Nacional
+				Excluído do Simples Nacional (Normal no âmbito estadadual)
+					Caixa
+						Informando itens
+							Anexo I
+		• SQL
+			Regime de Tributação Federal - Simples Nacional
+				Excluído do Simples Nacional (Normal no âmbito estadadual)
+					Competência
+						Informando itens
+							Anexo I
+	Procedimentos Iniciais
+		PI[1] Data de abertura da empresa 01/2015
+		PI[2] Data de abertura da empresa 02/2022
+		PI[3] Data de abertura da empresa 01/2015 e data de enquadramento no regime do Simples Nacional 01/2022
+		PI[4] Data de abertura da empresa 01/2015 e data de enquadramento no regime do Simples Nacional 02/2022
+	Estratégia de Teste
+		Estabelecimento do estado do PA que nos últimos 12 meses, incluindo o próprio mês da apuração possui uma receita bruta inferior a 120.000,00
+		Estabelecimento do estado do PA que nos últimos 12 meses, incluindo o próprio mês da apuração possui uma receita bruta igual a 120.000,00
+		Estabelecimento do estado do PA que nos últimos 12 meses, incluindo o próprio mês da apuração possui uma receita bruta superior a 120.000,00
+		Receita Bruta não proporcionalizada
+		Receita Bruta Proporcionalizada cuja data de abertura seja igual PA
+		Receita Bruta Proporcionalizada cuja data de abertura seja um período entre 11 meses e 1 mês anterior ao PA
+		Receita Bruta Proporcionalizada cuja data de abertura seja superior a 13 meses anteriores ao PA, porém a data de enquadramento no regime do Simples Nacional seja igual PA
+		Receita Bruta Proporcionalizada cuja data de abertura seja superior a 13 meses anteriores ao PA, porém a data de enquadramento no regime do Simples Nacional seja um período entre 11 meses e 1 mês anterior ao PA
+		Relatórios >> Simples Nacional >> Espelho PGDAS
+		Relatórios >> Simples Nacional >> Acompanhamento Tributário
+		Relatórios >> Simples Nacional >> Acompanhamento Tributário (Demonstrativo de Cálculo)
+		Testar em Base real de pendências passadas
+		
+Plano de Testes
+	Escopo do Teste
+		Será Testado
+			Relatórios
+		Não Será Testado
+			DEFIS
+
+Casos de Testes
+	Matriz de Lançamentos
+		Passa nos Testes
+			Para atender a Estratégia de Teste [Receita Bruta não proporcionalizada]
+				(Apresenta resultado nos relatório de Espelho PGDAS e Demonstrativo de Cálculo sem os valores referente Isenção do ICMS)
+				NF-e em 01/2022 com valor de 33.333,33
+				NFC-e em 01/2022 com valor de 33.333,33
+				CF-e em 01/2022 com valor de 33.333,34
+				CF-e em 02/2022 com valor de 20.000,00
+				CF-e em 03/2022 com valor de 30.000,00
+				CF-e em 04/2022 com valor de 40.000,00
+			Para atender a Estratégia de Teste [Receita Bruta Proporcionalizada com PI[2]]
+				(Apresenta resultado nos relatório de Espelho PGDAS e Demonstrativo de Cálculo sem os valores referente Isenção do ICMS)
+				NF-e em 01/2022 com valor de 2.777,78
+				NFC-e em 01/2022 com valor de 2.777,78
+				CF-e em 01/2022 com valor de 2.777,78
+				CF-e em 02/2022 com valor de 20.000,00
+				CF-e em 03/2022 com valor de 30.000,00
+				CF-e em 04/2022 com valor de 40.000,00
+			Para atender a Estratégia de Teste [Receita Bruta Proporcionalizada com PI[3]]
+				(Apresenta resultado nos relatório de Espelho PGDAS e Demonstrativo de Cálculo sem os valores referente Isenção do ICMS)
+				NF-e em 01/2022 com valor de 2.777,78
+				NFC-e em 01/2022 com valor de 2.777,78
+				CF-e em 01/2022 com valor de 2.777,78
+				CF-e em 02/2022 com valor de 20.000,00
+				CF-e em 03/2022 com valor de 30.000,00
+				CF-e em 04/2022 com valor de 40.000,00
+		Não Passa nos Testes
+	Resultados
+		Fluxos Básicos
+		Fluxos Alternativos
+		Fluxos de Exceção
+Recursos:
+	https://docs.google.com/spreadsheets/d/19saKVraXDQn7QbgxDAst2VIJyXiIks5v6wNi9VepQVs/edit#gid=74167330

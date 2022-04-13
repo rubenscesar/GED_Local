@@ -1,0 +1,145 @@
+Épico: Cliente solicita que o sistema gere o registro C177 para o sped fiscal conforme Decreto N° 38.455/2012
+Número do cartão: CH202201038040
+Ano de publicação: 2022
+Relacionamentos: Sped ICMS, Sped Fiscal, Estado de (PE), Atacadista, Registro C177
+Procedimentos de Testes
+	Atividades
+		2 Estabelecimentos sendo 1 do estado de PE
+			• Firebird
+				Regime de Tributação Federal - Lucro Real ou Lucro Presumido
+					Regime de Tributação Estadual - Normal
+						Competência
+							Informando itens
+			• SQL
+				Regime de Tributação Federal - Lucro Real ou Lucro Presumido
+					Regime de Tributação Estadual - Normal
+						Competência
+							Informando itens
+			• Firebird
+				Regime de Tributação Estadual - Simples Nacional
+					Competência
+						Informando itens
+							Anexo I
+	Procedimentos Iniciais
+		PI[1] Lançamento com data até 31/12/2021
+		PI[2] Lançamento com data a partir de 01/01/2022
+		PI[3] Produto cadastrado com "Código de Apuração" 80
+		PI[4] Produto cadastrado com "Código de Apuração" 60
+		PI[5] Produto cadastrado sem "Código de Apuração"
+
+	Estratégia de Teste
+		Teste GUI (Graphical User Interface)
+			Dados na GRID dos registros
+			Teste de Análise do Valor Limite
+			Passagem de campos
+			Ortografia e Gramática
+			Condição para habilitar ou tonar vísível os campos
+		CRUD
+			Inclusão com passagem campo a campo
+			Inclusão com uso do mouse para concluir a gravação abreviando o tempo (Ok)
+			Inclusão com uso do atalho para concluir a gravação abreviando o tempo (F9)
+		Cadastros
+			Histórico dos Estabelecimentos com campo PRODEPE com opção igual a "Atacadista"
+			Histórico dos Estabelecimentos com campo PRODEPE com opção diferente de "Atacadista"
+		Lançamentos
+			Nos 2 estabelecimentos
+			Com 1 item
+			Com vários Itens
+			Entradas
+				Documento de Terceiros
+					NF-e
+				Documento Próprio com Devolução
+					NF-e
+			Saídas
+				Documento de Terceiros com Devolução
+					NF-e
+				Documento Próprio
+					NF-e
+					NFC-e
+					CF-e
+			Avaliar se quando não atender a todos os requisitos para geração do C170/C177, então não gerar também os registro 0200
+		Utilitários
+		Obrigações Acessórias
+			Sped ICMS
+		Importação/Exportação
+		
+Plano de Testes
+	Requisitos
+		RE[1] Exigências para enquadramento do requisito:
+			RE[1.1] Estabelecimento ser do estado de Pernambuco (PE)
+			RE[1.2] Estabelecimento ser do Regime de Tributação Estadual - Normal
+			RE[1.3] Período de Apuração a partir de 01/01/2022
+			RE[1.4] 
+		RE[2] Cadastros
+			• Histórico dos Estabelecimentos:		RE[2.1] Tendo atendido o RE[1] será incluído nova opção no campo PRODEPE com o texto "Estabelecimento atacadista Lei nº 14.721/2012"
+			• Produtos:								RE[2.2] Tendo atendido o RE[1.1] será adicionado dentro da tabela do campo "Código de Apuração" a codificação 80 (80 - item incentivado), que é a codificação respectiva aos
+															estabelecimentos atacadistas beneficiários da Lei nº 14.721/2012.
+													RE[2.3] O campo "Código de Apuração" só aceitará a codificação 80 quando os campos "Indicador Especial" e "Indicador Especial de Incentivo" for informado 02 - Produto Incentivado
+															e Item com incentivo respectivamente.
+		RE[3] Movimentos
+			• NF-e, NF1:							RE[3.1] A atualização deverá ser disponibilizada também nos campos que constam disponibilizados dentro do documento fiscal relacionados ao PRODEPE.
+													RE[3.2] Deverá ser disponibilizado em documentos de terceiros (Entradas e Saídas) e documentos próprios (Entradas e Saídas).
+			• NFC-e, CF-e:							RE[3.3] Não modificar, pois de acordo com as regras de preenchimento dos Registros C170 e C177 não podem ser preenchidos quando da emissão de NFC-e e CF-e.
+			• Apuração ICMS e IPI >>
+			  Outros Débitos/Créditos, ...:			RE[3.4] Será adicionado novos CAF em Movimentos - "Apuração ICMS e IPI - Outros Débitos/Créditos, Estornos, Deduções, Val. Declaratórios e Déb. Especiais" para UF (PE):
+															PE048080|Dedução: comércio atacadista - sistemática especial da Lei Nº 14.721/2012|01012022|
+															PE028080|Outros créditos: ajuste semestral - comércio atacadista - sistemática especial da Lei Nº 14.721/2012|01012022|
+															PE018080|Estorno de créditos: ajuste semestral - comércio atacadista - sistemática especial da Lei Nº 14.721/2012|01012022|
+		RE[4] Utilitários
+			• Ferramentas de Manutenção >>
+			  Atualizar Cadastro de Produtos:		Será feita a atualização da tabela de Código de Apuração 80 no campo "Cód. Apur."
+		RE[5] Obrigações Acessórias
+			• Sped ICMS:	Registro C177:			RE[5.1]	A vinculação do código 80 que constará nos documentos fiscais atendendo ao RE[3], deverá ser vinculada ao código de ajuste fiscal da tabela 5.6 para o estado de Pernambuco,
+															PE058002 - Comércio atacadista - (sistemática especial da Lei Nº 14.721/2012): sub apuração 80, onde o mesmo deverá ser gerado no Registro C177 do SPED Fiscal.
+															Ex.:
+																|C170|..|...
+																|C177|PE058002|
+																|C190|..|...
+													RE[5.2]	O Registro C177 só deverá ser gerado para os itens no qual os produtos atenderem ao RE[2.3]
+	Escopo do Teste
+		Será Testado
+		Não Será Testado
+	Matriz de Risco
+
+Casos de Testes
+	Matriz de Lançamentos
+		NF-e
+			• Nota com 1 Item relacionado ao PRODEPE com "Código de Apuração" 80
+			• Nota com 1 Item relacionado ao PRODEPE com "Código de Apuração" 50
+			• Nota com 1 Item não relacionado ao PRODEPE
+			• Nota com vários itens relacionados ao PRODEPE com "Código de Apuração" 80
+									e relacionados ao PRODEPE com "Código de Apuração" 50
+									e não relacionados ao PRODEPE
+		NFC-e
+			• Nota com vários itens relacionados ao PRODEPE com "Código de Apuração" 80
+									e relacionados ao PRODEPE com "Código de Apuração" 50
+									e não relacionados ao PRODEPE
+		CF-e
+			• Nota com vários itens relacionados ao PRODEPE com "Código de Apuração" 80
+									e relacionados ao PRODEPE com "Código de Apuração" 50
+									e não relacionados ao PRODEPE
+		Apuração ICMS e IPI >> Outros Débitos/Créditos, Estornos, Deduções, Val. Declaratórios e Déb. Especiais com os CAFs: PE048080
+                                                                                                                             PE028080
+                                                                                                                             PE018080
+	Resultados
+		Fluxos Básicos
+		Fluxos Alternativos
+		Fluxos de Exceção
+
+Plano de Testes
+	Atividade
+		Procedimentos Iniciais
+			Estratégia de Teste
+					Matriz de Lançamentos
+						Resultado
+Features:
+Scenário Outline:
+Stack:
+Links de testes unitários:
+Links de testes funcionais:
+Recursos:
+					  Nome do arquivo no padrão:	[Relacionamento principal]-( Se for arquivo Abrasf informar o município e UF )[Município] (UF)-[Observação opcional]
+										Exemplo:	Arquivo para importação: Abrasf-Ponte Nova (MG)-Inscrição Estadual do Participante.xml
+	Nome do arquivo do banco de dados no padrão:	[Iniciais do subsistema]-[Relacionamento principal]-[Ano de publicação]-[Nome da empresa]-[Período]-[Observação opcional]
+										Exemplo:	Banco para testes: ACC-Planilha Financeira-2021-ONE INTERNET SA-042021.rar
+Fluxo Básico Modelo:

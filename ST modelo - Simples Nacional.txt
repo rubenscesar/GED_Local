@@ -11,6 +11,8 @@ Scenário Outline:
 	SQL
 		Regime de Tributação Federal - Simples Nacional
 			Regime de Tributação Estadual - Simples Nacional
+			Regime de Tributação Estadual - Excluído do Simples Nacional (Normal estado)
+			Regime de Tributação Estadual - Excluso do Simples Nacional (Município)
 				Competência
 				Caixa
 					Informando itens
