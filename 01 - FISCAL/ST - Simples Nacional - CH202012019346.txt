@@ -1,0 +1,280 @@
+Épico: Novo Controle de Devolução
+Número do cartão: CH202012019346
+Ano de publicação: 2022
+Relacionamentos: Simples Nacional, Anexo I, Anexo II, Devolução
+Requisitos:
+	RE[1] Exigências para enquadramento do requisito:
+		RE[1.1]	(Venda) Um lançamento que:
+					• Seja uma Operação no Mercado Interno
+					• Contenha CFOP que esteja cadastrado com natureza de "Devolução/Anulação"
+					• Que o CFOP esteja marcado em seu cadastro, "Operação com Produtos Industrializados pelo Estabelecimento"
+				Só irá deduzir o seu valor das receitas originadas de operações que esteja:
+					• Igualmente marcado em seu cadastro do CFOP, "Operação com Produtos Industrializados pelo Estabelecimento"
+					• Seja uma Operação no Mercado Interno
+		RE[1.2]	(Revenda) Um lançamento que:
+					• Seja uma Operação no Mercado Interno
+					• Contenha CFOP que esteja cadastrado com natureza de "Devolução/Anulação"
+					• Que o CFOP esteja desmarcado em seu cadastro, "Operação com Produtos Industrializados pelo Estabelecimento"
+				Só irá deduzir o seu valor das receitas originadas de operações que esteja:
+					• Igualmente desmarcado em seu cadastro do CFOP, "Operação com Produtos Industrializados pelo Estabelecimento"
+					• Seja uma Operação no Mercado Interno
+		RE[1.3]	Considerando que o RE[1.1] e/ou RE[1.2] foi atendido, também haverá uma segregação por:
+					• Substituição de ICMS;
+					• Substituição de IPI;
+					• Substituição de PIS/COFINS
+					• Tributação monofásica de PIS/COFINS
+		RE[1.4]	O saldo de devolução que não foi utilizado no primeiro período poderá ser aproveitado no período seguinte somente quando corresponder aos seus critérios expostos nos RE[1.1], RE[1.2] e RE[1.3]
+		RE[1.5] O controle de devolução de um período para outro será gerenciado na ferramenta (Utilitários >> Valores dos Estabelecimentos) 
+		RE[1.6] Isenção do ICMS no estado do PA
+			• Conforme decreto 4.676 do Estado do PA. Empresas do Simples Nacional ME ou EPP que tenha realizado o volume de negócios de até R$ 120.000,00 nos últimos 12 meses incluindo o próprio mês da apuração fica isento da parcela do ICMS mensal
+		RE[1.7] Não participa do Simples Nacional do âmbito estadual
+			• Quando for marcado que no histórico do estabelecimento que não participa do simples nacional o valor de isenção nos relatórios não deverão aparecer já que o valor do ICMS será calculado por fora.
+Matriz de risco:
+	Status		ID	Descrição																																							(P)robabilidade de Ocorrência do Erro	(I)mpacto do Erro	Priorização do Teste = P x I	Responsável	Estratégia			Reavaliar
+	Priorizado	1	Empresa do Simples Nacional,							no Regime de Competência,	Informando Itens,		enquadrada no Anexo I									3 Alta									3 Alta				9								Rubens		Prevenir/Mitigar	Por Evento
+	Priorizado	2	Empresa do Simples Nacional,							no Regime de Competência,	Informando Itens,		enquadrada no Anexo II,	Contribuinte do IPI				3 Alta									3 Alta				9								Rubens		Prevenir/Mitigar	Por Evento
+	Priorizado	3	Empresa do Simples Nacional,							no Regime de Caixa,			Informando Itens,		enquadrada no Anexo I									2 Média									3 Alta				6								Rubens		Prevenir/Mitigar	Por Evento
+	Priorizado	4	Empresa do Simples Nacional,							no Regime de Caixa,			Informando Itens,		enquadrada no Anexo II,	Contribuinte do IPI				2 Média									3 Alta				6								Rubens		Prevenir/Mitigar	Por Evento
+	Priorizado	5	Empresa Excluído do Simples Nacional (Normal estado),	no Regime de Caixa,			Informando Itens,		enquadrada no Anexo I									2 Média									3 Alta				6								Rubens		Prevenir/Mitigar	Por Evento
+	Priorizado	6	Empresa Excluído do Simples Nacional (Normal estado),	no Regime de Caixa,			Informando Itens,		enquadrada no Anexo II,	Contribuinte do IPI				2 Média									3 Alta				6								Rubens		Prevenir/Mitigar	Por Evento
+	Priorizado	19	Empresa do Simples Nacional,							no Regime de Competência,	enquadrada no Anexo III															3 Alta									2 Média				6								Rubens		Prevenir/Mitigar	Por Evento
+	Priorizado	7	Empresa do Simples Nacional,							no Regime de Competência,	Informando Itens,		enquadrada no Anexo II,	Não Contribuinte do IPI			2 Média									2 Média				4								Rubens		Prevenir/Mitigar	Por Evento
+	Priorizado	8	Empresa do Simples Nacional,							no Regime de Caixa,			Informando Itens,		enquadrada no Anexo II,	Não Contribuinte do IPI			2 Média									2 Média				4								Rubens		Prevenir/Mitigar	Por Evento
+	Priorizado	9	Empresa Excluído do Simples Nacional (Normal estado),	no Regime de Competência,	Informando Itens,		enquadrada no Anexo I									2 Média									2 Média				4								Rubens		Prevenir/Mitigar	Por Evento
+	Priorizado	10	Empresa Excluído do Simples Nacional (Normal estado),	no Regime de Competência,	Informando Itens,		enquadrada no Anexo II,	Contribuinte do IPI				2 Média									2 Média				4								Rubens		Prevenir/Mitigar	Por Evento
+	Priorizado	11	Empresa Excluído do Simples Nacional (Normal estado),	no Regime de Competência,	Informando Itens,		enquadrada no Anexo II,	Não Contribuinte do IPI			2 Média									2 Média				4								Rubens		Prevenir/Mitigar	Por Evento
+	Priorizado	12	Empresa Excluído do Simples Nacional (Normal estado),	no Regime de Caixa,			Informando Itens,		enquadrada no Anexo II,	Não Contribuinte do IPI			2 Média									2 Média				4								Rubens		Prevenir/Mitigar	Por Evento
+				13	Empresa do Simples Nacional,							no Regime de Competência,	sem informar Itens, 	enquadrada no Anexo I									1 Baixa									2 Média				2								Rubens		Prevenir/Mitigar	Por Evento
+				14	Empresa do Simples Nacional,							no Regime de Competência,	sem informar Itens, 	enquadrada no Anexo II,	Contribuinte do IPI				1 Baixa									2 Média				2								Rubens		Prevenir/Mitigar	Por Evento
+				15	Empresa do Simples Nacional,							no Regime de Competência,	sem informar Itens, 	enquadrada no Anexo II,	Não Contribuinte do IPI			1 Baixa									2 Média				2								Rubens		Prevenir/Mitigar	Por Evento
+				16	Empresa Excluído do Simples Nacional (Normal estado),	no Regime de Competência,	sem informar Itens, 	enquadrada no Anexo I									1 Baixa									2 Média				2								Rubens		Prevenir/Mitigar	Por Evento
+				17	Empresa Excluído do Simples Nacional (Normal estado),	no Regime de Competência,	sem informar Itens, 	enquadrada no Anexo II,	Contribuinte do IPI				1 Baixa									2 Média				2								Rubens		Prevenir/Mitigar	Por Evento
+				18	Empresa Excluído do Simples Nacional (Normal estado),	no Regime de Competência,	sem informar Itens, 	enquadrada no Anexo II,	Não Contribuinte do IPI			1 Baixa									2 Média				2								Rubens		Prevenir/Mitigar	Por Evento
+				20	Empresa do Simples Nacional,							no Regime de Caixa,			enquadrada no Anexo III															2 Média									1 Baixa				2								Rubens		Prevenir/Mitigar	Por Evento
+				21	Empresa Excluído do Simples Nacional (Normal estado),	no Regime de Competência,	enquadrada no Anexo III															2 Média									1 Baixa				2								Rubens		Prevenir/Mitigar	Por Evento
+				22	Empresa Excluído do Simples Nacional (Normal estado),	no Regime de Caixa,			enquadrada no Anexo III															2 Média									1 Baixa				2								Rubens		Prevenir/Mitigar	Por Evento
+Features:
+Scenário Outline:
+Script:
+Procedimentos de Testes
+	Atividades
+		• Firebird
+			Regime de Tributação Federal - Simples Nacional
+				Regime de Tributação Estadual - Simples Nacional
+					Competência
+						Informando itens
+							Anexo I
+		• Firebird
+			Regime de Tributação Federal - Simples Nacional
+				Regime de Tributação Estadual - Simples Nacional
+					Competência
+						Sem informar itens
+							Anexo I
+		• Firebird
+			Regime de Tributação Federal - Simples Nacional
+				Regime de Tributação Estadual - Simples Nacional
+					Caixa
+						Informando itens
+							Anexo I
+		• Firebird
+			Regime de Tributação Federal - Simples Nacional
+				Excluído do Simples Nacional (Normal no âmbito estadadual)
+					Competência
+						Informando itens
+							Anexo I
+		• Firebird
+			Regime de Tributação Federal - Simples Nacional
+				Excluído do Simples Nacional (Normal no âmbito estadadual)
+					Caixa
+						Informando itens
+							Anexo I
+
+		• Firebird
+			Vários estabelecimentos sendo o 1º necessariamente com UF CE
+			Vários estabelecimentos sendo o 1º necessariamente com UF PA
+			Vários estabelecimentos sendo o 1º necessariamente com UF RJ
+			Vários estabelecimentos sendo o 1º necessariamente com UF PA
+				Contribuinte do IPI
+				Não contribuinte do IPI
+					Regime de Tributação Federal - Simples Nacional
+						Regime de Tributação Estadual - Simples Nacional
+						Excluído do Simples Nacional (Normal no âmbito estadadual)
+							Competência
+							Caixa
+								Informando itens
+								Sem informar itens
+									Anexo I - CFOPs (5.922 e 6.922) desmarcado "Operação com Produtos Industrializados pelo Estabelecimento"
+									Anexo II - CFOPs (5.922 e 6.922) marcado "Operação com Produtos Industrializados pelo Estabelecimento"
+										CFOPs (5.922 e 6.922) marcado "Operação com Produtos Industrializados pelo Estabelecimento"
+										CFOPs (5.922 e 6.922) desmarcado "Operação com Produtos Industrializados pelo Estabelecimento"
+											Utilizando o recurso de Reconhecer como Receita os CFOPs (5.922 e 6.922) com Remessa de Entrega Futura (consequentemente os CFOPs 5.922 e 6.922 entrarão como receita e os CFOPs 5.117 e 6.117 entrarão como remessa de entrega futura)
+											Sem utilizar o recurso de Reconhecer como Receita os CFOPs (5.922 e 6.922) com Remessa de Entrega Futura (consequentemente os CFOPs 5.922 e 6.922 entrarão como remessa de entrega futura e os CFOPs 5.117 e 6.117 entrarão como receita)
+												Receita no Mercado Interno
+												Receita no Mercado Externo
+
+
+
+
+	Procedimentos Iniciais
+
+	Estratégia de Teste
+		Estabelecimento do estado do PA que nos últimos 12 meses, incluindo o próprio mês da apuração possui uma receita bruta inferior a 120.000,00
+		Estabelecimento do estado do PA que nos últimos 12 meses, incluindo o próprio mês da apuração possui uma receita bruta igual a 120.000,00
+		Estabelecimento do estado do PA que nos últimos 12 meses, incluindo o próprio mês da apuração possui uma receita bruta superior a 120.000,00
+		Receita Bruta não proporcionalizada
+		Receita Bruta Proporcionalizada cuja data de abertura seja igual PA
+		Receita Bruta Proporcionalizada cuja data de abertura seja um período entre 11 meses e 1 mês anterior ao PA
+		Receita Bruta Proporcionalizada cuja data de abertura seja superior a 13 meses anteriores ao PA, porém a data de enquadramento no regime do Simples Nacional seja igual PA
+		Receita Bruta Proporcionalizada cuja data de abertura seja superior a 13 meses anteriores ao PA, porém a data de enquadramento no regime do Simples Nacional seja um período entre 11 meses e 1 mês anterior ao PA
+		Utilitários >> Valores dos Estabelecimentos
+		Relatórios >> Simples Nacional >> Espelho PGDAS
+		Relatórios >> Simples Nacional >> Acompanhamento Tributário
+		Relatórios >> Simples Nacional >> Acompanhamento Tributário (Demonstrativo de Cálculo)
+		Relatórios >> Receitas por Estabelecimento
+		Relatórios >> Declaração de Faturamento
+		Relatórios >> Resumo >> Resumo Gerencial de Receitas e Tributos
+		Relatórios >> Comparativo Vendas x Compras
+		Verificar relatórios com filtros
+		Conferir no controle de devolução está segregando corretamente conforme
+		Lançamentos
+			NF-e
+				1 nota com CFOP 5.117 e 1 nota com CFOP 5.922, com o mesmo valor e marcado ICMS Substituição
+			NFC-e
+			CF-e
+				2 equipamentos
+			NFS-e
+			RDD
+			
+										Sem nenhuma marcação, isenção ou redução de ICMS
+										Marcado Substituição Tributária em ICMS
+										Marcado Substituição Tributária em ICMS, COFINS, PIS
+										Marcado Substituição Tributária em COFINS, PIS
+										Marcado Substituição Tributária em COFINS, PIS e Isento de ICMS
+										Marcado Substituição Tributária em COFINS, PIS e com Redução de ICMS
+										Marcado Substituição Tributária em ICMS e Tributação Monofásica em COFINS, PIS
+										Marcado Tributação Monofásica em COFINS, PIS e Isento de ICMS
+										Marcado Tributação Monofásica em COFINS, PIS e com Redução de ICMS
+										Marcado Tributação Monofásica em COFINS, PIS
+										Isento de ICMS
+										com Redução de ICMS
+
+		Testar em Base real de pendências passadas
+		
+Plano de Testes
+	Requisitos
+		RE[1] Exigências para enquadramento do requisito:
+			• Será afetado apenas a importação .fs
+			• O sistema irá dividir o arquivo de importação .fs de 100 em 100 notas e também irá fechar o recurso para importação e abrir novamente neste momento de modo imperceptível para o usuário.
+	Escopo do Teste
+		Será Testado
+			Relatórios
+		Não Será Testado
+			DEFIS
+	Matriz de Risco
+
+Casos de Testes
+	Matriz de Lançamentos
+		Passa nos Testes
+			Para atender a Estratégia de Teste [Receita Bruta não proporcionalizada]
+				(Apresenta resultado nos relatório de Espelho PGDAS e Demonstrativo de Cálculo sem os valores referente Isenção do ICMS)
+				NF-e em 01/2022 com valor de 33.333,33
+				NFC-e em 01/2022 com valor de 33.333,33
+				CF-e em 01/2022 com valor de 33.333,34
+				CF-e em 02/2022 com valor de 20.000,00
+				CF-e em 03/2022 com valor de 30.000,00
+				CF-e em 04/2022 com valor de 40.000,00
+			Para atender a Estratégia de Teste [Receita Bruta Proporcionalizada com PI[2]]
+				(Apresenta resultado nos relatório de Espelho PGDAS e Demonstrativo de Cálculo sem os valores referente Isenção do ICMS)
+				NF-e em 01/2022 com valor de 2.777,78
+				NFC-e em 01/2022 com valor de 2.777,78
+				CF-e em 01/2022 com valor de 2.777,78
+				CF-e em 02/2022 com valor de 20.000,00
+				CF-e em 03/2022 com valor de 30.000,00
+				CF-e em 04/2022 com valor de 40.000,00
+			Para atender a Estratégia de Teste [Receita Bruta Proporcionalizada com PI[3]]
+				(Apresenta resultado nos relatório de Espelho PGDAS e Demonstrativo de Cálculo sem os valores referente Isenção do ICMS)
+				NF-e em 01/2022 com valor de 2.777,78
+				NFC-e em 01/2022 com valor de 2.777,78
+				CF-e em 01/2022 com valor de 2.777,78
+				CF-e em 02/2022 com valor de 20.000,00
+				CF-e em 03/2022 com valor de 30.000,00
+				CF-e em 04/2022 com valor de 40.000,00
+		Não Passa nos Testes
+	Resultados
+		Fluxos Básicos
+		Fluxos Alternativos
+		Fluxos de Exceção
+
+
+Plano de Testes
+	Atividade
+		Procedimentos Iniciais
+			Estratégia de Teste
+					Matriz de Lançamentos
+						Resultado
+Links de testes unitários:
+Links de testes funcionais:
+Recursos:
+	Para testar Isenção do ICMS no estado do PA:
+		https://docs.google.com/spreadsheets/d/19saKVraXDQn7QbgxDAst2VIJyXiIks5v6wNi9VepQVs/edit#gid=74167330
+
+
+Fluxo Básico Modelo:
+	- Colocar no invalida saldo
+	- Testar tela com resolução 1366x768, vê se na mesma aparecem todos os campos e são clicáveis
+	- Perfil de Usuário
+	- Leiaute de importação
+	- Visarq
+	- Sintegra
+	- Documentos consolidados (Com pro e Sem pro)
+	- Importação XML (quando se tratar de novo documento eletrônico)
+	- Importação XML (Verificar a importação da forma cancelada)
+	- Ferramentas de Ajustes (Quando necessário) - Transferir Produtos - Transferir Participantes - Avaliar demais ferramentas
+	- AC Auto (para as entradas)
+	- Geração automática de Inventário (quando documento possuir itens)
+	- Backup/Restore (quando se tratar de tabela nova)
+	- Integração Contábil
+	- Listagens diversas
+	- Verificar relatórios com filtros
+	- Quebra de sequência
+	- Livros Fiscais
+	- SPED Contribuições
+	- SPED ECF
+	- Avaliar demais Obrigações Federais
+	- SPED ICMS
+	- Avaliar demais obrigações Estaduais
+	- Apurações (Tributos Federais)
+	- Apurações (Simples Nacional)
+	- Apurações (ICMS Normal)
+	- Apurações (Livro de Apuração do ICMS)
+	- Analisador (Regras Tributárias)
+	- Controle de créditos
+	- Controle de retenções
+	- Controle de Vencimentos
+	- Integração FortesDoc (quando se tratar de novo documento eletrônico)
+	- Auditoria
+	- Situação do Documento, verificar por exemplo quando cancelado se está aparecendo uma linha do participante em branco, quando marcar a opção para ver os dados do mesmo na listagem de saídas.
+	- Se alteração em SQL verificar se modificações devem ir para o .DOC da versão de importação "LeiauteImportacaoFortesACFiscal.doc"
+	- Preencher dados Pis/Cofins, quando tiver mudança verificar se deve ajustar também para Regras Tributarias, variável "AnalisadorFiscal".
+	- Sempre testar incluindo documentos em mais de 1 estabelecimento
+	- Sempre incluir notas com mais de 1 corpo e dados diferentes
+	- Sempre incluir vários itens diferentes
+	- Depois de todos os teste, sempre testar com uma base real, de preferência a base grande, avaliar funcionamento e performance
+	- (Contabilização) Verificar se ao desfazer importação FS após ter contabilizado não está mantendo prezo os lançamentos contábeis. Para conferir tem de dar um select na tabela LCF após importar, contabilizar e desfazer importação FS para ver se as contabilizações permanecem ou não no banco.
+	- Atender a um ciclo onde os testes irão passar
+	- Atender a um ciclo onde os testes irão dar errado
+	- Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou outra por ter especificações diferentes
+	- Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou a forma como vinha sendo feito até esta data
+	- Na "exportação/geração de arquivo de obrigação acessória", sempre validar o arquivo no validador
+	- Quando houver mudança no leiaute de alguma obrigação acessória como SPED ICMS avaliar essas mudanças pelo layout da importação da NFe também
+	- Quando houver alguma mudança que interfira no cadastro do produto avaliar a sua importação WEB e XML pela NF-e, NFC-e e CF-e
+	- Quando editar alguma informação verificar se não ficou sujeira no banco (Ex.: Editar uma CT-e de Anulação para Normal e permanecer informações de IR e CSLL no banco interfere no demonstrativo de cálculo)
+	- Perfil de Usuários
+		Confirmando que a empresa não possui nenhum Dono cadastrado
+		CRUD na tela a ser testada
+			Todos (ADMIN)
+			TA - Total e apenas da Janela
+			I - Inclusão
+			A - Alteração
+			E - Exclusão
+			TE - Todas as janelas Exceto a esta

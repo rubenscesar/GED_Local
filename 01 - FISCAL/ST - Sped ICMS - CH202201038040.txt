@@ -79,12 +79,17 @@ Plano de Testes
 		RE[3] Movimentos
 			• NF-e, NF1:							RE[3.1] A atualização deverá ser disponibilizada também nos campos que constam disponibilizados dentro do documento fiscal relacionados ao PRODEPE.
 													RE[3.2] Deverá ser disponibilizado em documentos de terceiros (Entradas e Saídas) e documentos próprios (Entradas e Saídas).
-			• NFC-e, CF-e:							RE[3.3] Não modificar, pois de acordo com as regras de preenchimento dos Registros C170 e C177 não podem ser preenchidos quando da emissão de NFC-e e CF-e.
+													RE[3.3] Quando o RE[2.1] for atendido e os campos "Ind. Esp. (PRODEPE)" e "Indicador Especial de Incentivo" for informado 02 - Produto Incentivado e Item com incentivo
+															respectivamente o campo "Código de Apuração" só aceitará a codificação 80 caso contrário apresentará um mensagem "O Código de Apuração deve ser 80 para PRODEPE
+															do tipo Atacadista configurado no Histórico do Estabelecimento"
+			• NFC-e, CF-e:							RE[3.4] Não modificar, pois de acordo com as regras de preenchimento dos Registros C170 e C177 não podem ser preenchidos quando da emissão de NFC-e e CF-e.
 			• Apuração ICMS e IPI >>
-			  Outros Débitos/Créditos, ...:			RE[3.4] Será adicionado novos CAF em Movimentos - "Apuração ICMS e IPI - Outros Débitos/Créditos, Estornos, Deduções, Val. Declaratórios e Déb. Especiais" para UF (PE):
+			  Outros Débitos/Créditos, ...:			RE[3.5] Será adicionado novos CAF em Movimentos - "Apuração ICMS e IPI - Outros Débitos/Créditos, Estornos, Deduções, Val. Declaratórios e Déb. Especiais" para UF (PE):
 															PE048080|Dedução: comércio atacadista - sistemática especial da Lei Nº 14.721/2012|01012022|
 															PE028080|Outros créditos: ajuste semestral - comércio atacadista - sistemática especial da Lei Nº 14.721/2012|01012022|
 															PE018080|Estorno de créditos: ajuste semestral - comércio atacadista - sistemática especial da Lei Nº 14.721/2012|01012022|
+													RE[3.6] Quando for selecionado o CAF PE048080 o campo "Cód. Apur. (PRODEPE)" deverá escrever automaticamente 80
+			• Importação .fs						RE[3.7] Mesmo comportamento que RE[3.2] e RE[3.3]
 		RE[4] Utilitários
 			• Ferramentas de Manutenção >>
 			  Atualizar Cadastro de Produtos:		Será feita a atualização da tabela de Código de Apuração 80 no campo "Cód. Apur."
