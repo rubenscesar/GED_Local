@@ -1,0 +1,86 @@
+╔════════════════════════════════════════════╗
+║	RODAR UNITÁRIOS NA VERSÃO SIMPLIFICADA   ║
+╚════════════════════════════════════════════╝
+
+■ Cria novo Projeto no TeamCity
+	┌───────────────────────────────────────────────────────┬───────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+	│• Baixar o Agent em nova Build							│• No menu superior "Agents"                                                                    			│
+	│														│• No menu superior a direita "Install Build Agents"                                            			│
+	│														│• MS Windows Installer                                                                         			│
+	│• Instalar Agent em nova Build							│• Instala na Build                                                                             			│
+	│														│• Instala em C:\BuildAgent                                                                     			│
+	│														│• Edita as informações da tela (Configure Build Agent Properties)                              			│
+	│														│	name=****** COLOCA O NOME DA MÁQUINA QUE QUER QUE APAREÇA DO TEAMCITY ******                			│
+	│														│	ownPort=9090                                                                                			│
+	│														│	serverUrl=http://10.1.254.238:8081                                                          			│
+	│														│	workDir=C:\BuildAgent\work                                                                  			│
+	│														│	tempDir=C:\BuildAgent\temp                                                                  			│
+	│														│• Entra na pasta C:\BuildAgent\bin																			│
+	│														│• Cria atalho do arquivo agent.bat para área de trabalho													│
+	│														│• No campo Destino do atalho informa "C:\BuildAgent\bin\agent.bat start" sem aspas							│
+	│														│Resultado: Com isto vai aparecer no TeamCity em Agents\Unauthorized a máquina recém instalada				│
+	├───────────────────────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+	│• Criar um novo Projeto no TeamCity					│• No menu superior a "Projects"			                                                      			│
+	│														│• Entra em um grupo de projetos que deseja criar o projeto                                     			│
+	│														│• Clica no botão "Create build configuration" e informa o nome                                 			│
+	│														│• Com a build criada, edita no menu superior a direita em "Edit Configuration Settings"					│
+	├───────────────────────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+	│• Associar a máquina (Agent) a nova build				│• No menu superior "Agents"																				│
+	│														│• Autoriza o Agent                                                                             			│
+	│														│• No menu superior a direita em "Edit Configuration Settings" do projeto recém criado          			│
+	│														│• Em "Agent Requirements"                                                                      			│
+	│														│• Clica no botão "Add new requirement"                                                         			│
+	│														│	Parameter Name=Condition:                                                                   			│
+	│														│	Condition=equels                                                                            			│
+	│														│	Value=****** O NOME DA MÁQUINA ******																	│
+	└───────────────────────────────────────────────────────┴───────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+■ Preparar nova máquina para testes Unitários do Delphi 7 considerando que a máquina seja Windows 7 Professional 64 Bits
+	┌───────────────────────────────────────────────────────┬───────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+	│• Lista de Programas Indispensáveis					│•																											│
+	│														│																											│
+	│• Configurações de Ambiente							│• Variáveis de Ambiente:																					│
+	│														│	Adicione a Variável: ISC_PASSWORD																		│
+	│														│				  Valor: masterkey																			│
+	│														│	Adicione a Variável: ISC_USERNAME																		│
+	│														│				  Valor: SYSDBA																				│
+	│														│	Adicione a Variável: TEAMCITY_DATA_PATH																	│
+	│														│				  Valor: C:\ProgramData\JetBrains\TeamCity													│
+	│														│	Adicione a Variável: Path																				│
+	│														│				  Valor: C:\Program Files (x86)\Borland\Delphi7\Bin;                                        │
+	│														│						 C:\Program Files (x86)\Borland\Delphi7\Projects\Bpl\;                              │
+	│														│						 C:\Program Files\TortoiseSVN\bin;                                                  │
+	│														│						 C:\Program Files\CollabNet\Subversion Client;                                      │
+	│														│						 C:\Program Files (x86)\Common Files\Oracle\Java\javapath;                          │
+	│														│						 C:\ProgramData\Oracle\Java\javapath;                                               │
+	│														│						 C:\Program Files (x86)\Embarcadero\Studio\14.0\bin;                                │
+	│														│						 C:\Users\Public\Documents\Embarcadero\Studio\14.0\Bpl;                             │
+	│														│						 C:\Program Files;                                                                  │
+	│														│						 C:\Ferramentas;C:\Program Files (x86)\Intel\iCLS Client\;                          │
+	│														│						 C:\Program Files\Intel\iCLS Client\;%SystemRoot%\system32;%SystemRoot%;            │
+	│														│						 %SystemRoot%\System32\Wbem;                                                        │
+	│														│						 %SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;                                     │
+	│														│						 C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;                  │
+	│														│						 C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;                  │
+	│														│						 C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;            │
+	│														│						 C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;            │
+	│														│						 C:\Program Files (x86)\Amazon\AWSCLI\;                                             │
+	│														│						 C:\Program Files (x86)\FinalBuilder 7;                                             │
+	│														│						 C:\Program Files (x86)\Microsoft SQL Server\80\Tools\Binn\;                        │
+	│														│						 C:\Program Files (x86)\Microsoft SQL Server\90\DTS\Binn\;                          │
+	│														│						 C:\Program Files (x86)\Microsoft SQL Server\90\Tools\Binn\VSShell\Common7\IDE\;    │
+	│														│						 C:\Program Files (x86)\Microsoft Visual Studio 8\Common7\IDE\PrivateAssemblies\;   │
+	│														│						 C:\Program Files (x86)\Embarcadero\Studio\14.0\bin64;                              │
+	│														│						 C:\Users\Public\Documents\Embarcadero\Studio\14.0\Bpl\Win64;                       │
+	│														│						 C:\Program Files (x86)\CollabNet\Subversion Client;								│
+	│														│						 c:\Program Files (x86)\Microsoft SQL Server\90\Tools\binn\							│
+	│														│	Adicione a Variável:																					│
+	│														│				  Valor:																					│
+
+	
+	│														│• Criar Pastas:	C:\Dados\AC																				│
+	│														│					C:\Ferramentas																			│
+	│														│•																											│
+	│• Instalar Programas Indispensáveis					│•																											│
+	├───────────────────────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+	│• Lista de Programas Auxiliares						│•																											│
+	└───────────────────────────────────────────────────────┴───────────────────────────────────────────────────────────────────────────────────────────────────────────┘
