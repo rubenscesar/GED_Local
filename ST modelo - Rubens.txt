@@ -79,6 +79,9 @@ Relacionamentos:
 		Importação
 			Importação WEB
 			Importação .XML
+			Importação .fs
+		Conversão
+			Importação .txt (SP)
 		Testar em Base real de pendências passadas
 
 ■ Casos de Testes
