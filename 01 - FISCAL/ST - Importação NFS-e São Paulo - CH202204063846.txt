@@ -1,0 +1,143 @@
+Épico: Empresa de lucro real com PIS e COFINS Cumulativo e não-cumulativo e com Alíquotas Especificas ao realizar a importação de arquivo XML´s de NFS-e de São Paulo o sistema não está preenchendo o campo da Retenção de PIS e COFINS
+Número do cartão: P CH202204063846
+Ano de publicação: 2022
+Relacionamentos: Importação NFS-e São Paulo, Importação txt (SP)
+
+■ Plano de Testes
+	▼ Requisitos
+		RE[1] Exigências para enquadramento do requisito:
+	▼ Escopo do Teste
+		Será Testado
+			Conversão
+			Relatórios
+		Não Será Testado
+	▼ Matriz de Risco
+
+■ Procedimentos de Testes
+	▼ Atividades
+		Firebird
+			Regime de Tributação Federal - Lucro Real
+				Incidência tributária não-cumulativa
+					Não Apura Retenções de PIS e COFINS Cumulativos e Não-Cumulativos
+						Alíquota padrão de PIS/COFINS
+						Alíquota específica de PIS/COFINS
+				Incidência tributária não-cumulativa e cumulativa (padrão não-cumulativa)
+					Apura Retenções de PIS e COFINS Cumulativos e Não-Cumulativos
+						Alíquota padrão de PIS/COFINS
+						Alíquota específica de PIS/COFINS
+					Não Apura Retenções de PIS e COFINS Cumulativos e Não-Cumulativos
+						Alíquota padrão de PIS/COFINS
+						Alíquota específica de PIS/COFINS
+			Regime de Tributação Federal - Lucro Presumido
+				Incidência tributária cumulativa
+					Alíquota padrão de PIS/COFINS
+					Alíquota específica de PIS/COFINS
+			Regime de Tributação Federal - Simples Nacional
+
+	▼ Procedimentos Iniciais
+
+	▼ Estratégia de Teste
+		Teste GUI (Graphical User Interface)
+			Dados na GRID dos registros (Conferir que não possui informação, quando no HEM estiver marcado "Apura Retenções de PIS e COFINS Cumulativos e Não-Cumulativos")
+			Dados na GRID dos registros (Conferir que possui informação, quando no HEM não estiver marcado "Apura Retenções de PIS e COFINS Cumulativos e Não-Cumulativos")
+		CRUD
+			Consulta
+			Quando editar alguma informação, verificar se não ficou sujeira no banco
+		Conversão
+			Importação .txt (SP)
+				Saída
+					Com 1 item de serviço na nota
+		Relatórios >> Listagem das Saídas >> Retenções (Serviços)
+		Testar em Base real de pendências passadas
+
+■ Casos de Testes
+	▼ Matriz de Lançamentos
+	▼ Resultados
+		Fluxos Básicos
+		Fluxos Alternativos
+		Fluxos de Exceção
+
+
+Plano de Testes
+	Atividade
+		Procedimentos Iniciais
+			Estratégia de Teste
+					Matriz de Lançamentos
+						Resultado
+
+
+
+
+
+
+
+
+
+
+
+Links de testes unitários:
+Links de testes funcionais:
+Recursos:
+					  Nome do arquivo no padrão:	[Relacionamento principal]-( Se for arquivo Abrasf informar o município e UF )[Município] (UF)-[Observação opcional]
+										Exemplo:	Arquivo para importação: Abrasf-Ponte Nova (MG)-Inscrição Estadual do Participante.xml
+	Nome do arquivo do banco de dados no padrão:	[Iniciais do subsistema]-[Relacionamento principal]-[Ano de publicação]-[Nome da empresa]-[Período]-[Observação opcional]
+										Exemplo:	Banco para testes: ACC-Planilha Financeira-2021-ONE INTERNET SA-042021.rar
+Fluxo Básico Modelo:
+	- Colocar no invalida saldo
+	- Testar tela com resolução 1366x768, vê se na mesma aparecem todos os campos e são clicáveis
+	- Perfil de Usuário
+	- Leiaute de importação
+	- Visarq
+	- Sintegra
+	- Documentos consolidados (Com pro e Sem pro)
+	- Importação XML (quando se tratar de novo documento eletrônico)
+	- Importação XML (Verificar a importação da forma cancelada)
+	- Ferramentas de Ajustes (Quando necessário) - Transferir Produtos - Transferir Participantes - Avaliar demais ferramentas
+	- AC Auto (para as entradas)
+	- Geração automática de Inventário (quando documento possuir itens)
+	- Backup/Restore (quando se tratar de tabela nova)
+	- Integração Contábil
+	- Listagens diversas
+	- Verificar relatórios com filtros
+	- Quebra de sequência
+	- Livros Fiscais
+	- SPED Contribuições
+	- SPED ECF
+	- Avaliar demais Obrigações Federais
+	- SPED ICMS
+	- Avaliar demais obrigações Estaduais
+	- Apurações (Tributos Federais)
+	- Apurações (Simples Nacional)
+	- Apurações (ICMS Normal)
+	- Apurações (Livro de Apuração do ICMS)
+	- Analisador (Regras Tributárias)
+	- Controle de créditos
+	- Controle de retenções
+	- Controle de Vencimentos
+	- Integração FortesDoc (quando se tratar de novo documento eletrônico)
+	- Auditoria
+	- Situação do Documento, verificar por exemplo quando cancelado se está aparecendo uma linha do participante em branco, quando marcar a opção para ver os dados do mesmo na listagem de saídas.
+	- Se alteração em SQL verificar se modificações devem ir para o .DOC da versão de importação "LeiauteImportacaoFortesACFiscal.doc"
+	- Preencher dados Pis/Cofins, quando tiver mudança verificar se deve ajustar também para Regras Tributarias, variável "AnalisadorFiscal".
+	- Sempre testar incluindo documentos em mais de 1 estabelecimento
+	- Sempre incluir notas com mais de 1 corpo e dados diferentes
+	- Sempre incluir vários itens diferentes
+	- Depois de todos os teste, sempre testar com uma base real, de preferência a base grande, avaliar funcionamento e performance
+	- (Contabilização) Verificar se ao desfazer importação FS após ter contabilizado não está mantendo prezo os lançamentos contábeis. Para conferir tem de dar um select na tabela LCF após importar, contabilizar e desfazer importação FS para ver se as contabilizações permanecem ou não no banco.
+	- Atender a um ciclo onde os testes irão passar
+	- Atender a um ciclo onde os testes irão dar errado
+	- Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou outra por ter especificações diferentes
+	- Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou a forma como vinha sendo feito até esta data
+	- Na "exportação/geração de arquivo de obrigação acessória", sempre validar o arquivo no validador
+	- Quando houver mudança no leiaute de alguma obrigação acessória como SPED ICMS avaliar essas mudanças pelo layout da importação da NFe também
+	- Quando houver alguma mudança que interfira no cadastro do produto avaliar a sua importação WEB e XML pela NF-e, NFC-e e CF-e
+	- Quando editar alguma informação verificar se não ficou sujeira no banco (Ex.: Editar uma CT-e de Anulação para Normal e permanecer informações de IR e CSLL no banco interfere no demonstrativo de cálculo)
+	- Perfil de Usuários
+		Confirmando que a empresa não possui nenhum Dono cadastrado
+		CRUD na tela a ser testada
+			Todos (ADMIN)
+			TA - Total e apenas da Janela
+			I - Inclusão
+			A - Alteração
+			E - Exclusão
+			TE - Todas as janelas Exceto a esta
