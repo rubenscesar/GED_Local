@@ -31,6 +31,22 @@ Relacionamentos: Simples Nacional, Anexo I, Anexo II, Devolução
 				• Conforme decreto 4.676 do Estado do PA. Empresas do Simples Nacional ME ou EPP que tenha realizado o volume de negócios de até R$ 120.000,00 nos últimos 12 meses incluindo o próprio mês da apuração fica isento da parcela do ICMS mensal
 			RE[1.7] Não participa do Simples Nacional do âmbito estadual
 				• Quando for marcado que no histórico do estabelecimento que não participa do simples nacional o valor de isenção nos relatórios não deverão aparecer já que o valor do ICMS será calculado por fora.
+		RE[2] Necessário para executar a homologação do cartão
+			alter table VRE drop constraint cc_VRE_Info
+			.maygo
+
+			alter table VRE add constraint cc_VRE_Info check(info in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 , 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41,
+																	  42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81))
+			.maygo
+
+			insert into MOD values('3','RL.SNA.CSD','Controle de Saldo das Devoluções',0)
+			.maygo
+
+			insert into MPF
+			  select SIS_Codigo, PER_Codigo, 'RL.SNA.CSD' from MPF
+			  where SIS_Codigo = 3 and MOD_Codigo = 'RL.SNA'
+			.maygo
+
 	▼ Escopo do Teste
 		Será Testado
 			Lançamentos
@@ -150,6 +166,7 @@ Relacionamentos: Simples Nacional, Anexo I, Anexo II, Devolução
 				2 equipamentos
 			NFS-e
 			RDD
+		Realizar lançamentos antes da atualização e depois atualizar
 		Testar em Base real de pendências passadas
 
 ■ Casos de Testes

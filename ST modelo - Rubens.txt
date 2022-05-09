@@ -5,7 +5,23 @@ Relacionamentos:
 
 ■ Plano de Testes
 	▼ Requisitos
-		RE[1] Exigências para enquadramento do requisito:
+		RE[1] Exigências para enquadramento do requisito
+			RE[1.1] Embasamento no Art. __, Decreto n°__.___/__ do RIMCs (__)
+			RE[1._] Será atribuído a estabelecimentos cujo UF seja de (MG)
+			RE[1._] Será atribuído a empresas cujo Regime de Tributação Estadual seja do Lucro Real / Lucro Presumido / Simples Nacional
+			RE[1._] Será atribuído a lançamentos de NF-e e ___ de entrada / saída de terceiros / documentos próprios
+			RE[1._] Será atribuído a lançamentos com ICMS Normal / Antecipado / Diferencial de Alíquota
+			RE[1._] Será atribuído a lançamentos quando o CST / CSOSN utilizado for ___
+			RE[1._]	Fórmula utilizada quando for aplicado ___
+					__ x __ = __
+			RE[1._]	Será exibido em
+					Relatórios >> Livros Fiscais >> Registro de Entrada
+						Os valores serão apresentado com o "Código de Valores Fiscais" _
+					Relatórios >> ICMS >> ICMS Antecipado
+					DeSTDA
+						Registro ___
+			RE[1._]	Ferramentas
+		RE[2] Necessário para executar a homologação do cartão
 	▼ Escopo do Teste
 		Será Testado
 			Lançamentos
@@ -80,8 +96,13 @@ Relacionamentos:
 			Importação WEB
 			Importação .XML
 			Importação .fs
+			Arquivo .DOC da versão de importação "LeiauteImportacaoFortesACFiscal.doc"
+			Visarq
 		Conversão
+			Sintegra
+			SPED ICMS
 			Importação .txt (SP)
+			AC Auto (para as entradas)
 		Testar em Base real de pendências passadas
 
 ■ Casos de Testes
@@ -96,8 +117,8 @@ Plano de Testes
 	Atividade
 		Procedimentos Iniciais
 			Estratégia de Teste
-					Matriz de Lançamentos
-						Resultado
+				Matriz de Lançamentos
+					Resultado
 
 
 
