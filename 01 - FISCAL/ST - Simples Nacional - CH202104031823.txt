@@ -20,7 +20,7 @@ Relacionamentos: Simples Nacional, UF de (MG), Antecipado
 			RE[1.10]	Fórmula utilizada quando for aplicado a alíquota interestadual de 12% ou 4%
 						Valor da Operação x (1 - Alíquota Interestadual) = X
 						Base de Cálculo = X / (1 - Alíquota Interna)
-						Base de Cálculo	x Alíquota Interna = Z
+						Base de Cálculo x Alíquota Interna = Z
 						ICMS Antecipado = Z - (Valor da Operação x Alíquota Interestadual)
 			RE[1.11]	Será exibido em
 						Relatórios >> Livros Fiscais >> Registro de Entrada
@@ -47,11 +47,6 @@ Relacionamentos: Simples Nacional, UF de (MG), Antecipado
 			Ferramentas
 		Não Será Testado
 	▼ Matriz de Risco
-		Status		ID	Descrição	(P)robabilidade de Ocorrência do Erro	(I)mpacto do Erro	Priorização do Teste = P x I	Responsável	Estratégia				Reavaliar
-		Priorizado	1	...			3 Alta									3 Alta				9								Rubens		Eliminar/Evitar			Anualmente
-					2	...			2 Média									2 Média				4								Rubens		Prevenir/Mitigar		Mensalmente
-					3	...			1 Baixa									1 Baixa				1								Rubens		Aceitar Passivamente	Por Evento
-					4	...			...										...					...								Rubens		Aceitar Ativamente		...
 
 ■ Procedimentos de Testes
 	▼ Atividades
@@ -63,7 +58,6 @@ Relacionamentos: Simples Nacional, UF de (MG), Antecipado
 				Regime de Tributação Federal - Simples Nacional
 					Regime de Tributação Estadual - Normal
 					Regime de Tributação Estadual - Simples Nacional
-					Regime de Tributação Estadual - Excluído do Simples Nacional (Normal no HES)
 						Incidência tributária não-cumulativa
 							Informando itens
 							Sem informar itens
@@ -83,6 +77,10 @@ Relacionamentos: Simples Nacional, UF de (MG), Antecipado
 		Importação
 			Importação WEB
 			Importação .XML
+				Com CSOSN(A) "0" e CSOSN(B) "102"
+				Com CSOSN(A) "1" e CSOSN(B) "102"
+				Com CSOSN(A) "0" e CSOSN(B) "101"
+				Com CSOSN(A) "0" e CSOSN(B) "900"
 		Movimentos
 			Sempre incluir notas com mais de 1 corpo e dados diferentes
 			Sempre incluir vários itens diferentes
@@ -92,10 +90,7 @@ Relacionamentos: Simples Nacional, UF de (MG), Antecipado
 				CT-e
 				Com diversos CST/CSOSN
 			Realizar lançamentos antes da atualização e depois atualizar
-			Documentos Consolidados
-				Itens
 			Obgrigações Acessórias
-				Na geração de arquivo de obrigação acessória, sempre validar o arquivo no validador
 				DeSTDA
 					Registro G600
 					Registro G605
@@ -113,11 +108,3 @@ Relacionamentos: Simples Nacional, UF de (MG), Antecipado
 		Fluxos Básicos
 		Fluxos Alternativos
 		Fluxos de Exceção
-
-
-Plano de Testes
-	Atividade
-		Procedimentos Iniciais
-			Estratégia de Teste
-				Matriz de Lançamentos
-					Resultado

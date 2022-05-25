@@ -1,0 +1,129 @@
+Épico: 
+Número do cartão: S CH202202075473
+Ano de publicação: 2022
+Relacionamentos: 
+
+■ Plano de Testes
+	▼ Requisitos
+		RE[1] Exigências para enquadramento do requisito
+		RE[2] Necessário para executar a homologação do cartão
+	▼ Escopo do Teste
+		Será Testado
+			Lançamentos
+			Importação/Exportação
+			Obrigações Acessórias
+			Relatórios
+			Ferramentas
+		Não Será Testado
+			Importação WEB (Por não possui XML para o teste)
+			Importação .XML (Por não possui XML para o teste)
+	▼ Matriz de Risco
+
+■ Procedimentos de Testes
+	▼ Atividades
+		Firebird
+		SQL
+			Escriturando em 2 estabelecimentos
+				Regime de Tributação Federal - Lucro Real
+				Regime de Tributação Federal - Lucro Presumido
+					Regime de Tributação Estadual - Normal
+						Incidência tributária não-cumulativa
+						Incidência tributária cumulativa
+						Incidência tributária não-cumulativa e cumulativa (padrão não-cumulativa)
+							PIS/COFINS Regime de Apropriação de Créditos por Rateio Proporcional
+							PIS/COFINS Regime de Apropriação de Créditos Direta
+								Alíquota padrão de PIS/COFINS
+								Alíquota específica de PIS/COFINS
+									Regime de competência
+									Regime de caixa {devolução não gera estorno em regime de caixa, pois é uma devolução financeira}
+										Adotando critério de escrituração Consolidada para gerar Sped Contribuições, sem informar itens no Histórico da empresa e informando itens no Histórico do estabelecimento
+										Adotando critério de escrituração Detalhada para gerar Sped Contribuições, informando itens no Histórico da empresa e no Histórico do estabelecimento
+											Informando itens
+
+	▼ Procedimentos Iniciais
+
+	▼ Estratégia de Teste
+		Teste GUI (Graphical User Interface)
+			Dados na GRID dos registros
+			Ortografia e Gramática
+			Condição para habilitar ou tonar vísível
+				Regime de Tributação Federal - Lucro Real
+					Incidência tributária não-cumulativa
+					Incidência tributária não-cumulativa e cumulativa (padrão não-cumulativa)
+						Alíquota padrão de PIS/COFINS
+						Alíquota específica de PIS/COFINS
+							PIS/COFINS Regime de Apropriação de Créditos Direta
+							PIS/COFINS Regime de Apropriação de Créditos por Rateio Proporcional
+								Regime de competência
+									Lançamentos quando o CST utilizado na nota de saídas documentos próprios for 49 será disponibilizado a relação de Natureza de Crédito de Estorno
+										• 101	Crédito vinculado à receita tributada no mercado interno - Alíquota Básica
+										• 102	Crédito vinculado à receita tributada no mercado interno - Alíquotas Diferenciadas
+										• 103	Crédito vinculado à receita tributada no mercado interno - Alíquota por Unidade de Produto
+										• 106	Crédito vinculado à receita tributada no mercado interno - Presumido da Agroindústria
+										• 107	Crédito vinculado à receita tributada no mercado interno - Outros Créditos Presumidos
+										• 108	Crédito vinculado à receita tributada no mercado interno - Importação
+										• 109	Crédito vinculado à receita tributada no mercado interno - Atividade Imobiliária
+										• 201	Crédito vinculado à receita não tributada no mercado interno - Alíquota Básica
+										• 202	Crédito vinculado à receita não tributada no mercado interno - Alíquotas Diferenciadas
+										• 203	Crédito vinculado à receita não tributada no mercado interno - Alíquota por Unidade de Produto
+										• 206	Crédito vinculado à receita não tributada no mercado interno - Presumido da Agroindústria
+										• 208	Crédito vinculado à receita não tributada no mercado interno - Importação
+										• 301	Crédito vinculado à receita de exportação - Alíquota Básica
+										• 302	Crédito vinculado à receita de exportação - Alíquotas Diferenciadas
+										• 303	Crédito vinculado à receita de exportação - Alíquota por Unidade de Produto
+										• 306	Crédito vinculado à receita de exportação - Presumido da Agroindústria
+										• 308	Crédito vinculado à receita de exportação - Importação
+				Regime de Tributação Federal - Lucro Presumido
+					Incidência tributária cumulativa
+						Alíquota padrão de PIS/COFINS
+						Alíquota específica de PIS/COFINS
+							PIS/COFINS Regime de Apropriação de Créditos Direta
+								Regime de competência
+								Regime de caixa {devolução não gera estorno em regime de caixa, pois é uma devolução financeira}
+									Lançamentos quando o CST utilizado na nota de saídas documentos próprios for 49 será desabilitado a Natureza de Crédito de Estorno
+		CRUD
+			Inclusão com passagem campo a campo
+			Quando editar alguma informação, verificar se não ficou sujeira no banco
+		Cadastros
+			Regras Tributárias por NCM
+		Importação/Exportação
+			Importação .fs
+			Importação .CSV
+		Lançamentos
+			Escriturar lançamentos de saídas documentos próprios com CST for 01
+				Escriturar lançamentos com CST utilizado na nota de saídas documentos próprios igual a 49 e Natureza de Crédito de Estorno for 101
+				Escriturar lançamentos com CST utilizado na nota de saídas documentos próprios igual a 49 e Natureza de Crédito de Estorno for 102
+				Escriturar lançamentos com CST utilizado na nota de saídas documentos próprios igual a 49 e Natureza de Crédito de Estorno for 103
+				Escriturar lançamentos com CST utilizado na nota de saídas documentos próprios igual a 49 e Natureza de Crédito de Estorno for 106
+				Escriturar lançamentos com CST utilizado na nota de saídas documentos próprios igual a 49 e Natureza de Crédito de Estorno for 107
+				Escriturar lançamentos com CST utilizado na nota de saídas documentos próprios igual a 49 e Natureza de Crédito de Estorno for 108
+				Escriturar lançamentos com CST utilizado na nota de saídas documentos próprios igual a 49 e Natureza de Crédito de Estorno for 109
+				Escriturar lançamentos com CST utilizado na nota de saídas documentos próprios igual a 49 e Natureza de Crédito de Estorno for 201
+				Escriturar lançamentos com CST utilizado na nota de saídas documentos próprios igual a 49 e Natureza de Crédito de Estorno for 202
+				Escriturar lançamentos com CST utilizado na nota de saídas documentos próprios igual a 49 e Natureza de Crédito de Estorno for 203
+				Escriturar lançamentos com CST utilizado na nota de saídas documentos próprios igual a 49 e Natureza de Crédito de Estorno for 206
+				Escriturar lançamentos com CST utilizado na nota de saídas documentos próprios igual a 49 e Natureza de Crédito de Estorno for 208
+				Escriturar lançamentos com CST utilizado na nota de saídas documentos próprios igual a 49 e Natureza de Crédito de Estorno for 301
+				Escriturar lançamentos com CST utilizado na nota de saídas documentos próprios igual a 49 e Natureza de Crédito de Estorno for 302
+				Escriturar lançamentos com CST utilizado na nota de saídas documentos próprios igual a 49 e Natureza de Crédito de Estorno for 303
+				Escriturar lançamentos com CST utilizado na nota de saídas documentos próprios igual a 49 e Natureza de Crédito de Estorno for 306
+				Escriturar lançamentos com CST utilizado na nota de saídas documentos próprios igual a 49 e Natureza de Crédito de Estorno for 308
+		Relatórios
+			Relatórios >> Tributos Federais >> COFINS, PIS, CSL e IRPJ (Demonstrativo de Cálculo)
+			Relatórios >> Tributos Federais >> COFINS, PIS, CSL e IRPJ (Demonstrativo de Cálculo) - Detalhado
+			Relatórios >> DARF >> DARF
+		Ferramentas
+			Utilitários >> Ferramentas >> Preencher Dados PIS e COFINS
+			Utilitários >> Ferramentas >> Apagar CST PIS/COFINS
+			Utilitários >> Recalcular Tributos Federais
+			Analisador (Regras Tributárias)
+		Obrigações Acessórias
+			Sped Contribuições
+		Testar em Base real de pendências passadas
+
+■ Casos de Testes
+	▼ Matriz de Lançamentos
+	▼ Resultados
+		Fluxos Básicos
+		Fluxos Alternativos
+		Fluxos de Exceção

@@ -1,0 +1,118 @@
+Épico: Criação da ferramenta de Ajustar Cadastro de Participante
+Número do cartão: P CH202205052631
+Ano de publicação: 2022
+Relacionamentos: Ajustar Cadastro de Participante
+
+■ Plano de Testes
+	▼ Requisitos
+		RE[1] Exigências para enquadramento do requisito
+		RE[2] Necessário para executar a homologação do cartão
+	▼ Escopo do Teste
+		Será Testado
+			Ferramenta
+		Não Será Testado
+	▼ Matriz de Risco
+
+■ Procedimentos de Testes
+	▼ Atividades
+		Firebird
+		SQL
+			Com Bancos de Dados com mais de uma empresa
+
+	▼ Procedimentos Iniciais
+
+	▼ Estratégia de Teste
+		Ferramenta Ajustar Participantes
+			Ver se não interferiu em outra empresa
+			Testar em Base real de pendências passadas
+			Teste GUI (Graphical User Interface)
+				Dados na GRID dos registros
+				Testar tela com resolução 1366x768, vê se na mesma aparecem todos os campos e são clicáveis
+				Passagem de campos
+				Atalhos dos botões
+				Ortografia e Gramática
+				Perfil de Usuários
+					Confirmando que a empresa não possui nenhum Dono cadastrado
+					CRUD na tela a ser testada
+						Todos (ADMIN)
+						TA - Total e apenas da Janela
+						I - Inclusão
+						A - Alteração
+						E - Exclusão
+						TE - Todas as janelas Exceto a esta
+			Auditoria
+			Banco com divergências de Participantes (é realizado uma comparação se entre os bancos de dados verificando se os participantes de mesmo código divergem em alguma informação)
+				Quando no backup contém participantes a menos que no banco atual
+				Quando no backup contém a mesma quantidade que no banco atual
+				Quando no backup contém participantes com todos os dados diferente do mesmo participante no banco atual. FB[1]
+				Quando no backup contém participantes com todos os dados iguais do mesmo participante no banco atual. FA[1]
+				Quando no backup contém participantes com todos os dados iguais do mesmo participante no banco atual (exceto o CNPJ que no atual é diferente). FB[1]
+				Quando no backup contém participantes com todos os dados iguais do mesmo participante no banco atual (exceto o CNPJ que no atual está em branco). FB[1]
+				Quando no backup contém participantes com todos os dados iguais do mesmo participante no banco atual (exceto o CNPJ que no atual é CPF). FB[1]
+				Quando no backup contém participantes com todos os dados iguais do mesmo participante no banco atual (exceto o CNPJ que no atual é do Exterior). FB[1]
+				Quando no backup contém participantes com todos os dados iguais do mesmo participante no banco atual (exceto o Endereço)
+			Banco com divergências de Histórico de Participantes
+				Sem histórico do participante no backup
+				Com 1 histórico do participante no backup
+					Quando no banco atual contém participantes com os seus históricos com CNPJ diferente do histórico do mesmo participante no backup. FB[1]
+					Quando no banco atual contém participantes com os seus históricos com dados iguais do histórico do mesmo participante no backup. FA[1]
+					Quando no banco atual contém participantes com os seus históricos com CNPJ em branco em relação ao histórico do mesmo participante no backup. FB[1]
+					Quando no banco atual contém participantes com os seus históricos com Endereço diferente em relação ao histórico do mesmo participante no backup
+				Com 3 históricos dos participantes no backup ao mesmo tempo contendo:
+					• Quando no banco atual contém participantes com os seus históricos com CNPJ diferente do histórico do mesmo participante no backup. FB[1]
+					• Quando no banco atual contém participantes com os seus históricos com dados iguais do histórico do mesmo participante no backup. FA[1]
+					• Quando no banco atual contém participantes com os seus históricos com CNPJ em branco em relação ao histórico do mesmo participante no backup. FB[1]
+			Realizando consulta por código dos participantes nos arquivos Sped ICMS e Sped Contribuições (verifica se existe um participante cadastrado no banco atual com o mesmo código que no arquivo e se o CNPJ está diferente)
+				Com arquivo Sped ICMS
+					Arquivo possui CNPJ diferente do banco atual. FB[1]
+					Arquivo possui CNPJ igual do banco atual. FA[1]
+					Arquivo possui histórico do participante com CNPJ diferente do banco atual. FA[1]
+					Arquivo possui participante com CNPJ igual do banco atual mas código diferente. FA[1]
+				Com arquivo Sped Contribuições
+					Arquivo possui CNPJ diferente do banco atual. FB[1]
+					Arquivo possui CNPJ igual do banco atual. FA[1]
+					Arquivo possui histórico do participante com CNPJ diferente do banco atual. FA[1]
+					Arquivo possui participante com CNPJ igual do banco atual mas código diferente. FA[1]
+				Com arquivo Sped ICMS e Sped Contribuições
+					Com dados dos participantes iguais entre os arquivos
+						Arquivo possui CNPJ diferente do banco atual. FB[1]
+						Arquivo possui CNPJ igual do banco atual. FA[1]
+						Arquivo possui histórico do participante com CNPJ diferente do banco atual. FA[1]
+						Arquivo possui participante com CNPJ igual do banco atual mas código diferente. FA[1]
+					Com dados dos participantes diferente entre os arquivos
+						Arquivo possui CNPJ diferente do banco atual. FA[1]
+						Arquivo possui CNPJ igual do banco atual. FA[1]
+						Arquivo possui histórico do participante com CNPJ diferente do banco atual. FA[1]
+						Arquivo possui participante com CNPJ igual do banco atual mas código diferente. FA[1]
+			Realizando consulta da NFe de entrada conforme vínculo do CNPJ do Participante com CNPJ da chave
+				Com NFe de entrada cujo CNPJ do Participante compõe a chave do documento NFe de entrada
+				Com NFe de entrada cujo CNPJ do Participante não compõe a chave do documento NFe de entrada
+				Com NFe de entrada cujo CNPJ do Participante não compõe a chave do documento NFe de entrada mas a NFe é uma nota avulsa (série 890-899)
+				Com NFe de entrada (documento próprio (devolução)) cujo CNPJ do Participante não compõe a chave do documento NFe de entrada
+			Banco com divergências de Integração Contábil
+				Se Integração Contábil estiver configurada
+					NFe
+						Com 1 lançamento contábil cujo CNPJ do Participante compõe o lançamento contábil do documento
+							Com CNPJ¹ diferente ao do cadastro do participante do Fiscal
+							Com CNPJ¹ igual ao do cadastro do participante do Fiscal
+						Com vários lançamentos contábeis na mesma nota cujo CNPJ do Participante compõe o lançamento contábil do documento
+							Com CNPJ¹ diferente ao do cadastro do participante do Fiscal
+						Com 1 lançamento contábil cujo CNPJ do Participante não compõe o lançamento contábil do documento (CNPJ¹ em branco ou nulo)
+				Se Integração Contábil não estiver configurada
+		¹ = CNPJ informado na tabela LCF, ou seja, o lançamento contábil contabilizado
+
+■ Casos de Testes
+	▼ Matriz de Lançamentos
+		PAR	CNPJ			LANÇAMENTOS CONTÁBEIS
+		1	79867578000108	1
+		5	79867578000108	vários
+		2	00000000000191
+		4	nulo
+		4	em branco
+	▼ Resultados
+		Fluxos Básicos
+			FB[1] Apresenta na GRID os resultados. Mostra os dados localizados no banco de backup
+		Fluxos Alternativos
+			FA[1] Não apresenta na GRID os resultados.
+		Fluxos de Exceção
+			FE[1] 

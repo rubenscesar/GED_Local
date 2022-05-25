@@ -1,0 +1,167 @@
+Épico: IMPORTAÇÃO DE DADOS DOS PARTICIPANTES
+
+Fonte de um cartão semelhante: CH202203050678
+	Importação NFSe Abrasf - Ajuste na atualização do cadastro de participantes:
+		• Cliente está realizando a importação de arquivos XML de NFS-e padrão ABRASF e o sistema não está realizando a atualização do cadastro do participante, foi verificado que nas Configurações a opção Atualizar Cadastro dos Participantes está marcada;
+		• Ao testar realizando a importação do arquivo foi verificado que o sistema não atualiza;
+		• Verificando o XML da Nota foi verificado que a informação do código do município consta no participante;
+		• Ao verificar o arquivo convertido foi identificado que o sistema não está preenchendo a informação do Código do Município no campo 23 do Registro PAR.
+Fonte de um cartão semelhante: CH202203023904
+Fonte de um cartão semelhante: CH202205052631
+	Alteração de participantes na importação NF-e e Conta de energia elétrica:
+		• Escrita e alguns clientes de unidades relatando que será inviável identificar quais os participantes que foram alterados a descrição. No caso da Escrita, tem mais de 2400 empresas;
+		• Observei que em configurações > importação, desmarcar nas configurações a opção de "atualizar cadastro de participantes" os participantes são  trocados nos documentos;
+Fonte de um cartão semelhante: CH202102067346
+
+Ano de publicação: 2022
+
+Relacionamentos: Importação .XML, Importação WEB, Importação Abrasf, Importação .FS, Importação .CSV, Importação .XLSX (Fortaleza), Importação .TXT (SP), Sintegra, SPED ICMS, Participantes, Lentidão, Desempenho, Carga, Atualização de cadastro de Produto
+
+■ Plano de Testes
+	▼ Requisitos
+		RE[1] Exigências para enquadramento do requisito
+			RE[1._]	Quando a importação for de Importação Abrasf no qual os dados do participante esteja sem UF e com IE, transformar o erro em aviso e deixar passar, somente quando for origem Importação Abrasf (Origem P CH202102067346)
+			Será afetado o cadastro do participante ao realizar a importação xml NFS-e ABRASF
+			• Será afetado apenas a importação .fs
+			• O sistema irá dividir o arquivo de importação .fs de 100 em 100 notas e também irá fechar o recurso para importação e abrir novamente neste momento de modo imperceptível para o usuário.
+		RE[2] Necessário para executar a homologação do cartão
+	▼ Escopo do Teste
+		Será Testado
+			Lançamentos
+			Importação/Exportação
+				Importação .XML
+				Importação WEB
+				Importação .FS
+			Conversão
+				Importação Abrasf
+				Importação .XLSX (Fortaleza)
+				Importação .TXT (SP)
+				Sintegra
+				SPED ICMS
+			Obrigações Acessórias
+			Relatórios
+			Ferramentas
+		Não Será Testado
+	▼ Matriz de Risco
+		Status		ID	Descrição	(P)robabilidade de Ocorrência do Erro	(I)mpacto do Erro	Priorização do Teste = P x I	Responsável	Estratégia				Reavaliar
+		Priorizado	1	...			3 Alta									3 Alta				9								Rubens		Eliminar/Evitar			Anualmente
+					2	...			2 Média									2 Média				4								Rubens		Prevenir/Mitigar		Mensalmente
+					3	...			1 Baixa									1 Baixa				1								Rubens		Aceitar Passivamente	Por Evento
+					4	...			...										...					...								Rubens		Aceitar Ativamente		...
+
+■ Procedimentos de Testes
+	▼ Atividades
+		Firebird
+		SQL
+			Escriturando em 2 estabelecimentos
+
+	▼ Procedimentos Iniciais
+		PI[1] Participantes já cadastrados:
+			• Com CNPJ 63.542.443/0001-24,	Participantes com nome (Participante X),	Inscrição Estadual (060000015),	UF (CE),	Indicador do ICMS (Contribuinte)
+			• Participante do Exterior,		Participante com nome (Exterior)
+
+		PI[2] Participante já cadastrado:
+			CPF:008.839.184-12; Nome:Vamberto Segundo Oliveira; 
+		PI[3] Novo participante a ser cadastrado.
+
+	▼ Estratégia de Teste
+		Importação
+			Importação .XML
+			Importação WEB
+			Importação .FS
+		Conversão
+			Importação Abrasf
+			Importação .XLSX (Fortaleza)
+			Importação .TXT (SP)
+			Sintegra
+			SPED ICMS
+		Testar em Base real de pendências passadas
+
+■ Casos de Testes
+	▼ Matriz de Lançamentos
+		ML[1] Apresentarão resultado conforme RES[1]:
+			Importa arquivos atendendo ao PI[1]
+				Participante com CNPJ 63.542.443/0001-24,		Participante com o mesmo nome (Participante X),		Inscrição Estadual diferente (33743109),		UF diferente (BA),	Indicador do ICMS igual (Contribuinte)
+				Participante com CNPJ 63.542.443/0001-24,		Participante com o mesmo nome (Participante X),		Inscrição Estadual diferente (0143253104084),	UF diferente (AC),	Indicador do ICMS diferente (Não Contribuinte)
+				Participante com CNPJ 63.542.443/0001-24,		Participante com o mesmo nome (Participante XY),	Inscrição Estadual diferente (248925849),		UF diferente (AL),	Indicador do ICMS diferente (Não Contribuinte)
+				Participante com CNPJ 63.542.443/0001-24,		Participante com o mesmo nome (Participante XY),	Inscrição Estadual diferente (888924259),		UF diferente (AM),	Indicador do ICMS igual (Contribuinte)
+				Participante com CNPJ 00.000.000/0001-91,		Participante com nome diferente (Participante XY),	Inscrição Estadual diferente (032656807),		UF diferente (AP),	Indicador do ICMS igual (Contribuinte)
+				Participante com CNPJ 00.000.000/0001-91,		Participante com nome diferente (Participante XY),	Inscrição Estadual diferente (0782401700126),	UF diferente (DF),	Indicador do ICMS diferente (Não Contribuinte)
+				Participante com CNPJ 00.000.000/0001-91,		Participante com nome diferente (Participante XY),	Inscrição Estadual diferente (060000007),		UF igual (CE),		Indicador do ICMS diferente (Não Contribuinte)
+				Participante com CNPJ 00.000.000/0001-91,		Participante com nome diferente (Participante XY),	Inscrição Estadual diferente (060000023),		UF igual (CE),		Indicador do ICMS igual (Contribuinte)
+				Participante com CNPJ 00.000.000/0001-91,		Participante com o mesmo nome (Participante X),   	Inscrição Estadual diferente (025387537),		UF diferente (ES),	Indicador do ICMS igual (Contribuinte)
+				Participante com CNPJ 00.000.000/0001-91,		Participante com o mesmo nome (Participante X),   	Inscrição Estadual diferente (158963083),		UF diferente (GO),	Indicador do ICMS diferente (Não Contribuinte)
+				Participante com CNPJ 00.000.000/0001-91,		Participante com o mesmo nome (Participante X),   	Inscrição Estadual diferente (060000031),		UF igual (CE),		Indicador do ICMS diferente (Não Contribuinte)
+				Participante sem CNPJ,				      		Participante com nome diferente (Participante XY),	Sem Inscrição Estadual,							UF diferente (MA),	Indicador do ICMS igual (Contribuinte)
+				Participante sem CNPJ,				      		Participante com nome diferente (Participante XY),	Sem Inscrição Estadual,							UF diferente (MG),	Indicador do ICMS diferente (Não Contribuinte)
+				Participante sem CNPJ,				      		Participante com nome diferente (Participante XY),	Sem Inscrição Estadual,							UF igual (CE),		Indicador do ICMS diferente (Não Contribuinte)
+				Participante sem CNPJ,				      		Participante com nome diferente (Participante XY),	Sem Inscrição Estadual,							UF igual (CE),		Indicador do ICMS igual (Contribuinte)
+				Participante sem CNPJ,				      		Participante com o mesmo nome (Participante X),   	Sem Inscrição Estadual,							UF diferente (MS),	Indicador do ICMS igual (Contribuinte)
+				Participante sem CNPJ,				      		Participante com o mesmo nome (Participante X),   	Sem Inscrição Estadual,							UF diferente (MT),	Indicador do ICMS diferente (Não Contribuinte)
+		ML[2] Apresentarão resultado conforme RES[2], importando arquivo adjacente ao ML[1]:
+			Importa arquivos atendendo ao PI[1]
+				Participante sem CNPJ,				      		Participante com o mesmo nome (Participante X),   	Sem Inscrição Estadual,							UF igual (CE),		Indicador do ICMS diferente (Não Contribuinte)
+				Participante sem CNPJ,				      		Participante com o mesmo nome (Participante X),   	Sem Inscrição Estadual,							UF igual (CE),		Indicador do ICMS igual (Contribuinte)
+				Participante do Exterior,						Participante com nome diferente (Participante XY)
+				Participante do Exterior,						Participante com o mesmo nome (Exterior)
+				Participante com CNPJ 00.000.000/0001-91,		Participante com o mesmo nome (Participante X),		Inscrição Estadual diferente (060000040),		UF igual (CE),		Indicador do ICMS igual (Contribuinte)
+				Participante com CNPJ 63.542.443/0001-24,		Participante com o mesmo nome (Participante X),		Inscrição Estadual igual (060000015),			UF igual (CE),		Indicador do ICMS igual (Contribuinte)
+				Participante com CNPJ 63.542.443/0001-24,		Participante com o mesmo nome (Participante X),		Inscrição Estadual igual (060000015),			UF igual (CE),		Indicador do ICMS diferente (Não Contribuinte)
+				Participante com CNPJ 63.542.443/0001-24,		Participante com nome diferente (Participante XY),	Inscrição Estadual igual (060000015),			UF igual (CE),		Indicador do ICMS diferente (Não Contribuinte)
+				Participante com CNPJ 63.542.443/0001-24,		Participante com nome diferente (Participante XY),	Inscrição Estadual igual (060000015),			UF igual (CE),		Indicador do ICMS igual (Contribuinte)
+		ML[3] Importação
+			Importa arquivos atendendo ao PI[2]
+				Notas diferentes, Participantes com CNPJ iguais,		Participantes com os mesmos nomes,	Inscrições Estaduais iguais,		UFs iguais,		Indicador do ICMS iguais
+				Notas diferentes, Participantes com CNPJ iguais,		Participantes com os mesmos nomes,	Inscrições Estaduais diferentes,	UFs diferentes,	Indicador do ICMS iguais
+				Notas diferentes, Participantes com CNPJ diferentes,	Participantes com os mesmos nomes,	Inscrições Estaduais diferentes,	UFs iguais,		Indicador do ICMS iguais
+				Notas diferentes, Participantes com CNPJ diferentes,	Participantes com os mesmos nomes,	Inscrições Estaduais diferentes,	UFs diferentes,	Indicador do ICMS iguais
+				Notas diferentes, Participantes sem CNPJ,				Participantes com os mesmos nomes,	Sem Inscrições Estaduais,			UFs iguais,		Indicador do ICMS iguais
+				Notas diferentes, Participantes sem CNPJ,				Participantes com os mesmos nomes,	Sem Inscrições Estaduais,			UFs diferentes,	Indicador do ICMS iguais
+				Notas diferentes, Participantes com CNPJ iguais,		Participantes com os mesmos nomes,	Inscrições Estaduais iguais,		UFs iguais,		Indicador do ICMS diferentes
+				Notas diferentes, Participantes com CNPJ iguais,		Participantes com os mesmos nomes,	Inscrições Estaduais diferentes,	UFs diferentes,	Indicador do ICMS diferentes
+				Notas diferentes, Participantes com CNPJ diferentes,	Participantes com os mesmos nomes,	Inscrições Estaduais diferentes,	UFs iguais,		Indicador do ICMS diferentes
+				Notas diferentes, Participantes com CNPJ diferentes,	Participantes com os mesmos nomes,	Inscrições Estaduais diferentes,	UFs diferentes,	Indicador do ICMS diferentes
+				Notas diferentes, Participantes sem CNPJ,				Participantes com os mesmos nomes,	Sem Inscrições Estaduais,			UFs iguais,		Indicador do ICMS diferentes
+				Notas diferentes, Participantes sem CNPJ,				Participantes com os mesmos nomes,	Sem Inscrições Estaduais,			UFs diferentes,	Indicador do ICMS diferentes
+				Notas diferentes, Participantes com CNPJ iguais,		Participantes com nomes diferentes,	Inscrições Estaduais iguais,		UFs iguais,		Indicador do ICMS iguais
+				Notas diferentes, Participantes com CNPJ iguais,		Participantes com nomes diferentes,	Inscrições Estaduais diferentes,	UFs diferentes,	Indicador do ICMS iguais
+				Notas diferentes, Participantes com CNPJ diferentes,	Participantes com nomes diferentes,	Inscrições Estaduais diferentes,	UFs iguais,		Indicador do ICMS iguais
+				Notas diferentes, Participantes com CNPJ diferentes,	Participantes com nomes diferentes,	Inscrições Estaduais diferentes,	UFs diferentes,	Indicador do ICMS iguais
+				Notas diferentes, Participantes sem CNPJ,				Participantes com nomes diferentes,	Sem Inscrições Estaduais,			UFs iguais,		Indicador do ICMS iguais
+				Notas diferentes, Participantes sem CNPJ,				Participantes com nomes diferentes,	Sem Inscrições Estaduais,			UFs diferentes,	Indicador do ICMS iguais
+				Notas diferentes, Participantes com CNPJ iguais,		Participantes com nomes diferentes,	Inscrições Estaduais iguais,		UFs iguais,		Indicador do ICMS diferentes
+				Notas diferentes, Participantes com CNPJ iguais,		Participantes com nomes diferentes,	Inscrições Estaduais diferentes,	UFs diferentes,	Indicador do ICMS diferentes
+				Notas diferentes, Participantes com CNPJ diferentes,	Participantes com nomes diferentes,	Inscrições Estaduais diferentes,	UFs iguais,		Indicador do ICMS diferentes
+				Notas diferentes, Participantes com CNPJ diferentes,	Participantes com nomes diferentes,	Inscrições Estaduais diferentes,	UFs diferentes,	Indicador do ICMS diferentes
+				Notas diferentes, Participantes sem CNPJ,				Participantes com nomes diferentes,	Sem Inscrições Estaduais,			UFs iguais,		Indicador do ICMS diferentes
+				Notas diferentes, Participantes sem CNPJ,				Participantes com nomes diferentes,	Sem Inscrições Estaduais,			UFs diferentes,	Indicador do ICMS diferentes
+
+	▼ Resultados
+		Fluxos Básicos
+			RES[1] Importa e inclui um novo participante
+		Fluxos Alternativos
+			RES[2] Importa e atualiza o participante
+
+
+Plano de Testes
+	Atividade
+		Procedimentos Iniciais
+			Estratégia de Teste
+				Matriz de Lançamentos
+					Resultado
+
+
+
+
+Links de testes unitários:
+Links de testes funcionais:
+Recursos:
+					  Nome do arquivo no padrão:	[Relacionamento principal]-( Se for arquivo Abrasf informar o município e UF )[Município] (UF)-[Observação opcional]
+										Exemplo:	Arquivo para importação: Abrasf-Ponte Nova (MG)-Inscrição Estadual do Participante.xml
+	Nome do arquivo do banco de dados no padrão:	[Iniciais do subsistema]-[Relacionamento principal]-[Ano de publicação]-[Nome da empresa]-[Período]-[Observação opcional]
+										Exemplo:	Banco para testes: ACC-Planilha Financeira-2021-ONE INTERNET SA-042021.rar
+
+
+Recursos:
+Origem (P CH202102067346)
+	Arquivo para importação: Abrasf-Ponte Nova (MG)-Inscrição Estadual do Participante.xml

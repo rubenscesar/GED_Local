@@ -93,15 +93,18 @@ Relacionamentos:
 			Inclusão com uso do atalho para concluir a gravação abreviando o tempo (F9)
 			Quando editar alguma informação, verificar se não ficou sujeira no banco
 		Importação
-			Importação WEB
+			Importação .FS
+			Importação .CSV
 			Importação .XML
-			Importação .fs
+			Importação WEB
 			Arquivo .DOC da versão de importação "LeiauteImportacaoFortesACFiscal.doc"
 			Visarq
 		Conversão
 			Sintegra
 			SPED ICMS
-			Importação .txt (SP)
+			Importação .TXT (SP)
+			Importação .XLSX (Fortaleza)
+			Importação Abrasf
 			AC Auto (para as entradas)
 		Testar em Base real de pendências passadas
 

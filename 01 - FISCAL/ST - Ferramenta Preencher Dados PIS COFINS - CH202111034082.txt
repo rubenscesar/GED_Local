@@ -1,0 +1,220 @@
+Épico: Diminuir o valor do ISS destacado na nota para encontrar o valor da Base de Cálculo de PIS e COFINS.
+Número do cartão: S CH202111034082
+Ano de publicação: 2022
+Relacionamentos: Sped Contribuições, Sped PIS/COFINS, Exclusão do ICMS da Base de Cálculo de PIS/COFINS
+
+■ Plano de Testes
+	▼ Requisitos
+		RE[1] Exigências para enquadramento do requisito
+			RE[1.1] Embasamento no Processo Judicial Nº 0800864-48.2020.4.05.8109 - Origem da Secretaria da Receita Federal do Brasil
+			RE[1.2] Será atribuído a empresas cujo Regime de Tributação Estadual seja do Lucro Real ou Lucro Presumido
+			RE[1.3] Será atribuído a lançamentos de:
+					• NF de mercadoria (NFe, NFCe, CFe, NF1, NFVC, CF) com serviço de entrada e saída de terceiros e documentos próprios
+					• NF de serviço (NFSe, NFS) de entrada e saída documentos próprios
+			RE[1.4] Será atribuído a lançamentos com ISS destacado na nota, CST e Base de Cálculo de PIS e COFINS preenchidos ou em branco e Processo/Ação informado ou em branco
+			RE[1.5] Será atribuído a lançamentos quando o CST utilizado na nota for 01 ou 02 nas saídas ou CST 50 ao 67 nas entradas
+			RE[1.6] Será aplicado com Processo/Ação com marcação EFD PIS/COFINS
+			RE[1.7]	Fórmula utilizada quando for aplicado:
+					• Exclusão da BC PIS/COFINS = Valor ISS
+					• Valor Serviço - Exclusão da BC PIS/COFINS = Base de Cálculo PIS/COFINS
+			RE[1.8] Será aplicado a exclusão pela ferramenta "Utilitários >> Ferramentas >> Preencher Dados PIS e COFINS" quando atender aos critério RE[1.2] até RE[1.6]
+			RE[1.9] Será aplicado a exclusão pela ferramenta "Utilitários >> Ferramentas >> Preencher Dados PIS e COFINS" quando na ferramenta for:
+					• Marcado a opção "Preencher Exclusão da BC PIS/COFINS"
+					• Marcado os tipos de documentos conforme RE[1.3]
+					• For selecionado um Processo/Ação em conformidade com RE[1.6]
+					• Marcado "Sugerir Base de Cálculo"
+			RE[1.10]Não será realizado neste cartão:
+					• Importação de qualquer tipo
+					• Mudança na tela dos lançamentos para adaptar a exclusão automaticamente
+			RE[1.11]Quando for utilizada a ferramenta "Utilitários >> Ferramentas >> Preencher Dados PIS e COFINS" ou "Utilitários >> Ferramentas >> Apagar CST PIS/COFINS", invalidar apuração
+			RE[1.12]Quando for utilizada a ferramenta "Utilitários >> Ferramentas >> Apagar CST PIS/COFINS", serão excluídos as informações pertinentes aos campos:
+					• Exclusão da BC PIS/COFINS
+					• CST de PIS/COFINS
+					• Base de Cálculo PIS/COFINS
+					• Alíquota de PIS/COFINS
+					• Valor de PIS/COFINS
+			RE[1.13]Será apresentado na Auditoria do sistema a invalidação dos saldos quando cliente preencher exclusão ou apagar exclusão.
+		RE[2] Necessário para executar a homologação do cartão
+	▼ Escopo do Teste
+		Será Testado
+			Obrigações Acessórias
+			Ferramentas
+		Não Será Testado
+			NFS
+			NF1 de terceiros
+			NF1 documentos próprios
+			Relatórios
+			Conversão
+			Lançamentos
+			Importação/Exportação
+	▼ Matriz de Risco
+		Status		ID	Descrição	(P)robabilidade de Ocorrência do Erro	(I)mpacto do Erro	Priorização do Teste = P x I	Responsável	Estratégia				Reavaliar
+		Priorizado	1	...			3 Alta									3 Alta				9								Rubens		Eliminar/Evitar			Anualmente
+					2	...			2 Média									2 Média				4								Rubens		Prevenir/Mitigar		Mensalmente
+					3	...			1 Baixa									1 Baixa				1								Rubens		Aceitar Passivamente	Por Evento
+					4	...			...										...					...								Rubens		Aceitar Ativamente		...
+
+■ Procedimentos de Testes
+	▼ Atividades
+		Firebird
+		SQL
+			Regime de Tributação Federal - Lucro Real
+			Regime de Tributação Federal - Lucro Presumido
+				Regime de Tributação Estadual - Normal
+					Incidência tributária não-cumulativa
+					Incidência tributária cumulativa
+					Incidência tributária não-cumulativa e cumulativa (padrão não-cumulativa)
+						Alíquota padrão de PIS/COFINS
+						Alíquota específica de PIS/COFINS
+							Adotando critério de escrituração Consolidada para gerar Sped Contribuições, sem informar itens no Histórico da empresa e informando itens no Histórico do estabelecimento
+							Adotando critério de escrituração Detalhada para gerar Sped Contribuições, informando itens no Histórico da empresa e no Histórico do estabelecimento
+								Informando itens
+								Sem informar itens
+
+	▼ Procedimentos Iniciais
+
+	▼ Estratégia de Teste
+		Teste GUI (Graphical User Interface)
+			Passagem de campos
+			Condição para habilitar ou tonar vísível os campos conforme RE[1]
+				• Passando pelos campos pela primeira ou segunda vez ao abrir a tela
+					• Independente da informação dos campos anteriores
+						• Ao passar do campo Período (Final)
+							• Com data <= que 31/05/2022
+								A opção "Preencher Exclusão da BC PIS/COFINS" será marcado automaticamente com a finalidade de sujestão, podendo ser alterado manualmente
+							• Com data > que 01/06/2022
+								A opção "Preencher Exclusão da BC PIS/COFINS" será desmarcado automaticamente com a finalidade de sujestão, podendo ser alterado manualmente
+					• Quando o campo "Operação" for "Entradas", o campo "Tipos de Documentos", for "Sem Produtos" e o campo "Preencher Exclusão da BC PIS/COFINS" está marcado
+						• Ao passar do campo "Preencher Exclusão da BC PIS/COFINS"
+							• Com qualquer data
+								Os Tipos de Documentos que estarão habilitados e disponíveis são:
+									• Serviço (ISS) e NFS-e (Entradas)
+									• Conhecimento de Transporte
+									• Notas Fiscais de Serviço de Transporte
+									• Notas Fiscais de Contas de Energia Elétrica, NF3-e, Gás e Água Canalizada
+									• Notas Fiscais de Serviço de Comunicação
+									• Conhecimento de Transporte Eletrônico para Outros Serviços
+									• Nota Fiscal de Mercadoria - Serviços
+									• Notas Fiscais de Serviço de Telecomunicação
+					• Quando o campo "Operação" for "Saídas", o campo "Tipos de Documentos", for "Sem Produtos" e o campo "Preencher Exclusão da BC PIS/COFINS" está marcado
+						• Ao passar do campo "Preencher Exclusão da BC PIS/COFINS"
+							• Com qualquer data
+								Os Tipos de Documentos que estarão habilitados e disponíveis são:
+									• Serviço (ISS) e NFS-e (Saídas)
+									• Conhecimento de Transporte
+									• Notas Fiscais de Serviço de Transporte
+									• Bilhetes de Passagem Eletrônico
+									• Bilhetes de Passagem
+									• Resumo de Movimentos Diário
+									• Notas Fiscais de Contas de Energia Elétrica, NF3-e, Gás e Água Canalizada
+									• Notas Fiscais de Serviço de Comunicação
+									• Notas Fiscais Eletônica ao Consumidor Final - Serviços
+									• Conhecimento de Transporte Eletrônico para Outros Serviços
+									• Cupons Fiscais referentes a Bilhetes de Passagem
+									• Cupons Fiscais Eletrônico - Serviços
+									• Nota Fiscal de Mercadoria - Serviços
+									• Cupons Fiscais - Serviços
+									• Notas Fiscais de Serviço de Telecomunicação
+					• Quando o campo "Operação" for "Saídas", o campo "Tipos de Documentos", for "Sem Produtos" e o campo "Preencher Exclusão da BC PIS/COFINS" está desmarcado
+						• Ao passar do campo "Preencher Exclusão da BC PIS/COFINS"
+							• Com qualquer data
+								Os Tipos de Documentos que estarão habilitados e disponíveis são:
+									• Serviço (ISS) e NFS-e (Saídas)
+									• Conhecimento de Transporte
+									• Notas Fiscais de Serviço de Transporte
+									• Bilhetes de Passagem Eletrônico
+									• Bilhetes de Passagem
+									• Resumo de Movimentos Diário
+									• Notas Fiscais de Contas de Energia Elétrica, NF3-e, Gás e Água Canalizada
+									• Notas Fiscais de Serviço de Comunicação
+									• Notas Fiscais Eletônica ao Consumidor Final - Serviços
+									• Conhecimento de Transporte Eletrônico para Outros Serviços
+									• Cupons Fiscais referentes a Bilhetes de Passagem
+									• Cupons Fiscais Eletrônico - Serviços
+									• Nota Fiscal de Mercadoria - Serviços
+									• Cupons Fiscais - Serviços
+									• Notas Fiscais de Serviço de Telecomunicação
+		Testar em Base real de pendências passadas
+		Lançamentos com Processo/Ação com marcação EFD PIS/COFINS
+		Lançamentos com Processo/Ação sem marcação EFD PIS/COFINS
+			Lançamentos com Processo/Ação informado
+			Lançamentos sem Processo/Ação informado
+				Lançamentos quando o CST utilizado na nota for 01 ou 02 nas saídas ou 50 ao 67 nas entradas e com Base de Cálculo de PIS e COFINS preenchidos
+				Lançamentos quando o CST utilizado na nota for diferente 01 ou 02 nas saídas ou 50 ao 67 nas entradas e sem Base de Cálculo de PIS e COFINS preenchidos
+					Lançamentos com ISS destacado na nota
+					Lançamentos sem ISS destacado na nota
+						Lançamentos com valor de Desconto
+						Lançamentos sem valor de Desconto
+							Lançamentos com valor de Retenção
+							Lançamentos sem valor de Retenção
+								Mais de 1 item
+								Itens diferentes
+								Mais de 1 corpo
+								Com serviço de entrada
+									NFe de terceiros
+									NFSe
+								Com serviço de saída
+									NFe de terceiros
+									NFSe
+									NFCe
+									CFe
+										Com 2 equipamentos
+									CF
+										Com 2 equipamentos
+		Processos para ter atenção ao testar
+			Controle de Retenções
+				Se ao aplicar a Exclusão do ICMS da B.C. de PIS/COFINS do período não estará interferiando no saldo de retenções de PIS/COFINS
+			Controle de Crédito
+				Se ao aplicar a Exclusão do ICMS da B.C. de PIS/COFINS do período não estará interferiando no saldo de crédito de PIS/COFINS
+		Ferramentas
+			Utilitários >> Ferramentas >> Preencher Dados PIS e COFINS
+				Informar "Preencher Exclusão da BC PIS/COFINS"
+					Selecionando um processo com vínculo com EFD PIS/COFINS
+						Informando um período onde a nota já possui um processo anexado
+						Informando um período onde a nota não possui um processo anexado
+							Informando um período onde a nota possui ISS
+								Informando um período onde o CST utilizado na nota for 01 ou 02 nas saídas ou CST 50 ao 67 nas entradas
+								Informando um período onde o CST utilizado na nota for diferente 01 ou 02 nas saídas ou diferente de CST 50 ao 67 nas entradas
+							Informando um período onde a nota não possui ISS
+					Selecionando um processo sem vínculo com EFD PIS/COFINS
+					Invalidar Apuração
+					Com Filtros
+					Consultar no banco se os valores estão sendo preenchidos com apenas 2 casas decimais a fim de evitar problemas de arredondamento (BC 247,11, ISS 12,3555)
+			Utilitários >> Ferramentas >> Apagar CST PIS/COFINS
+				Invalidar Apuração
+				Com Filtros
+			Utilitários >> Recalcular Tributos Federais
+				Auditoria
+					Auditar invalidação
+		Obrigação acessória
+			Sped Contribuições
+		Controle de Crédito
+			Manual
+			Automático
+				Aproveitando primeiramente o período mais antigo
+				Aproveitando primeiramente o período atual
+							Crédito Período Anterior	Crédito do Período	Débito do Período	Crédito Utilizado no Mês	Crédito para Período Seguinte	COFINS para Período Seguinte	PIS para Período Seguinte
+					12/2020	-							1.000,00			-					-							1.000,00						76,00							16,50
+					01/2021	1.000,00 	 				500,00				500,00				500,00						1.000,00						38,00							8,25
+					02/2021	1.000,00					-					500,00				500,00						500,00							38,00							8,25
+					03/2021	500,00						-					-					-							500,00							38,00							8,25
+					04/2021	500,00						-					300,00				300,00						200,00							15,20							3,30
+					05/2021	200,00						-					200,00				200,00						-								-								-
+					06/2021	-							1.000,00			-					-							1.000,00						76,00							16,50
+					07/2021	1.000,00					-					-					-							1.000,00						76,00							16,50
+					08/2021	1.000,00					-					1.500,00			1.000,00					-								-								-
+
+■ Casos de Testes
+	▼ Matriz de Lançamentos
+	▼ Resultados
+		Fluxos Básicos
+		Fluxos Alternativos
+		Fluxos de Exceção
+
+
+Plano de Testes
+	Atividade
+		Procedimentos Iniciais
+			Estratégia de Teste
+				Matriz de Lançamentos
+					Resultado
