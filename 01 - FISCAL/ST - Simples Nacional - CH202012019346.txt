@@ -147,13 +147,19 @@ Relacionamentos: Simples Nacional, Anexo I, Anexo II, Devolução
 		Utilizando análise combinatória conferir no controle de devolução está segregando corretamente
 		Invalida VRE
 		Arredondando
-		Rec	<	Dev
-		Rec	=	Dev
-		Rec	>	Dev
-		Rec	<	Dev	<	Rec
-		Rec	<	Dev	=	Rec
-		Rec	<	Dev	>	Rec	<	Rec
-		Rec	<	Dev	>	Rec Venda
+		Receita
+		Receita > Devolução
+		Receita = Devolução
+		Receita < Devolução
+		Saldo de Devolução Automático
+		Receita > Saldo de Devolução Automático
+		Receita < Devolução
+		Receita < Saldo de Devolução Automático
+		Receita = Saldo de Devolução Automático
+		Saldo de Devolução Manual
+		Receita > Saldo de Devolução Manual
+		Receita = Saldo de Devolução Manual
+		Receita < Saldo de Devolução Manual
 		Garantir que a devolução de um estabelecimento não está sendo utilizada em outra
 		Garantir que as devoluções estão sendo utilizadas em suas respectivas marcações
 		Utilizar o Resumo Mensal de Substituição ou Tributação Monofásica
@@ -207,6 +213,35 @@ Relacionamentos: Simples Nacional, Anexo I, Anexo II, Devolução
 			CFOP com Natureza da Operação "Outras"
 			Remessa para Entrega Futura (5.922, 6.922)
 			Remessa para Entrega Futura (5.117, 6.117)
+																				Devolução				Devolução				Devolução						Devolução
+														Receita		Receita     Lançamentos no período  Lançamentos no período  Saldo automático de             Lançamentos manuais de						Saldo de Devolução
+														Venda		Revenda     Venda                   Revenda                 Valores dos Estabelecimentos    Valores dos Estabelecimentos	Resultado   para o Período Seguinte
+			Receita                                   │   100,00					    			                                                                                   100,00
+			Receita > Devolução                       │   200,00                                 150,00                                                                                 50,00
+			Receita = Devolução                       │   300,00                                 300,00                                                                                                            
+			Receita < Devolução                       │   400,00                                 450,00                                                                                                                         50,00
+			Saldo de Devolução Automático             │                                        												            50,00                                                                   50,00
+			Receita > Saldo de Devolução Automático   │   500,00                                                                                        50,00                                       450,00                  
+			Receita < Devolução                       │   600,00                               1.250,00                                                                                                                        650,00
+			Receita < Saldo de Devolução Automático   │   500,00                                                                                       650,00                                                                  150,00
+			Receita = Saldo de Devolução Automático   │   150,00                                                                                       150,00                                                                             
+			Saldo de Devolução Manual                 │   						             												        					               500,00                                  500,00
+			Receita > Saldo de Devolução Manual       │   600,00                                                                                                                                    100,00                  
+			Receita = Saldo de Devolução Manual       │   700,00                                                                                                                       700,00                                
+			Receita < Saldo de Devolução Manual       │   800,00                                                                                                                       850,00                                   50,00
+			Receita									  │               100,00	                                                                                                       100,00                 	    
+			Receita > Devolução                       │               200,00                                             150,00                                                         50,00                    
+			Receita = Devolução                       │               300,00                                             300,00                                                                                                        
+			Receita < Devolução                       │               400,00                                             450,00                                                                                                 50,00                    
+			Saldo de Devolução Automático             │                                                                                                 50,00                                                                   50,00                    
+			Receita > Saldo de Devolução Automático   │               500,00                                                                            50,00                                       450,00                                      
+			Receita < Devolução                       │               600,00                                           1.250,00                                                                                                650,00                    
+			Receita < Saldo de Devolução Automático   │               500,00                                                                           650,00                                                                  150,00                    
+			Receita = Saldo de Devolução Automático   │               150,00                                                                           150,00                                                                        
+			Saldo de Devolução Manual                 │                                                                                              					               500,00                                  500,00
+			Receita > Saldo de Devolução Manual       │               600,00                                                                                                                        100,00                  
+			Receita = Saldo de Devolução Manual       │               700,00                                                                                                           700,00                                
+			Receita < Saldo de Devolução Manual		  │               800,00                                                                                                           850,00                                   50,00
 	▼ Resultados
 		Fluxos Básicos
 		Fluxos Alternativos

@@ -31,27 +31,26 @@ Relacionamentos: Ajustar Cadastro de Participante
 				Passagem de campos
 				Atalhos dos botões
 				Ortografia e Gramática
-				Perfil de Usuários
-					Confirmando que a empresa não possui nenhum Dono cadastrado
-					CRUD na tela a ser testada
-						Todos (ADMIN)
-						TA - Total e apenas da Janela
-						I - Inclusão
-						A - Alteração
-						E - Exclusão
-						TE - Todas as janelas Exceto a esta
 			Auditoria
-			Banco com divergências de Participantes (é realizado uma comparação se entre os bancos de dados verificando se os participantes de mesmo código divergem em alguma informação)
+			Banco com divergências de Participantes	(• É realizado uma comparação inicialmente pelo código do participante e se forem iguais passa a comparar o CNPJ.
+													 • Os participantes que divergirem de CNPJ serão apresentado como resultado;
+													 • Quando aplica as alterações é feito a cópia de todos os dados do banco de backup para o banco atual.)
 				Quando no backup contém participantes a menos que no banco atual
 				Quando no backup contém a mesma quantidade que no banco atual
-				Quando no backup contém participantes com todos os dados diferente do mesmo participante no banco atual. FB[1]
+				Quando no backup contém participantes com todos os dados diferente (código e CNPJ) do mesmo participante no banco atual. FB[1]
 				Quando no backup contém participantes com todos os dados iguais do mesmo participante no banco atual. FA[1]
 				Quando no backup contém participantes com todos os dados iguais do mesmo participante no banco atual (exceto o CNPJ que no atual é diferente). FB[1]
 				Quando no backup contém participantes com todos os dados iguais do mesmo participante no banco atual (exceto o CNPJ que no atual está em branco). FB[1]
 				Quando no backup contém participantes com todos os dados iguais do mesmo participante no banco atual (exceto o CNPJ que no atual é CPF). FB[1]
 				Quando no backup contém participantes com todos os dados iguais do mesmo participante no banco atual (exceto o CNPJ que no atual é do Exterior). FB[1]
 				Quando no backup contém participantes com todos os dados iguais do mesmo participante no banco atual (exceto o Endereço)
-			Banco com divergências de Histórico de Participantes
+			Banco com divergências de Histórico de Participantes (• É realizado uma comparação inicialmente pelo código do participante e se forem iguais passa a
+																	comparar o CNPJ do participante com o CNPJ dos seus históricos;
+																  • Em seguida é verificado os históricos com os data posterior a 09/05/2022;
+			                                                      • Os históricos de participantes que divergirem de CNPJ com data posterior a 09/05/2022 serão
+																	apresentado como resultado;
+			                                                      • Quando aplica as alterações é feito a cópia do CNPJ do cadastro do participante para histórico do
+																	participante.)
 				Sem histórico do participante no backup
 				Com 1 histórico do participante no backup
 					Quando no banco atual contém participantes com os seus históricos com CNPJ diferente do histórico do mesmo participante no backup. FB[1]
@@ -88,10 +87,19 @@ Relacionamentos: Ajustar Cadastro de Participante
 				Com NFe de entrada cujo CNPJ do Participante compõe a chave do documento NFe de entrada
 				Com NFe de entrada cujo CNPJ do Participante não compõe a chave do documento NFe de entrada
 				Com NFe de entrada cujo CNPJ do Participante não compõe a chave do documento NFe de entrada mas a NFe é uma nota avulsa (série 890-899)
-				Com NFe de entrada (documento próprio (devolução)) cujo CNPJ do Participante não compõe a chave do documento NFe de entrada
 			Banco com divergências de Integração Contábil
 				Se Integração Contábil estiver configurada
 					NFe
+					NFCe
+					CFe
+						2 equipamentos
+					CTe
+					BPe
+					CTeOS
+					NFSe
+					NFSTC
+					NFSC
+					RDD
 						Com 1 lançamento contábil cujo CNPJ do Participante compõe o lançamento contábil do documento
 							Com CNPJ¹ diferente ao do cadastro do participante do Fiscal
 							Com CNPJ¹ igual ao do cadastro do participante do Fiscal
@@ -103,12 +111,6 @@ Relacionamentos: Ajustar Cadastro de Participante
 
 ■ Casos de Testes
 	▼ Matriz de Lançamentos
-		PAR	CNPJ			LANÇAMENTOS CONTÁBEIS
-		1	79867578000108	1
-		5	79867578000108	vários
-		2	00000000000191
-		4	nulo
-		4	em branco
 	▼ Resultados
 		Fluxos Básicos
 			FB[1] Apresenta na GRID os resultados. Mostra os dados localizados no banco de backup

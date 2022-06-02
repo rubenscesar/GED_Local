@@ -56,13 +56,11 @@ Relacionamentos: Importação .XML, Importação WEB, Importação Abrasf, Impor
 			Escriturando em 2 estabelecimentos
 
 	▼ Procedimentos Iniciais
-		PI[1] Participantes já cadastrados:
-			• Com CNPJ 63.542.443/0001-24,	Participantes com nome (Participante X),	Inscrição Estadual (060000015),	UF (CE),	Indicador do ICMS (Contribuinte)
-			• Participante do Exterior,		Participante com nome (Exterior)
-
-		PI[2] Participante já cadastrado:
-			CPF:008.839.184-12; Nome:Vamberto Segundo Oliveira; 
-		PI[3] Novo participante a ser cadastrado.
+		PI[1] Cadastrar o Participante no banco antes de iniciar as importações:
+			  • Com CNPJ 63.542.443/0001-24,	Participantes com nome (Participante X),	Inscrição Estadual (060000015),	UF (CE),	Indicador do ICMS (Contribuinte)
+			  • Participante do Exterior,		Participante com nome (Exterior)
+		PI[2] Cadastrar o Participante no banco antes de iniciar as importações:
+			  CPF: 008.839.184-12; Nome: Vamberto Segundo Oliveira
 
 	▼ Estratégia de Teste
 		Importação
@@ -79,8 +77,8 @@ Relacionamentos: Importação .XML, Importação WEB, Importação Abrasf, Impor
 
 ■ Casos de Testes
 	▼ Matriz de Lançamentos
-		ML[1] Apresentarão resultado conforme RES[1]:
-			Importa arquivos atendendo ao PI[1]
+		ML[1] Apresentarão resultado conforme descrito em Resultados - FB[1]:
+			Importa arquivos conforme descrito em Procedimentos Iniciais - PI[1]
 				Participante com CNPJ 63.542.443/0001-24,		Participante com o mesmo nome (Participante X),		Inscrição Estadual diferente (33743109),		UF diferente (BA),	Indicador do ICMS igual (Contribuinte)
 				Participante com CNPJ 63.542.443/0001-24,		Participante com o mesmo nome (Participante X),		Inscrição Estadual diferente (0143253104084),	UF diferente (AC),	Indicador do ICMS diferente (Não Contribuinte)
 				Participante com CNPJ 63.542.443/0001-24,		Participante com o mesmo nome (Participante XY),	Inscrição Estadual diferente (248925849),		UF diferente (AL),	Indicador do ICMS diferente (Não Contribuinte)
@@ -98,8 +96,8 @@ Relacionamentos: Importação .XML, Importação WEB, Importação Abrasf, Impor
 				Participante sem CNPJ,				      		Participante com nome diferente (Participante XY),	Sem Inscrição Estadual,							UF igual (CE),		Indicador do ICMS igual (Contribuinte)
 				Participante sem CNPJ,				      		Participante com o mesmo nome (Participante X),   	Sem Inscrição Estadual,							UF diferente (MS),	Indicador do ICMS igual (Contribuinte)
 				Participante sem CNPJ,				      		Participante com o mesmo nome (Participante X),   	Sem Inscrição Estadual,							UF diferente (MT),	Indicador do ICMS diferente (Não Contribuinte)
-		ML[2] Apresentarão resultado conforme RES[2], importando arquivo adjacente ao ML[1]:
-			Importa arquivos atendendo ao PI[1]
+		ML[2] Apresentarão resultado conforme descrito em Resultados - FA[2], importando arquivo adjacente ao ML[1]:
+			Importa arquivos conforme descrito em Procedimentos Iniciais - PI[1]
 				Participante sem CNPJ,				      		Participante com o mesmo nome (Participante X),   	Sem Inscrição Estadual,							UF igual (CE),		Indicador do ICMS diferente (Não Contribuinte)
 				Participante sem CNPJ,				      		Participante com o mesmo nome (Participante X),   	Sem Inscrição Estadual,							UF igual (CE),		Indicador do ICMS igual (Contribuinte)
 				Participante do Exterior,						Participante com nome diferente (Participante XY)
@@ -110,7 +108,7 @@ Relacionamentos: Importação .XML, Importação WEB, Importação Abrasf, Impor
 				Participante com CNPJ 63.542.443/0001-24,		Participante com nome diferente (Participante XY),	Inscrição Estadual igual (060000015),			UF igual (CE),		Indicador do ICMS diferente (Não Contribuinte)
 				Participante com CNPJ 63.542.443/0001-24,		Participante com nome diferente (Participante XY),	Inscrição Estadual igual (060000015),			UF igual (CE),		Indicador do ICMS igual (Contribuinte)
 		ML[3] Importação
-			Importa arquivos atendendo ao PI[2]
+			Importa arquivos conforme descrito em Procedimentos Iniciais - PI[2]
 				Notas diferentes, Participantes com CNPJ iguais,		Participantes com os mesmos nomes,	Inscrições Estaduais iguais,		UFs iguais,		Indicador do ICMS iguais
 				Notas diferentes, Participantes com CNPJ iguais,		Participantes com os mesmos nomes,	Inscrições Estaduais diferentes,	UFs diferentes,	Indicador do ICMS iguais
 				Notas diferentes, Participantes com CNPJ diferentes,	Participantes com os mesmos nomes,	Inscrições Estaduais diferentes,	UFs iguais,		Indicador do ICMS iguais
@@ -138,9 +136,9 @@ Relacionamentos: Importação .XML, Importação WEB, Importação Abrasf, Impor
 
 	▼ Resultados
 		Fluxos Básicos
-			RES[1] Importa e inclui um novo participante
+			FB[1] Importa e inclui um novo participante
 		Fluxos Alternativos
-			RES[2] Importa e atualiza o participante
+			FA[2] Importa e atualiza o participante
 
 
 Plano de Testes

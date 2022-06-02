@@ -102,6 +102,7 @@ Relacionamentos:
 		Conversão
 			Sintegra
 			SPED ICMS
+			Importação NFS-e .TXT Indaiatuba (SP)
 			Importação .TXT (SP)
 			Importação .XLSX (Fortaleza)
 			Importação Abrasf

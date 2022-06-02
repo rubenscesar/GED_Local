@@ -1,0 +1,100 @@
+Épico: 
+Número do cartão: S 
+Ano de publicação: 2022
+Relacionamentos: 
+
+■ Plano de Testes
+	▼ Requisitos
+		RE[1] Exigências para enquadramento do requisito
+			RE[1.1] Embasamento no Art. __, Decreto n°__.___/__ do RIMCs (__)
+			RE[1._] Será atribuído a estabelecimentos cujo UF seja de (MG)
+			RE[1._] Será atribuído a empresas cujo Regime de Tributação Estadual seja do Lucro Real / Lucro Presumido / Simples Nacional
+			RE[1._] Será atribuído a lançamentos de NF-e e ___ de entrada / saída de terceiros / documentos próprios
+			RE[1._] Será atribuído a lançamentos com ICMS Normal / Antecipado / Diferencial de Alíquota
+			RE[1._] Será atribuído a lançamentos quando o CST / CSOSN utilizado for ___
+			RE[1._]	Fórmula utilizada quando for aplicado ___
+					__ x __ = __
+			RE[1._]	Será exibido em
+					Relatórios >> Livros Fiscais >> Registro de Entrada
+						Os valores serão apresentado com o "Código de Valores Fiscais" _
+					Relatórios >> ICMS >> ICMS Antecipado
+					DeSTDA
+						Registro ___
+			RE[1._]	Ferramentas
+		RE[2] Necessário para executar a homologação do cartão
+	▼ Escopo do Teste
+		Será Testado
+			Conversão
+			Relatórios
+		Não Será Testado
+	▼ Matriz de Risco
+
+■ Procedimentos de Testes
+	▼ Atividades
+		Firebird
+			Estabelecimento necessariamente com UF (SP) e município de Indaiatuba
+				Regime de Tributação Federal - Lucro Real ou Lucro Presumido
+				Regime de Tributação Federal - Simples Nacional
+					Regime de Tributação Estadual - Normal
+					Regime de Tributação Estadual - Simples Nacional
+
+	▼ Procedimentos Iniciais
+
+	▼ Estratégia de Teste
+		Utilitários >> Configuração > Fiscal // Conversão/Importação // NFS-e Indaiatuba (SP)
+			Teste GUI (Graphical User Interface)
+				Testar tela com resolução 1366x768, vê se na mesma aparecem todos os campos e são clicáveis
+				Passagem de campos
+				Atalhos dos botões
+				Ortografia e Gramática
+			CRUD
+				Inclusão com passagem campo a campo
+				Inclusão com uso do mouse para concluir a gravação abreviando o tempo (Ok)
+				Inclusão com uso do atalho para concluir a gravação abreviando o tempo (F9)
+		Cadastros >> Atividades (ISS)
+		Cadastros >> Serviços (ISS)
+		Conversão
+			Importação NFS-e .TXT Indaiatuba (SP)
+		Testar em Base real de pendências passadas
+
+■ Casos de Testes
+	▼ Matriz de Lançamentos
+		01 NFS-e TXT Indaiatuba (SP) - Cancelado.txt
+		02 NFS-e TXT Indaiatuba (SP) - OperaçãoSaída RegimeNormal TribNormal - ParCPF Retenções.txt
+		03 NFS-e TXT Indaiatuba (SP) - OperaçãoSaída RegimeNormal TribNormal - ParCNPJ Retenções.txt
+		04 NFS-e TXT Indaiatuba (SP) - OperaçãoSaída RegimeNormal TribNormal - ParCNPJ RetDescDedRed.txt
+		05 NFS-e TXT Indaiatuba (SP) - OperaçãoSaída RegimeNormal TribNormal - ParCNPJ RetDescDedRed UFsDif LocIncidTomador.txt
+		06 NFS-e TXT Indaiatuba (SP) - OperaçãoSaída RegimeNormal TribNormal - ParCNPJ RetDescDedRed UFsDif LocIncidPrestador.txt
+		07 NFS-e TXT Indaiatuba (SP) - OperaçãoSaída RegimeNormal TribNormal - ParCNPJ RetDescDedRed UFsDif LocIncidPrestaçãoDeServiço.txt
+		08 NFS-e TXT Indaiatuba (SP) - OperaçãoSaída RegimeNormal TribNormal - ParCNPJ RetDescDedRed UFsDif LocIncidÓrgãoGerador.txt
+		09 NFS-e TXT Indaiatuba (SP) - OperaçãoSaída RegimeNormal TributaçãoNãoIncidência - ParCNPJ.txt
+		10 NFS-e TXT Indaiatuba (SP) - OperaçãoSaída RegimeNormal TributaçãoIsento - ParCNPJ.txt
+		11 NFS-e TXT Indaiatuba (SP) - OperaçãoSaída RegimeNormal TributaçãoImune - ParCNPJ.txt
+		13 NFS-e TXT Indaiatuba (SP) - OperaçãoSaída RegimeNormal TributaçãoNãoIncidência - ParCNPJ.txt
+		14 NFS-e TXT Indaiatuba (SP) - OperaçãoSaída RegimeNormal TributaçãoNãoIncidência - ParCNPJ.txt
+		12 NFS-e TXT Indaiatuba (SP) - OperaçãoSaída RegimeNormal TributaçãoNãoIncidência - ParCNPJ.txt
+		15 NFS-e TXT Indaiatuba (SP) - OperaçãoSaída RegimeNormal TributaçãoSimplesNacional - ParCNPJ.txt
+		16 a 17 NFS-e TXT Indaiatuba (SP) - OperaçãoSaída RegimeNormal TribNormal - ParCNPJ RetDescDedRed VáriasNotas.txt
+		18 NFS-e TXT Indaiatuba (SP) - OperaçãoSaída RegimeNormal TribNormal - ParCNPJ Retenções VáriosItens.txt
+		19 NFS-e TXT Indaiatuba (SP) - OperaçãoSaída RegimeNormal TribNormal - ParCNPJ ConfiguraçãoSemAtivnoArquivo.txt
+		20 NFS-e TXT Indaiatuba (SP) - OperaçãoSaída RegimeNormal TribNormal - ParCNPJ ConfiguraçãoSemServnoArquivo.txt
+		21 NFS-e TXT Indaiatuba (SP) - OperaçãoSaída RegimeNormal TribNormal - ParCNPJ ConfiguraçãoSemAtivServnoArquivo.txt
+		22 NFS-e TXT Indaiatuba (SP) - OperaçãoSaída RegimeNormal TribNormal - ParCNPJ ConfiguraçãoServnotxtnãoencontradonoBanco.txt
+		23 NFS-e TXT Indaiatuba (SP) - OperaçãoSaída RegimeNormal TribNormal - ParCNPJ ConfiguraçãoTomadorEmBranco.txt
+		24 NFS-e TXT Indaiatuba (SP) - OperaçãoSaída RegimeSimplesNacional TributaçãoSimplesNacional - ParCNPJ.txt
+		25 NFS-e TXT Indaiatuba (SP) - OperaçãoSaída RegimeSimplesNacional TributaçãoNãoIncidência - ParCNPJ.txt
+		26 NFS-e TXT Indaiatuba (SP) - OperaçãoSaída RegimeSimplesNacional TribNormal - ParCNPJ.txt
+		27 NFS-e TXT Indaiatuba (SP) - OperaçãoEntrada RegimeNormal TribNormal - ParCNPJ Retenções VáriosItens.txt
+		28 NFS-e TXT Indaiatuba (SP) - OperaçãoEntrada RegimeNormal TribNormal - ParCNPJ.txt
+		29 NFS-e TXT Indaiatuba (SP) - OperaçãoEntrada RegimeNormal TributaçãoNãoIncidência - ParCNPJ.txt
+		30 NFS-e TXT Indaiatuba (SP) - OperaçãoEntrada RegimeNormal TributaçãoSimplesNacional - ParCNPJ.txt
+		31 NFS-e TXT Indaiatuba (SP) - OperaçãoEntrada RegimeSimplesNacional TributaçãoSimplesNacional - ParCNPJ.txt
+		32 NFS-e TXT Indaiatuba (SP) - OperaçãoEntrada RegimeSimplesNacional TributaçãoNãoIncidência - ParCNPJ.txt
+
+	▼ Resultados
+		Fluxos Básicos
+		Fluxos Alternativos
+		Fluxos de Exceção
+
+Recursos:
+	https://docs.google.com/spreadsheets/d/1o2BQbQIvIGyMIO0oJi1Ri8ByKCcwtb2jUVbkjb4Umeo/edit#gid=384573044
