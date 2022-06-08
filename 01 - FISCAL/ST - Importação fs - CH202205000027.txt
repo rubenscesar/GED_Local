@@ -1,0 +1,123 @@
+Épico: Apresentando erro nos campos de "Total FCP Subs." nos registros NFM e INM do arquivo .fs
+Número do cartão: P CH202205000027
+Ano de publicação: 2022
+Relacionamentos: Importação .FS
+
+■ Plano de Testes
+	▼ Requisitos
+	▼ Escopo do Teste
+		Será Testado
+			Importação/Exportação
+		Não Será Testado
+	▼ Matriz de Risco
+
+■ Procedimentos de Testes
+	▼ Atividades
+		Firebird
+			Escriturando em 2 estabelecimentos sendo um necessariamente com UF (CE)
+				Regime de Tributação Federal - Lucro Real ou Lucro Presumido
+				Regime de Tributação Federal - Simples Nacional
+					Regime de Tributação Estadual - Normal
+					Regime de Tributação Estadual - Simples Nacional
+						Contribuinte do IPI
+						Não contribuinte do IPI
+							Informando itens
+							Sem informar itens
+								Anexo II - CFOPs (5.922 e 6.922) marcado "Operação com Produtos Industrializados pelo Estabelecimento"
+									Receita no Mercado Interno
+
+	▼ Procedimentos Iniciais
+
+	▼ Estratégia de Teste
+		Atender a um ciclo onde os testes irão passar
+		Atender a um ciclo onde os testes irão dar errado
+		Mais de 1 item
+		Itens diferentes
+		Mais de 1 corpo
+		Operação de Entrada
+		Operação de Saída
+		Importação/Exportação
+			Importação .FS
+				Lançamentos contendo valores de (abaixo) combinados com todos os CSTs/CSOSNs:
+					• FCP NORMAL (x00, x10, x20, x51, x40, x41, x50, x70, x90 e x101, x102, x103, x300, x400)
+					• FCP ST (x10, x30, x70, x90, x201, x202, x203, x900)
+					• FCP ST RT (x60, x500)
+					• PRODUTOS
+					• FRETE
+					• SEGURO
+					• OUTRAS DESPESAS
+					• IPI
+					• SUBSTITUIÇÃO RETIDO
+					• DESCONTO TOTAL
+		Testar em Base real de pendências passadas
+
+■ Casos de Testes
+	▼ Matriz de Lançamentos
+		▼ Atendendo a um ciclo onde os testes irão passar (importar arquivo com sucesso contendo em todos os arquivo valores de FCP corretos nos campos corretos)
+		  • CST/CSOSN utilizados no FCP Normal:
+			NOTA 1 ►	Item (A), PRODUTOS, CST x00
+		  • CST utilizados no FCP ST:
+			NOTA 2 ►	Item (A), PRODUTOS, FRETE, SEGURO, OUTRAS DESPESAS, IPI, DESCONTO TOTAL, CST x10
+			NOTA 3 ►	Item (A), PRODUTOS, CST x90
+			NOTA 4 ►	Item (A), PRODUTOS, CST x10
+						Item (B), PRODUTOS, CST x30
+						Item (C), PRODUTOS, CST x70
+						Item (A), PRODUTOS, CST x90
+						Item (B), PRODUTOS, CST x10
+						Item (C), PRODUTOS, CST x30
+		  • CST utilizados no FCP retido anteriormente por ST:
+			NOTA 5 ►	Item (A), PRODUTOS, SUBSTITUIÇÃO RETIDO, CST x60
+		  • CST/CSOSN utilizados sem FCP:
+			NOTA 6 ►	Item (A), PRODUTOS, CST x00
+			NOTA 7 ►	Item (A), PRODUTOS, SUBSTITUIÇÃO RETIDO, CST x30
+			NOTA 8 ►	Item (A), PRODUTOS, SUBSTITUIÇÃO RETIDO, CST x60
+		  • CST/CSOSN utilizados com tipos diferentes de FCP:
+			NOTA 9 ►	Item (A), PRODUTOS, CST x00
+						Item (B), PRODUTOS, SUBSTITUIÇÃO RETIDO, CST x30
+						Item (C), PRODUTOS, SUBSTITUIÇÃO RETIDO, CST x60
+		  • CST/CSOSN utilizados no FCP Normal:
+			NOTA 10 ►	Item (A), PRODUTOS, CSOSN x101
+		  • CST/CSOSN utilizados no FCP ST:
+			NOTA 11 ►	Item (A), PRODUTOS, FRETE, SEGURO, OUTRAS DESPESAS, IPI, DESCONTO TOTAL, CSOSN x201
+			NOTA 12 ►	Item (A), PRODUTOS, CSOSN x201
+						Item (B), PRODUTOS, CSOSN x202
+						Item (B), PRODUTOS, CSOSN x203
+						Item (C), PRODUTOS, CSOSN x900
+		  • CST/CSOSN utilizados no FCP retido anteriormente por ST:
+			NOTA 13 ►	Item (A), PRODUTOS, SUBSTITUIÇÃO RETIDO, CSOSN x500
+		  • CST/CSOSN utilizados sem FCP:
+			NOTA 14 ►	Item (A), PRODUTOS, CSOSN x101
+			NOTA 15 ►	Item (A), PRODUTOS, SUBSTITUIÇÃO RETIDO, CSOSN x201
+			NOTA 16 ►	Item (A), PRODUTOS, SUBSTITUIÇÃO RETIDO, CSOSN x500
+		  • CST/CSOSN utilizados com tipos diferentes de FCP:
+			NOTA 17 ►	Item (A), PRODUTOS, CSOSN x101
+						Item (B), PRODUTOS, SUBSTITUIÇÃO RETIDO, CSOSN x201
+						Item (C), PRODUTOS, SUBSTITUIÇÃO RETIDO, CSOSN x500
+		▼ Atender a um ciclo onde os testes irão dar errado (importar arquivo com erro por existir valor em um registro que não bate com o outro registro)
+		  • CST/CSOSN utilizados no FCP Normal:
+			NOTA 18 ►	Item (A), PRODUTOS, CST x00 {com valor no Registro NFM.90(Total do FCP Substituição) e valor no Registro PNM.90(Valor do FCP - Subst. Trib. ou Retido Ant. por Subst. Trib.)}
+		  • CST/CSOSN utilizados no FCP ST:
+			NOTA 19 ►	Item (A), PRODUTOS, SUBSTITUIÇÃO RETIDO, CST x30 {com valor no Registro PNM.87(Valor do FCP - Normal)}
+			NOTA 20 ►	Item (A), PRODUTOS, SUBSTITUIÇÃO RETIDO, CST x90 {com valor no Registro NFM.90(Total do FCP Substituição) e valor no Registro PNM.87(Valor do FCP - Normal)}
+			NOTA 21 ►	Item (A), PRODUTOS, SUBSTITUIÇÃO RETIDO, CST x90 {com valor no Registro PNM.90(Valor do FCP - Subst. Trib. ou Retido Ant. por Subst. Trib.)}
+		  • CST/CSOSN utilizados no FCP retido anteriormente por ST:
+			NOTA 22 ►	Item (A), PRODUTOS, SUBSTITUIÇÃO RETIDO, CST x60 {com valor no Registro PNM.87(Valor do FCP - Normal)}
+		  • CST/CSOSN/CSOSN utilizados com tipos diferentes de FCP:
+			NOTA 23 ►	Item (A), PRODUTOS, CST x00 {com valor no Registro NFM.90(Total do FCP Substituição) e valor no Registro PNM.90(Valor do FCP - Subst. Trib. ou Retido Ant. por Subst. Trib.)}
+						Item (B), PRODUTOS, SUBSTITUIÇÃO RETIDO, CST x30 {com valor no Registro PNM.87(Valor do FCP - Normal)}
+						Item (C), PRODUTOS, SUBSTITUIÇÃO RETIDO, CST x60 {com valor no Registro PNM.87(Valor do FCP - Normal)}
+		  • CST/CSOSN utilizados no FCP Normal:
+			NOTA 24 ►	Item (A), PRODUTOS, CSOSN x101 {com valor no Registro NFM.90(Total do FCP Substituição) e valor no Registro PNM.90(Valor do FCP - Subst. Trib. ou Retido Ant. por Subst. Trib.)}
+		  • CST/CSOSN utilizados no FCP ST:
+			NOTA 25 ►	Item (A), PRODUTOS, SUBSTITUIÇÃO RETIDO, CSOSN x201 {com valor no Registro PNM.87(Valor do FCP - Normal)}
+		  • CST/CSOSN utilizados no FCP retido anteriormente por ST:
+			NOTA 26 ►	Item (A), PRODUTOS, SUBSTITUIÇÃO RETIDO, CSOSN x500 {com valor no Registro PNM.87(Valor do FCP - Normal)}
+		  • CST/CSOSN utilizados com tipos diferentes de FCP:
+			NOTA 27 ►	Item (A), PRODUTOS, CSOSN x101 {com valor no Registro NFM.90(Total do FCP Substituição) e valor no Registro PNM.90(Valor do FCP - Subst. Trib. ou Retido Ant. por Subst. Trib.)}
+						Item (B), PRODUTOS, SUBSTITUIÇÃO RETIDO, CSOSN x201 {com valor no Registro PNM.87(Valor do FCP - Normal)}
+						Item (C), PRODUTOS, SUBSTITUIÇÃO RETIDO, CSOSN x500 {com valor no Registro PNM.87(Valor do FCP - Normal)}
+
+	▼ Resultados
+		Fluxos Básicos
+		Fluxos Alternativos
+		Fluxos de Exceção
