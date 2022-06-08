@@ -247,7 +247,9 @@ Para gerar Versao Prévia (Simplificada):
 					... pasta não localizada
 					[dcc] ./ACPessoalServiceCL.dpr
 					...
-		• Executa: AC/Fontes/Testes/Deploy_VersaoBeta.bat
+		//• Executa: AC/Fontes/Testes/Deploy_VersaoBeta.bat
+		//Deploy_VersaoBeta.bat foi renomeado para Deploy_VersaoSimplificada.bat
+		• Executa: AC/Fontes/Testes/Deploy_VersaoSimplificada.bat
 		• Depois no TeamCity roda AC_XE6_VersaoBeta
 
 Se por engano ir no TeamCity e rodar o passo "1. Iniciar Liberacao" quando a intenção era de rodar a Versão Simplificada
