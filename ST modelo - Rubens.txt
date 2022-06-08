@@ -107,6 +107,12 @@ Relacionamentos:
 			Importação .XLSX (Fortaleza)
 			Importação Abrasf
 			AC Auto (para as entradas)
+		Obrigação Acessória
+			SPED ICMS
+			SPED Contribuições
+			SPED ECF
+			DCTF - Mensal
+			Sintegra
 		Testar em Base real de pendências passadas
 
 ■ Casos de Testes
