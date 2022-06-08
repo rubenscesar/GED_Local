@@ -1,0 +1,46 @@
+Épico: Adequar o sistema para que na geração do arquivo da DCTF não leve o indicador que a empresa é contribuinte da CPRB, pois esta informação o cliente já informa na Reinf
+Número do cartão: S CH202202035472
+Ano de publicação: 2022
+Relacionamentos: DCTF
+
+■ Plano de Testes
+	▼ Requisitos
+		RE[1] Exigências para enquadramento do requisito
+			RE[1.1] Embasamento no Art. 19, parágrafo 1°, inciso III, Instrução Normativa RFB n° 2005 de 29/01/2021 diz que:
+					A partir do mês de outubro de 2021, para os demais contribuintes não enquadrados nos incisos I, II e IV e nos §§ 2º e 3º; e (Redação dada pelo(a) Instrução Normativa RFB nº 2038, de 07 de julho de 2021)
+			RE[1.2] Embasamento devido a obrigatoriedade de todas as empresas do 1º e 2º grupos obrigadas a entrega da DCTF Web, o campo "PJ optante pela CPRB" na DCTF encontra-se desabilitado
+			RE[1.3] Será atribuído a empresas a partir da competência 10/2021
+			RE[1.4] O campo "PJ optante pela CPRB" na DCTF encontra-se desabilitado a partir de 10/2021 mas o validador não aceita o campo sem informação, devido a isto o campo será preenchido com código "0"
+			RE[1.5] Será atribuído o código "0" no campo 15 da DCTF do Registro R01
+		RE[2] Necessário para executar a homologação do cartão
+	▼ Escopo do Teste
+		Será Testado
+			Obrigações Acessórias
+		Não Será Testado
+	▼ Matriz de Risco
+
+■ Procedimentos de Testes
+	▼ Atividades
+		Firebird
+			Regime de Tributação Federal - Lucro Real ou Lucro Presumido
+				Regime de Tributação Estadual - Normal
+
+	▼ Procedimentos Iniciais
+
+	▼ Estratégia de Teste
+		No Histórico do Estabelecimento informar "Não Apura" no campo "Contribuinte Previdenciário"
+		No Histórico do Estabelecimento informar "Exclusivamente com base na Receita Bruta" no campo "Contribuinte Previdenciário"
+		No Histórico do Estabelecimento informar "Com base na Receita Bruta e nas Remunerações Pagas" no campo "Contribuinte Previdenciário"
+			Gerar Obrigação Acessória com data < 10/2021
+			Gerar Obrigação Acessória com data = 10/2021
+			Gerar Obrigação Acessória com data > 10/2021
+		Obrigação Acessória
+			DCTF - Mensal
+		Testar em Base real de pendências passadas
+
+■ Casos de Testes
+	▼ Matriz de Lançamentos
+	▼ Resultados
+		Fluxos Básicos
+		Fluxos Alternativos
+		Fluxos de Exceção
