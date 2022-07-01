@@ -505,3 +505,14 @@ ac/fontes_xe6/testes/exenuvemxe6.bat
 [10:46:35]BUILD FAILED
 [10:46:35]Pressione qualquer tecla para continuar. . . 
 [10:46:35]Process exited with code 0
+
+# Se der problema no popula banco
+[07:51:57]       [shell] PopuladorCL.exe 
+[07:51:57]       [shell] Populando Firebird:127.0.0.1:c:\dados\ac\AC_Populado.gdb 
+[07:52:06]       [shell] Carregando estrutura do banco 
+[07:52:06]       [shell] Apagando dados das tabelas 
+[07:52:06]       [shell] Envia Dados 
+...
+• Guarda uma cópia da pasta "Dados" em \\10.1.254.70\x\Programacao\Pronto\ACXE6\CD
+• Copia os arquivos da pasta '\\10.1.254.70\x\Programacao\Pronto\AC\CD\Dados" para "\\10.1.254.70\x\Programacao\Pronto\ACXE6\CD\Dados"
+• Roda somente o último passo de Empacotar
