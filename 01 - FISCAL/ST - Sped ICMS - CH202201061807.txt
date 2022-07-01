@@ -8,7 +8,6 @@ Matriz de risco:
 Features:
 Scenário Outline:
 Stack:
-Execute uma Atividade com os respectivos Procedimentos Iniciais obedecendo uma Estratégia de Teste que esteja dentro do Plano de Testes para aplicar uma Matriz de Lançamentos a fim de obter um Resultado
 	Plano de Testes
 		Escopo do Teste
 			Será Testado
