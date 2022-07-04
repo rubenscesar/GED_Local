@@ -1,0 +1,81 @@
+Épico: Os valores permanecem quando contabilizados em Movimentos/Contabilizar os Lançamentos. Somente fica correto quando recontabilizado por dentro do lançamento
+Número do cartão: P CH202112009046
+Ano de publicação: 2022
+Relacionamentos: Contabilização, Integração Contábil
+
+■ Plano de Testes
+	▼ Requisitos
+		RE[1] Necessário para executar a homologação do cartão
+			RE[1.1] Com a opção "PIS/COFINS Cumulativos e Não-Cumulativos" desmarcado
+			RE[1.2] Com a opção "Apura Retenções de PIS e COFINS Cumulativos e Não-Cumulativos" marcada, o que teoricamente não deve ser possível pela própria impossibilidade na tela mas no banco da pendência contém esse cenário
+			RE[1.3] Com contabilização dos valores de COFINS e PIS retido
+			RE[1.4] Com lançamento de NFSe de entrada
+			RE[1.5] Com valor preso do banco de retenção no item de serviço
+			RE[1.6] Com a primeira nota com valor de retenção
+			RE[1.7] Com a segunda nota em diante sem valor de retenção
+
+	▼ Escopo do Teste
+		Será Testado
+			Lançamentos
+			Relatórios
+			Ferramentas
+		Não Será Testado
+	▼ Matriz de Risco
+
+■ Procedimentos de Testes
+	▼ Atividades
+		Firebird
+			Regime de Tributação Federal - Lucro Real
+				Regime de Tributação Estadual - Normal
+					Incidência tributária não-cumulativa
+					Incidência tributária não-cumulativa e cumulativa (padrão não-cumulativa)
+						Não Apura Retenções de PIS e COFINS Cumulativos e Não-Cumulativos
+						Apura Retenções de PIS e COFINS Cumulativos e Não-Cumulativos
+						Com a opção "Apura Retenções de PIS e COFINS Cumulativos e Não-Cumulativos" marcada, porém, com a opção "PIS/COFINS Cumulativos e Não-Cumulativos" desmarcado, o que teoricamente não deve ser possível pela própria impossibilidade na tela mas no banco da pendência contém esse cenário
+							Contendo Serviço com incidência tributária Cumulativa
+							Contendo Serviço com incidência tributária Não-Cumulativa
+							Contendo Serviço com incidência tributária não informada
+								Entrada
+									NFSe
+
+	▼ Procedimentos Iniciais
+
+	▼ Estratégia de Teste
+		Análise combinatória nas notas com base nos parâmetros: • Com valor de COFINS/PIS Retido; • Sem valor de COFINS/PIS Retido
+			Análise combinatória nos Itens de Serviço com base nos parâmetros: • Com valor de COFINS/PIS Retido; • Sem valor de COFINS/PIS Retido
+				Recontabilizando por dentro da nota
+				Recontabilizando pela ferramenta em Movimentos >> Contabilizar Movimentos
+					Exportar para a contabilidade
+					Desfazer a exportação
+		Testar em Base real de pendências passadas
+
+■ Casos de Testes
+	▼ Matriz de Lançamentos
+		(Nota 01) 1 Item Com valor de COFINS/PIS Retido
+		(Nota 02) 1 Item Sem valor de COFINS/PIS Retido
+		(Nota 03) 1 Item Com valor de COFINS/PIS Retido
+		(Nota 04) 1 Item Com valor de COFINS/PIS Retido
+		(Nota 05) 1 Item Sem valor de COFINS/PIS Retido
+		(Nota 06) 1 Item Sem valor de COFINS/PIS Retido
+		(Nota 07) 1 Item Com valor de COFINS/PIS Retido
+		(Nota 08) 3 Itens:
+				  (Item 1) Com valor de COFINS/PIS Retido
+				  (Item 2) Sem valor de COFINS/PIS Retido
+				  (Item 3) Com valor de COFINS/PIS Retido
+		(Nota 09) 3 Itens:
+				  (Item 1) Com valor de COFINS/PIS Retido
+				  (Item 2) Sem valor de COFINS/PIS Retido
+				  (Item 3) Sem valor de COFINS/PIS Retido
+		(Nota 10) 3 Itens:
+				  (Item 1) Sem valor de COFINS/PIS Retido
+				  (Item 2) Sem valor de COFINS/PIS Retido
+				  (Item 3) Com valor de COFINS/PIS Retido
+		(Nota 11) 1 Item Com valor de COFINS/PIS Retido contendo Serviço com incidência tributária Cumulativa
+		(Nota 12) 1 Item Com valor de COFINS/PIS Retido contendo Serviço com incidência tributária Não-Cumulativa
+		(Nota 13) 1 Item Com valor de COFINS/PIS Retido contendo Serviço com incidência tributária não informada
+
+
+	▼ Resultados
+		Fluxos Básicos
+		Fluxos Alternativos
+		Fluxos de Exceção
