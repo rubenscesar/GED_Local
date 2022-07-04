@@ -190,6 +190,7 @@ Fluxo Básico Modelo:
 	- Quando houver mudança no leiaute de alguma obrigação acessória como SPED ICMS avaliar essas mudanças pelo layout da importação da NFe também
 	- Quando houver alguma mudança que interfira no cadastro do produto avaliar a sua importação WEB e XML pela NF-e, NFC-e e CF-e
 	- Quando editar alguma informação verificar se não ficou sujeira no banco (Ex.: Editar uma CT-e de Anulação para Normal e permanecer informações de IR e CSLL no banco interfere no demonstrativo de cálculo)
+	- Quando se tratar de importação que envolva o cadastro de participantes deve dividir em 2 pilares: Importar até 10 notas e importar acima de 10 notas
 	- Perfil de Usuários
 		Confirmando que a empresa não possui nenhum Dono cadastrado
 		CRUD na tela a ser testada
