@@ -1,0 +1,141 @@
+Épico: Na importação XML NF-e, CF-e e NFC-e (o sistema terá que conservar a alíquota de ICMS que consta no documento fiscal, independente do tipo de operação (Entradas/Saídas/Saídas de Terceiros) caso seja um desses CST's (00, 10, 20, 70 ou 90)
+Número do cartão: P CH202202076282
+Ano de publicação: 2022
+Relacionamentos: Importação .XML, Alíquota de ICMS
+
+■ Plano de Testes
+	▼ Requisitos
+		RE[1] Exigências para enquadramento do requisito
+			RE[1.1] Será atribuído a estabelecimentos de qualquer UF
+			RE[1.2] Será atribuído a empresas de qualquer Regime de Tributação Federal ou Estadual
+			RE[1.3] Será atribuído a lançamentos de NF-e de entrada e saída de terceiros / NFC-e e CF-e de saída de terceiros e documentos próprios
+			RE[1.4] Será atribuído a lançamentos com os CSTs (x00, x10, x20, x70 ou x90)
+			RE[1.5] Será incluído um campo na ferramenta em "Utilitários >> Ajustar tributação ICMS e IPI dos Itens" chamado "Alíq. % Cred. Orig." para que o sistema calcule o valor de crédito de origem no lançamento de ICMS antecipado
+			RE[1.6] O campo "Alíq. % Cred. Orig." deverá ser visível apenas quando a empresa for do Simples Nacional devido a empresas do Simples Nacional não terem direito a crédito e por isso não preenchem o ICMS Normal
+			RE[1.7] O campo "Alíq. % Cred. Orig." deverá ser visível apenas quando o CSOSN for (x102 ou x900)
+			RE[1.8] O campo "Alíq. % Cred. Orig." deverá ser visível apenas quando o CFOP for interestadual e Tipo de Recolhimento for "Antecipado"
+	▼ Escopo do Teste
+		Será Testado
+			Importação/Exportação
+			Conversão
+			Obrigações Acessórias
+			Relatórios
+			Ferramentas
+		Não Será Testado
+			Lançamentos
+	▼ Matriz de Risco
+
+■ Procedimentos de Testes
+	▼ Atividades
+		Firebird
+		SQL
+			Estabelecimento necessariamente com UF (SP) (Motivo: Veririfcar interferência no DIFAL na Saída)
+			Escriturando em 3 estabelecimentos
+				Regime de Tributação Federal - Lucro Real
+				Regime de Tributação Federal - Simples Nacional
+					Regime de Tributação Estadual - Normal
+					Regime de Tributação Estadual - Simples Nacional
+					Regime de Tributação Estadual - Excluído do Simples Nacional (Normal no HES)
+						Incidência tributária não-cumulativa
+							Regime de competência
+							Regime de caixa {devolução não gera estorno em regime de caixa, pois é uma devolução financeira}
+								Contribuinte do IPI
+								Não contribuinte do IPI
+									Informando itens
+									Sem informar itens
+
+	▼ Procedimentos Iniciais
+
+	▼ Estratégia de Teste
+		Ferramentas de Ajustes (Quando necessário) - Transferir Produtos - Transferir Participantes - Avaliar demais ferramentas
+		Utilitários >> Ajustar tributação ICMS e IPI dos Itens
+			Teste GUI (Graphical User Interface)
+				Testar tela com resolução 1366x768, vê se na mesma aparecem todos os campos e são clicáveis
+				Passagem de campos
+				Atalhos dos botões
+				Ortografia e Gramática
+				Condição para habilitar ou tonar vísível os campos conforme RE[1.6] a RE[1.7]
+		Importação
+			Importação .FS
+			Importação .XML
+				NF-e
+				NFC-e
+				CF-e
+					Importação XML (Verificar a importação da forma cancelada)
+					Entradas
+						Mapeamento de Produtos por fornecedor
+							Exibir informação de ICMS à Recolher no Mapeamento de Produtos
+						Mapeamento de Tributos por fornecedor
+					Saídas
+						Mapeamento de Tributos por fornecedor
+					Entradas
+						Normal
+							CST x00 atendendo ao RE[1.4]
+							CST x10 atendendo ao RE[1.4]
+							CST x20 atendendo ao RE[1.4]
+							CST x70 atendendo ao RE[1.4]
+							CST x90 atendendo ao RE[1.4]
+							CST x30 conferindo a não conservação da alíquota de ICMS atendendo ao RE[1.4]
+							CST x40 conferindo a não conservação da alíquota de ICMS atendendo ao RE[1.4]
+							CST x41 conferindo a não conservação da alíquota de ICMS atendendo ao RE[1.4]
+							CST x50 conferindo a não conservação da alíquota de ICMS atendendo ao RE[1.4]
+							CST x51 conferindo a não conservação da alíquota de ICMS atendendo ao RE[1.4]
+							CST x60 conferindo a não conservação da alíquota de ICMS atendendo ao RE[1.4]
+						Antecipado
+							CST x00 atendendo ao RE[1.4]
+							CST x10 atendendo ao RE[1.4]
+							CST x20 atendendo ao RE[1.4]
+							CST x70 atendendo ao RE[1.4]
+							CST x90 atendendo ao RE[1.4]
+							CST x30 conferindo a não conservação da alíquota de ICMS atendendo ao RE[1.4]
+							CST x40 conferindo a não conservação da alíquota de ICMS atendendo ao RE[1.4]
+							CST x41 conferindo a não conservação da alíquota de ICMS atendendo ao RE[1.4]
+							CST x50 conferindo a não conservação da alíquota de ICMS atendendo ao RE[1.4]
+							CST x51 conferindo a não conservação da alíquota de ICMS atendendo ao RE[1.4]
+							CST x60 conferindo a não conservação da alíquota de ICMS atendendo ao RE[1.4]
+						Substituição tributária
+						Diferencial de alíquota
+							Incluir notas com mais de 1 corpo e dados diferentes
+							Incluir vários itens diferentes
+					Saídas
+						Normal
+						Diferencial de alíquota para o estabelecimento de (SP)
+							Incluir notas com mais de 1 corpo e dados diferentes
+							Incluir vários itens diferentes
+				Importar de NFe
+			Importação WEB
+				NF-e
+					Entradas
+						Mapeamento de Produtos por fornecedor
+							Exibir informação de ICMS à Recolher no Mapeamento de Produtos
+						Mapeamento de Tributos por fornecedor
+					Saídas
+						Mapeamento de Tributos por fornecedor
+					Entradas
+						Normal
+						Antecipado
+						Substituição tributária
+						Diferencial de alíquota
+							Incluir notas com mais de 1 corpo e dados diferentes
+							Incluir vários itens diferentes
+					Saídas
+						Diferencial de alíquota para o estabelecimento de (SP)
+							Incluir notas com mais de 1 corpo e dados diferentes
+							Incluir vários itens diferentes
+		Relatórios
+			Relatórios >> ICMS >> ICMS Diferencial de Alíquotas >> Saídas
+			Apurações (ICMS Normal)
+			Apurações (Livro de Apuração do ICMS)
+		Conversão
+			SPED ICMS
+		Obrigação Acessória
+			SPED ICMS
+				Na geração de arquivo de obrigação acessória, sempre validar o arquivo no validador
+		Testar em Base real de pendências passadas
+
+■ Casos de Testes
+	▼ Matriz de Lançamentos
+	▼ Resultados
+		Fluxos Básicos
+		Fluxos Alternativos
+		Fluxos de Exceção
