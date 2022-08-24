@@ -1,0 +1,120 @@
+Épico: Erro na integração Contábil x Financeiro via WebService
+Número do cartão: P CH202206056746
+Ano de publicação: 2022
+Relacionamentos: WebService, Integração, Financeiro, Contábil
+
+■ Plano de Testes
+	▼ Requisitos
+		RE[1] Exigências para enquadramento do requisito
+		RE[2] Necessário para testar WebService de integração do Contábil x Financeiro
+			RE[2.1] Através do caminho "\\10.1.254.101\Empresa\FortesTec\PRONTO\AG\Deploy\old", baixa o instalador da versão do Fortes Financeiro desejado e instala
+			RE[2.2] Através do caminho "https://www.apachefriends.org/download.html", baixa a versão do XAMPP que é uma distribuição do Apache mais fácil de instalar
+			RE[2.3] Processos para instalação do XAMPP
+			RE[2.4.1] Durante a instalação do XAMPP pode deixar marcado apenas os componentes:
+						• Server\Apache;
+						• Program Languages\PHP;
+						• Program Languages\Perl;
+						• Program Languages\phpMyAdmin;
+						• Program Languages\Webalizer;
+						• Program Languages\Fake Sendmail
+			RE[2.4.2] Informe a pasta de instalação que tem que ser necessariamente "C:\xampp"
+			RE[2.4.3] Para iniciar o serviço do Apache, acesse o XAMPP e "Start" o módulo Apache
+			RE[2.4.4] Caso encontre uma mensagem de erro no momento de inicializar o Apache no seu XAMPP pode ser um conflito de portas sendo necessário alterar:
+						• Para alterar a porta, abra o painel do XAMPP e clique no botão [Config] do Apache;
+						• Escolha o arquivo chamado httpd.conf. Ele possui todos os parâmetros de funcionamento do Apache;
+						• Aperte as teclas CTRF+F e pesquise pela palavra Listen 80;
+						• Adicione mais um número ao final desse parâmetro ficando: Listen 8080;
+						• Pesquise outra palavra chave chamada ServerName e adicione o 80 no localhost:8080;
+						• Salve e feche o arquivo;
+						• Volte ao Dashboard e clique no ícone Config (o botão no canto acima e a direita);
+						• Depois vá em Service and Port Settings;
+						• Adicione o 8080 no Main Port;
+						• Após estes passos tente iniciar o seu Apache, verifique se ficou com o ícone verde, abra o seu navegador, digite http://localhost:8080 ou http://127.0.0.1:8080 e analise se é possível ter acesso ao Dashboard do seu XAMPP
+			RE[2.4.5] Caso ainda encontre erro altere:
+						• Clique no botão [Config] do Apache;
+						• Escolha o arquivo chamado httpd-ssl.conf;
+						• Aperte as teclas CTRF+F e pesquise pela palavra Listen 443;
+						• Adicione mais um número no início desse parâmetro ficando: Listen 5443;
+						• Salve e feche o arquivo;
+						• Volte ao Dashboard e clique no ícone Config (o botão no canto acima e a direita);
+						• Depois vá em Service and Port Settings;
+						• Adicione o 5443 no SSL Port;
+						• Após estes passos tente iniciar o seu Apache, verifique se ficou com o ícone verde, abra o seu navegador, digite http://localhost:8080 ou http://127.0.0.1:8080 e analise se é possível ter acesso ao Dashboard do seu XAMPP
+			RE[2.4.6] Copie os arquivos "ACSvc.exe" e "ClienteACSvc.exe" para a pasta "C:\xampp\cgi-bin". Esses arquivos devem ser passados pelo DEV para homologação
+			RE[2.4.7] Copie os arquivos da pasta "\\grupofortes.local\dfs\Empresa\FortesTec\Suporte\Suporte&Desenvolvimento\AC_Contabil\WebService\Servidor" para "C:\xampp\cgi-bin"
+			RE[2.4.8] Acesse "http://127.0.0.1:5443/cgi-bin/acsvc.exe/soap/IAC" e analise se é possível ter acesso ao Dashboard do ACSvc
+			RE[2.5] Configure a integração do Financeiro com o Contábil no Subsistema Administração
+			RE[2.5.1] Cadastre um estabelecimento em "Cadastros >> Empresas / Estabelecimentos"
+						• Na aba "Integração Contábil" preencha as informações
+			RE[2.6] Configure a integração do Financeiro com o Contábil no Subsistema Financeiro
+			RE[2.6.1] No Financeiro vá em "Utilitários >> Configuração":
+						• Configure a integração na Guia "Configurações / Empresa / Financeiro / Integração / Contabilidade" aba Web Services
+						• Na aba Web Services informe o endereço "http://127.0.0.1:5443/cgi-bin/acsvc.exe/soap/IAC"
+			RE[2.6.2] Em "Cadastros >> Clientes >> Cadastros":
+						• Cadastre um cliente
+						...
+
+	▼ Escopo do Teste
+		Será Testado
+			Mudança de linguagem do usuário do banco SQL
+			Inclusão de Lançamento
+			Inclusão de Participante
+			Alteração de Participante
+			Exclusão de Participante 
+		Não Será Testado
+	▼ Matriz de Risco
+
+■ Procedimentos de Testes
+	▼ Atividades
+		Firebird
+		SQL
+
+	▼ Procedimentos Iniciais
+
+	▼ Estratégia de Teste
+		Restaurar banco de dados do Financeiro em SQL / Linguagem do usuário = Português
+			Restaurar banco de dados do AC em SQL / Linguagem do usuário = Português
+				:Matriz de Lançamentos
+				Alterar a Linguagem do usuário do banco de dados do AC para Inglês
+					:Matriz de Lançamentos
+					Alterar a Linguagem do usuário do banco de dados do Financeiro para Inglês
+						:Matriz de Lançamentos
+		Restaurar banco de dados do Financeiro em SQL / Linguagem do usuário = Inglês
+			Restaurar banco de dados do AC em SQL / Linguagem do usuário = Português
+				:Matriz de Lançamentos
+				Alterar a Linguagem do usuário do banco de dados do AC para Inglês
+					:Matriz de Lançamentos
+					Alterar a Linguagem do usuário do banco de dados do Financeiro para Português
+						:Matriz de Lançamentos
+		Restaurar banco de dados do Financeiro em SQL / Linguagem do usuário = Português
+			Restaurar banco de dados do AC em Firebird
+				:Matriz de Lançamentos
+					Alterar a Linguagem do usuário do banco de dados do Financeiro para Inglês
+						:Matriz de Lançamentos
+		Restaurar banco de dados do Financeiro em SQL / Linguagem do usuário = Inglês
+			Restaurar banco de dados do AC em Firebird
+				:Matriz de Lançamentos
+					Alterar a Linguagem do usuário do banco de dados do Financeiro para Português
+						:Matriz de Lançamentos
+		Restaurar banco de dados do Financeiro em Firebird
+			Restaurar banco de dados do AC em SQL / Linguagem do usuário = Português
+				:Matriz de Lançamentos
+				Alterar a Linguagem do usuário do banco de dados do AC para Inglês
+					:Matriz de Lançamentos
+		Restaurar banco de dados do Financeiro em Firebird
+			Restaurar banco de dados do AC em SQL / Linguagem do usuário = Inglês
+				:Matriz de Lançamentos
+				Alterar a Linguagem do usuário do banco de dados do AC para Português
+					:Matriz de Lançamentos
+		Restaurar banco de dados do Financeiro em Firebird
+			Restaurar banco de dados do AC em Firebird
+				:Matriz de Lançamentos
+
+■ Casos de Testes
+	▼ Matriz de Lançamentos
+		Cadastro de Clientes
+		Alteração de Cadastro de Clientes
+		Exclusão de Clientes
+		Lançamento de Contas a Receber
+
+	▼ Resultados
