@@ -1,0 +1,71 @@
+Épico: Retirar crítica quando a importação for proveniente de uma nota fiscal de serviço
+Número do cartão: P CH202102065101
+Ano de publicação: 2022
+Relacionamentos: Importação .XML, Base Legal (Natal - RN), DDS (Natal - RN), NFS-e tomado
+
+■ Plano de Testes
+	▼ Requisitos
+		RE[1] Exigências para enquadramento do requisito
+			RE[1.1] Embasamento no Decreto Nº 8.104 de 29/01/2007
+			RE[1._] Será atribuído a estabelecimentos de Natal (RN)
+			RE[1._] Será visível o menu "Cadastros >> Base Legal (Natal - RN)"
+			RE[1._] Será visível no lançamento de nota de serviço tomado o campo "Base Legal (Natal - RN)"
+			RE[1._] Será obrigatório o preenchimento da "Base Legal (Natal - RN)" quando, na escrituração de uma nota de serviço tomado, houver redução de base de cálculo ou alíquota legalmente prevista, ou seja, alíquota de iSS diferente de 5%
+			RE[1._] Será atribuído a lançamentos de NFS-e de entrada
+			RE[1._] Será gerado na obrigação acessória "Gerar Arquivo da DDS (Natal - RN)"
+			RE[1._] Não existe programa validador, apenas através do site
+			RE[1._] Será alterado para que permita a importação de arquivo XML sem a informação de "Base Legal (Natal - RN)"
+			RE[1._] Arquivo Importação .FS permanece com a crítica como antes
+	▼ Escopo do Teste
+		Será Testado
+			Lançamentos
+			Importação/Exportação
+			Obrigações Acessórias
+		Não Será Testado
+	▼ Matriz de Risco
+
+■ Procedimentos de Testes
+	▼ Atividades
+		Firebird
+			Estabelecimento necessariamente de Natal (RN)
+			Escriturando em 2 estabelecimentos
+				Regime de Tributação Federal - Lucro Real ou Lucro Presumido
+				Regime de Tributação Federal - Simples Nacional
+					Regime de Tributação Estadual - Normal
+					Regime de Tributação Estadual - Simples Nacional
+
+	▼ Procedimentos Iniciais
+
+	▼ Estratégia de Teste
+		Teste GUI (Graphical User Interface)
+			Dados na GRID dos registros
+			Teste de Análise do Valor Limite
+			Testar tela com resolução 1366x768, vê se na mesma aparecem todos os campos e são clicáveis
+			Passagem de campos
+			Atalhos dos botões
+			Ortografia e Gramática
+			Condição para habilitar ou tonar vísível os campos conforme RE[
+			Na inclusão está obedecendo o histórico dos dados (Quando tem que abrir a tela já com os dados do último registro salvo como sugestão)
+		CRUD
+			Inclusão com passagem campo a campo
+			Inclusão com uso do mouse para concluir a gravação abreviando o tempo (Ok)
+			Inclusão com uso do atalho para concluir a gravação abreviando o tempo (F9)
+			Quando editar alguma informação, verificar se não ficou sujeira no banco
+		Importação
+			Importação .FS
+			Importação .XML
+				Entradas
+				Saídas
+		Conversão
+			Importação Abrasf
+		Obrigação Acessória
+			SPED Contribuições
+			SPED ECF
+		Testar em Base real de pendências passadas
+
+■ Casos de Testes
+	▼ Matriz de Lançamentos
+	▼ Resultados
+		Fluxos Básicos
+		Fluxos Alternativos
+		Fluxos de Exceção
