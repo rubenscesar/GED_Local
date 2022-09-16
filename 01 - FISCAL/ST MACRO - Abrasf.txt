@@ -1,0 +1,182 @@
+Épico: 
+Número do cartão: P 
+Ano de publicação: 2022
+Relacionamentos: 
+
+■ Plano de Testes
+	▼ Requisitos
+		RE[1] Exigências para enquadramento do requisito
+		RE[1.1] Regra Geral
+		RE[1.1.1] Tributação
+			• Quando no arquivo XML não houver uma tag que defina a tributação da nota a importação deve obedecer esta regra:
+				• Quando no Histórico da Empresa o Regime de Tributação Federal estiver informado - Lucro Real ou Lucro Presumido
+					• No arquivo XML não possuir a tag <OptanteSimplesNacional>
+						• Quando não houver valor nas tags que representam a alíquota de ISS e o valor de ISS
+							A Tributação será considerada "Não-Incidência"
+						• Quando houver valor nas tags que representam a alíquota de ISS e o valor de ISS
+							A Tributação será considerada "Normal"
+					• No arquivo XML na tag <OptanteSimplesNacional> = 1
+						• Quando não houver valor nas tags que representam a alíquota de ISS e o valor de ISS
+							A Tributação será considerada "Não-Incidência"
+						• Quando houver valor nas tags que representam a alíquota de ISS e o valor de ISS
+							A Tributação será considerada "Optantes do Simples Nacional"
+					• No arquivo XML na tag <OptanteSimplesNacional> = 2
+						• Quando não houver valor nas tags que representam a alíquota de ISS e o valor de ISS
+							A Tributação será considerada "Não-Incidência"
+						• Quando houver valor nas tags que representam a alíquota de ISS e o valor de ISS
+							A Tributação será considerada "Normal"
+				• Quando no Histórico da Empresa o Regime de Tributação Federal estiver informado - Simples Nacional
+					• No arquivo XML não possuir a tag <OptanteSimplesNacional>
+						• Quando não houver valor nas tags que representam a alíquota de ISS e o valor de ISS
+							A Tributação será considerada "Não-Incidência"
+						• Quando houver valor nas tags que representam a alíquota de ISS e o valor de ISS
+							A Tributação será considerada "Optantes do Simples Nacional"
+					• No arquivo XML na tag <OptanteSimplesNacional> = 1
+						• Quando não houver valor nas tags que representam a alíquota de ISS e o valor de ISS
+							A Tributação será considerada "Não-Incidência"
+						• Quando houver valor nas tags que representam a alíquota de ISS e o valor de ISS
+							A Tributação será considerada "Optantes do Simples Nacional"
+					• No arquivo XML na tag <OptanteSimplesNacional> = 2
+						• Quando não houver valor nas tags que representam a alíquota de ISS e o valor de ISS
+							A Tributação será considerada "Não-Incidência"
+						• Quando houver valor nas tags que representam a alíquota de ISS e o valor de ISS
+							A Tributação será considerada "Optantes do Simples Nacional"
+			• Quando no arquivo XML houver uma tag que defina a tributação da nota e houver documentação bem definida com o mapeamento das opções de tributação do XML e seu relacionamento com a tela de lançamento da NFS-e, então, a importação deve obedecer esta tag
+		RE[1.1.2] Relacionamento de Atividade e Serviço da nota com o Cadastro
+			• Quando no arquivo XML houver uma tag que identifique o Código de Atividade
+				O Código de Atividade do XML será relacionado com o "Código Padrão" no cadastro da Atividade (ISS) do AC e a nota será importada com esta Atividade
+				• Quando no arquivo XML houver uma tag que identifique o Código do Serviço
+					• O Código do Serviço informado no XML existe na tabela padrão da NF-e ou tabela específica do município
+						O Código do Serviço do XML será relacionado com o "Serviço (Nota Fiscal Eletrônica)" ou "Serviço (Município do Estabelecimento - UF do Estabelecimento)" no cadastro da Serviços de (ISS) do AC e a nota será importada com este Serviço
+					• O Código do Serviço informado no XML não existe na tabela padrão da NF-e ou tabela específica do município
+						Apresenta uma mensagem "Código do Serviço ( ???? ) não cadastrado na tabela padrão Serviço (NOTA FISCAL ELETRÔNICA)." e não importa a nota até a correção da imporfação na nota
+				• Quando no arquivo XML não houver uma tag que identifique o Código do Serviço ou não houver informação na tag que identifique o Código do Serviço
+					• Quando o "Serviço Padrão" na tela de Configurações / Conversão/Importação / NFS-e (Abrasf) estiver configurado
+						A nota será importada com este Serviço lido da Configuração
+					• Quando o "Serviço Padrão" na tela de Configurações / Conversão/Importação / NFS-e (Abrasf) não estiver configurado
+						Apresenta uma mensagem "Não consta no arquivo XML a informação do serviço. Configure o Serviço Padrão na tela de Configurações / Conversão/Importação / NFS-e (Abrasf)." para que configure o Serviço e não importa a nota até que complete a configuração
+			• Quando no arquivo XML não houver uma tag que identifique o Código de Atividade ou não houver informação na tag que identifique o Código de Atividade
+				• Quando no Cadastro de Atividade (ISS) houver uma atividade marcado como "Padrão"
+					A nota será importada com esta Atividade que foi marcado como "Padrão"
+					• Quando no arquivo XML houver uma tag que identifique o Código do Serviço
+						• O Código do Serviço informado no XML existe na tabela padrão da NF-e ou tabela específica do município
+							O Código do Serviço do XML será relacionado com o "Serviço (Nota Fiscal Eletrônica)" ou "Serviço (Município do Estabelecimento - UF do Estabelecimento)" no cadastro da Serviços de (ISS) do AC e a nota será importada com este Serviço
+						• O Código do Serviço informado no XML não existe na tabela padrão da NF-e ou tabela específica do município
+							Apresenta uma mensagem "Código do Serviço ( ???? ) não cadastrado na tabela padrão Serviço (NOTA FISCAL ELETRÔNICA)." e não importa a nota até a correção da imporfação na nota
+				• Quando no Cadastro de Atividade (ISS) não houver nenhuma atividade marcado como "Padrão"
+					Apresenta uma tela de Relacionamento de Atividade a cada nota que esteja nas mesmas condições e importa a nota com a Atividade relacionada
+					• Quando no arquivo XML houver uma tag que identifique o Código do Serviço
+						• O Código do Serviço informado no XML existe na tabela padrão da NF-e ou tabela específica do município
+							O Código do Serviço do XML será relacionado com o "Serviço (Nota Fiscal Eletrônica)" ou "Serviço (Município do Estabelecimento - UF do Estabelecimento)" no cadastro da Serviços de (ISS) do AC e a nota será importada com este Serviço
+						• O Código do Serviço informado no XML não existe na tabela padrão da NF-e ou tabela específica do município
+							Apresenta uma mensagem "Código do Serviço ( ???? ) não cadastrado na tabela padrão Serviço (NOTA FISCAL ELETRÔNICA)." e não importa a nota até a correção da imporfação na nota
+					• Quando no arquivo XML não houver uma tag que identifique o Código do Serviço ou não houver informação na tag que identifique o Código do Serviço
+						• Quando o "Serviço Padrão" na tela de Configurações / Conversão/Importação / NFS-e (Abrasf) estiver configurado
+							A nota será importada com este Serviço lido da Configuração
+						• Quando o "Serviço Padrão" na tela de Configurações / Conversão/Importação / NFS-e (Abrasf) não estiver configurado
+							Apresenta uma mensagem "Não consta no arquivo XML a informação do serviço. Configure o Serviço Padrão na tela de Configurações / Conversão/Importação / NFS-e (Abrasf)." para que configure o Serviço e não importa a nota até que complete a configuração
+		RE[1.2] Regra aplicável a estabelecimentos com UF de RN e Município de Natal
+			RE[1.2.1] Embasamento no Decreto Nº 8.104 de 29/01/2007
+			RE[1.2.2] Será atribuído a estabelecimentos de Natal (RN)
+			RE[1.2.3] Será visível o menu "Cadastros >> Base Legal (Natal - RN)"
+			RE[1.2.4] Será visível no lançamento de nota de serviço tomado o campo "Base Legal (Natal - RN)"
+			RE[1.2.5] Será obrigatório para lançamento manual o preenchimento da "Base Legal (Natal - RN)" quando, na escrituração de uma nota de serviço tomado, houver redução de base de cálculo ou alíquota legalmente prevista, ou seja, alíquota de ISS diferente de 5%
+			RE[1.2.6] Será atribuído a lançamentos de NFS-e de entrada
+			RE[1.2.7] Será gerado na obrigação acessória "Gerar Arquivo da DDS (Natal - RN)"
+			RE[1.2.8] Não existe programa validador, apenas através do site
+			RE[1.2.9] Será alterado para que permita a importação de arquivo XML e Importação .FS sem a informação de "Base Legal (Natal - RN)"
+		RE[2] Necessário para executar a homologação do cartão
+	▼ Escopo do Teste
+		Será Testado
+			Lançamentos
+			Importação/Exportação
+			Conversão
+			Obrigações Acessórias
+		Não Será Testado
+	▼ Matriz de Risco
+		Status		ID	Descrição	(P)robabilidade de Ocorrência do Erro	(I)mpacto do Erro	Priorização do Teste = P x I	Responsável	Estratégia				Reavaliar
+		Priorizado	1	...			3 Alta									3 Alta				9								Rubens		Eliminar/Evitar			Anualmente
+					2	...			2 Média									2 Média				4								Rubens		Prevenir/Mitigar		Mensalmente
+					3	...			1 Baixa									1 Baixa				1								Rubens		Aceitar Passivamente	Por Evento
+					4	...			...										...					...								Rubens		Aceitar Ativamente		...
+
+■ Procedimentos de Testes
+	▼ Atividades
+		Firebird
+			Estabelecimento necessariamente com UF e Município (..)
+				Regime de Tributação Federal - Lucro Real ou Lucro Presumido
+				Regime de Tributação Federal - Simples Nacional
+					Regime de Tributação Estadual - Normal
+					Regime de Tributação Estadual - Simples Nacional
+
+	▼ Procedimentos Iniciais
+
+	▼ Estratégia de Teste
+		Operação
+			Saída
+			Entrada
+		Espécies
+			NFS-e
+		Conversão
+			Importação Abrasf
+		Adequação a leiaute de importação
+			Configuração / Conversão
+				Serviço ICMS/Serviço ISS/Atividade ISS
+				Fatura padrão
+				Participante padrão
+				Código contábil padrão
+			Status
+				Normal
+				Cancelada
+			Dados do Participante
+				UF = estabelecimento
+				UF <> estabelecimento
+			Tributação
+				Normal
+				Simples Nacional
+			Mais de 1 item
+			Itens diferentes
+			Mais de 1 corpo
+		Testar em Base real de pendências passadas
+
+■ Casos de Testes
+	▼ Matriz de Lançamentos
+	▼ Resultados
+		Fluxos Básicos
+		Fluxos Alternativos
+		Fluxos de Exceção
+
+■ Stack:
+	01 Abrasf ___ (__) - Cancelado.xml
+	02 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TribNormal - ParCPF Retenções.xml
+	03 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TribNormal - ParCNPJ Retenções.xml
+	04 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TribNormal - ParCNPJ RetDescDedRed.xml
+	05 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TribNormal - ParCNPJ RetDescDedRed UFsDif LocIncidTomador.xml
+	06 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TribNormal - ParCNPJ RetDescDedRed UFsDif LocIncidPrestador.xml
+	07 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TribNormal - ParCNPJ RetDescDedRed UFsDif LocIncidPrestaçãoDeServiço.xml
+	08 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TribNormal - ParCNPJ RetDescDedRed UFsDif LocIncidÓrgãoGerador.xml
+	09 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TributaçãoNãoIncidência - ParCNPJ.xml
+	10 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TributaçãoIsento - ParCNPJ.xml
+	11 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TributaçãoImune - ParCNPJ.xml
+	12 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TributaçãoSimplesNacional - ParCNPJ.xml
+	13 a 14 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TribNormal - ParCNPJ RetDescDedRed VáriasNotas.xml
+	15 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TribNormal - ParCNPJ Retenções VáriosItens.xml
+	16 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TribNormal - ParCNPJ ConfiguraçãoSemAtivnoArquivo.xml
+	17 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TribNormal - ParCNPJ ConfiguraçãoSemServnoArquivo.xml
+	18 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TribNormal - ParCNPJ ConfiguraçãoSemAtivServnoArquivo.xml
+	19 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TribNormal - ParCNPJ ConfiguraçãoServnoXmlnãoencontradonoBanco.xml
+	20 Abrasf ___ (__) - OperaçãoSaída RegimeNormal TribNormal - ParCNPJ ConfiguraçãoTomadorEmBranco.xml
+	21 Abrasf ___ (__) - OperaçãoSaída RegimeSimplesNacional TributaçãoSimplesNacional - ParCNPJ.xml
+	22 Abrasf ___ (__) - OperaçãoSaída RegimeSimplesNacional TributaçãoNãoIncidência - ParCNPJ.xml
+	23 Abrasf ___ (__) - OperaçãoSaída RegimeSimplesNacional TribNormal - ParCNPJ.xml
+	24 Abrasf ___ (__) - OperaçãoEntrada RegimeNormal TribNormal - ParCNPJ Retenções VáriosItens.xml
+	25 Abrasf ___ (__) - OperaçãoEntrada RegimeNormal TribNormal - ParCNPJ.xml
+	26 Abrasf ___ (__) - OperaçãoEntrada RegimeNormal TributaçãoNãoIncidência - ParCNPJ.xml
+	27 Abrasf ___ (__) - OperaçãoEntrada RegimeNormal TributaçãoSimplesNacional - ParCNPJ.xml
+	28 Abrasf ___ (__) - OperaçãoEntrada RegimeSimplesNacional TributaçãoSimplesNacional - ParCNPJ.xml
+	29 Abrasf ___ (__) - OperaçãoEntrada RegimeSimplesNacional TributaçãoNãoIncidência - ParCNPJ.xml
+
+Links de testes unitários:
+Links de testes funcionais:
+Recursos:
+	https://docs.google.com/spreadsheets/d/1vCxVnX64YJbaEz5BwVCQn0Gdhwcra9LlJIlLy6p0eOo/edit#gid=1406440415
