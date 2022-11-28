@@ -1,5 +1,5 @@
 Para calcular o simples nacional e necessita limpar os valores de RBT12 VS12
-É necessário apagar a tabela wed conforme os seus códigos de info
+É necessário apagar a tabela ved conforme os seus códigos de info
 Segue código da info da tabela VED
 vedDebCOFINS       = 1; // Débito de COFINS para o próximo período
   vedDebPIS          = 2; // Débito de PIS para o próximo período
@@ -28,3 +28,5 @@ vedDebCOFINS       = 1; // Débito de COFINS para o próximo período
   vedValorPISSobreFolha  = 22; // PIS sobre Folha - Valor da folha
   vedValorExclusoesPisSobreFolha  = 23; // PIS sobre Folha - Valor das Exclusões
   vedValorFolhaComEncargos = 24; //Valor referente a folha de salário do mês, para utilizar no relatório simples nascional anexo.
+
+Em alguns casos apagar também a tabela VRE
