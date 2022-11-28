@@ -1,0 +1,133 @@
+Épico: Gerar o DARF de CSRF com base na data do pagamento
+Número do cartão: S CH202207042695
+Ano de publicação: 2022
+Relacionamentos: DARF, DCTF, DIRF, Baixas, Controle de Venvimento, Tributos Federais
+
+■ Plano de Testes
+	▼ Requisitos
+		RE[1] Exigências para enquadramento do requisito
+			RE[1.1] Embasamento no Art. 30, 31, 33, 34 e 35, Lei n°10.833/2003
+			RE[1.2] Será atribuído a empresas cujo Regime de Tributação Federal seja do Lucro Real / Lucro Presumido
+			RE[1.3] Será atribuído a lançamentos de NFS-e e NF-e de entrada de terceiros com retenção dos tributos federais
+			RE[1.4] Será atribuído a data de emissão do documento ao DARF como sendo a sua data de emissão
+			RE[1.5] Para os casos com geração de 1 (um) título, com 1 (uma) baixa
+					No momento da Geração do Título
+						serão gerados DARFs de IRRF, CSRF, CSLL, COFINS e PIS e será atribuído como período de Apuração do DARF a data do último dia do mês da competência do título
+					No momento da Baixa do Título
+						serão gerados DARFs de CSRF, CSLL, COFINS e PIS e será atribuído como período de Apuração do DARF a data do último dia do mês da baixa do título
+						será gerado DARF de IRRF e será atribuído como período de Apuração do DARF a data do último dia do mês da competência do título
+			RE[1.6] Para os casos com geração de 1 (um) título, com 1 (uma) data de vencimento e com várias baixas parciais
+					No momento da Geração do Título
+						serão gerados DARFs de IRRF, CSRF, CSLL, COFINS e PIS e será atribuído como período de Apuração do DARF a data do último dia do mês da competência do título
+					No momento da Baixa do Título
+						serão gerados DARFs de CSRF, CSLL, COFINS e PIS e será atribuído como período de Apuração do DARF a data do último dia do mês da baixa do título
+						será gerado DARF de IRRF e será atribuído como período de Apuração do DARF a data do último dia do mês da competência do título
+			RE[1.7] Para os casos com geração de vários títulos, com várias datas de vencimentos e com 1 (uma) baixa para cada título gerado
+					No momento da Geração do Título
+						serão gerados DARFs de IRRF, CSRF, CSLL, COFINS e PIS e será atribuído como período de Apuração do DARF a data do último dia do mês da competência do título
+					No momento da Baixa do Título
+						serão gerados DARFs de CSRF, CSLL, COFINS e PIS e será atribuído como período de Apuração do DARF a data do último dia do mês da baixa do título
+						será gerado DARF de IRRF e será atribuído como período de Apuração do DARF a data do último dia do mês da competência do título
+			RE[1.8] Para os casos com geração de vários títulos, com várias datas de vencimentos e com várias baixas parciais
+					No momento da Geração do Título
+						serão gerados DARFs de IRRF, CSRF, CSLL, COFINS e PIS e será atribuído como período de Apuração do DARF a data do último dia do mês da competência do título
+					No momento da Baixa do Título
+						serão gerados DARFs de CSRF, CSLL, COFINS e PIS e será atribuído como período de Apuração do DARF a data do último dia do mês da baixa do título
+						será gerado DARF de IRRF e será atribuído como período de Apuração do DARF a data do último dia do mês da competência do título
+			RE[1.9] Se o DARF já tiver sido baixado, será realizado a atualização da data de apuração do DARF conforme regras acima
+			RE[1.10]Nos casos de haver mais de uma baixa em um único titulo, será utilizada a data da primeira baixa, em que o valor dos impostos vai integral
+			RE[1.11]O cálculo da data de apuração antes de ocorrer a baixa continuará o mesmo ou será atualizado, já que ocorre na inclusão dos títulos
+			RE[1.12]	Será exibido em
+					Movimentos >> Tributos Federais >> DARFs Emitidos (Apuração e Retenção)
+						Os DARFs serão apresentado na opção "Retenção"
+					Movimentos >> Controle de Vencimentos
+						Os Títulos com as data em conformidade com regras acima serão apresentado na opção "A Pagar"
+					DCTF
+						Registro R11
+					DIRF
+		RE[2] Necessário para executar a homologação do cartão
+			RE[2.1]	Cadastrar um Serviço ISS com códigos válidos para correta geração e validação dos DARFs na DCTF
+					IRPJ	= 2089
+					IRRF	= 1708
+					CSRF	= 5952
+					PIS		= 8109
+					COFINS	= 2172
+					CSL		= 2372
+	▼ Escopo do Teste
+		Será Testado
+			Lançamentos
+			Obrigações Acessórias
+			Relatórios
+		Não Será Testado
+			Importação/Exportação
+			Conversão
+			Ferramentas
+	▼ Matriz de Risco
+		Status		ID	Descrição	(P)robabilidade de Ocorrência do Erro	(I)mpacto do Erro	Priorização do Teste = P x I	Responsável	Estratégia				Reavaliar
+		Priorizado	1	...			3 Alta									3 Alta				9								Rubens		Eliminar/Evitar			Anualmente
+					2	...			2 Média									2 Média				4								Rubens		Prevenir/Mitigar		Mensalmente
+					3	...			1 Baixa									1 Baixa				1								Rubens		Aceitar Passivamente	Por Evento
+					4	...			...										...					...								Rubens		Aceitar Ativamente		...
+
+■ Procedimentos de Testes
+	▼ Atividades
+		Firebird
+		SQL
+			Regime de Tributação Federal - Lucro Real ou Lucro Presumido
+				Regime de Tributação Estadual - Normal
+					Incidência tributária não-cumulativa
+					Incidência tributária cumulativa
+					Incidência tributária não-cumulativa e cumulativa (padrão não-cumulativa)
+						Regime de competência
+
+	▼ Procedimentos Iniciais
+
+	▼ Estratégia de Teste
+		Movimentos
+			NFS-e
+			NF-e
+				Inclusão de fatura e baixa antes de atualizar para avaliar comportamente após atualização
+					Gerar DARF
+						Com código CSRF e IRRF
+							Gerar 1 (um) título, com 1 (uma) baixa
+							Gerar 1 (um) título, com 1 (uma) data de vencimento e com várias baixas parciais
+							Gerar vários títulos, com várias datas de vencimentos e com 1 (uma) baixa para cada título gerado
+							Gerar vários títulos, com várias datas de vencimentos e com várias baixas parciais
+								DARF no momento da Baixa do Título
+				Inclusão de fatura e baixa após atualizar
+					Controle de Vencimentos
+					Tributos Federais >> DARFs Emitidos (Apuração e Retenção)
+						Teste GUI (Graphical User Interface)
+							Após criação do DARF pelo lançamento das notas
+							Após alterar data de pagamento pelo botão [Alterar Data Pagamento]
+								Dados na GRID dos registros
+					CRUD
+						Inclusão da fatura por dentro do lançamento
+						Inclusão da fatura pela grid de lançamento no botão [Títulos]
+						Inclusão com uso do mouse para concluir a gravação abreviando o tempo (Ok)
+						Inclusão com uso do atalho para concluir a gravação abreviando o tempo (F9)
+						Quando editar alguma informação, verificar se não ficou sujeira no banco
+					Gerar DARF
+						Com código CSRF e IRRF
+						Com código IRRF, CSLL, COFINS e PIS
+							Gerar 1 (um) título, com 1 (uma) baixa
+							Gerar 1 (um) título, com 1 (uma) data de vencimento e com várias baixas parciais
+							Gerar vários títulos, com várias datas de vencimentos e com 1 (uma) baixa para cada título gerado
+							Gerar vários títulos, com várias datas de vencimentos e com várias baixas parciais
+								DARF no momento da Geração do Título
+								DARF no momento da Baixa do Título
+		Obrigação Acessória
+			DCTF
+			DIRF
+			SPED ECF
+		Testar em Base real de pendências passadas
+
+■ Casos de Testes
+	▼ Matriz de Lançamentos
+		NFS-e, de entrada, com serviço, com retenção dos tributos federais, com fatura e vencimento para o mês seguinte
+		NF-e, de entrada, com serviço, com retenção dos tributos federais, com fatura e vencimento para o mês seguinte
+
+	▼ Resultados
+		Fluxos Básicos
+		Fluxos Alternativos
+		Fluxos de Exceção
