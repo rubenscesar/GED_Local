@@ -75,6 +75,8 @@ Relacionamentos:
 							A nota será importada com este Serviço lido da Configuração
 						• Quando o "Serviço Padrão" na tela de Configurações / Conversão/Importação / NFS-e (Abrasf) não estiver configurado
 							Apresenta uma mensagem "Não consta no arquivo XML a informação do serviço. Configure o Serviço Padrão na tela de Configurações / Conversão/Importação / NFS-e (Abrasf)." para que configure o Serviço e não importa a nota até que complete a configuração
+		RE[1.1.3] Arquivos que não contém o nome do participante
+			Na conversão de um arquivo que não tenha a informação do nome do participante, deve seguir um novo padrão informando o participante com o nome "(Auxiliar de Importação - NFSe XML)"
 		RE[1.2] Regra aplicável a estabelecimentos com UF de RN e Município de Natal
 			RE[1.2.1] Embasamento no Decreto Nº 8.104 de 29/01/2007
 			RE[1.2.2] Será atribuído a estabelecimentos de Natal (RN)
