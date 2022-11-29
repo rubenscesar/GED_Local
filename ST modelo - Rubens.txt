@@ -109,10 +109,14 @@ Relacionamentos:
 			AC Auto (para as entradas)
 		Obrigação Acessória
 			SPED ICMS
-			SPED Contribuições
-			SPED ECF
-			DCTF - Mensal
-			Sintegra
+		Relatórios
+			Espelho PGDAS
+			Demonstrativo de Cálculo
+			Acompanhamento Tributário
+			DEFIS
+			Detalhamento Subst. e Trib. Monofásica
+				Entradas
+				Saídas
 		Testar em Base real de pendências passadas
 
 ■ Casos de Testes
