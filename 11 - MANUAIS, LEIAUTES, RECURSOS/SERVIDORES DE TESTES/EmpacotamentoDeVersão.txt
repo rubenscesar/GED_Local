@@ -516,3 +516,56 @@ ac/fontes_xe6/testes/exenuvemxe6.bat
 • Guarda uma cópia da pasta "Dados" em \\10.1.254.70\x\Programacao\Pronto\ACXE6\CD
 • Copia os arquivos da pasta '\\10.1.254.70\x\Programacao\Pronto\AC\CD\Dados" para "\\10.1.254.70\x\Programacao\Pronto\ACXE6\CD\Dados"
 • Roda somente o último passo de Empacotar
+
+
+
+# Quando apresenta problema na comparação de tabelas 
+
+[09:48:15][Step 1/1]        [shell] TiAtualiza.exe 
+[09:48:15][Step 1/1]        [shell] c:\Projetos\AC\Fontes\Deploy 
+[09:48:15][Step 1/1]        [shell] 127.0.0.1:c:\Projetos\AC\Fontes\Deploy\AC.gdb 
+[09:48:15][Step 1/1]        [shell] INTRBASE 
+[09:48:38][Step 1/1]        [shell] c:\Projetos\AC\Fontes\Deploy 
+[09:48:38][Step 1/1]                  [shell] SYSDBA 
+[09:48:38][Step 1/1]        [shell] masterkey 
+[09:48:38][Step 1/1]        [shell] /nm 
+[09:49:18][Step 1/1]        [shell] ...........done. 
+[09:49:18][Step 1/1]                  [shell]  
+[09:49:18][Step 1/1]        [shell] Spec2Pas 
+[09:49:18][Step 1/1]        [shell]  
+[09:49:18][Step 1/1]    [dbcompare] DB1 = Firebird:127.0.0.1:C:\Dados\AC\AC.gdb 
+[09:49:18][Step 1/1]              [dbcompare] DB2 = Firebird:127.0.0.1:c:\Projetos\AC\Fontes\Deploy\AC.gdb 
+[09:49:18][Step 1/1]    [dbcompare] leu DB1 
+[09:49:19][Step 1/1]    [dbcompare] leu DB2 
+[09:49:19][Step 1/1]              [dbcompare] DB1 modificado 
+[09:49:19][Step 1/1]    [dbcompare]   Tabela: TTC existe 
+[09:49:19][Step 1/1]    [dbcompare] DB2 modificado 
+[09:49:19][Step 1/1]    [dbcompare]   Tabela: TTC nao existe 
+[09:49:19][Step 1/1]              [dbcompare] Databases diferem.
+
+• Entra na pasta Fontes e localiza o arquivo AC.SQL 
+• Clica com o botão direito do mouse e vai em Blame
+• Procura a tabela em questão, no caso acima seria a TCC
+• Coloca o mouse em cima do nome do DEV que o sistema irá mostrar em que cartão
+• A mudança que foi realizada no arquivo também deve existir no Update.SQL e UpdateMSSQL.SQL e dentro desses arquivos devem estar na mesma versão caso contrário dará erro
+
+
+
+
+# Enivio dos arquivos para o KAV
+• No Ultron na pasta ferrametas
+• Entra no atalho FileZilla Client
+• Clica no botão [Abrir o Gerenciador de Sites]
+• Vai abrir uma janela "Gerenciador de Sites"
+• Clica no botão [Conectar]
+• Vai aparecer na parte superior "Estado:	Listagem do diretório "/" bem sucedida" e nesse momento estará conectador e pronto para enviar os arquivos para o Antivírus Kaspersky
+• Na parte do meio a esquerda, clica 2 vezes ou tecla [Enter] nos arquivos que deseja enviar
+	# Os arquivos que devem ser enviados quando se tratar de Versão Simplificada são:
+	• AC.exe da pasta Portal D7 e XE6
+	• AC.exe da pasta Portal\Nuvem D7 e XE6
+	• Agente... da pasta Homologacao\AgenteESocial - Mas apenas quando houver informação que teve mudança no Agente no e-mail que é enviado para as equipes testarem
+	• WebService (ACPessoalService_...) sem tem na versão ordinária
+• Quando faz isso vai aparecer esses arquivos na parte de baixo com uma barra de progresso
+• Quando conlcuir o envio os arquivos vão para parte do meio a direita
+• Daí é só esperar o retorno do KAV por e-mail
+Obs.: É bom guardar uns prints do que enviou, pois não fica gravado nada
