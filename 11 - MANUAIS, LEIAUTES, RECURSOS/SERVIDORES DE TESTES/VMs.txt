@@ -116,8 +116,11 @@ Sentinela
 
 	superv
 	
-VM Siri
+VM Ciri
 Essa máquina não tem nada instalado. Está sem uso por enquanto
 	IP: 10.1.17.192
 	Usuário: build
 	Senha: superv
+
+Quando não consegue entrar em uma VM que e acessada via conexão remota usando o plugin do VMWare,
+pode ser que o serviço "VMware Host Agent" esteja parado. Basta entrar via acesso remoto do windows no IP da máquina e iniciar este serviço
