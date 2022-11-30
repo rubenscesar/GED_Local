@@ -1,0 +1,48 @@
+Cartão:		
+DEV:		
+Revisor:	
+Descrição:
+Ajuste realizado antes da simulação:
+Consequência:
+Ajuste realizado após a simulação:
+-----------------------------------------------------------------------------
+Cartão:		CH202208013919
+DEV:		Marcos
+Revisor:	Fagner
+Descrição:
+	Empresa do Simples Nacional quando enquadrado no anexo 3, 5ª faixa e com
+	alíquota efetiva superior a 14,92, o valor de PIS e Cofins estava sendo
+	calculado incorretamente no Demonstrativo de Cálculo
+Ajuste realizado antes da simulação:
+	E sistema estava preparado para calcular corretamente quando empresa
+	estivesse no anexo 3, 5ª faixa, alíquota superior a 14,92 e variável
+	AliqISS fosse maior que zero.
+	Foi ajustado para que a variável AliqISS passe a considerar valor zero
+	ou maior que zero.
+	Essa variável seria a alíquota de ISS encontrada na tabela de repartição
+	dos tributos.
+Consequência:
+	Valor passou a ser calculado corretamente, porém, o ajuste foi feito no
+	local incorreto, pois o problema é que esta variável AliqISS deveria ter
+	valor já que existe alíquota de ISS na tabela de repartição dos tributos
+	do anexo 3 na 5ª faixa.
+Ajuste realizado após a simulação:
+	Foi corrigido o momento de alimentar a variável AliqISS com o valor
+	correto e assim quando chegou à condição de realizar o cálculo de PIS e
+	Cofins a fórmula funcionou.
+-----------------------------------------------------------------------------
+Cartão:		CH202208056780 
+DEV:		Marcos
+Revisor:	Fagner
+Descrição:
+	Sistema está diminuindo o valor de uma devolução de vendas na declaração
+	de faturamento e no relatório Receita por Estabelecimentos, de todos os
+	meses, desde 12/2020. A referida devolução foi ocorrida em 11/2020.
+Ajuste realizado antes da simulação:
+	Passou a aproveitar a 
+Consequência:
+Ajuste realizado após a simulação:
+	Após a simulação foi visto que não havia necessidade de nenhuma alteração
+	pois o cadastro do CFOP não estava identificado se o CFOP era de revenda
+	como deveria ser o caso, logo as receitas que eram de revenda no poderiam
+	ter um abatimento de um CFOP de devolução de venda

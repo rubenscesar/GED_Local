@@ -1,0 +1,109 @@
+	▼ Estratégia de Teste
+		Importação
+			Importação .XML
+                Importando todas as notas em lote (Entende-se que a sequência de importação da nota será obedecida mesmo sendo realizado em lote, ou seja, a nota de número 1 será a 1ª a ser importada seguida da nota de número 2 e assim por diante)
+                    Entradas
+                        Documento de Terceiros
+                            Estando desmarcado na Configuração "Atualizar dados dos participantes já cadastrado"
+                                Importando com massa de lançamentos para ultrapassar 10 lançamentos
+                                    Matriz de Lançamentos(1)
+                                Importando sem massa de lançamentos contendo até 10 lançamentos
+                                    Matriz de Lançamentos(1)
+                            Estando marcado na Configuração "Atualizar dados dos participantes já cadastrado"
+                                Importando com massa de lançamentos para ultrapassar 10 lançamentos
+                                    Matriz de Lançamentos(1)
+                                Importando sem massa de lançamentos contendo até 10 lançamentos
+                                    Matriz de Lançamentos(1)
+                            Estando desmarcado na Configuração "Atualizar dados dos participantes já cadastrado"
+                                Importando com massa de lançamentos para ultrapassar 10 lançamentos
+                                    Matriz de Lançamentos(1)
+                                Importando sem massa de lançamentos contendo até 10 lançamentos
+                                    Matriz de Lançamentos(1)
+                            Estando marcado na Configuração "Atualizar dados dos participantes já cadastrado"
+                                Importando com massa de lançamentos para ultrapassar 10 lançamentos
+                                    Matriz de Lançamentos(1)
+                                Importando sem massa de lançamentos contendo até 10 lançamentos
+                                    Matriz de Lançamentos(1)
+                    Saídas
+                        Documento Próprio
+                            Estando desmarcado na Configuração "Atualizar dados dos participantes já cadastrado"
+                                Importando com massa de lançamentos para ultrapassar 10 lançamentos
+                                    Matriz de Lançamentos(1)
+                                Importando sem massa de lançamentos contendo até 10 lançamentos
+                                    Matriz de Lançamentos(1)
+                            Estando marcado na Configuração "Atualizar dados dos participantes já cadastrado"
+                                Importando com massa de lançamentos para ultrapassar 10 lançamentos
+                                    Matriz de Lançamentos(1)
+                                Importando sem massa de lançamentos contendo até 10 lançamentos
+                                    Matriz de Lançamentos(1)
+                            Estando desmarcado na Configuração "Atualizar dados dos participantes já cadastrado"
+                                Importando com massa de lançamentos para ultrapassar 10 lançamentos
+                                    Matriz de Lançamentos(1)
+                                Importando sem massa de lançamentos contendo até 10 lançamentos
+                                    Matriz de Lançamentos(1)
+                            Estando marcado na Configuração "Atualizar dados dos participantes já cadastrado"
+                                Importando com massa de lançamentos para ultrapassar 10 lançamentos
+                                    Matriz de Lançamentos(1)
+                                Importando sem massa de lançamentos contendo até 10 lançamentos
+                                    Matriz de Lançamentos(1)
+			Importação .FS
+                Importando todas as notas em lote (Entende-se que a sequência de importação da nota será obedecida mesmo sendo realizado em lote, ou seja, a nota de número 1 será a 1ª a ser importada seguida da nota de número 2 e assim por diante)
+                    Saídas
+                        Documento de Terceiros
+							Estando desmarcado na Configuração "Atualizar dados dos participantes já cadastrado"
+								Importando com massa de lançamentos para ultrapassar 10 lançamentos
+									Matriz de Lançamentos(4)
+								Importando sem massa de lançamentos contendo até 10 lançamentos
+									Matriz de Lançamentos(4)
+							Estando marcado na Configuração "Atualizar dados dos participantes já cadastrado"
+								Importando com massa de lançamentos para ultrapassar 10 lançamentos
+									Matriz de Lançamentos(4)
+								Importando sem massa de lançamentos contendo até 10 lançamentos
+									Matriz de Lançamentos(4)
+		Testar em Base real de pendências passadas
+
+■ Casos de Testes
+	▼ Matriz de Lançamentos
+        Matriz de Lançamentos(1)
+            (29) Incluir 10 lançamentos para ser importado antes de qualquer outro
+            (35/36) Estando o participante da primeira nota já cadastrado e o participante da segunda nota seja cadastrado na importação, que o participante da primeira nota possua um CNPJ diferente da segunda nota (matriz e filial), que o participante da primeira nota possua uma inscrição estadual diferente da segunda nota
+                 1ª nota: Possui CNPJ de uma empresa matriz
+                          Possui IE diferente da 2ª nota
+                 2ª nota: Possui CNPJ da empresa filial
+                          Possui IE diferente da 1ª nota
+            (37) Estando o participante da primeira nota já cadastrado e o participante da segunda nota seja cadastrado na importação, que o participante da primeira nota possua um CNPJ diferente da segunda nota (matriz e filial), que o participante da primeira nota possua uma inscrição estadual e da segunda nota esteja sem inscrição estadual
+                 1ª nota: Possui CNPJ de uma empresa matriz
+                          Possui IE
+                 2ª nota: Possui CNPJ da empresa filial
+                          Não possui IE
+            (38) Participante contendo CPF, nome e UF iguais a um participante já cadastrado, não necessitando atualização de nenhuma informação, apenas selecionando o participante preexistente
+            (39) Participante contendo apenas CPF e o restante das informações em branco. O CPF não existe na base de dados resultando na sua inclusão
+            (40) Participante contendo apenas CNPJ e o restante das informações em branco. O CNPJ não existe na base de dados resultando na sua inclusão
+            (41) Participante contendo apenas CPF e o restante das informações em branco. O CPF igual a um participante já cadastrado, necessitando atualização das informações conforme seja configurado, selecionando o participante preexistente
+            (42) Participante contendo apenas CNPJ e o restante das informações em branco. O CNPJ igual a um participante já cadastrado, necessitando atualização das informações conforme seja configurado, selecionando o participante preexistente
+            (43) Participante contendo CNPJ e todas as informações iguais a um participante já cadastrado, não necessitando atualização de nenhuma informação, apenas selecionando o participante preexistente
+            (44) Participante contendo CNPJ e nome iguais a um participante já cadastrado e o restante das informações diferente, necessitando atualização das informações conforme seja configurado, selecionando o participante preexistente
+            (45/46) Estando o participante da primeira e da segunda nota para ser importados e cadastrados individualmente, que os participantes possuam as mesmas informações com exceção da UF e municipio
+            (47) Participante contendo CNPJ e nome diferente dos participantes preexistentes e UF e inscrição estadual igual a um participante já cadastrado
+        Matriz de Lançamentos(2)
+        Matriz de Lançamentos(3)
+        Matriz de Lançamentos(4)
+            (01/29) Incluir 10 lançamentos para ser importado antes de qualquer outro
+            (30/34) 
+            (35/36) Estando o participante da primeira nota já cadastrado e o participante da segunda nota seja cadastrado na importação, que o participante da primeira nota possua um CNPJ diferente da segunda nota (matriz e filial), que o participante da primeira nota possua uma inscrição estadual diferente da segunda nota
+                 1ª nota: Possui CNPJ de uma empresa matriz
+                          Possui IE diferente da 2ª nota
+                 2ª nota: Possui CNPJ da empresa filial
+                          Possui IE diferente da 1ª nota
+            (37) Estando o participante da primeira nota já cadastrado e o participante da segunda nota seja cadastrado na importação, que o participante da primeira nota possua um CNPJ diferente da segunda nota (matriz e filial), que o participante da primeira nota possua uma inscrição estadual e da segunda nota esteja sem inscrição estadual
+                 1ª nota: Possui CNPJ de uma empresa matriz
+                          Possui IE
+                 2ª nota: Possui CNPJ da empresa filial
+                          Não possui IE
+            (38) Participante contendo CPF, nome e UF iguais a um participante já cadastrado, não necessitando atualização de nenhuma informação, apenas selecionando o participante preexistente
+            (39) Participante contendo apenas CPF e o restante das informações em branco. O CPF igual a um participante já cadastrado, necessitando atualização das informações conforme seja configurado, selecionando o participante preexistente
+            (40) Participante contendo apenas CNPJ e o restante das informações em branco. O CNPJ igual a um participante já cadastrado, necessitando atualização das informações conforme seja configurado, selecionando o participante preexistente
+            (41) Participante contendo CNPJ e todas as informações iguais a um participante já cadastrado, não necessitando atualização de nenhuma informação, apenas selecionando o participante preexistente
+            (42) Participante contendo CNPJ e nome iguais a um participante já cadastrado e o restante das informações diferente, necessitando atualização das informações conforme seja configurado, selecionando o participante preexistente
+            (43/44) Estando o participante da primeira e da segunda nota para ser importados e cadastrados individualmente, que os participantes possuam as mesmas informações com exceção da UF e municipio
+            (45) Participante contendo CNPJ e nome diferente dos participantes preexistentes e UF e inscrição estadual igual a um participante já cadastrado

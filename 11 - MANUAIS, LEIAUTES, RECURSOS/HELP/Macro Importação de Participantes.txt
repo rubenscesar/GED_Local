@@ -1,0 +1,349 @@
+Épico: IMPORTAÇÃO DE DADOS DOS PARTICIPANTES
+
+Fonte de um cartão semelhante: CH202203050678
+	Importação NFSe Abrasf - Ajuste na atualização do cadastro de participantes:
+		• Cliente está realizando a importação de arquivos XML de NFS-e padrão ABRASF e o sistema não está realizando a atualização do cadastro do participante, foi verificado que nas Configurações a opção Atualizar Cadastro dos Participantes está marcada;
+		• Ao testar realizando a importação do arquivo foi verificado que o sistema não atualiza;
+		• Verificando o XML da Nota foi verificado que a informação do código do município consta no participante;
+		• Ao verificar o arquivo convertido foi identificado que o sistema não está preenchendo a informação do Código do Município no campo 23 do Registro PAR.
+Fonte de um cartão semelhante: CH202203023904
+Fonte de um cartão semelhante: CH202205052631
+	Alteração de participantes na importação NF-e e Conta de energia elétrica:
+		• Escrita e alguns clientes de unidades relatando que será inviável identificar quais os participantes que foram alterados a descrição. No caso da Escrita, tem mais de 2400 empresas;
+		• Observei que em configurações > importação, desmarcar nas configurações a opção de "atualizar cadastro de participantes" os participantes são  trocados nos documentos;
+Fonte de um cartão semelhante: CH202102067346
+
+Ano de publicação: 2022
+
+Relacionamentos: Importação .XML, Importação WEB, Importação Abrasf, Importação .FS, Importação .CSV, Importação .XLSX (Fortaleza), Importação .TXT (SP), Sintegra, SPED ICMS, Participantes, Lentidão, Desempenho, Carga, Atualização de cadastro de Produto
+
+■ Plano de Testes
+	▼ Requisitos
+		RE[1] Exigências para enquadramento do requisito
+			RE[1.1]	Quando a importação for de Importação Abrasf no qual os dados do participante esteja sem UF e com IE, transformar o erro em aviso e deixar passar, somente quando for origem Importação Abrasf (Origem P CH202102067346)
+            RE[1.2] Não será mais atualizado o cadastro de participante quando for importação de CF-e e NFC-e, apenas incluído novos
+            RE[1.3] Histórico de participantes só é gravado diante de Importação .FS
+            RE[1.4] A Configuração "Validar se CNPJ/CPF está preenchido quando participante não for do exterior" é Válido somente para importação .FS e irá apresentar a mensagem "CNPJ/CPF do Participante deve ser informado."
+		RE[2] Necessário para executar a homologação do cartão
+	▼ Escopo do Teste
+		Será Testado
+			Lançamentos
+			Importação/Exportação
+				Importação .XML
+				Importação WEB
+				Importação .FS
+			Conversão
+				Importação Abrasf
+				Importação .XLSX (Fortaleza)
+				Importação .TXT (SP)
+				Sintegra
+				SPED ICMS
+			Obrigações Acessórias
+			Relatórios
+			Ferramentas
+		Não Será Testado
+	▼ Matriz de Risco
+		Status		ID	Descrição	(P)robabilidade de Ocorrência do Erro	(I)mpacto do Erro	Priorização do Teste = P x I	Responsável	Estratégia				Reavaliar
+		Priorizado	1	...			3 Alta									3 Alta				9								Rubens		Eliminar/Evitar			Anualmente
+					2	...			2 Média									2 Média				4								Rubens		Prevenir/Mitigar		Mensalmente
+					3	...			1 Baixa									1 Baixa				1								Rubens		Aceitar Passivamente	Por Evento
+					4	...			...										...					...								Rubens		Aceitar Ativamente		...
+
+■ Procedimentos de Testes
+	▼ Atividades
+		Firebird
+		SQL
+			Escriturando em 2 estabelecimentos
+
+	▼ Procedimentos Iniciais
+		PI[1] Utilizar o banco de dados com alguns participantes já cadastrados antes de iniciar as importações
+            Possuo script para rodar no testcomplete. Colocar depois aqui
+
+	▼ Estratégia de Teste
+		Importação
+			Importação .XML
+                Importando todas as notas em lote (Entende-se que a sequência de importação da nota será obedecida mesmo sendo realizado em lote, ou seja, a nota de número 1 será a 1ª a ser importada seguida da nota de número 2 e assim por diante)
+                    Entradas
+                        Documento de Terceiros
+                            Estando marcado na Configuração "Abrir tela de Mapeamento de Tributação por Fornecedor"
+                                Estando desmarcado na Configuração "Atualizar dados dos participantes já cadastrado"
+                                    Importando com massa de lançamentos para ultrapassar 29 lançamentos
+                                        Ao informar produtos, utilizar códigos alfanuméricos para os produtos no XML
+                                            Quando Mapeamento de Produto por Fornecedor não Existe
+                                                Importar vinculando todos produtos da nota a outros iguais já existentes
+                                                    Matriz de Lançamentos(1)
+                                            Quando Mapeamento de Produto por Fornecedor Existe
+                                                Importar vinculando todos produtos da nota a outros iguais já existentes
+                                                    Matriz de Lançamentos(1)
+                                    Importando sem massa de lançamentos contendo até 10 lançamentos
+                                        Ao informar produtos, utilizar códigos alfanuméricos para os produtos no XML
+                                            Quando Mapeamento de Produto por Fornecedor não Existe
+                                                Importar vinculando todos produtos da nota a outros iguais já existentes
+                                                    Matriz de Lançamentos(1)
+                                            Quando Mapeamento de Produto por Fornecedor Existe
+                                                Importar vinculando todos produtos da nota a outros iguais já existentes
+                                                    Matriz de Lançamentos(1)
+                                Estando marcado na Configuração "Atualizar dados dos participantes já cadastrado"
+                                    Importando com massa de lançamentos para ultrapassar 29 lançamentos
+                                        Ao informar produtos, utilizar códigos alfanuméricos para os produtos no XML
+                                            Quando Mapeamento de Produto por Fornecedor não Existe
+                                                Importar vinculando todos produtos da nota a outros iguais já existentes
+                                                    Matriz de Lançamentos(1)
+                                            Quando Mapeamento de Produto por Fornecedor Existe
+                                                Importar vinculando todos produtos da nota a outros iguais já existentes
+                                                    Matriz de Lançamentos(1)
+                                    Importando sem massa de lançamentos contendo até 10 lançamentos
+                                        Ao informar produtos, utilizar códigos alfanuméricos para os produtos no XML
+                                            Quando Mapeamento de Produto por Fornecedor não Existe
+                                                Importar vinculando todos produtos da nota a outros iguais já existentes
+                                                    Matriz de Lançamentos(1)
+                                            Quando Mapeamento de Produto por Fornecedor Existe
+                                                Importar vinculando todos produtos da nota a outros iguais já existentes
+                                                    Matriz de Lançamentos(1)
+                            Estando desmarcado na Configuração "Abrir tela de Mapeamento de Tributação por Fornecedor"
+                                Estando desmarcado na Configuração "Atualizar dados dos participantes já cadastrado"
+                                    Importando com massa de lançamentos para ultrapassar 29 lançamentos
+                                        Ao informar produtos, utilizar códigos alfanuméricos para os produtos no XML
+                                            Quando Mapeamento de Produto por Fornecedor não Existe
+                                                Importar vinculando todos produtos da nota a outros iguais já existentes
+                                                    Matriz de Lançamentos(1)
+                                            Quando Mapeamento de Produto por Fornecedor Existe
+                                                Importar vinculando todos produtos da nota a outros iguais já existentes
+                                                    Matriz de Lançamentos(1)
+                                    Importando sem massa de lançamentos contendo até 10 lançamentos
+                                        Ao informar produtos, utilizar códigos alfanuméricos para os produtos no XML
+                                            Quando Mapeamento de Produto por Fornecedor não Existe
+                                                Importar vinculando todos produtos da nota a outros iguais já existentes
+                                                    Matriz de Lançamentos(1)
+                                            Quando Mapeamento de Produto por Fornecedor Existe
+                                                Importar vinculando todos produtos da nota a outros iguais já existentes
+                                                    Matriz de Lançamentos(1)
+                                Estando marcado na Configuração "Atualizar dados dos participantes já cadastrado"
+                                    Importando com massa de lançamentos para ultrapassar 29 lançamentos
+                                        Ao informar produtos, utilizar códigos alfanuméricos para os produtos no XML
+                                            Quando Mapeamento de Produto por Fornecedor não Existe
+                                                Importar vinculando todos produtos da nota a outros iguais já existentes
+                                                    Matriz de Lançamentos(1)
+                                            Quando Mapeamento de Produto por Fornecedor Existe
+                                                Importar vinculando todos produtos da nota a outros iguais já existentes
+                                                    Matriz de Lançamentos(1)
+                                    Importando sem massa de lançamentos contendo até 10 lançamentos
+                                        Ao informar produtos, utilizar códigos alfanuméricos para os produtos no XML
+                                            Quando Mapeamento de Produto por Fornecedor não Existe
+                                                Importar vinculando todos produtos da nota a outros iguais já existentes
+                                                    Matriz de Lançamentos(1)
+                                            Quando Mapeamento de Produto por Fornecedor Existe
+                                                Importar vinculando todos produtos da nota a outros iguais já existentes
+                                                    Matriz de Lançamentos(1)
+                        Documento de Terceiros com Transferência
+                            Estando marcado na Configuração "Abrir tela de Mapeamento de Tributação por Fornecedor"
+                                Estando desmarcado na Configuração "Atualizar dados dos participantes já cadastrado"
+                                    Importando com massa de lançamentos para ultrapassar 29 lançamentos
+                                        Ao informar produtos, utilizar códigos alfanuméricos para os produtos no XML
+                                            Quando Mapeamento de Produto por Fornecedor não Existe
+                                                Importar vinculando todos produtos da nota a outros iguais já existentes
+                                                    Matriz de Lançamentos(2)
+                                            Quando Mapeamento de Produto por Fornecedor Existe
+                                                Importar vinculando todos produtos da nota a outros iguais já existentes
+                                                    Matriz de Lançamentos(2)
+                                    Importando sem massa de lançamentos contendo até 10 lançamentos
+                                        Ao informar produtos, utilizar códigos alfanuméricos para os produtos no XML
+                                            Quando Mapeamento de Produto por Fornecedor não Existe
+                                                Importar vinculando todos produtos da nota a outros iguais já existentes
+                                                    Matriz de Lançamentos(2)
+                                            Quando Mapeamento de Produto por Fornecedor Existe
+                                                Importar vinculando todos produtos da nota a outros iguais já existentes
+                                                    Matriz de Lançamentos(2)
+                                Estando marcado na Configuração "Atualizar dados dos participantes já cadastrado"
+                                    Importando com massa de lançamentos para ultrapassar 29 lançamentos
+                                        Ao informar produtos, utilizar códigos alfanuméricos para os produtos no XML
+                                            Quando Mapeamento de Produto por Fornecedor não Existe
+                                                Importar vinculando todos produtos da nota a outros iguais já existentes
+                                                    Matriz de Lançamentos(2)
+                                            Quando Mapeamento de Produto por Fornecedor Existe
+                                                Importar vinculando todos produtos da nota a outros iguais já existentes
+                                                    Matriz de Lançamentos(2)
+                                    Importando sem massa de lançamentos contendo até 10 lançamentos
+                                        Ao informar produtos, utilizar códigos alfanuméricos para os produtos no XML
+                                            Quando Mapeamento de Produto por Fornecedor não Existe
+                                                Importar vinculando todos produtos da nota a outros iguais já existentes
+                                                    Matriz de Lançamentos(2)
+                                            Quando Mapeamento de Produto por Fornecedor Existe
+                                                Importar vinculando todos produtos da nota a outros iguais já existentes
+                                                    Matriz de Lançamentos(2)
+                            Estando desmarcado na Configuração "Abrir tela de Mapeamento de Tributação por Fornecedor"
+                                Estando desmarcado na Configuração "Atualizar dados dos participantes já cadastrado"
+                                    Importando com massa de lançamentos para ultrapassar 29 lançamentos
+                                        Ao informar produtos, utilizar códigos alfanuméricos para os produtos no XML
+                                            Quando Mapeamento de Produto por Fornecedor não Existe
+                                                Importar vinculando todos produtos da nota a outros iguais já existentes
+                                                    Matriz de Lançamentos(2)
+                                            Quando Mapeamento de Produto por Fornecedor Existe
+                                                Importar vinculando todos produtos da nota a outros iguais já existentes
+                                                    Matriz de Lançamentos(2)
+                                    Importando sem massa de lançamentos contendo até 10 lançamentos
+                                        Ao informar produtos, utilizar códigos alfanuméricos para os produtos no XML
+                                            Quando Mapeamento de Produto por Fornecedor não Existe
+                                                Importar vinculando todos produtos da nota a outros iguais já existentes
+                                                    Matriz de Lançamentos(2)
+                                            Quando Mapeamento de Produto por Fornecedor Existe
+                                                Importar vinculando todos produtos da nota a outros iguais já existentes
+                                                    Matriz de Lançamentos(2)
+                                Estando marcado na Configuração "Atualizar dados dos participantes já cadastrado"
+                                    Importando com massa de lançamentos para ultrapassar 29 lançamentos
+                                        Ao informar produtos, utilizar códigos alfanuméricos para os produtos no XML
+                                            Quando Mapeamento de Produto por Fornecedor não Existe
+                                                Importar vinculando todos produtos da nota a outros iguais já existentes
+                                                    Matriz de Lançamentos(2)
+                                            Quando Mapeamento de Produto por Fornecedor Existe
+                                                Importar vinculando todos produtos da nota a outros iguais já existentes
+                                                    Matriz de Lançamentos(2)
+                                    Importando sem massa de lançamentos contendo até 10 lançamentos
+                                        Ao informar produtos, utilizar códigos alfanuméricos para os produtos no XML
+                                            Quando Mapeamento de Produto por Fornecedor não Existe
+                                                Importar vinculando todos produtos da nota a outros iguais já existentes
+                                                    Matriz de Lançamentos(2)
+                                            Quando Mapeamento de Produto por Fornecedor Existe
+                                                Importar vinculando todos produtos da nota a outros iguais já existentes
+                                                    Matriz de Lançamentos(2)
+                    Saídas
+                        Documento de Terceiros com Devolução
+                            Estando marcado na Configuração "Abrir tela de Mapeamento de Tributação por Fornecedor"
+                                Estando desmarcado na Configuração "Atualizar dados dos participantes já cadastrado"
+                                    Importando com massa de lançamentos para ultrapassar 29 lançamentos
+                                        Ao informar produtos, utilizar códigos alfanuméricos para os produtos no XML
+                                            Quando Mapeamento de Produto por Fornecedor não Existe
+                                                Importar vinculando todos produtos da nota a outros iguais já existentes
+                                                    Matriz de Lançamentos(3)
+                                            Quando Mapeamento de Produto por Fornecedor Existe
+                                                Importar vinculando todos produtos da nota a outros iguais já existentes
+                                                    Matriz de Lançamentos(3)
+                                    Importando sem massa de lançamentos contendo até 10 lançamentos
+                                        Ao informar produtos, utilizar códigos alfanuméricos para os produtos no XML
+                                            Quando Mapeamento de Produto por Fornecedor não Existe
+                                                Importar vinculando todos produtos da nota a outros iguais já existentes
+                                                    Matriz de Lançamentos(3)
+                                            Quando Mapeamento de Produto por Fornecedor Existe
+                                                Importar vinculando todos produtos da nota a outros iguais já existentes
+                                                    Matriz de Lançamentos(3)
+                                Estando marcado na Configuração "Atualizar dados dos participantes já cadastrado"
+                                    Importando com massa de lançamentos para ultrapassar 29 lançamentos
+                                        Ao informar produtos, utilizar códigos alfanuméricos para os produtos no XML
+                                            Quando Mapeamento de Produto por Fornecedor não Existe
+                                                Importar vinculando todos produtos da nota a outros iguais já existentes
+                                                    Matriz de Lançamentos(3)
+                                            Quando Mapeamento de Produto por Fornecedor Existe
+                                                Importar vinculando todos produtos da nota a outros iguais já existentes
+                                                    Matriz de Lançamentos(3)
+                                    Importando sem massa de lançamentos contendo até 10 lançamentos
+                                        Ao informar produtos, utilizar códigos alfanuméricos para os produtos no XML
+                                            Quando Mapeamento de Produto por Fornecedor não Existe
+                                                Importar vinculando todos produtos da nota a outros iguais já existentes
+                                                    Matriz de Lançamentos(3)
+                                            Quando Mapeamento de Produto por Fornecedor Existe
+                                                Importar vinculando todos produtos da nota a outros iguais já existentes
+                                                    Matriz de Lançamentos(3)
+                        Documento Próprio
+							Estando desmarcado na Configuração "Atualizar dados dos participantes já cadastrado"
+								Importando com massa de lançamentos para ultrapassar 29 lançamentos
+									Ao informar produtos, utilizar códigos alfanuméricos para os produtos no XML
+										Matriz de Lançamentos(5)
+								Importando sem massa de lançamentos contendo até 10 lançamentos
+									Ao informar produtos, utilizar códigos alfanuméricos para os produtos no XML
+										Matriz de Lançamentos(5)
+							Estando marcado na Configuração "Atualizar dados dos participantes já cadastrado"
+								Importando com massa de lançamentos para ultrapassar 29 lançamentos
+									Ao informar produtos, utilizar códigos alfanuméricos para os produtos no XML
+										Matriz de Lançamentos(5)
+								Importando sem massa de lançamentos contendo até 10 lançamentos
+									Ao informar produtos, utilizar códigos alfanuméricos para os produtos no XML
+										Matriz de Lançamentos(5)
+			Importação WEB
+			Importação .FS
+                Importando todas as notas em lote (Entende-se que a sequência de importação da nota será obedecida mesmo sendo realizado em lote, ou seja, a nota de número 1 será a 1ª a ser importada seguida da nota de número 2 e assim por diante)
+                    Saídas
+                        Documento de Terceiros
+							Estando desmarcado na Configuração "Atualizar dados dos participantes já cadastrado"
+								Importando com massa de lançamentos para ultrapassar 29 lançamentos
+									Matriz de Lançamentos(4)
+								Importando sem massa de lançamentos contendo até 10 lançamentos
+									Matriz de Lançamentos(4)
+							Estando marcado na Configuração "Atualizar dados dos participantes já cadastrado"
+								Importando com massa de lançamentos para ultrapassar 29 lançamentos
+									Matriz de Lançamentos(4)
+								Importando sem massa de lançamentos contendo até 10 lançamentos
+									Matriz de Lançamentos(4)
+		Conversão
+			Importação Abrasf
+			Importação .XLSX (Fortaleza)
+			Importação .TXT (SP)
+			Sintegra
+			SPED ICMS
+		Testar em Base real de pendências passadas
+
+
+
+
+
+
+
+
+
+■ Casos de Testes
+	▼ Matriz de Lançamentos
+        Matriz de Lançamentos(1)
+            (29) Incluir 29 lançamento para ser importado antes de qualquer outro
+            (35/36) Estando o participante da primeira nota já cadastrado e o participante da segunda nota seja cadastrado na importação, que o participante da primeira nota possua um CNPJ diferente da segunda nota (matriz e filial), que o participante da primeira nota possua uma inscrição estadual diferente da segunda nota
+                 1ª nota: Possui CNPJ de uma empresa matriz
+                          Possui IE diferente da 2ª nota
+                 2ª nota: Possui CNPJ da empresa filial
+                          Possui IE diferente da 1ª nota
+            (37) Estando o participante da primeira nota já cadastrado e o participante da segunda nota seja cadastrado na importação, que o participante da primeira nota possua um CNPJ diferente da segunda nota (matriz e filial), que o participante da primeira nota possua uma inscrição estadual e da segunda nota esteja sem inscrição estadual
+                 1ª nota: Possui CNPJ de uma empresa matriz
+                          Possui IE
+                 2ª nota: Possui CNPJ da empresa filial
+                          Não possui IE
+            (38) Participante contendo CPF, nome e UF iguais a um participante já cadastrado, não necessitando atualização de nenhuma informação, apenas selecionando o participante preexistente
+            (39) Participante contendo apenas CPF e o restante das informações em branco. O CPF não existe na base de dados resultando na sua inclusão
+            (40) Participante contendo apenas CNPJ e o restante das informações em branco. O CNPJ não existe na base de dados resultando na sua inclusão
+            (41) Participante contendo apenas CPF e o restante das informações em branco. O CPF igual a um participante já cadastrado, necessitando atualização das informações conforme seja configurado, selecionando o participante preexistente
+            (42) Participante contendo apenas CNPJ e o restante das informações em branco. O CNPJ igual a um participante já cadastrado, necessitando atualização das informações conforme seja configurado, selecionando o participante preexistente
+            (43) Participante contendo CNPJ e todas as informações iguais a um participante já cadastrado, não necessitando atualização de nenhuma informação, apenas selecionando o participante preexistente
+            (44) Participante contendo CNPJ e nome iguais a um participante já cadastrado e o restante das informações diferente, necessitando atualização das informações conforme seja configurado, selecionando o participante preexistente
+            (45/46) Estando o participante da primeira e da segunda nota para ser importados e cadastrados individualmente, que os participantes possuam as mesmas informações com exceção da UF e municipio
+            (47) Participante contendo CNPJ e nome diferente dos participantes preexistentes e UF e inscrição estadual igual a um participante já cadastrado
+        Matriz de Lançamentos(2)
+        Matriz de Lançamentos(3)
+        Matriz de Lançamentos(4)
+            (01/29) Incluir 29 lançamento para ser importado antes de qualquer outro
+            (30/34) 
+            (35/36) Estando o participante da primeira nota já cadastrado e o participante da segunda nota seja cadastrado na importação, que o participante da primeira nota possua um CNPJ diferente da segunda nota (matriz e filial), que o participante da primeira nota possua uma inscrição estadual diferente da segunda nota
+                 1ª nota: Possui CNPJ de uma empresa matriz
+                          Possui IE diferente da 2ª nota
+                 2ª nota: Possui CNPJ da empresa filial
+                          Possui IE diferente da 1ª nota
+            (37) Estando o participante da primeira nota já cadastrado e o participante da segunda nota seja cadastrado na importação, que o participante da primeira nota possua um CNPJ diferente da segunda nota (matriz e filial), que o participante da primeira nota possua uma inscrição estadual e da segunda nota esteja sem inscrição estadual
+                 1ª nota: Possui CNPJ de uma empresa matriz
+                          Possui IE
+                 2ª nota: Possui CNPJ da empresa filial
+                          Não possui IE
+            (38) Participante contendo CPF, nome e UF iguais a um participante já cadastrado, não necessitando atualização de nenhuma informação, apenas selecionando o participante preexistente
+            (39) Participante contendo apenas CPF e o restante das informações em branco. O CPF igual a um participante já cadastrado, necessitando atualização das informações conforme seja configurado, selecionando o participante preexistente
+            (40) Participante contendo apenas CNPJ e o restante das informações em branco. O CNPJ igual a um participante já cadastrado, necessitando atualização das informações conforme seja configurado, selecionando o participante preexistente
+            (41) Participante contendo CNPJ e todas as informações iguais a um participante já cadastrado, não necessitando atualização de nenhuma informação, apenas selecionando o participante preexistente
+            (42) Participante contendo CNPJ e nome iguais a um participante já cadastrado e o restante das informações diferente, necessitando atualização das informações conforme seja configurado, selecionando o participante preexistente
+            (43/44) Estando o participante da primeira e da segunda nota para ser importados e cadastrados individualmente, que os participantes possuam as mesmas informações com exceção da UF e municipio
+            (45) Participante contendo CNPJ e nome diferente dos participantes preexistentes e UF e inscrição estadual igual a um participante já cadastrado
+
+Links de testes unitários:
+Links de testes funcionais:
+Recursos:
+					  Nome do arquivo no padrão:	[Relacionamento principal]-( Se for arquivo Abrasf informar o município e UF )[Município] (UF)-[Observação opcional]
+										Exemplo:	Arquivo para importação: Abrasf-Ponte Nova (MG)-Inscrição Estadual do Participante.xml
+	Nome do arquivo do banco de dados no padrão:	[Iniciais do subsistema]-[Relacionamento principal]-[Ano de publicação]-[Nome da empresa]-[Período]-[Observação opcional]
+										Exemplo:	Banco para testes: ACC-Planilha Financeira-2021-ONE INTERNET SA-042021.rar
+
+
+Recursos:
+Origem (P CH202102067346)
+	Arquivo para importação: Abrasf-Ponte Nova (MG)-Inscrição Estadual do Participante.xml
