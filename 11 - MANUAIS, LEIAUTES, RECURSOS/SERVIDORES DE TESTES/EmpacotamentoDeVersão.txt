@@ -564,8 +564,21 @@ ac/fontes_xe6/testes/exenuvemxe6.bat
 	• AC.exe da pasta Portal D7 e XE6
 	• AC.exe da pasta Portal\Nuvem D7 e XE6
 	• Agente... da pasta Homologacao\AgenteESocial - Mas apenas quando houver informação que teve mudança no Agente no e-mail que é enviado para as equipes testarem
-	• WebService (ACPessoalService_...) sem tem na versão ordinária
+	• WebService (ACPessoalService_...) só tem na versão ordinária
 • Quando faz isso vai aparecer esses arquivos na parte de baixo com uma barra de progresso
 • Quando conlcuir o envio os arquivos vão para parte do meio a direita
 • Daí é só esperar o retorno do KAV por e-mail
 Obs.: É bom guardar uns prints do que enviou, pois não fica gravado nada
+
+
+# Quando apresentar erro por não localizar um arquivo significa que quebrou algo na compilação, no caso abaixo foi pq não rodou o Detox.
+
+AtualizadorInstaladorNuvem:
+         [dcc] ./InstalaXE6.dpr
+         [dcc] ./PrInstall.pas (7)
+         [dcc] Fatal: F1026 File not found:
+         [dcc] 'C:\Projetos\ac\Fontes\Instalador\acProgressBar.dcu'
+		 
+• Não rodou o Detox
+• Possivelmente está rodando direto o bat na máquina e assim acabou pulando outros processos que somente no TeamCity está passando antes de chegar no Deploy
+• O caso acima foi pq rodou direto o arquivo bat e pulou assim o processo de Detox que o TeamCity tem. Deve rodar pelo TeamCity
