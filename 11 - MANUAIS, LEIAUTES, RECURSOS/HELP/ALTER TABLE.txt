@@ -1,2 +1,4 @@
+Quando apresenta problema de ApplyUpdates
+
 ALTER TABLE FDF ADD ESPECIE VARCHAR(3)
 ALTER TABLE FDF ADD TDF_SEQ INT
