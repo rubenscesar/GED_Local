@@ -1,0 +1,158 @@
+Épico: Adequação aos novos Quadros 15 (Registro 36) e 16 (Registro 37), destinados a demonstrar a apuração dos valores devidos de FUNDO SOCIAL e FUMDES.
+Número do cartão: S CH202211027004
+Ano de publicação: 2023
+Relacionamentos: DIME (SC)
+
+■ Plano de Testes
+	▼ Requisitos
+		RE[1] Exigências para enquadramento do requisito
+			RE[1.1] Embasamento na Portaria SEF nº314/2022
+			RE[1.2] Será atribuído a estabelecimentos cujo UF seja de (SC)
+			RE[1.3] Será atribuído a empresas cujo Regime de Tributação Estadual seja do Regime Normal
+			RE[1.4] Será incluído nova tela em Movimentos >> Tratamento Tributário Diferenciado (TTD) - DIME/SC
+			MOVIMENTOS >> TRATAMENTO TRIBUTÁRIO DIFERENCIADO (TTD) - DIME/SC
+			RE[1.5] Será permitido apenas lançamentos a partir do mês 10/2022
+			RE[1._] O preenchimento será inteiramente manual
+			RE[1._] O campo "Subtipo DCIP Crédito Presumido sem exigência de TTD" só será preenchido quando os campos "Código" e "Número da Concessão" estiverem em branco
+			RE[1._] Quando preencher o campo "Código" deve obrigar o preenchimento do campo "Número da Concessão"
+			RE[1._] Quando preencher o campo "Número da Concessão" deve obrigar o preenchimento do campo "Código"
+			RE[1._] Quando preencher os campos "Código" e "Número da Concessão" deve apagar o conteúdo do campo "Subtipo DCIP Crédito Presumido sem exigência de TTD" só será preenchido quando os campos "Código"
+			RE[1._] Quando preencher os campos "Código" e "Número da Concessão" deve gerar para a DIME o conteúdo do campo "Subtipo DCIP Crédito Presumido sem exigência de TTD"
+			RE[1._] O campo "Alíq. FUMDES" deverá mostrar as opções para escolha do usuário conforme o leiaute (0 - Não exigido na Portaria SEF 143/22
+																												1 - 2% do ICMS Exonerado)
+			RE[1._] Quando preencher o campo "Alíq. FUMDES" com opção diferente de "0" deve obrigar o preenchimento do campo "Valor FUMDES"
+			RE[1._] Quando o campo "Alíq. FUMDES" for selecionado (0 - Não exigido na Portaria SEF 143/22) então não deve habilitar o "Valor FUMDES"
+			RE[1._] O campo "Alíq. FUNDO SOCIAL" deverá mostrar as opções para escolha do usuário conforme o leiaute (0 - Não exigido na Portaria SEF 143/22
+																													  1 - 2,5% do ICMS Exonerado
+																													  2 - 0,4% da BC ICMS - FUMDES
+																													  3 - 0,4% da BC ICMS - (FUNDO SOCIAL + FUMDES)
+																													  4 - 4,5% do ICMS Exonerado)
+			RE[1._] Quando preencher o campo "Alíq. FUNDO SOCIAL" com opção diferente de "0" deve obrigar o preenchimento do campo "Valor FUNDO SOCIAL"
+			RE[1._] Quando o campo "Alíq. FUNDO SOCIAL" for selecionado (0 - Não exigido na Portaria SEF 143/22) então não deve habilitar o "Valor FUNDO SOCIAL"
+			RE[1._] O campo "Valor da Base Cálculo ICMS das Operações ou Prestações para cada Número de Concessão" só deve ser habilitado quando no campo "Alíq. FUNDO SOCIAL" for informado (2 - 0,4% da BC ICMS - FUMDES
+																																															  3 - 0,4% da BC ICMS - (FUNDO SOCIAL + FUMDES)).
+					Para os códigos de cálculo 0, 1 ou 4 o campo "Valor da Base Cálculo ICMS das Operações ou Prestações para cada Número de Concessão" deve ser gerada com valor zero
+			RE[1._] O campo "Valor do ICMS Exonerado para cada Número de Concessão" deve permitir preencher com "zero" quando no campo " e "Alíq. FUMDES" for informado "0"
+			RE[1._] No Lançamento não podem se repetir (• "Mês/Ano", "Código" e "Número da Concessão"
+														• "Mês/Ano" e "Subtipo DCIP Crédito Presumido sem exigência de TTD")
+			RE[1._] Para um mesmo "Mês/Ano" pode ter vários "Subtipo DCIP Crédito Presumido sem exigência de TTD" desde que sejam de "Código" diferentes
+			RE[1._] Para um mesmo "Mês/Ano" pode ter vários "Código" e "Número da Concessão" desde que sejam de "Código" diferentes
+			ARQUIVO DIME (SC)
+			RE[1._] Os valores válidos para o campo 9 "Código do Cálculo FUMDES" do Registro 36 são 0 e 1, ou 9 quando for o último registro da sequência, para fins de fechamento
+			RE[1._] Somente permitir preencher o campo "Valor FUMDES" se o campo 9 "Código do Cálculo FUMDES" do Registro 36 for diferente de zero
+			RE[1._] Valores válidos para o campo 11 "Código do cálculo FUNDO SOCIAL" do Registro 36 são 0, 1, 2, 3 e 4, ou 9 quando for o último registro da sequência, para fins de fechamento
+			RE[1._] Somente permitir preencher o campo "Valor do FUNDO SOCIAL" se "Código do cálculo FUNDO SOCIAL" for diferente de zero
+			RE[1._] Não terá Importação/Exportação via .FS dos dados da movimentação da tabela TTD referente a tela em Movimentos >> Tratamento Tributário Diferenciado (TTD) - DIME/SC
+			RE[1._] O último registro desta sequência será o "Totalizador", para fins de fechamentos, devendo ser composto para a coluna "Seqüência" igual a "999", para a coluna "Subtipo DCIP Tipo 3 - Crédito Presumido sem exigência de TTD" igual a "9999"; para a coluna "Número Concessão TTD" igual a "999999999999999", para as colunas "Código cálculo FUMDES" e "Código cálculo FUNDO SOCIAL" igual a "9"
+			RE[1._] Quando inexistir valores para as colunas deste quadro, estes devem ser preenchidos com 0 (zero), ressalvado para as colunas do Totalizador, que deverão observar o disposto no item anterior
+			RE[1._] Os campos incluídos na tela de Utilitários >> Valores dos Estabelecimentos, serão espelhados no Registro 37: (Saldo do FUMDES = Item 020
+																																  Saldo do FUNDO SOCIAL = Item 120)
+			RE[1._] Os campos na tela de Movimentos >> Tratamento Tributário Diferenciado (TTD) - DIME/SC, serão espelhados no Registro 36: (Código = Seqüência (campo 3)
+																																			 Número de Concessão = Número Concessão TTD (campo 5)
+																																			 Subtipo DCIP Crédito Presumido sem exigência de TTD = Subtipo DCIP “Tipo 3 - Crédito Presumido” sem exigência de TTD (campo 6)
+																																			 Alíq. FUMDES = Código do Cálculo FUMDES (campo 9)
+																																			 Valor FUMDES = Valor do FUMDES (campo 10)
+																																			 Alíq. FUNDO SOCIAL = Código do cálculo FUNDO SOCIAL (campo 11)
+																																			 Valor do FUNDO SOCIAL = Valor do FUNDO SOCIAL (campo 12)
+																																			 Valor da Base Cálculo ICMS das Operações ou Prestações para cada Número de Concessão = Valor da Base de Cálculo do ICMS da Operação ou Prestação Relativo a cada nº de concessão (campo 7)
+																																			 Valor do ICMS Exonerado para cada Número de Concessão = Valor do ICMS Exonerado relativo a cada nº de concessão (campo 8)
+																																			 Base de Cálculo do ICMS = Valor Base de Cálculo do ICMS da NF de devolução relativo a cada nº concessão (campo 13)
+																																			 Valor do ICMS Exonerado = Valor do ICMS exonerado correspondente a NF de devolução relativo a cada nº concessão (campo 14)
+																																			 Valor FUMDES = Valor do FUMDES relativo a devolução (campo 15)
+																																			 Valor do FUNDO SOCIAL = Valor do FUNDO SOCIAL relativo a devolução (campo 16))
+			RE[1._] Incluir nova aba para visualizar os dados do FUMDES e FUNDO SOCIAL chamada "TTD"
+			RE[1._] A tela somente mostra os dados e não será editável
+			RE[1._] Quando inexistir valores para os campos deste quadro, estes devem ser preenchidos com 0 (zero)
+			RE[1._] Os campos desta tela serão o espelho do informado em Movimentos >> Tratamento Tributário Diferenciado (TTD) - DIME/SC e Utilitários >> Valores dos Estabelecimentos:
+					"Soma Valor Devido ao FUMDES"							= Somatório do campo "Valor FUMDES" lançados em Movimentos >> Tratamento Tributário Diferenciado (TTD) - DIME/SC
+					"Saldo Credor do FUMDES Apurado Mês Anterior"			= Se houver saldo credor de FUMDES em Valores dos Estabelecimentos em competência anterior
+					"Soma Valor FUMDES Relativo à Devolução"				= Somatório do campo "Valor FUMDES" relativos a devolução lançados em Estorno de Crédito
+					"Saldo Credor para o Mês Seguinte FUMDES"				= Resultado do cálculo (Somar os campos "Saldo Credor do FUMDES Apurado Mês Anterior" e "Soma Valor FUMDES Relativo à Devolução" e depois diminuir do campo "Soma Valor Devido ao FUMDES". Se for maior que o campo "Soma Valor Devido ao FUMDES", então o saldo do FUMDES será credor)
+					"FUMDES à Recolher"										= Resultado do cálculo (Somar os campos "Saldo Credor do FUMDES Apurado Mês Anterior" e "Soma Valor FUMDES Relativo à Devolução" e depois diminuir do campo "Soma Valor Devido ao FUMDES". Se for menor que o campo "Soma Valor Devido ao FUMDES", então o saldo do FUMDES será à recolher)
+					"Soma Valor Devido ao FUNDO SOCIAL"						= Somatório do campo "Valor FUNDO SOCIAL" lançados em Movimentos >> Tratamento Tributário Diferenciado (TTD) - DIME/SC
+					"Saldo Credor Mês do FUNDO SOCIAL Apurado Mês Anterior"	= Se houver saldo credor de FUNDO SOCIAL em Valores dos Estabelecimentos em competência anterior
+					"Soma Valores FUNDO SOCIAL Relativo à Devolução"		= Somatório do campo "Valor do FUNDO SOCIAL" relativos a devolução lançados em Estorno de Crédito
+					"Saldo Credor para o Mês Seguinte FUNDO SOCIAL"			= Resultado do cálculo (Somar os campos "Saldo Credor Mês do FUNDO SOCIAL Apurado Mês Anterior" e "Soma Valores FUNDO SOCIAL Relativo à Devolução" e depois diminuir do campo "Soma Valor Devido ao FUNDO SOCIAL". Se for maior que o campo "Soma Valor Devido ao FUNDO SOCIAL", então o saldo do FUNDO SOCIAL será credor)
+					"FUNDO SOCIAL à Recolher"								= Resultado do cálculo (Somar os campos "Saldo Credor Mês do FUNDO SOCIAL Apurado Mês Anterior" e "Soma Valores FUNDO SOCIAL Relativo à Devolução" e depois diminuir do campo "Soma Valor Devido ao FUNDO SOCIAL". Se for menor que o campo "Soma Valor Devido ao FUNDO SOCIAL", então o saldo do FUNDO SOCIAL será à recolher)
+			RE[1._] Quando houver valor em "FUMDES à Recolher" o código a ser gerado no Quadro 12 do Registro 33 é "7137" e a classe de vencimento é 19992
+			RE[1._] Quando houver valor de "FUMDES à Recolher" o código a ser gerado no Quadro 12 do registro 33 é "3662" e a classe de vencimento é 19992
+			RE[1._] É especificado que os registros 36 e 37 sempre serão gerados, mesmo se não houver movimentações nas telas "Tratamento Tributário Diferenciado (TTD) - DIME/SC", "Valores dos Estabelecimentos" e aba "TTD",
+					devido ao fato de que o validador exige essas informações. Isso é válido desde que haja lançamentos fiscais (NFM, CTC, CEE, NSC, NST, NTC, BPS, CFC, CPE, NVC, RMD, PRI) no período em questão. No entanto,
+					se houver informação escriturada nas telas "Tratamento Tributário Diferenciado (TTD) - DIME/SC", "Valores dos Estabelecimentos" e aba "TTD", mas não houver lançamentos fiscais (NFM, CTC, CEE, NSC, NST, NTC,
+					BPS, CFC, CPE, NVC, RMD, PRI) no período, ao gerar um arquivo da DIME (SC), o arquivo será gerado sem os registros 36 e 37 e o sistema não apresentará qualquer tipo de aviso
+			RE[1._] Foi verificado que alguns lançamentos na tela de Movimentos >> Tratamento Tributário Diferenciado (TTD) - DIME/SC, quando informado determinados campos e os mesmo não tiver sua "Alíquota" que para o validador é o "Código", correta informada o validador gera erro, tais combinações de verificação não foi colocada no cadastro da nova tela
+			RE[1._] Foi criada uma tabela nova para os lançamentos de TTD, tabela "TTD"
+			RE[1._] Foi colocada na opção Limpar Tabelas Temporárias a tabela de sequencial da TTD -> "kTTD_Seq"
+			VALORES DOS ESTABELECIMENTOS
+			RE[1._] Incluir campos para informar o saldo credor do FUMDES e FUNDO SOCIAL
+			RE[1._] Quando o saldo do FUMDES ou FUNDO SOCIAL for credor, deverá ser transportado para o mês sequinte
+			RE[1._] Valores de FUMDES e FUNDO SOCIAL não serão gerados para o SPED ICMS e não impactam no relatório de Demonstrativo de cálculo do ICMS
+			RE[1._] Quando informado o saldo referente a FUMDES ou FUNDO SOCIAL, não será permitido informar a Natureza, sempre ficará Credor
+	▼ Escopo do Teste
+		Será Testado
+			Lançamentos
+			Obrigações Acessórias
+		Não Será Testado
+			Importação/Exportação
+			Conversão
+			Ferramentas
+			Relatórios
+	▼ Matriz de Risco
+		Status		ID	Descrição	(P)robabilidade de Ocorrência do Erro	(I)mpacto do Erro	Priorização do Teste = P x I	Responsável	Estratégia				Reavaliar
+		Priorizado	1	...			3 Alta									3 Alta				9								Rubens		Eliminar/Evitar			Anualmente
+					2	...			2 Média									2 Média				4								Rubens		Prevenir/Mitigar		Mensalmente
+					3	...			1 Baixa									1 Baixa				1								Rubens		Aceitar Passivamente	Por Evento
+					4	...			...										...					...								Rubens		Aceitar Ativamente		...
+
+■ Procedimentos de Testes
+	▼ Atividades
+		Firebird
+		SQL
+			Estabelecimento necessariamente com UF (SC)
+				Regime de Tributação Federal - Lucro Real ou Lucro Presumido
+				Regime de Tributação Federal - Simples Nacional
+					Regime de Tributação Estadual - Normal
+					Regime de Tributação Estadual - Excluído do Simples Nacional (Normal no HES)
+
+	▼ Procedimentos Iniciais
+
+	▼ Estratégia de Teste
+		Perfil de Usuários para tela em Movimentos >> Tratamento Tributário Diferenciado (TTD) - DIME/SC
+			Confirmando que a empresa não possui nenhum Dono cadastrado
+			CRUD na tela a ser testada
+				Todos (ADMIN)
+				TA - Total e apenas da Janela
+				I - Inclusão
+				A - Alteração
+				E - Exclusão
+				TE - Todas as janelas Exceto a esta
+		Teste GUI (Graphical User Interface)
+			Movimentos >> Tratamento Tributário Diferenciado (TTD) - DIME/SC
+			Utilitários >> Valores dos Estabelecimentos
+			Aba "TTD" na geração de arquivo para DIME (SC)
+				Dados na GRID dos registros
+				Teste de Análise do Valor Limite
+				Testar tela com resolução 1366x768, vê se na mesma aparecem todos os campos e são clicáveis
+				Passagem de campos
+				Atalhos dos botões
+				Ortografia e Gramática
+				Condição para habilitar ou tonar vísível os campos conforme Requisitos
+		CRUD
+			Movimentos >> Tratamento Tributário Diferenciado (TTD) - DIME/SC
+			Utilitários >> Valores dos Estabelecimentos
+			Aba "TTD" na geração de arquivo para DIME (SC)
+				Inclusão com passagem campo a campo
+				Inclusão com uso do mouse para concluir a gravação abreviando o tempo (Ok)
+				Inclusão com uso do atalho para concluir a gravação abreviando o tempo (F9)
+		Obrigação Acessória
+			DIME (SC)
+		Testar em Base real de pendências passadas
+		Backup/Retore
+		Auditoria
+
+■ Casos de Testes
+	▼ Matriz de Lançamentos
+	▼ Resultados
+		Fluxos Básicos
+		Fluxos Alternativos
+		Fluxos de Exceção
