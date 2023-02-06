@@ -1,0 +1,6 @@
+Pra chegar nessa tela tu tem que ir na propriedades do Meu Computador
+Ir em Avançado 
+E depois na opção de configuração de desempenho 
+
+Ai vai abrir essa janela que mandei 
+E a configuração da memória virtual ta na aba avançado 
