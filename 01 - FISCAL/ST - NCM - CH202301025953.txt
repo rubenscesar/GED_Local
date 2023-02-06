@@ -1,0 +1,147 @@
+Épico:	O sistema está escrevendo código NCM errado no arquivo SPED, nas telas de lançamentos e relatórios.
+		Em vez de usar o código NCM conforme a data de alteração do histórico do produto, está usando o código NCM do cadastro do produto.
+Número do cartão: P CH202301025953
+Ano de publicação: 2023
+Relacionamentos: NCM, Importação XML, Produto
+
+■ Plano de Testes
+	▼ Requisitos
+		RE[1] Exigências para enquadramento do requisito
+			RE[1.1] O sistema deverá comparar a data de competência do arquivo com a data de alteração do cadastro do produto
+			RE[1.2] A verificação da consistência entre a data de competência do arquivo e a data de alteração do cadastro do produto deverá ser realizada a partir do histórico do produto
+			RE[1.3] O sistema deverá comparar a data de emissão do lançamento da nota com a data de alteração do cadastro do produto registrada no histórico do produto
+			RE[1.4] A GRID nas telas dos lançamento deverão apresentar o código NCM de acordo com o histórico do produto para a data em questão
+	▼ Escopo do Teste
+		Será Testado
+			Lançamentos
+			Importação/Exportação
+			Conversão
+			Obrigações Acessórias
+			Relatórios
+			Ferramentas
+		Não Será Testado
+	▼ Matriz de Risco
+		Status		ID	Descrição	(P)robabilidade de Ocorrência do Erro	(I)mpacto do Erro	Priorização do Teste = P x I	Responsável	Estratégia				Reavaliar
+		Priorizado	1	...			3 Alta									3 Alta				9								Rubens		Eliminar/Evitar			Anualmente
+					2	...			2 Média									2 Média				4								Rubens		Prevenir/Mitigar		Mensalmente
+					3	...			1 Baixa									1 Baixa				1								Rubens		Aceitar Passivamente	Por Evento
+					4	...			...										...					...								Rubens		Aceitar Ativamente		...
+
+■ Procedimentos de Testes
+	▼ Atividades
+		Firebird
+		SQL
+			Escriturando em 1 estabelecimento
+				Regime de Tributação Federal - Lucro Real ou Lucro Presumido
+				Regime de Tributação Federal - Simples Nacional
+					Regime de Tributação Estadual - Normal
+					Regime de Tributação Estadual - Simples Nacional
+						Informando 3 itens
+							Análise Combinatória entre itens com alteração e sem alteração no Histórico do Produto:
+								"Produto 400", "Produto 400"
+								"Produto 400", "Produto 400", "Produto 401"
+								"Produto 400", "Produto 401", "Produto 400"
+								"Produto 401", "Produto 400", "Produto 400"
+								"Produto 401", "Produto 400", "Produto 401"
+						Sem informar itens (para garantir a integrigade (Teste de Regreção))
+
+	▼ Procedimentos Iniciais
+
+	▼ Estratégia de Teste
+		Registro Manual de Lançamentos
+			Embaralhar a ordem de cadastro dos históricos do produto (A fim de identificar se está gerando o registro 0205 do Sped Fiscal conforme data e não conforme sequência de registro)
+			Lançamento de Entrada
+			Lançamento de Saída
+			Lançamento de Entrada (Documentos Próprios) (para garantir a integrigade (Teste de Regreção), pois )
+			Lançamento de Saída (Documentos de Terceiros)
+			Espécie
+				NF-e
+				NFC-e
+				CF-e
+				NF1
+				NFVC
+				CF
+			Teste GUI (Graphical User Interface)
+				Dados na GRID dos registros
+					Na tela do lançamento na aba "Produto"
+					Na tela do lançamento, na aba 'Produto', na janela "Produtos", durante o processo de seleção de item
+			CRUD
+				Inclusão
+				Consultar
+				Editar
+		Importação
+			Importação .FS
+			Importação .XML
+			Importação WEB
+			Teste GUI (Graphical User Interface)
+				Dados na GRID dos registros
+			CRUD
+				Inclusão
+				Editar
+		Configuração
+			Altera na importação
+			Não altera na importação
+		Obrigação Acessória
+			SPED ICMS
+			Na "exportação/geração de arquivo de obrigação acessória", sempre validar o arquivo no validador
+		Relatórios
+			Outras Listagens
+				Histórico dos Produtos
+			Documentos Consolidados >> Itens
+			Verificar relatórios com filtros
+		Ferramentas
+			Geração automática de Inventário
+		Testar em Base real de pendências passadas
+		Atender a um ciclo onde os testes irão passar
+		Atender a um ciclo onde os testes irão dar errado
+		Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou outra por ter especificações diferentes
+		Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou a forma como vinha sendo feito até esta data
+
+■ Casos de Testes
+	▼ Matriz de Lançamentos
+		"PRODUTO 400" possui Histórico com códigos NCM diferentes
+		"PRODUTO 401" possui apenas 1 código NCM
+		Cadastro do "PRODUTO 400":
+			1.	Data Inicial =		16/03/2023
+			2.	Código NCM =		8714.93.19
+		Cadastro do Histórico do "PRODUTO 400" em ordem:
+			1.	Data Inicial =		01/01/2015
+			2.	Data Final =		31/12/2022
+			3.	Código NCM =		4002.20.90
+			4.	Data Inicial =		01/01/2023
+			5.	Data Final =		15/01/2023
+			6.	Código NCM =		3908.10.25
+			7.	Data Inicial =		16/01/2023
+			8.	Data Final =		01/02/2023
+			9.	Código NCM =		3908.10.26
+			10.	Data Inicial =		02/02/2023
+			11.	Data Final =		15/03/2023
+			12.	Código NCM =		8714.93.11
+			13.	Lançar Nota com Data de emissão e data de entrada/saída =	31/12/2022
+			14.	Lançar Nota com Data de emissão e data de entrada/saída =	01/01/2023
+			15.	Lançar Nota com Data de emissão e data de entrada/saída =	01/02/2023
+			16.	Lançar Nota com Data de emissão e data de entrada/saída =	01/03/2023
+			17.	Lançar Nota com Data de emissão e data de entrada/saída =	31/03/2023
+
+			9.	Lançar Nota com Data de emissão =	31/12/2022 e data de entrada/saída =	
+			10.	Lançar Nota com Data de emissão =	01/01/2023 e data de entrada/saída =	
+			11.	Lançar Nota com Data de emissão =	31/01/2023 e data de entrada/saída =	
+	▼ Resultados
+		Fluxos Básicos
+		Fluxos Alternativos
+		Fluxos de Exceção
+
+
+Plano de Testes
+	Atividade
+		Procedimentos Iniciais
+			Estratégia de Teste
+				Matriz de Lançamentos
+					Resultado
+
+Links de testes funcionais:
+Recursos:
+					  Nome do arquivo no padrão:	[Relacionamento principal]-( Se for arquivo Abrasf informar o município e UF )[Município] (UF)-[Observação opcional]
+										Exemplo:	Arquivo para importação: Abrasf-Ponte Nova (MG)-Inscrição Estadual do Participante.xml
+	Nome do arquivo do banco de dados no padrão:	[Iniciais do subsistema]-[Relacionamento principal]-[Ano de publicação]-[Nome da empresa]-[Período]-[Observação opcional]
+										Exemplo:	Banco para testes: ACC-Planilha Financeira-2021-ONE INTERNET SA-042021.rar
