@@ -1,0 +1,3 @@
+git branch -a
+Lista todas as branch que existem tanto no repositório local como no remote
+Vai ser útil para quando quiser saber quantas branches tem no remote

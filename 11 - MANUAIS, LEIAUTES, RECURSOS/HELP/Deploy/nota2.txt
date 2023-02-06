@@ -1,0 +1,41 @@
+Resumida
+	1º muitas da ferramentas de gerenciamento e trabalho já foram apresentadas aqui
+	2º 100% delphi: D7 e Xe6
+	3º teste esploratório
+Utilizamos o Movidesk para
+	comunicação desde suporte, unidades, dev, teste até liberação
+	cartões de solicitação
+	pendência
+onde o #produto analisa a demanda antes em filas que não
+aparecem para nós de teste e coloca em previsto
+...
+o dev faz a revisão antes de mandar para teste
+e manda p teste o exe já pronto
+enquanto isso o dev faz o teste funcional e unitário
+Testes independentes
+depois que commita p trunk passa novamente por todos os testes
+atravez do TeamCity
+os nosso retornos e interação teste x dev são atravez do trello
+onde aproveito para gravar documentação nele e planilhas que compartilhamos eu e Petruska
+utilizo o TeamCity para empacotamento da versão
+
+
+
+É feito hoje
+	Teste funcional,
+	teste unitário
+	Teste esploratório
+	Atualiza e Inclui
+Ferramentas
+	Movidesk
+	Trello
+	Planilha para documentação
+	TestComplete
+	DUnit
+Desenho de testes
+	Trello
+	Planilha
+Falta
+	Algo que integre Movidesk e Trello
+	Documentar de requisitos
+	Documentar severidade

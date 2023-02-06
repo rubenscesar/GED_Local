@@ -1,0 +1,84 @@
+makea-makei.bat atualizar para gerar o \10.1.254.1\x\Outros\PRONTO\AC\Portal\6.176.0.1\Nuvem\FortesACAtualizadorNuvem.exe
+bat do XE6 deve identificar quando o perdeu mapeamento
+
+[08:29:46][Step 8/12] AtualizaBancoFirebird:  
+[08:29:46][Step 8/12]        [shell] copy 
+[08:29:46][Step 8/12]        [shell] O sistema não pode encontrar o arquivo especificado. 
+[08:29:46][Step 8/12]        [shell]  
+[08:29:46][Step 8/12]        [shell] Exit code was 1 
+
+mandar os arquivos para uma pasta da rede separada e com acesso restrito e só depois copiar para o O e P garantindo que ninguém vai atrapalhar por estar na rede
+
+Xe6 - verificar nos arquivos convertidos pelo detox que algumas uses como sPanel.dcu, sBitbtn etc... foram retirados dos arquivos pq estes não são utilizados no xe6 mas se estiver no arquivo
+	irão exigir arquivo que não existirão na pasta fontes_xe6 e dará erro no conversor muito difícil de identificar
+
+
+• Incluir para rodar Para rodar o bat de ajustaversão.bat do processo de deploy no finalbuilder nas versões ordinárias
+• Alguma coisa está fazendo perder o want.exe e o want_xe6.exe o que acaba quebrando no hora de rodar o deploy da versão Xe6
+	Já ocorreu 2 vezes de encontrar esses arquivos na pasta Ferramentas que não eram os corretos
+	e para correção disto foi necessário ir na pasta \\10.1.254.70\x\Programacao\Outros\Delphi e copiar esses arquivos de lá para a pasta ferramentas do baymax
+• Já ocorreu 2 vezes de empacotar a versão Xe6 corrompida
+	Conferir se os arquivos estão iguais: na pasta C:\Projetos\ac\Fontes_XE6\Deploy -x- P:\Pronto\AC -x- O:\Pronto\AC
+	Se não estiverem iguais roda makeimakea
+• Colocar com melhoria para commitar os bancos modelos antes de inciar o empacotamento do XE6
+
+
+
+───────────────────────
+CONVERSAR COM A NUBIANA
+───────────────────────
+
+• Possibilidade de matar a pasta homologação ou solicitar a TI para que restrinja o acesso a pasta homologação a quem gera versão
+• Limitar ao uso público, a pasta Portal
+• Ao gerarmos uma versão o sistema já copia hoje para a pasta homologação mas a partir deste momento será feito a cópia da pasta Homologação para a pasta Poral assim não ocorrerá conflitos de permissão
+  ou
+  Criar um novo processo no teamcity posterior ao de empacotamento da versão que será onde irá copiar o conteúdo da pasta Homologação para a pasta Portal.
+  Tal processo só será feito após os times terem homologado a versão.
+  Poderia aproveitar este momento para commitar os arquivos modelos de banco
+  Este processo novo de criar pasta Portal em um processo distinto ajudaria em eliminar um problema que o Rolim comentou que ocorreu na TI ao pegar arquivos na pasta portal quando os times ainda não haviam homologado
+
+Ações da Retrospectiva:
+• Colocar horário nos e-mails limitando tempo de commit
+	Concordou. Feito
+• Verificar a possibilidade de criar a tag assim que terminar a versão anterior (ver o que o Pessoal acha se pode trabalhar assim). Isso daria mais tempo para os dev de commitar os cartões
+	Vai conversar com a equipe
+• Unificar o processo de estruturação do ac.ver. Para incluir a sessão da tag da versão simplificada no ac.ver do trunk assim que criar a tag da versão simplificada
+	Concordou. Feito
+
+
+
+• Sugeriu criar um manual de processos para versão simplificada voltada para dev
+• Ver quem está a frente do projeto com o Rolim e o que está sendo feito para ficar só com Xe6
+• Criar um novo processo no teamcity posterior ao de empacotamento da versão que será onde irá copiar o conteúdo da pasta Homologação para a pasta Portal.
+  Tal processo só será feito após os times terem homologado a versão.
+  Aproveitando este momento para commitar os arquivos modelos de banco
+  Limitar ao uso público ao O:, P: e Pasta Homologação
+• Padir para fazer backup do baymax e do verônica
+
+
+
+Ações da Última reunião de QA:
+	Verificar Viabilidade:
+		• Teste da última tag
+		  Verificar como identificar a última tag para colocar para rodar os testes
+		  Somente unitário
+			Sugestão do Val:	• Conversar com equipe para commitar na próxima versão simplificada o testes unitários também
+								  Com este processo, pretende-se avaliar quanto tempo é necessário para rodar somente os unitários da versão simplificada
+								  Sendo um tempo praticável passa para o próximo item, pq esses outros passos já devem demorar mais tempo para resolver
+								• Criar antes um servidor e na próxima versão simplificada pedir para commitarem os testes unitários também.
+								  Combinar com a equipe de barra os commits do lado da fisco o horário identifica no passo anterior para dar tempo de rodar os nosso testes unitários
+								• Depois de avaliar se haverá tempo hábil para rodar os unitários e no caso da resposta ser sim, verificar como passar este processo para o TeamCity
+								  e assim poder responder a pergunta da reunião "Verificar como identificar a última tag para colocar para rodar os testes"
+								  Acredita ser possível sim utilizando o finalbuilder mas é um pouco custoso
+	Conversar com a Nubiana:
+		Deu para conversar com a equipe da folha?
+			• Possibilidade de matar a pasta homologação ou solicitar a TI para que restrinja o acesso a pasta homologação a quem gera versão
+			• Criar um novo processo no teamcity posterior ao de empacotamento da versão que será onde irá copiar o conteúdo da pasta Homologação para a pasta Portal.
+			  Tal processo só será feito após os times terem homologado a versão.
+			  Aproveitando este momento para commitar os arquivos modelos de banco
+			  Limitar ao uso público ao O:, P: e Pasta Homologação
+				Resposta:	• A equipa da folha concorda em deixar o O:, P:, e pasta Homologação somente para uso do deploy
+							• Nesta semana Já estava programado na equipe da folha Quê iriam Fazer um cartão para compactar o executável e colocar o AC.ver na simplificada
+							  Sendo assim vai aproveitar o momento para atualizar o teamcity onde vai criar o processo que posterior ao de empacotamento da versão que será onde irá copiar
+							  o conteúdo da pasta Homologação para a pasta Portal.
+							  e commitar os arquivos modelos de banco

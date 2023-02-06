@@ -1,0 +1,20 @@
+SonarQube:
+	http://10.1.2.187:9000/
+	usuario: teste
+	senha: superv
+
+doc 3
+10.1.17.43
+
+
+15/04
+upce202148978
+
+17/09
+upce202149707
+Everton
+
+
+17/09
+upce202149762
+Rodrigo

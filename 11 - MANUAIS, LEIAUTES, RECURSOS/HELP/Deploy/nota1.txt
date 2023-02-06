@@ -1,0 +1,53 @@
+É feito hoje
+	Teste funcional,
+	teste unitário
+	Teste esploratório
+	Atualiza e Inclui
+Ferramentas
+	Movidesk
+	Trello
+	Planilha para documentação
+	TestComplete
+	DUnit
+Desenho de testes
+	Trello
+	Planilha
+Falta
+	Algo que integre Movidesk e Trello
+	Documentar de requisitos
+	Documentar severidade
+
+
+
+
+
+Especificar / Entender os requisitos
+	Entender as necessidades, funcionalidades
+Fazer simulações
+Fazer um script de teste = desenho de testes
+Montar os cenários
+Relatar bugs
+
+Atualizar scripts de testes automatizados
+Executar testes funcionais (manuais e ou automatizados)
+Priorizar os testes a serem automatizados funcionalmente
+Automatizar funcionais
+
+bitcoin wallet papper
+
+documentação direcionada a evento
+robohelp
+
+Classificar Severidade
+
+
+Levar para retrospectivas
+onde está apresentando mais erros
+erros de perfomr
+etc...
+
+
+
+
+reuniões apresentando feedback para o desenvolvedor
+apresentar sugestões de cenários de teste para o dev antes de vir para teste

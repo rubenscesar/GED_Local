@@ -1,0 +1,16 @@
+Baião				4,00
+linguiça			2,50
+arroz carreteiro	10,00
+arroz a grega		9,00
+arroz branco		5,00
+carne de sol		37,00
+1/2 carne de sol	19,00
+Costela Bovina		29,00
+Frango				17,00
+Panelada completa	19,90
+Feijoada			34,90
+coxão-mole			47,00
+patinho				39,90
+
+
+tx 5,00
