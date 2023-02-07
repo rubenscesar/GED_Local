@@ -99,24 +99,31 @@ Relacionamentos: NCM, Importação XML, Produto
 
 ■ Casos de Testes
 	▼ Matriz de Lançamentos
-		"PRODUTO 400" possui Histórico com códigos NCM diferentes
-		"PRODUTO 401" possui apenas 1 código NCM
-		Cadastro do "PRODUTO 400":
+		Produto de código "400" possui Histórico com códigos NCM diferentes
+		Produto de código "401" possui apenas 1 código NCM
+		O produto de código "400" possui no seu cadastro, ou seja, o último registro válido para o lançamentos atuais:
 			1.	Data Inicial =		16/03/2023
-			2.	Código NCM =		8714.93.19
-		Cadastro do Histórico do "PRODUTO 400" em ordem:
-			1.	Data Inicial =		01/01/2015
-			2.	Data Final =		31/12/2022
-			3.	Código NCM =		4002.20.90
-			4.	Data Inicial =		01/01/2023
-			5.	Data Final =		15/01/2023
-			6.	Código NCM =		3908.10.25
-			7.	Data Inicial =		16/01/2023
-			8.	Data Final =		01/02/2023
-			9.	Código NCM =		3908.10.26
-			10.	Data Inicial =		02/02/2023
-			11.	Data Final =		15/03/2023
-			12.	Código NCM =		8714.93.11
+				Código NCM =		8714.93.19
+				Descrição =			PRODUTO - 400 - último registro
+		O produto de código possui um histórico do produto que será registrado nesta ordem a fim de Embaralhar
+		os lançamentos e testar se na geração do arquivo SPED Fiscal está puxando a informação baseada na data
+		e não no seu sequencial de registro:
+			1.	Data Inicial =		16/01/2023
+				Data Final =		01/02/2023
+				Código NCM =		3908.10.26
+				Descrição =			PRODUTO - 400 - segunda alteração
+			2.	Data Inicial =		01/01/2015
+				Data Final =		31/12/2022
+				Código NCM =		4002.20.90
+				Descrição =			PRODUTO - 400 - cadastro
+			3.	Data Inicial =		01/01/2023
+				Data Final =		15/01/2023
+				Código NCM =		3908.10.25
+				Descrição =			PRODUTO - 400 - primeira alteração
+			4.	Data Inicial =		02/02/2023
+				Data Final =		15/03/2023
+				Código NCM =		8714.93.11
+				Descrição =			PRODUTO - 400 - terceira alteração
 			13.	Lançar Nota com Data de emissão e data de entrada/saída =	31/12/2022
 			14.	Lançar Nota com Data de emissão e data de entrada/saída =	01/01/2023
 			15.	Lançar Nota com Data de emissão e data de entrada/saída =	01/02/2023
