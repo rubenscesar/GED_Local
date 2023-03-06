@@ -1,0 +1,11 @@
+Reformule separando cada tópico por parágrafos considerando BDD Gherkin, buscando abranger todos os critérios abaixo:
+• O sujeito deve estar na terceira pessoa do singular
+• Deve informar detalhadamente qual o problema encontrado
+• O que ocasionou o problema
+• O que fazer para reproduzir
+• Qual resultado esperado
+
+Segue abaixo o texto:
+
+-----------------------------------------
+Verifique se há algum erro de concordância, gramatical ou de acentuação e me informe onde mas não realize nenhuma alteração no texto:
