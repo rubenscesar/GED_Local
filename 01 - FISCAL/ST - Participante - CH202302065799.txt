@@ -1,0 +1,339 @@
+Épico:	Foi identificado um problema no comportamento de escolha do participante a ser vinculado ao lançamento durante a
+		importação. O problema consiste em uma diferença no comportamento entre o sistema gerado na versão Delphi 7 e na
+		versão Delphi XE6. Ao importar mais de 10 notas em um cenário em que um dos arquivos .xml contém o CNPJ do
+		participante, mas não informa a UF nem a inscrição estadual, o sistema está importando para um banco de dados que
+		possui 2 participantes cadastrados semelhantes, ambos com o mesmo CNPJ, mas com UF e inscrição estadual diferentes.
+		Quando utiliza o sistema gerado na versão Delphi 7, está vinculando o último participante da lista ao lançamento e
+		quando utiliza o sistema gerado na versão Delphi XE6, está vinculando o primeiro participante da lista ao lançamento.
+
+		O problema foi ocasionado pela escolha de um componente utilizado no "KrParticipantes", que se comporta de maneira
+		diferente dependendo da versão do Delphi. Para reproduzir o problema, é necessário importar mais de 10 notas em um
+		cenário em que um dos arquivos .xml contém o CNPJ do participante, mas não informa a UF nem a inscrição estadual, e
+		o banco de dados possuir 2 participantes cadastrados semelhantes, ambos com o mesmo CNPJ, mas com UF e inscrição
+		estadual diferentes. Em seguida, utilizar o sistema gerado na versão Delphi 7 e na versão Delphi XE6 para verificar
+		qual participante está sendo vinculado ao lançamento.
+
+		Conforme o acordo feito em 30/03/2023 por Rubens, Marcos, Rolim e Valdemberg, espera-se que o comportamento de
+		seleção do participante a ser vinculado ao lançamento durante a importação seja consistente em todas as versões do
+		sistema. Isso inclui a quantidade de notas importadas, os critérios pré-estabelecidos de vinculação "participante
+		x nota" e o tipo de importação realizada (XML, WEB, FS, Abrasf, TXT (SP)). Para alcançar
+		esse resultado, somente a versão Delphi XE6 será ajustada para importação, seguindo os mesmos critérios de escolha
+		da versão Delphi 7, ou seja, o objetivo é deixar a versão Delphi 7 igual ao Delphi XE6.
+Número do cartão: P CH202302065799
+Ano de publicação: 2023
+Relacionamentos:	importação .xml, importação WEB, importação .fs, importação Abrasf, importação .txt (SP),
+					Mapeamento de Produto por Fornecedor, Mapeamento de Tributação por Fornecedor
+
+■ Plano de Testes
+	▼ Requisitos
+		RE[1] Exigências para enquadramento do requisito
+			RE[1.1] Comportamento de escolha do participante na versão Delphi 7 deve ser igual ao Delphi XE6
+			RE[1.2] Será aplicado alterações apenas na versão Delphi XE6
+			RE[1.3] Será aplicado a qualquer quantidade de notas importadas
+			RE[1.4] Será aplicado a qualquer espécie de documento
+		RE[2] Entendimento necessário para executar a homologação do cartão
+			RE[2.1]	Tipo de Arquivo	Versão Delphi	Número de Notas				Participante escolhido				Método de busca
+					.xml			Delphi 7		<= 10						Primeiro que atende aos critérios	Busca direta no banco de dados
+					.xml			Delphi 7		 > 10						Último que atende aos critérios		Criação de lista temporária para conduzir a busca
+					.xml			Delphi XE6		<= 10						Primeiro que atende aos critérios	Busca direta no banco de dados
+					.xml			Delphi XE6		 > 10						Último que atende aos critérios		Criação de lista temporária para conduzir a busca
+					.fs				Delphi 7		<= 10 (exceto CNPJ/CPF*)	Último que atende aos critérios		Criação de lista temporária para conduzir a busca
+					.fs				Delphi 7		<= 10 (CNPJ/CPF*)			Último que atende aos critérios		Criação de lista temporária para conduzir a busca
+					.fs				Delphi 7		 > 10						Último que atende aos critérios		Criação de lista temporária para conduzir a busca
+					.fs				Delphi XE6		<= 10 (exceto CNPJ/CPF*)	Último que atende aos critérios		Criação de lista temporária para conduzir a busca
+					.fs				Delphi XE6		<= 10 (CNPJ/CPF*)			Último que atende aos critérios		Criação de lista temporária para conduzir a busca
+					.fs				Delphi XE6		 > 10						Último que atende aos critérios		Criação de lista temporária para conduzir a busca
+					
+					* Se houver dois ou mais participantes pré-cadastrados com o mesmo CNPJ, mas com UF e inscrições estaduais
+					  diferentes, e um novo participante for importado sem informações sobre UF e inscrição estadual mas com o
+					  mesmo CNPJ, o sistema selecionará o último participante pré-cadastrado para se vincular.
+			RE[2.2]	O sistema emprega duas metodologias de busca para determinar qual participante atende a todos os critérios
+					de vinculação pré-definidos para a combinação "participante x nota": quando há a importação de até 10
+					notas, a busca é realizada diretamente no banco de dados; quando a importação inclui mais de 10 notas, uma
+					lista temporária é criada para conduzir a busca, mas exitem exceções.
+					Tipo de Importação	Método de busca
+					<= 10 notas			Busca direta no banco de dados
+					> 10 notas			Criação de lista temporária para conduzir a busca
+			RE[2.3]	Independentemente do número de notas, versão ou critério, o método de busca na importação .fs,
+																								   importação .xml para espécie NF3-e,
+																								   importação WEB,
+																								   importação Abrasf,
+																								   importação (SP) .txt,
+					sempre envolve a criação de uma lista temporária para conduzir a busca.
+			RE[2.4]	Quando é importado até 10 notas, independentemente da versão ou critério, o método de busca na importação .xml,
+					sempre envolve a busca direta no banco de dados.
+			RE[2.5]	Quando é importado mais de 10 notas, independentemente da versão ou critério, o método de busca na importação .xml,
+					sempre envolve a criação de uma lista temporária para conduzir a busca.
+	▼ Escopo do Teste
+		Será Testado
+			Importação/Exportação
+		Não Será Testado
+			Lançamentos
+			Conversão
+			Obrigações Acessórias
+			Relatórios
+			Ferramentas
+	▼ Matriz de Risco
+		Status		ID	Descrição	(P)robabilidade de Ocorrência do Erro	(I)mpacto do Erro	Priorização do Teste = P x I	Responsável	Estratégia				Reavaliar
+		Priorizado	1	...			3 Alta									3 Alta				9								Rubens		Eliminar/Evitar			Anualmente
+					2	...			2 Média									2 Média				4								Rubens		Prevenir/Mitigar		Mensalmente
+					3	...			1 Baixa									1 Baixa				1								Rubens		Aceitar Passivamente	Por Evento
+					4	...			...										...					...								Rubens		Aceitar Ativamente		...
+
+■ Procedimentos de Testes
+	▼ Atividades
+		Firebird
+		SQL
+			versão Delphi 7
+			versão Delphi XE6
+				Entrada
+					Documento de Terceiros
+					Devolução com Documento Próprio (Não deve abrir relacionamento)
+					Documento de Terceiros com Serviço (quando está marcado na Configuração "Abrir tela de Mapeamento de Tributação por Fornecedor" deve abrir relacionamento)
+				Saída
+					Devolução com Documento de Terceiros
+					Devolução com Documento Próprio (Não deve abrir relacionamento)
+					Documento Próprio (Não deve abrir relacionamento)
+					Documento Próprio com Serviço (quando está marcado na Configuração "Abrir tela de Mapeamento de Tributação por Fornecedor" deve abrir relacionamento)
+						Transferência
+
+	▼ Procedimentos Iniciais
+		Participantes pré-cadastrados
+		Código 	CNPJ			Nome			UF	IE				Dados			País	Indicador do ICMS
+		1		63542443000124	PARTICIPANTE	CE	060000007		PARTICIPANTE	BRASIL	Contribuinte
+		2		37543093073		PARTICIPANTE						PARTICIPANTE	BRASIL	Isento
+		3						EXTERIOR											CHINA   Não Contribuinte
+		4						PARTICIPANTE										BRASIL  Não Contribuinte
+		5		63542443000124	PARTICIPANTE	DF	0701737700117	PARTICIPANTE	BRASIL  Contribuinte
+		6		37543093073		PARTICIPANTE	CE					PARTICIPANTE	BRASIL  Isento
+		7						EXTERIOR											JAPÃO   Não Contribuinte
+		8						PARTICIPANTE										BRASIL  Não Contribuinte
+
+	▼ Estratégia de Teste
+		Importação
+			Importando todas as notas em lote (Entende-se que a sequência de importação da nota será obedecida mesmo sendo realizado em lote, ou seja, a nota de número 1 será a 1ª a ser importada seguida da nota de número 2 e assim por diante)
+				Saídas
+					Importação .xml
+						Documento Próprio (Não deve abrir relacionamento)
+                            Estando desmarcado na Configuração "Atualizar dados dos participantes já cadastrado"
+                                Importando mais de 10 lançamentos em cada importação
+                                    Matriz de Lançamentos(1)
+                                Importando até 10 lançamentos em cada importação
+                                    Matriz de Lançamentos(2)
+                            Estando marcado na Configuração "Atualizar dados dos participantes já cadastrado"
+                                Importando mais de 10 lançamentos em cada importação
+                                    Matriz de Lançamentos(1)
+                                Importando até 10 lançamentos em cada importação
+                                    Matriz de Lançamentos(1)
+					Importação .fs
+                        Documento Próprio (Não deve abrir relacionamento)
+                            Estando desmarcado na Configuração "Atualizar dados dos participantes já cadastrado"
+                                Importando mais de 10 lançamentos em cada importação
+                                    Matriz de Lançamentos(1)
+									Matriz de Lançamentos(5)
+									Matriz de Lançamentos(6)
+                                Importando até 10 lançamentos em cada importação
+                                    Matriz de Lançamentos(3)
+                                    Matriz de Lançamentos(4)
+                            Estando marcado na Configuração "Atualizar dados dos participantes já cadastrado"
+                                Importando mais de 10 lançamentos em cada importação
+                                    Matriz de Lançamentos(1)
+									Matriz de Lançamentos(5)
+									Matriz de Lançamentos(6)
+                                Importando até 10 lançamentos em cada importação
+                                    Matriz de Lançamentos(3)
+                                    Matriz de Lançamentos(4)
+			Importação WEB
+			Importação Abrasf
+			Importação .txt (SP)
+                    Entradas
+                        Documento de Terceiros
+                            Estando desmarcado na Configuração "Atualizar dados dos participantes já cadastrado"
+                                Importando mais de 10 lançamentos em cada importação
+                                    Matriz de Lançamentos(1)
+                                Importando até 10 lançamentos em cada importação
+                                    Matriz de Lançamentos(1)
+                            Estando marcado na Configuração "Atualizar dados dos participantes já cadastrado"
+                                Importando mais de 10 lançamentos em cada importação
+                                    Matriz de Lançamentos(1)
+                                Importando até 10 lançamentos em cada importação
+                                    Matriz de Lançamentos(1)
+			Importação .fs
+                Importando todas as notas em lote (Entende-se que a sequência de importação da nota será obedecida mesmo sendo realizado em lote, ou seja, a nota de número 1 será a 1ª a ser importada seguida da nota de número 2 e assim por diante)
+                    Saídas
+                        Documento de Terceiros
+							Estando desmarcado na Configuração "Atualizar dados dos participantes já cadastrado"
+								Importando com massa de lançamentos para ultrapassar 10 lançamentos
+									Matriz de Lançamentos(4)
+								Importando sem massa de lançamentos contendo até 10 lançamentos
+									Matriz de Lançamentos(4)
+							Estando marcado na Configuração "Atualizar dados dos participantes já cadastrado"
+								Importando com massa de lançamentos para ultrapassar 10 lançamentos
+									Matriz de Lançamentos(4)
+								Importando sem massa de lançamentos contendo até 10 lançamentos
+									Matriz de Lançamentos(4)
+		Testar em Base real de pendências passadas
+
+■ Casos de Testes
+	▼ Matriz de Lançamentos
+        Matriz de Lançamentos(1)
+			Importa NF-e de saída (documento próprio) com participantes específicos para cada nota
+			Número da nota	Grupo	CNPJ			Nome			UF	IE				Dados			País		Código do participante que será vinculado ao lançamento durante a importação
+			1				Grupo1	63542443000124	PARTICIPANTE	CE	060000007		PARTICIPANTE	BRASIL		1
+			2				Grupo1	37543093073		PARTICIPANTE						PARTICIPANTE	BRASIL		2
+			3				Grupo1					EXTERIOR											CHINA		7 //Por enquanto, porque atualmente não está checando o país e está pegando o último da
+																													  //lista que se encaixa nos parâmetros de pesquisa
+			4				Grupo1					PARTICIPANTE										BRASIL		8 //Porque está pegando o último da lista que se encaixa nos parâmetros de pesquisa
+			5				Grupo1	63542443000124	PARTICIPANTE	DF	0701737700117	PARTICIPANTE	BRASIL		5
+			6				Grupo1	37543093073		PARTICIPANTE	CE					PARTICIPANTE	BRASIL		6
+			7				Grupo1					EXTERIOR											JAPÃO		7 //Por enquanto, porque atualmente não está checando o país e está pegando o último da
+																													  //lista que se encaixa nos parâmetros de pesquisa
+			8				Grupo1					PARTICIPANTE										BRASIL		8 //Porque está pegando o último da lista que se encaixa nos parâmetros de pesquisa
+			9				Grupo1	63542443000124	PARTICIPANTE	DF					PARTICIPANTE	BRASIL		5
+			10				Grupo2	63542443000124	PARTICIPANTE	CE	060000007		PARTICIPANTE	BRASIL		1
+			11				Grupo2	37543093073		PARTICIPANTE						PARTICIPANTE	BRASIL		2
+			12				Grupo2					EXTERIOR											CHINA		7 //Por enquanto, porque atualmente não está checando o país e está pegando o último da
+																													  //lista que se encaixa nos parâmetros de pesquisa
+			13				Grupo2					PARTICIPANTE										BRASIL		8 //Porque está pegando o último da lista que se encaixa nos parâmetros de pesquisa
+			14				Grupo2	63542443000124	PARTICIPANTE	DF	0701737700117	PARTICIPANTE	BRASIL		5
+			15				Grupo2	37543093073		PARTICIPANTE	CE					PARTICIPANTE	BRASIL		6
+			16				Grupo2					EXTERIOR											JAPÃO		7 //Por enquanto, porque atualmente não está checando o país e está pegando o último da
+																													  //lista que se encaixa nos parâmetros de pesquisa
+			17				Grupo2					PARTICIPANTE										BRASIL		8 //Porque está pegando o último da lista que se encaixa nos parâmetros de pesquisa
+			18				Grupo2	63542443000124	PARTICIPANTE	DF					PARTICIPANTE	BRASIL		5
+			19				Grupo3	82336337000139	PARTICIPANTE	CE	060000015		PARTICIPANTE	BRASIL		9
+			20				Grupo3	63542443000124	PARTICIPANTE	BA	21614574		PARTICIPANTE	BRASIL		10
+			21				Grupo3					EXTERIOR											JORDANIA	7 //Por enquanto, porque atualmente não está checando o país e está pegando o último da
+																													  //lista que se encaixa nos parâmetros de pesquisa
+        Matriz de Lançamentos(2)
+			Importa NF-e de saída (documento próprio) com participantes específicos para cada nota
+			Número da nota	Grupo	CNPJ			Nome			UF	IE				Dados			País		Código do participante que será vinculado ao lançamento durante a importação
+			1				Grupo1	63542443000124	PARTICIPANTE	CE	060000007		PARTICIPANTE	BRASIL		1
+			2				Grupo1	37543093073		PARTICIPANTE						PARTICIPANTE	BRASIL		2
+			3				Grupo1					EXTERIOR											CHINA		3 //Por enquanto, porque atualmente não está checando o país e está pegando o primeiro da
+																													  //lista que se encaixa nos parâmetros de pesquisa
+			4				Grupo1					PARTICIPANTE										BRASIL		4 //Porque está pegando o primeiro da lista que se encaixa nos parâmetros de pesquisa
+			5				Grupo1	63542443000124	PARTICIPANTE	DF	0701737700117	PARTICIPANTE	BRASIL		5
+			6				Grupo1	37543093073		PARTICIPANTE	CE					PARTICIPANTE	BRASIL		6
+			7				Grupo1					EXTERIOR											JAPÃO		3 //Por enquanto, porque atualmente não está checando o país e está pegando o primeiro da
+																													  //lista que se encaixa nos parâmetros de pesquisa
+			8				Grupo1					PARTICIPANTE										BRASIL		4 //Porque está pegando o primeiro da lista que se encaixa nos parâmetros de pesquisa
+			9				Grupo1	63542443000124	PARTICIPANTE	DF					PARTICIPANTE	BRASIL		5
+        Matriz de Lançamentos(3)
+			Importa NF-e de saída (documento próprio) com participantes específicos para cada nota
+			Número da nota	Grupo	CNPJ			Nome			UF	IE				Dados			País		Código do participante que será vinculado ao lançamento durante a importação
+			1				Grupo1	63542443000124	PARTICIPANTE	CE	060000007		PARTICIPANTE	BRASIL		1
+			2				Grupo1	37543093073		PARTICIPANTE						PARTICIPANTE	BRASIL		2
+			3				Grupo1					EXTERIOR											CHINA		7 //Por enquanto, porque atualmente não está checando o país e está pegando o último da
+																													  //lista que se encaixa nos parâmetros de pesquisa
+			4				Grupo1					PARTICIPANTE										BRASIL		8 //Porque está pegando o último da lista que se encaixa nos parâmetros de pesquisa
+			5				Grupo1	63542443000124	PARTICIPANTE	DF	0701737700117	PARTICIPANTE	BRASIL		5
+			6				Grupo1	37543093073		PARTICIPANTE	CE					PARTICIPANTE	BRASIL		6
+			7				Grupo1					EXTERIOR											JAPÃO		7 //Por enquanto, porque atualmente não está checando o país e está pegando o último da
+																													  //lista que se encaixa nos parâmetros de pesquisa
+			8				Grupo1					PARTICIPANTE										BRASIL		8 //Porque está pegando o último da lista que se encaixa nos parâmetros de pesquisa
+			9				Grupo1	63542443000124	PARTICIPANTE	DF					PARTICIPANTE	BRASIL		5
+        Matriz de Lançamentos(4)
+			Importa NF-e de saída (documento próprio) com participantes específicos para cada nota
+			Número da nota	Grupo	CNPJ			Nome			UF	IE				Dados			País		Código do participante que será vinculado ao lançamento durante a importação
+			1				Grupo2	63542443000124	PARTICIPANTE	CE	060000007		PARTICIPANTE	BRASIL		1
+			4				Grupo2	63542443000124	PARTICIPANTE						PARTICIPANTE	BRASIL		1
+			5				Grupo2	63542443000124	PARTICIPANTE	AL	248520288		PARTICIPANTE	BRASIL		15
+			6				Grupo2	63542443000124	PARTICIPANTE	CE					PARTICIPANTE	BRASIL		1
+        Matriz de Lançamentos(5)
+			Importa NF-e de saída (documento próprio) com participantes específicos para cada nota
+			Número da nota	Grupo	CNPJ			Nome			UF	IE				Dados			País		Código do participante que será vinculado ao lançamento durante a importação
+			1				Grupo1	63542443000124	PARTICIPANTE	CE	060000007		PARTICIPANTE	BRASIL		1
+			2				Grupo1	37543093073		PARTICIPANTE						PARTICIPANTE	BRASIL		2
+			3				Grupo1					EXTERIOR											CHINA		7 //Por enquanto, porque atualmente não está checando o país e está pegando o último da
+																													  //lista que se encaixa nos parâmetros de pesquisa
+			4				Grupo1					PARTICIPANTE										BRASIL		8 //Porque está pegando o último da lista que se encaixa nos parâmetros de pesquisa
+			5				Grupo1	63542443000124	PARTICIPANTE	DF	0701737700117	PARTICIPANTE	BRASIL		5
+			6				Grupo1	37543093073		PARTICIPANTE	CE					PARTICIPANTE	BRASIL		6
+			7				Grupo1					EXTERIOR											JAPÃO		7 //Por enquanto, porque atualmente não está checando o país e está pegando o último da
+																													  //lista que se encaixa nos parâmetros de pesquisa
+			8				Grupo1					PARTICIPANTE										BRASIL		8 //Porque está pegando o último da lista que se encaixa nos parâmetros de pesquisa
+			9				Grupo1	63542443000124	PARTICIPANTE	DF					PARTICIPANTE	BRASIL		5
+			10				Grupo2	63542443000124	PARTICIPANTE	CE	060000007		PARTICIPANTE	BRASIL		1
+			11				Grupo2	37543093073		PARTICIPANTE						PARTICIPANTE	BRASIL		2
+			12				Grupo2					EXTERIOR											CHINA		7 //Por enquanto, porque atualmente não está checando o país e está pegando o último da
+																													  //lista que se encaixa nos parâmetros de pesquisa
+			13				Grupo2					PARTICIPANTE										BRASIL		8 //Porque está pegando o último da lista que se encaixa nos parâmetros de pesquisa
+			14				Grupo2	63542443000124	PARTICIPANTE	DF	0701737700117	PARTICIPANTE	BRASIL		5
+			15				Grupo2	37543093073		PARTICIPANTE	CE					PARTICIPANTE	BRASIL		6
+			16				Grupo2					EXTERIOR											JAPÃO		7 //Por enquanto, porque atualmente não está checando o país e está pegando o último da
+																													  //lista que se encaixa nos parâmetros de pesquisa
+			17				Grupo2					PARTICIPANTE										BRASIL		8 //Porque está pegando o último da lista que se encaixa nos parâmetros de pesquisa
+			18				Grupo2	63542443000124	PARTICIPANTE	DF					PARTICIPANTE	BRASIL		5
+			19				Grupo3	82336337000139	PARTICIPANTE	CE	060000015		PARTICIPANTE	BRASIL		9
+			20				Grupo3	63542443000124	PARTICIPANTE	BA	21614574		PARTICIPANTE	BRASIL		10
+			21				Grupo3					EXTERIOR											JORDANIA	7 //Por enquanto, porque atualmente não está checando o país e está pegando o último da
+																													  //lista que se encaixa nos parâmetros de pesquisa
+			22				Grupo1	63542443000124	PARTICIPANTE	CE	060000007		PARTICIPANTE	BRASIL		1
+			23				Grupo1	37543093073		PARTICIPANTE						PARTICIPANTE	BRASIL		2
+			24				Grupo1					EXTERIOR											CHINA		7 //Por enquanto, porque atualmente não está checando o país e está pegando o último da
+																													  //lista que se encaixa nos parâmetros de pesquisa
+			25				Grupo1					PARTICIPANTE										BRASIL		8 //Porque está pegando o último da lista que se encaixa nos parâmetros de pesquisa
+			26				Grupo1	63542443000124	PARTICIPANTE	DF	0701737700117	PARTICIPANTE	BRASIL		5
+			27				Grupo1	37543093073		PARTICIPANTE	CE					PARTICIPANTE	BRASIL		6
+			28				Grupo1					EXTERIOR											JAPÃO		7 //Por enquanto, porque atualmente não está checando o país e está pegando o último da
+																													  //lista que se encaixa nos parâmetros de pesquisa
+			29				Grupo1					PARTICIPANTE										BRASIL		8 //Porque está pegando o último da lista que se encaixa nos parâmetros de pesquisa
+			30				Grupo1	63542443000124	PARTICIPANTE	DF					PARTICIPANTE	BRASIL		5
+        Matriz de Lançamentos(6)
+			Importa NF-e de saída (documento próprio) com participantes específicos para cada nota
+			Número da nota	Grupo	CNPJ			Nome			UF	IE				Dados			País		Código do participante que será vinculado ao lançamento durante a importação
+			1				Grupo1	63542443000124	PARTICIPANTE	CE	060000007		PARTICIPANTE	BRASIL		1
+			2				Grupo1	37543093073		PARTICIPANTE						PARTICIPANTE	BRASIL		2
+			3				Grupo1					EXTERIOR											CHINA		7 //Por enquanto, porque atualmente não está checando o país e está pegando o último da
+																													  //lista que se encaixa nos parâmetros de pesquisa
+			4				Grupo1					PARTICIPANTE										BRASIL		8 //Porque está pegando o último da lista que se encaixa nos parâmetros de pesquisa
+			5				Grupo1	63542443000124	PARTICIPANTE	DF	0701737700117	PARTICIPANTE	BRASIL		5
+			6				Grupo1	37543093073		PARTICIPANTE	CE					PARTICIPANTE	BRASIL		6
+			7				Grupo1					EXTERIOR											JAPÃO		7 //Por enquanto, porque atualmente não está checando o país e está pegando o último da
+																													  //lista que se encaixa nos parâmetros de pesquisa
+			8				Grupo1					PARTICIPANTE										BRASIL		8 //Porque está pegando o último da lista que se encaixa nos parâmetros de pesquisa
+			9				Grupo1	63542443000124	PARTICIPANTE	DF					PARTICIPANTE	BRASIL		5
+			10				Grupo2	63542443000124	PARTICIPANTE	CE	060000007		PARTICIPANTE	BRASIL		1
+			11				Grupo2	37543093073		PARTICIPANTE						PARTICIPANTE	BRASIL		2
+			12				Grupo2					EXTERIOR											CHINA		7 //Por enquanto, porque atualmente não está checando o país e está pegando o último da
+																													  //lista que se encaixa nos parâmetros de pesquisa
+			13				Grupo2					PARTICIPANTE										BRASIL		8 //Porque está pegando o último da lista que se encaixa nos parâmetros de pesquisa
+			14				Grupo2	63542443000124	PARTICIPANTE	DF	0701737700117	PARTICIPANTE	BRASIL		5
+			15				Grupo2	37543093073		PARTICIPANTE	CE					PARTICIPANTE	BRASIL		6
+			16				Grupo2					EXTERIOR											JAPÃO		7 //Por enquanto, porque atualmente não está checando o país e está pegando o último da
+																													  //lista que se encaixa nos parâmetros de pesquisa
+			17				Grupo2					PARTICIPANTE										BRASIL		8 //Porque está pegando o último da lista que se encaixa nos parâmetros de pesquisa
+			18				Grupo2	63542443000124	PARTICIPANTE	DF					PARTICIPANTE	BRASIL		5
+			19				Grupo3	82336337000139	PARTICIPANTE	CE	060000015		PARTICIPANTE	BRASIL		9
+			20				Grupo3	63542443000124	PARTICIPANTE	BA	21614574		PARTICIPANTE	BRASIL		10
+			21				Grupo3					EXTERIOR											JORDANIA	7 //Por enquanto, porque atualmente não está checando o país e está pegando o último da
+																													  //lista que se encaixa nos parâmetros de pesquisa
+			22				Grupo2	63542443000124	PARTICIPANTE	CE	060000007		PARTICIPANTE	BRASIL		1
+			23				Grupo2	63542443000124	PARTICIPANTE						PARTICIPANTE	BRASIL		1
+			24				Grupo2	63542443000124	PARTICIPANTE	AL	248520288		PARTICIPANTE	BRASIL		15
+			25				Grupo2	63542443000124	PARTICIPANTE	CE					PARTICIPANTE	BRASIL		1
+
+	▼ Resultados
+		Fluxos Básicos
+		Fluxos Alternativos
+		Fluxos de Exceção
+
+
+Plano de Testes
+	Atividade
+		Procedimentos Iniciais
+			Estratégia de Teste
+				Matriz de Lançamentos
+					Resultado
+
+
+
+
+Links de testes unitários:
+Links de testes funcionais:
+Recursos:
+					  Nome do arquivo no padrão:	[Relacionamento principal]-( Se for arquivo Abrasf informar o município e UF )[Município] (UF)-[Observação opcional]
+										Exemplo:	Arquivo para importação: Abrasf-Ponte Nova (MG)-Inscrição Estadual do Participante.xml
+	Nome do arquivo do banco de dados no padrão:	[Iniciais do subsistema]-[Relacionamento principal]-[Ano de publicação]-[Nome da empresa]-[Período]-[Observação opcional]
+										Exemplo:	Banco para testes: ACC-Planilha Financeira-2021-ONE INTERNET SA-042021.rar
