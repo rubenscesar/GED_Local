@@ -1,0 +1,225 @@
+<nfeProc versao="4.00" xmlns="http://www.portalfiscal.inf.br/nfe">
+    <NFe xmlns="http://www.portalfiscal.inf.br/nfe">
+        <infNFe Id="NFe23230163542443000124550010000000050000007639" versao="4.00">
+            <ide>
+                <cUF>23</cUF>
+                <cNF>99244437</cNF>
+                <natOp>PRESTACAO DE SERVICO</natOp>
+                <mod>55</mod>
+                <serie>1</serie>
+                <nNF>5</nNF>
+                <dhEmi>2023-01-01T00:00:00-03:00</dhEmi>
+                <tpNF>1</tpNF>
+                <idDest>2</idDest>
+                <cMunFG>2304400</cMunFG>
+                <tpImp>1</tpImp>
+                <tpEmis>1</tpEmis>
+                <cDV>6</cDV>
+                <tpAmb>1</tpAmb>
+                <finNFe>1</finNFe>
+                <indFinal>1</indFinal>
+                <indPres>1</indPres>
+                <procEmi>0</procEmi>
+                <verProc>4.00</verProc>
+            </ide>
+            <emit>
+                <CNPJ>63542443000477</CNPJ>
+                <xNome>PARTICIPANTE</xNome>
+                <enderEmit>
+                    <xLgr>PARTICIPANTE</xLgr>
+                    <nro>1</nro>
+                    <xBairro>PARTICIPANTE</xBairro>
+                    <cMun>5300108</cMun>
+                    <xMun>BRASÍLIA</xMun>
+                    <UF>DF</UF>
+                    <CEP>60000000</CEP>
+                </enderEmit>
+                <IE>0701737700117</IE>
+                <IM></IM>
+                <CNAE>6311900</CNAE>
+                <CRT>3</CRT>
+            </emit>
+            <dest>
+                <CNPJ>00000000000191</CNPJ>
+                <xNome>DESTINATÁRIO</xNome>
+                <enderDest>
+                    <xLgr>DESTINATÁRIO</xLgr>
+                    <nro>1</nro>
+                    <xBairro>DESTINATÁRIO</xBairro>
+                    <cMun>2304400</cMun>
+                    <xMun>FORTALEZA</xMun>
+                    <UF>CE</UF>
+                    <CEP>60000000</CEP>
+                </enderDest>
+                <indIEDest>1</indIEDest>
+                <IE>060000007</IE>
+            </dest>
+            <det nItem="1">
+                <prod>
+                    <cProd>24561</cProd>
+                    <cEAN>SEM GTIN</cEAN>
+                    <xProd>WS EMPLACA - Confirmacao de Estampagem da Placa de Identificacao Veicular</xProd>
+                    <NCM>00</NCM>
+                    <CFOP>6933</CFOP>
+                    <uCom>Serv</uCom>
+                    <qCom>456.0000</qCom>
+                    <vUnCom>4.1000</vUnCom>
+                    <vProd>1869.60</vProd>
+                    <cEANTrib>SEM GTIN</cEANTrib>
+                    <uTrib>Serv</uTrib>
+                    <qTrib>456.0000</qTrib>
+                    <vUnTrib>4.1000</vUnTrib>
+                    <indTot>0</indTot>
+                </prod>
+                <imposto>
+                    <ISSQN>
+                        <vBC>1869.60</vBC>
+                        <vAliq>2.00</vAliq>
+                        <vISSQN>37.39</vISSQN>
+                        <cMunFG>5300108</cMunFG>
+                        <cListServ>01.03</cListServ>
+                        <indISS>1</indISS>
+                        <cMun>5300108</cMun>
+                        <indIncentivo>2</indIncentivo>
+                    </ISSQN>
+                    <PIS>
+                        <PISAliq>
+                            <CST>01</CST>
+                            <vBC>1869.60</vBC>
+                            <pPIS>0.00</pPIS>
+                            <vPIS>0.00</vPIS>
+                        </PISAliq>
+                    </PIS>
+                    <COFINS>
+                        <COFINSAliq>
+                            <CST>01</CST>
+                            <vBC>1869.60</vBC>
+                            <pCOFINS>0.00</pCOFINS>
+                            <vCOFINS>0.00</vCOFINS>
+                        </COFINSAliq>
+                    </COFINS>
+                </imposto>
+            </det>
+            <total>
+                <ICMSTot>
+                    <vBC>0</vBC>
+                    <vICMS>0</vICMS>
+                    <vICMSDeson>0</vICMSDeson>
+                    <vFCP>0</vFCP>
+                    <vBCST>0</vBCST>
+                    <vST>0</vST>
+                    <vFCPST>0</vFCPST>
+                    <vFCPSTRet>0</vFCPSTRet>
+                    <vProd>0</vProd>
+                    <vFrete>0</vFrete>
+                    <vSeg>0</vSeg>
+                    <vDesc>0</vDesc>
+                    <vII>0</vII>
+                    <vIPI>0</vIPI>
+                    <vIPIDevol>0</vIPIDevol>
+                    <vPIS>0</vPIS>
+                    <vCOFINS>0</vCOFINS>
+                    <vOutro>0</vOutro>
+                    <vNF>1869.60</vNF>
+                </ICMSTot>
+                <ISSQNtot>
+                    <vServ>1869.60</vServ>
+                    <vBC>1869.60</vBC>
+                    <vISS>37.39</vISS>
+                    <dCompet>2023-01-01</dCompet>
+                </ISSQNtot>
+                <retTrib/>
+            </total>
+            <transp>
+                <modFrete>9</modFrete>
+            </transp>
+            <pag>
+                <detPag>
+                    <tPag>15</tPag>
+                    <vPag>1869.60</vPag>
+                </detPag>
+                <vTroco>0</vTroco>
+            </pag>
+            <infAdic>
+                <infCpl>CONTRATO</infCpl>
+            </infAdic>
+        </infNFe>
+        <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+            <SignedInfo>
+                <CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+                <SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+                <Reference URI="#NFe23230163542443000124550010000000050000007639">
+                    <Transforms>
+                        <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+                        <Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+                    </Transforms>
+                    <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+                    <DigestValue>MYc1Fi8WCjFqPrPHL18r3FKuVx4=</DigestValue>
+                </Reference>
+            </SignedInfo>
+            <SignatureValue>UWTvsu3CiU7u+0osCXDjnA67BX0G7B7RERBmuT0YyWEhoMEcXn8Ag2k+8iWABZmKFXsQ7FlosGug
+LjoLyBVU4I1dJMIcsAi7BedOKCX2ztSTvxDz0sgufbECLm3GpWTxHdXF4pbAk+fIWq/tzSTCI8V2
+GfWChanvv/Mlk7LAp/cTQkqrWX5gRH5qZ1tSe2pZNoziDuRiYBdWNpHEollOL+FmqMoyCVNGtn2n
+WqQZIrRaQkQpTprm6MN8uRcEL/nvBfd7RNFP01Im+X95uZXHbhnq6Ss8oy6/IFqO7SH3EfZMGtxd
+ya4x7aulrRhnC0JW3I1QmP1EFuqGg0Pg8mpe3g==</SignatureValue>
+            <KeyInfo>
+                <X509Data>
+                    <X509Certificate>MIIJTDCCBzSgAwIBAgIMKkRn0OecvcGTlsfbMA0GCSqGSIb3DQEBCwUAMIGOMQswCQYDVQQGEwJC
+UjETMBEGA1UECgwKSUNQLUJyYXNpbDE2MDQGA1UECwwtU2VjcmV0YXJpYSBkYSBSZWNlaXRhIEZl
+ZGVyYWwgZG8gQnJhc2lsIC0gUkZCMTIwMAYDVQQDDClBdXRvcmlkYWRlIENlcnRpZmljYWRvcmEg
+ZG8gU0VSUFJPUkZCIFNTTDAeFw0yMDEwMDcyMTQ4MDVaFw0yMTEwMDcyMTQ4MDVaMIIBRTEYMBYG
+A1UEDwwPQnVzaW5lc3MgRW50aXR5MRMwEQYLKwYBBAGCNzwCAQMMAkJSMRcwFQYDVQQFEw4zMzY4
+MzExMTAwMDEwNzELMAkGA1UEBhMCQlIxCzAJBgNVBAgMAlBBMQ4wDAYDVQQHDAVCRUxFTTETMBEG
+A1UECgwKSUNQLUJyYXNpbDETMBEGA1UECwwKcHJlc2VuY2lhbDEXMBUGA1UECwwOMzM2ODMxMTEw
+MDAxMDcxNjA0BgNVBAsMLVNlY3JldGFyaWEgZGEgUmVjZWl0YSBGZWRlcmFsIGRvIEJyYXNpbCAt
+IFJGQjERMA8GA1UECwwIQVJTRVJQUk8xGjAYBgNVBAsMEVJGQiBlLVNlcnZpZG9yIEExMScwJQYD
+VQQDDB5zaWFyZS5wb3J0YWxjb3Jwb3JhdGl2by5zZXJwcm8wggEiMA0GCSqGSIb3DQEBAQUAA4IB
+DwAwggEKAoIBAQC4cCmU5NbqGzxEL0n5kGLgBEJWEYans57S1blTJciq85emSEeALZKZGYGqSPpZ
+tILovnH6SUjCz+eJYxhSBWrxsSSUUaqD1a5RY1zK29zZtJBsiQaVGLqoyqGZBEKehkXW2pTB8kIO
+U4XkiDjavfeL8NwdtZSgFOOtVlWxf4vtwZxh2SCQWaMLi18OYjATLGGP7338GAXWT6aBsbyj9qe4
+/3Phg54Z1VbsXQVbAeCThQmdnDnrNCmAZam8w44/BX/JM2FkloCk4BIEQjwF32X2y59vgcjfynNn
+u2Q10qnxp9cizM/chct8Dbztx761IwNA7GSy8/9hTDe7PX9Z8wHVAgMBAAGjggPuMIID6jAfBgNV
+HSMEGDAWgBQgjRFcVcMBb6tW8YPMaKmrwtq1YzBoBgNVHSAEYTBfMAgGBmeBDAECAjBTBgZgTAEC
+AVswSTBHBggrBgEFBQcCARY7aHR0cDovL3JlcG9zaXRvcmlvLnNlcnByby5nb3YuYnIvZG9jcy9k
+cGNhY3NlcnByb3JmYnNzbC5wZGYwgYsGA1UdHwSBgzCBgDA9oDugOYY3aHR0cDovL3JlcG9zaXRv
+cmlvLnNlcnByby5nb3YuYnIvbGNyL2Fjc2VycHJvcmZic3NsLmNybDA/oD2gO4Y5aHR0cDovL2Nl
+cnRpZmljYWRvczIuc2VycHJvLmdvdi5ici9sY3IvYWNzZXJwcm9yZmJzc2wuY3JsMIIBAgYKKwYB
+BAHWeQIEAgSB8wSB8ADuAHUAXNxDkv7mq0VEsV6a1FbmEDf71fpH3KFzlLJe5vbHDsoAAAF1BQkk
+IAAABAMARjBEAiB94hEo0pNinrG0LeAF2hsgNJVxWxAiBmxS8Ay5mQ4uUgIgOcFxBk0TxM5Iozs2
+GvfxSUlGvLAQWrVjY7FonV2/FoAAdQD2XJQv0XcwIhRUGAgwlFaO400TGTO/3wwvIAvMTvFk4wAA
+AXUFCTH2AAAEAwBGMEQCICnKPlSQQPbTCMcY8yDFMXnGRThwJNzxJIafJIoCWahYAiBj3wfK5wQV
+hpBn3FXystUL5YvnXqdfr0noV8qWt7N9BDCBjgYIKwYBBQUHAQEEgYEwfzBHBggrBgEFBQcwAoY7
+aHR0cDovL3JlcG9zaXRvcmlvLnNlcnByby5nb3YuYnIvY2FkZWlhcy9hY3NlcnByb3JmYnNzbC5w
+N2IwNAYIKwYBBQUHMAGGKGh0dHA6Ly9vY3NwLnNlcnByby5nb3YuYnIvQUNTRVJQUk9SRkJTU0ww
+ggEHBgNVHREEgf8wgfygOwYFYEwBAwigMgQwU0VSVklDTyBGRURFUkFMIERFIFBST0NFU1NBTUVO
+VE8gREUgREFET1MgU0VSUFJPgh5zaWFyZS5wb3J0YWxjb3Jwb3JhdGl2by5zZXJwcm+gPAYFYEwB
+AwSgMwQxMDgwMjE5ODA2MzkzNzUwNjI2ODAwMDAwMDAwMDAwMDAwMDAwMDAyNzQxNjA5UENQQaAk
+BgVgTAEDAqAbBBlERVVaSU5FSSBQSU5IRUlSTyBNSVJBTkRBoBkGBWBMAQMDoBAEDjMzNjgzMTEx
+MDAwMTA3gR5kZXV6aW5laS5taXJhbmRhQHNlcnByby5nb3YuYnIwDgYDVR0PAQH/BAQDAgXgMB0G
+A1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjANBgkqhkiG9w0BAQsFAAOCAgEAhtUO5TI9ePPC
+JYPTNE/jgMlkd01kaufyfIGMgzWSdAx4nLfIHOKqZRGh5aYx2gNQvWEPf9xvt71PBdOmuOkQE0Qy
+J7hMt4Tr59TFiSIUEAnuGV0CHClC62pTXXiD2EXnGATHjhcyFKzKiGfAZGWY+cqUfNiGW3JjtmA6
+4k89Z50NOqje3PcAxa74iS15saU3jcofx9HzdK2v4Z5BIa+VjpxoghbcJCjmMoFIeeMu/IO8RiTC
+NK3QGJPk0skKY/mIEZqCeL6xCgZJdp3QFPd0GWb7cQKzjgPGJ3HC+vl9gNWdk3ePfKXWafKwOtGG
+IeZ1dd7uwL/zefvlavNa0uDmovjYXJCF2ghP9Rk3zI+I0kwm3N6YESdDaryCR+3b1j6f0UnFtPT7
+Jo54MGG8n0ZANiVUjoLCY4wAP2liuoGplceOPAYboneEKVeCxqXJ/mmvyleqiy0D6untPTa3hwJf
+9E8GF9NbaFp9gDfCNV0MScPDeCtFBsdgFyvo4MiZITo8SqtZFE8UlHaXkAprg6Byc0XQGb4ej/+k
+gMTs5g0cMx/5vOH090Rqpm15V7BPBdfBekw0dubfoGCzBOBXq04l05fhbNmXM+09B+Chw0Z7LOWj
+UkESypFRCjJXxt43GaLXVFeke02bPT9iummSDitskBPkm3nEluSRI4i7AJNXFHY=</X509Certificate>
+                </X509Data>
+            </KeyInfo>
+        </Signature>
+    </NFe>
+    <protNFe versao="4.00" xmlns="http://www.portalfiscal.inf.br/nfe">
+        <infProt>
+            <tpAmb>1</tpAmb>
+            <verAplic>SVRS202103300813</verAplic>
+            <chNFe>23230163542443000124550010000000050000007639</chNFe>
+            <dhRecbto>2023-01-01T16:10:17-03:00</dhRecbto>
+            <nProt>353210038296421</nProt>
+            <digVal>MYc1Fi8WCjFqPrPHL18r3FKuVx4=</digVal>
+            <cStat>100</cStat>
+            <xMotivo>Autorizado o uso da NF-e</xMotivo>
+        </infProt>
+    </protNFe>
+</nfeProc>

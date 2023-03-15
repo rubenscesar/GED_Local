@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nf3eProc xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns="http://www.portalfiscal.inf.br/nf3e" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" versao="1.00" xsi:schemaLocation="http://www.portalfiscal.inf.br/nf3e">
+    <NF3e>
+        <infNF3e versao="1.00" Id="NF3e23230100000000000191660010000000110000072452">
+            <ide>
+                <cUF>23</cUF>
+                <tpAmb>1</tpAmb>
+                <mod>66</mod>
+                <serie>1</serie>
+                <nNF>11</nNF>
+                <cNF>00000000</cNF>
+                <cDV>0</cDV>
+                <dhEmi>2023-01-01T10:09:00-03:00</dhEmi>
+                <tpEmis>1</tpEmis>
+                <cMunFG>2304400</cMunFG>
+                <finNF3e>2</finNF3e>
+                <verProc>7.01.03.00;SVC</verProc>
+            </ide>
+            <emit>
+                <CNPJ>00000000000191</CNPJ>
+                <IE>060000007</IE>
+                <xNome>PARTICIPANTE</xNome>
+                <enderEmit>
+                    <xLgr>PARTICIPANTE</xLgr>
+                    <nro>1</nro>
+                    <xBairro>PARTICIPANTE</xBairro>
+                    <cMun>2304400</cMun>
+                    <xMun>FORTALEZA</xMun>
+                    <CEP>60000000</CEP>
+                    <UF>CE</UF>
+                </enderEmit>
+            </emit>
+            <dest>
+                <xNome>PARTICIPANTE_b</xNome>
+                <CNPJ>63542443000124</CNPJ>
+                <indIEDest>1</indIEDest>
+                <IE>060000007</IE>
+                <enderDest>
+                    <xLgr>PARTICIPANTE_b</xLgr>
+                    <nro>1</nro>
+                    <xBairro>PARTICIPANTE_b</xBairro>
+                    <cMun>2304400</cMun>
+                    <xMun>FORTALEZA</xMun>
+                    <CEP>60000000</CEP>
+                    <UF>CE</UF>
+                </enderDest>
+            </dest>
+            <acessante>
+                <idAcesso>1425</idAcesso>
+                <idCodCliente>47112</idCodCliente>
+                <tpClasse>06</tpClasse>
+                <tpSubClasse>01</tpSubClasse>
+                <tpAcesso>3</tpAcesso>
+                <tpFase>1</tpFase>
+                <tpGrpTensao>06</tpGrpTensao>
+                <tpModTar>02</tpModTar>
+                <latGPS>0.000000</latGPS>
+                <longGPS>0.000000</longGPS>
+            </acessante>
+            <gSub>
+                <chNF3e>4423423434534534534565756756756756734534</chNF3e>
+            </gSub>
+            <NFdet>
+                <det nItem="1">
+                    <detItemAnt nItemAnt="1">
+                        <vItem>0</vItem>
+                        <qFaturada>0</qFaturada>
+                        <vProd>0</vProd>
+                        <cClass>000000</cClass>
+                    </detItemAnt>
+                    <detItem nItemAnt="1">
+                        <gTarif>
+                            <dIniTarif>2023-01-01T10:09:00-03:00</dIniTarif>
+                            <dFimTarif>2023-01-01T10:09:00-03:00</dFimTarif>
+                        </gTarif>
+                        <gAdBand>
+                            <tpBand>1</tpBand>
+                        </gAdBand>
+                        <Prod>
+                            <gMedicao>
+                                <gMedida>
+                                    <uMed>2 - KWh</uMed>
+                                    <vMedAtu>125</vMedAtu>
+                                </gMedida>
+                            </gMedicao>
+                            <cProd>2</cProd>
+                            <xProd>Consumo de Energia Elétrica Residencial</xProd>
+                            <CFOP>5101</CFOP>
+                            <qFaturada>125</qFaturada>
+                            <vProd>1245.14</vProd>
+                        </Prod>
+                        <imposto>
+                            <ICMS00>
+                                <CST>00</CST>
+                                <vBC>1245.14</vBC>
+                                <pICMS>10.00</pICMS>
+                                <vICMS>124.51</vICMS>
+                                <pFCP>2.00</pFCP>
+                                <vFCP>24.9028</vFCP>
+                            </ICMS00>
+                            <ICMS10></ICMS10>
+                            <ICMS20></ICMS20>
+                            <ICMS40></ICMS40>
+                            <ICMS51></ICMS51>
+                            <ICMS90></ICMS90>
+                            <PIS>
+                                <CST>01</CST>
+                                <vBC>1245.14</vBC>
+                                <pPIS>10.00</pPIS>
+                                <vPIS>124.51</vPIS>
+                            </PIS>
+                            <COFINS>
+                                <CST>01</CST>
+                                <vBC>1245.14</vBC>
+                                <pPIS>10.00</pPIS>
+                                <vPIS>124.51</vPIS>
+                            </COFINS>
+                        </imposto>
+                    </detItem>
+                </det>
+            </NFdet>
+            <Total>
+                <vProd>1245.14</vProd>
+                <ICMSTot>
+                    <vBC>1245.14</vBC>
+                    <vICMS>211.67</vICMS>
+                    <vICMSDeson>0</vICMSDeson>
+                    <vFCP>24.9028</vFCP>
+                    <vBCST>0</vBCST>
+                    <vST>0</vST>
+                    <vFCPST>0</vFCPST>
+                    <vNF>1245.14</vNF>
+                </ICMSTot>
+            </Total>
+            <gFat>
+<CompetFat>202302</CompetFat>
+<dVencFat>2023-02-28T10:09:00-03:00</dVencFat>
+<dProxLeitura>2023-03-30T10:09:00-03:00</dProxLeitura>
+<dApresFat>2023-03-28T10:09:00-03:00</dApresFat>
+<codBarras>042342424234135445657775</codBarras>
+<codDebAuto>0</codDebAuto>,
+<nFat>3333</nFat>
+<codBarras>7777777777774444444444</codBarras>
+</gFat>
+            <gANEEL>
+                <gHistFat>
+                    <xGrandFat>!!</xGrandFat>
+                    <gGrandFat>
+                        <CompetFat>000000</CompetFat>
+                        <vFat>0</vFat>
+                        <uMed>1</uMed>
+                    </gGrandFat>
+                    <gGrandFat>
+                        <CompetFat>000000</CompetFat>
+                        <vFat>0</vFat>
+                        <uMed>2</uMed>
+                    </gGrandFat>
+                    <gGrandFat>
+                        <CompetFat>000000</CompetFat>
+                        <vFat>0</vFat>
+                        <uMed>2</uMed>
+                    </gGrandFat>
+                    <gGrandFat>
+                        <CompetFat>000000</CompetFat>
+                        <vFat>0</vFat>
+                        <uMed>3</uMed>
+                    </gGrandFat>
+                    <gGrandFat>
+                        <CompetFat>000000</CompetFat>
+                        <vFat>0</vFat>
+                        <uMed>3</uMed>
+                    </gGrandFat>
+                    <gGrandFat>
+                        <CompetFat>000000</CompetFat>
+                        <vFat>0</vFat>
+                        <uMed>2</uMed>
+                    </gGrandFat>
+                    <gGrandFat>
+                        <CompetFat>000000</CompetFat>
+                        <vFat>0</vFat>
+                        <uMed>4</uMed>
+                    </gGrandFat>
+                    <gGrandFat>
+                        <CompetFat>000000</CompetFat>
+                        <vFat>0</vFat>
+                        <uMed>2</uMed>
+                    </gGrandFat>
+                    <gGrandFat>
+                        <CompetFat>000000</CompetFat>
+                        <vFat>0</vFat>
+                        <uMed>1</uMed>
+                    </gGrandFat>
+                    <gGrandFat>
+                        <CompetFat>000000</CompetFat>
+                        <vFat>0</vFat>
+                        <uMed>2</uMed>
+                    </gGrandFat>
+                    <gGrandFat>
+                        <CompetFat>000000</CompetFat>
+                        <vFat>0</vFat>
+                        <uMed>1</uMed>
+                    </gGrandFat>
+                    <gGrandFat>
+                        <CompetFat>000000</CompetFat>
+                        <vFat>0</vFat>
+                        <uMed>2</uMed>
+                    </gGrandFat>
+                    <gGrandFat>
+                        <CompetFat>000000</CompetFat>
+                        <vFat>0</vFat>
+                        <uMed>4</uMed>
+                    </gGrandFat>
+                </gHistFat>
+            </gANEEL>
+        </infNF3e>
+        <infNF3eSupl>
+            <qrCodNF3e>HTTP://?chNF3e=00000000000000000000000000000000000000000000&amp;tpAmb=1</qrCodNF3e>
+        </infNF3eSupl>
+        <ds:Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+            <ds:SignedInfo>
+                <ds:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+                <ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+                <ds:Reference URI="#CTe23110811552312000124570010000039505915492518">
+                    <ds:Transforms>
+                        <ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+                        <ds:Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+                    </ds:Transforms>
+                    <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+                    <ds:DigestValue>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</ds:DigestValue>
+                </ds:Reference>
+            </ds:SignedInfo>
+            <ds:SignatureValue>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</ds:SignatureValue>
+            <KeyInfo>
+                <X509Data>
+                    <X509Certificate>MIIGwTCCBamgAwIBAgIQTQlV04YaAmi/xCg5XHO6LjANBgkqhkiG9w0BAQUFADB0MQswCQYDVQQGEwJCUjETMBEGA1UEChMKSUNQLUJyYXNpbDEtMCsGA1UECxMkQ2VydGlzaWduIENlcnRpZmljYWRvcmEgRGlnaXRhbCBTLkEuMSEwHwYDVQQDExhBQyBDZXJ0aXNpZ24gTXVsdGlwbGEgRzMwHhcNMTEwMTE5MDAwMDAwWhcNMTIwMTE4MjM1OTU5WjCCAQQxCzAJBgNVBAYTAkJSMRMwEQYDVQQKFApJQ1AtQnJhc2lsMRUwEwYDVQQLFAxJRCAtIDExOTM2MTYxIjAgBgNVBAsUGUF1dGVudGljYWRvIHBvciBBUiBTZXJ2aXIxGzAZBgNVBAsUEkFzc2luYXR1cmEgVGlwbyBBMTEUMBIGA1UECxQLKGVtIGJyYW5jbykxFDASBgNVBAsUCyhlbSBicmFuY28pMTowOAYDVQQDEzFURVJNQUNPIFRFUk1JTkFJUyBNQVIgREUgQ09OVEFJTkVSUyBFIFNFUlYgQUNFUyBMMSAwHgYJKoZIhvcNAQkBFhF0aUB0ZXJtYWNvLmNvbS5icjCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAs9CCryD9ENf2aPemWN2JRVDKuR+wkAAOjOJydygBVpCtu5L9bshLujJG/WbQaaBycxKyY559xSO+cgC65jQSYj/N7Ynq0uGljIXYqDaadrK04aABQTQ1v1TfIMfsNFsg7wmea6u3q2y8L3iHjM2/lVWiottJa78PSS4WYE0+6y0CAwEAAaOCAz8wggM7MIG6BgNVHREEgbIwga+gPQYFYEwBAwSgNAQyMDExMTE5NjIyMTk5NTU0MDMxNTAwMDAwMDAwMDAwMDAwMDk3MDAyMTYwMDc1U1NQQ0WgJwYFYEwBAwKgHgQcQkVSVFJBTkQgQUxQSE9OU0UgQk9SSVMgTkVUT6AZBgVgTAEDA6AQBA4xMTU1MjMxMjAwMDEyNKAXBgVgTAEDB6AOBAwwMDAwMDAwMDAwMDCBEXRpQHRlcm1hY28uY29tLmJyMAkGA1UdEwQCMAAwHwYDVR0jBBgwFoAUhLBCMzSjQiWlKJc+g+t38OhPwlQwDgYDVR0PAQH/BAQDAgXgMFUGA1UdIAROMEwwSgYGYEwBAgELMEAwPgYIKwYBBQUHAgEWMmh0dHA6Ly9pY3AtYnJhc2lsLmNlcnRpc2lnbi5jb20uYnIvcmVwb3NpdG9yaW8vZHBjMIIBJQYDVR0fBIIBHDCCARgwXKBaoFiGVmh0dHA6Ly9pY3AtYnJhc2lsLmNlcnRpc2lnbi5jb20uYnIvcmVwb3NpdG9yaW8vbGNyL0FDQ2VydGlzaWduTXVsdGlwbGFHMy9MYXRlc3RDUkwuY3JsMFugWaBXhlVodHRwOi8vaWNwLWJyYXNpbC5vdXRyYWxjci5jb20uYnIvcmVwb3NpdG9yaW8vbGNyL0FDQ2VydGlzaWduTXVsdGlwbGFHMy9MYXRlc3RDUkwuY3JsMFugWaBXhlVodHRwOi8vcmVwb3NpdG9yaW8uaWNwYnJhc2lsLmdvdi5ici9sY3IvQ2VydGlzaWduL0FDQ2VydGlzaWduTXVsdGlwbGFHMy9MYXRlc3RDUkwuY3JsMB0GA1UdJQQWMBQGCCsGAQUFBwMEBggrBgEFBQcDAjCBoAYIKwYBBQUHAQEEgZMwgZAwKAYIKwYBBQUHMAGGHGh0dHA6Ly9vY3NwLmNlcnRpc2lnbi5jb20uYnIwZAYIKwYBBQUHMAKGWGh0dHA6Ly9pY3AtYnJhc2lsLmNlcnRpc2lnbi5jb20uYnIvcmVwb3NpdG9yaW8vY2VydGlmaWNhZG9zL0FDX0NlcnRpc2lnbl9NdWx0aXBsYV9HMy5wN2MwDQYJKoZIhvcNAQEFBQADggEBAB/iu1uw4UAJt9YcIpEjCXbLs1hajO1/yqFvAKCvWXUpHZJMjFyjEdhmlDyyaNWq4yO0+dLptk144CDpt1dhZ1BCDjWKMs0LUBmDskADwBq8+XLsQfQAmHJiIAIpWanupl8h+vih2stl+1tcpnqBfIOhyGk6lJyFnpA8PkyCZxFBDcB06z6YP6f+6aFDDSmJzY94lEWuUJcXlBYVJIfAeE5Iyk/7v8Rk8ak/v3ThdyrEW5X0l6+hJ9uehpqHEVkiLAo8hGA5NjVPcVjGvleiNzqRXAQPxZBqzwtTzGTisfAkA/SsPkH6RKWc1BxoZMdsLIfkczxZ6KiKfq8YoTJrTBo=</X509Certificate>
+                </X509Data>
+            </KeyInfo>
+        </ds:Signature>
+    </NF3e>
+    <protNF3e versao="1.00">
+        <infProt>
+            <tpAmb>2</tpAmb>
+            <verAplic>!</verAplic>
+            <chNF3e>23130307128945000132551950000000031970902974</chNF3e>
+            <dhRecbto>2023-03-20T15:35:12</dhRecbto>
+            <nProt>123100025687896</nProt>
+            <cStat>100</cStat>
+            <xMotivo>Autorizado o uso da NF3-e</xMotivo>
+        </infProt>
+    </protNF3e>
+</nf3eProc>
