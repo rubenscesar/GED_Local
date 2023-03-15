@@ -1,0 +1,44 @@
+Revisões de Artefatos:
+
+Código fonte:
+
+É fácil entender o código?
+O código obedece às convenções acordadas pelo time?
+A código humor?
+Há algum comentário desnecessário?
+Todos os laços tem um final alcançável?
+Todos os comandos dedebug foram removidos?
+Os testes contidos testam o que se propõe a testar?
+
+
+Em geral
+	O código funciona? Ele executa sua função pretendida, a lógica está correta, etc.
+	Todo o código é facilmente compreendido?
+	Está em conformidade com as convenções de codificação acordadas? Estes geralmente cobrem a localização de colchetes, nomes de variáveis ​​e funções, comprimento de linha, recuos, formatação e comentários.
+	Existe algum código redundante ou duplicado?
+	O código é o mais modular possível?
+	Alguma variável global pode ser substituída?
+	Existe algum código comentado?
+	Os loops têm um comprimento definido e condições de terminação corretas?
+	Os nomes usados ​​no programa transmitem a intenção?
+Desempenho
+	Existem otimizações óbvias que melhorarão o desempenho?
+	Algum código pode ser substituído por biblioteca ou funções internas?
+	Qualquer registro ou código de depuração pode ser removido?
+Segurança
+	Todas as entradas de dados são verificadas (para o tipo, comprimento, formato e intervalo corretos) e codificadas?
+	Onde utilitários de terceiros são usados, os erros de retorno estão sendo detectados?
+	Os valores de saída são verificados e codificados?
+	Os valores de parâmetros inválidos são manipulados?
+Documentação
+	Os comentários existem e descrevem a intenção do código?
+	Todas as funções estão comentadas?
+	É descrito algum comportamento incomum ou manipulação de casos extremos?
+	O uso e a função de bibliotecas de terceiros estão documentados?
+	As estruturas de dados e as unidades de medida são explicadas?
+	Existe algum código incompleto? Em caso afirmativo, deve ser removido ou sinalizado com um marcador adequado como 'TODO'?
+teste
+	O código é testável? O código deve ser estruturado de forma que não adicione muitos ou oculte dependências, seja incapaz de inicializar objetos, frameworks de teste possam usar métodos etc.
+	Existem testes e eles são abrangentes?
+	Os testes de unidade realmente testam se o código está executando a funcionalidade pretendida?
+	Algum código de teste poderia ser substituído pelo uso de uma API existente?
