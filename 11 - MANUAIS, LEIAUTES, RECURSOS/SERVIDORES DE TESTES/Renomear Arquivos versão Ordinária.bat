@@ -1,4 +1,6 @@
 @echo off
+chcp 65001 > null
+
 echo.
 echo Digite [1] para renomear e preparar para transmissao ao Kaspersky
 echo Digite [2] para renomear e voltar para a nomenclatura original
