@@ -1,0 +1,73 @@
+Técnicas de teste:
+
+Teste de unidade										É uma técnica de teste em que cada componente do software é testado individualmente para garantir que ele funcione corretamente. Os testes de unidade são geralmente escritos pelos desenvolvedores e são executados automaticamente.
+Teste de integração										É uma técnica de teste em que diferentes componentes do software são combinados e testados juntos para garantir que funcionem corretamente como um sistema integrado.
+Teste funcional											É uma técnica de teste em que o software é testado para verificar se ele atende aos requisitos funcionais especificados.
+Teste de desempenho										É uma técnica de teste em que o software é testado para verificar como ele se comporta em condições de carga pesada, como muitos usuários acessando o sistema simultaneamente.
+Teste de segurança										É uma técnica de teste em que o software é testado para garantir que ele esteja protegido contra ameaças externas e internas.
+Teste de usabilidade									É uma técnica de teste em que o software é testado para garantir que seja fácil de usar e atenda às necessidades dos usuários.
+Teste de regressão										É uma técnica de teste em que o software é testado para garantir que novas alterações não tenham impacto negativo nas funcionalidades existentes.
+Teste de aceitação										É uma técnica de teste em que o software é testado para garantir que atenda às expectativas do cliente e dos usuários finais.
+Teste exploratório										É uma técnica de teste em que o testador usa sua criatividade e experiência para explorar o software em busca de defeitos, sem seguir um script pré-definido.
+Teste de localização									É uma técnica de teste em que o software é testado para garantir que seja adequado para uso em diferentes idiomas, culturas e locais.
+Teste de acessibilidade									É uma técnica de teste em que o software é testado para garantir que seja acessível a pessoas com deficiência, como deficiência visual ou motora.
+Teste de integridade									É uma técnica de teste em que o software é testado para garantir que seus dados e informações estejam protegidos e não sejam corrompidos ou perdidos.
+Teste de instalação										É uma técnica de teste em que o software é testado para garantir que possa ser instalado e desinstalado corretamente em diferentes sistemas operacionais e ambientes.
+Teste de compatibilidade								É uma técnica de teste em que o software é testado para garantir que seja compatível com diferentes navegadores, dispositivos e sistemas operacionais.
+Teste de confiabilidade									É uma técnica de teste em que o software é testado para garantir que seja confiável e não falhe ou produza resultados imprecisos.
+Teste de estresse										É uma técnica de teste em que o software é testado para determinar seus limites de desempenho em situações de alta carga e estresse.
+Teste de recuperação de desastres						É uma técnica de teste em que o software é testado para garantir que possa se recuperar de falhas e interrupções do sistema.
+Teste de manutenção										É uma técnica de teste em que o software é testado para garantir que possa ser mantido e atualizado facilmente.
+Teste de escalabilidade									É uma técnica de teste em que o software é testado para garantir que possa lidar com um aumento de usuários e dados sem degradar o desempenho.
+Teste de segurança de dados								É uma técnica de teste em que o software é testado para garantir que os dados dos usuários sejam protegidos e mantidos em sigilo.
+Teste de interoperabilidade								É uma técnica de teste em que o software é testado para garantir que possa funcionar com outros sistemas e tecnologias.
+Teste de portabilidade									É uma técnica de teste em que o software é testado para garantir que possa ser executado em diferentes plataformas e ambientes.
+Teste de documentação									É uma técnica de teste em que a documentação do software é testada para garantir que esteja atualizada e precisa.
+Teste de conformidade regulatória						É uma técnica de teste em que o software é testado para garantir que atenda a padrões e regulamentações específicas, como conformidade com leis de proteção de dados ou requisitos de acessibilidade.
+Teste de usabilidade móvel								É uma técnica de teste em que o software é testado em dispositivos móveis para garantir que seja fácil de usar e atenda às necessidades dos usuários móveis.
+Teste de automação										É uma técnica de teste em que o software é testado usando ferramentas de automação para reduzir o tempo e o esforço necessários para testar o software.
+Teste de caixa branca									É uma técnica de teste em que o testador tem acesso ao código fonte do software e pode verificar a lógica interna do software.
+Teste de caixa preta									É uma técnica de teste em que o testador não tem acesso ao código fonte do software e testa apenas a interface do usuário e os resultados gerados.
+Teste beta												É uma técnica de teste em que o software é lançado para um grupo limitado de usuários para testá-lo em condições reais de uso.
+Teste de interação humano-computador					É uma técnica de teste em que o software é testado para garantir que a interação do usuário com o software seja intuitiva e eficiente.
+Teste de estabilidade									É uma técnica de teste em que o software é testado para garantir que possa funcionar continuamente sem falhas ou interrupções.
+Teste de local											É uma técnica de teste em que o software é testado em um ambiente semelhante ao ambiente de produção para garantir que possa funcionar corretamente no ambiente real.
+Teste de carga											É uma técnica de teste em que o software é testado sob cargas pesadas para garantir que possa lidar com volumes elevados de dados e tráfego de usuários.
+Teste de localização de falhas							É uma técnica de teste em que o software é testado para identificar a origem de falhas ou erros.
+Teste de robustez										É uma técnica de teste em que o software é testado para garantir que possa lidar com entradas e condições inesperadas sem falhar.
+Teste de usabilidade remota								testa a usabilidade do software para usuários remotos, em diferentes locais geográficos.
+Teste de segurança de rede								testa a segurança da rede em que o software está sendo executado, a fim de identificar possíveis vulnerabilidades.
+Teste de desempenho de rede								testa a performance da rede em que o software está sendo executado, a fim de identificar gargalos e possíveis problemas de latência.
+Teste de acessibilidade web								testa se o software é acessível para usuários com deficiências visuais, auditivas ou motoras.
+Teste de escalabilidade horizontal						testa a capacidade do software de escalar horizontalmente, ou seja, adicionar mais servidores para lidar com uma carga maior.
+Teste de escalabilidade vertical						testa a capacidade do software de escalar verticalmente, ou seja, adicionar mais recursos (como processadores ou memória) para lidar com uma carga maior.
+Teste de integridade de dados							testa se os dados armazenados pelo software são consistentes e corretos.
+Teste de performance de banco de dados					testa a capacidade do software de lidar com uma grande quantidade de dados, sem comprometer a performance.
+Teste de conformidade de interface						testa se a interface do software está de acordo com as especificações de design.
+Teste de consistência de interface						testa se a interface do software é consistente em todas as telas e módulos.
+Teste de interface de programação de aplicativos (API)	testa se as APIs do software funcionam conforme o esperado, sem erros ou bugs.
+Teste de rastreamento de log							testa a capacidade do software de gerar logs precisos e úteis para ajudar na resolução de problemas.
+Teste de concorrência									testa a capacidade do software de lidar com várias solicitações simultâneas sem falhas ou erros.
+Teste de interoperabilidade de hardware					testa se o software funciona corretamente com diferentes tipos de hardware.
+Teste de conformidade de privacidade					testa se o software está em conformidade com as regulamentações de privacidade e proteção de dados.
+Teste de usabilidade semântica							é um teste que verifica se os usuários entendem o significado dos ícones, palavras e outros elementos da interface do usuário.
+Teste de usabilidade de linguagem						é um teste que avalia a facilidade com que os usuários podem entender e usar um sistema em seu idioma nativo.
+Teste de localização de interface do usuário			é um teste que avalia a capacidade de um sistema de se adaptar a diferentes idiomas, culturas e regiões.
+Teste de desempenho de banco de dados distribuído		é um teste que verifica a velocidade e a confiabilidade de um banco de dados que está distribuído por diferentes locais geográficos.
+Teste de estabilidade de hardware						é um teste que avalia a estabilidade e confiabilidade do hardware, incluindo componentes de computador, dispositivos de rede e outros dispositivos físicos.
+Teste de integridade de segurança de dados				é um teste que verifica se os dados estão protegidos contra ameaças internas e externas.
+Teste de carga de rede									é um teste que verifica a capacidade de uma rede para suportar cargas de tráfego intenso.
+Teste de acessibilidade móvel							é um teste que avalia a acessibilidade de um aplicativo móvel para pessoas com deficiência, incluindo usuários com visão, audição ou mobilidade reduzidas.
+Teste de conformidade de acessibilidade					é um teste que verifica se um site ou aplicativo segue as diretrizes de acessibilidade, como as estabelecidas pela WCAG.
+Teste de regressão de banco de dados					é um teste que verifica se as alterações feitas em um banco de dados não causam problemas com dados existentes ou funcionalidades do sistema.
+Teste de consistência de design							é um teste que avalia a consistência da interface do usuário em todo o sistema, garantindo que todos os elementos de design sigam as mesmas diretrizes.
+Teste de localização de desempenho						é um teste que verifica se um sistema ou aplicativo possui desempenho aceitável em diferentes localizações geográficas.
+Teste de interoperabilidade de software					é um teste que avalia a capacidade de diferentes sistemas ou aplicativos trabalharem juntos sem problemas.
+Teste de instalação de software							é um teste que verifica se um software pode ser instalado e desinstalado sem problemas e sem afetar outros sistemas.
+Teste de conformidade de privacidade de dados			é um teste que verifica se um sistema ou aplicativo está em conformidade com as leis e regulamentações de privacidade de dados, como a GDPR.
+Teste de caso de uso									essa técnica envolve testar o software com base em diferentes cenários de uso, focando em como os usuários reais irão interagir com o sistema.
+Teste de partição de equivalência						é uma técnica de teste funcional que ajuda a identificar os conjuntos de entradas válidas e inválidas para um sistema.
+Teste de análise do valor limite						é uma técnica de teste que identifica e testa valores extremos para detectar falhas ou comportamentos inesperados no software. Os testes são executados em cada valor limite identificado para cada parâmetro de entrada do sistema.
+Teste de tabela de decisão								é uma técnica de teste que organiza e documenta todas as combinações possíveis de entrada e saída de um sistema em uma tabela, facilitando a identificação de casos de teste e a verificação da cobertura de testes.
+Teste de técnicas baseadas na experiência				usam o conhecimento e a experiência dos testadores para identificar falhas e casos de teste relevantes, incluindo a revisão estática, a análise de defeitos e a heurística de teste.
+Teste de transição entre status							é uma técnica de teste que verifica se o sistema muda corretamente de um status para outro durante sua operação, seguindo o fluxo de eventos e a lógica de negócios. Essa técnica é comumente usada em testes de integração e testes de sistemas complexos.
