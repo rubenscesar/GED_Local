@@ -8,4 +8,4 @@ Reformule separando cada tópico por parágrafos considerando BDD Gherkin, busca
 Segue abaixo o texto:
 
 -----------------------------------------
-Verifique se há algum erro de concordância, gramatical ou de acentuação e me informe onde mas não realize nenhuma alteração no texto:
+Verifique se há algum erro de concordância, gramatical, acentuação, pontuação, ortografia, regência, semântica, concisão, redundância ou de estilo e me informe onde mas não realize nenhuma alteração no texto:
