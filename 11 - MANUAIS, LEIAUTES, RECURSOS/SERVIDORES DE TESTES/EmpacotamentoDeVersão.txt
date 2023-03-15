@@ -247,6 +247,7 @@ Para gerar Versao Prévia (Simplificada):
 					... pasta não localizada
 					[dcc] ./ACPessoalServiceCL.dpr
 					...
+			Ajusta a data do AC.ver colocando a data atual
 		//• Executa: AC/Fontes/Testes/Deploy_VersaoBeta.bat
 		//Deploy_VersaoBeta.bat foi renomeado para Deploy_VersaoSimplificada.bat
 		• Executa: AC/Fontes/Testes/Deploy_VersaoSimplificada.bat
