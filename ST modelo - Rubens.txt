@@ -92,6 +92,7 @@ Relacionamentos:
 			Inclusão com uso do mouse para concluir a gravação abreviando o tempo (Ok)
 			Inclusão com uso do atalho para concluir a gravação abreviando o tempo (F9)
 			Quando editar alguma informação, verificar se não ficou sujeira no banco
+		Paradigmas de Escrita
 		Importação
 			Importação .FS
 			Importação .CSV
@@ -109,14 +110,22 @@ Relacionamentos:
 			AC Auto (para as entradas)
 		Obrigação Acessória
 			SPED ICMS
+			DEFIS
 		Relatórios
-			Espelho PGDAS
-			Demonstrativo de Cálculo
-			Acompanhamento Tributário
+			Relatórios >> Simples Nacional >> Espelho PGDAS
+			Relatórios >> Simples Nacional >> Acompanhamento Tributário
+			Relatórios >> Simples Nacional >> Acompanhamento Tributário (Demonstrativo de Cálculo)
 			DEFIS
 			Detalhamento Subst. e Trib. Monofásica
 				Entradas
 				Saídas
+			Relatórios >> Receitas por Estabelecimento
+			Relatórios >> Declaração de Faturamento
+			Relatórios >> Resumo >> Resumo Gerencial de Receitas e Tributos
+			Relatórios >> Comparativo Vendas x Compras
+		Testar em Base real de pendências passadas
+		Ferramentas
+			Utilitários >> Valores dos Estabelecimentos
 		Testar em Base real de pendências passadas
 
 ■ Casos de Testes
