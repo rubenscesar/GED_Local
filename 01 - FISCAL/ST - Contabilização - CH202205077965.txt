@@ -1,0 +1,77 @@
+Épico: Adicionar coluna de data na exportação para contabilidade de pagamentos de tributos federais no subsistema contábil "Contábil"
+Número do cartão: P CH202205077965
+Ano de publicação: 2023
+Relacionamentos: Contabilização, Integração
+
+■ Plano de Testes
+	▼ Requisitos
+		RE[1] Exigências para enquadramento do requisito
+			RE[1.1] Será incluído uma nova coluna na grid da tela "Exportar para a Contabilidade" com o título "Mês/Ano do Pagamento"
+			RE[1.2] Será atribuído a coluna "Mês/Ano do Pagamento" o período informado na exportação do "Pagamento" dos tributos federais
+		RE[2] Necessário para executar a homologação do cartão
+	▼ Escopo do Teste
+		Será Testado
+			Lançamentos
+			Contabilização
+			Relatórios >> DARF
+		Não Será Testado
+	▼ Matriz de Risco
+		Status		ID	Descrição	(P)robabilidade de Ocorrência do Erro	(I)mpacto do Erro	Priorização do Teste = P x I	Responsável	Estratégia				Reavaliar
+		Priorizado	1	...			3 Alta									3 Alta				9								Rubens		Eliminar/Evitar			Anualmente
+					2	...			2 Média									2 Média				4								Rubens		Prevenir/Mitigar		Mensalmente
+					3	...			1 Baixa									1 Baixa				1								Rubens		Aceitar Passivamente	Por Evento
+					4	...			...										...					...								Rubens		Aceitar Ativamente		...
+
+■ Procedimentos de Testes
+	▼ Atividades
+		Firebird
+		SQL
+			Escriturando em 2 estabelecimentos
+				Regime de Tributação Federal - Lucro Real
+				Regime de Tributação Federal - Lucro Presumido
+					CSL e IRPJ pagos por estimativa mensal ou balancete de suspensão/redução
+					CSL e IRPJ pagos trimestralmente
+						Regime de Tributação Estadual - Normal
+							Incidência tributária não-cumulativa
+							Incidência tributária cumulativa
+							Incidência tributária não-cumulativa e cumulativa (padrão não-cumulativa)
+								Alíquota padrão de PIS/COFINS
+								Alíquota específica de PIS/COFINS
+									Regime de competência
+									Regime de caixa {devolução não gera estorno em regime de caixa, pois é uma devolução financeira}
+										Informando itens
+										Sem informar itens
+
+	▼ Procedimentos Iniciais
+		PI[1] Subsistema Contábil
+			Lançamento com conta de resultado no período anterior ao lançamentos de pagamento de tributos federais
+		PI[2] Subsistema Fiscal
+			Contabilizações provenientes de lançamentos de saída
+			Contabilizações provenientes de provisão de tributos federais
+
+	▼ Estratégia de Teste
+		Teste GUI (Graphical User Interface)
+			Dados na GRID dos registros
+			Ortografia e Gramática
+		Relatórios
+			Relatórios >> DARF
+		Paradigmas de Contabilização
+			Exportar somente o pagamento de tributos federais
+			Exportar o pagamento de tributos federais junto com lançamentos de saída
+			Exportar o pagamento de tributos federais junto com provisão de tributos federais
+			Exportar o pagamento de tributos federais junto com lançamentos de saída e provisão de tributos federais
+				PI[1]
+					Antes de expotar para o Contábil, encerrar o período anterior ao pagamento de tributos federais no Contábil
+					Antes de expotar para o Contábil, encerrar o mesmo período no Contábil do pagamento de tributos federais
+					Após expotar para o Contábil, encerrar o período anterior ao pagamento de tributos federais no Contábil e desfazer exportação no Fiscal
+					Após expotar para o Contábil, encerrar o mesmo período no Contábil do pagamento de tributos federais e desfazer exportação no Fiscal
+					Após expotar para o Contábil, encerrar o mesmo período no Contábil do pagamento de tributos federais, excluir remessa no Fiscal, desfazer exclusão de remessa no Fiscal e desfazer exportação no Fiscal
+		Testar em Base real de pendências passadas
+
+■ Casos de Testes
+	▼ Matriz de Lançamentos
+		NFS-e
+	▼ Resultados
+		Fluxos Básicos
+		Fluxos Alternativos
+		Fluxos de Exceção
