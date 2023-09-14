@@ -1,0 +1,45 @@
+Step 2
+Windows XP SP3
+
+1.	Notepad ++
+	• A última versão que aceita no Windows XP é a versão 6.3.2
+2.	Tortoise SVN
+	• A última versão que aceita no Windows XP é a versão "TortoiseSVN-1.7.3.22386-win32-svn-1.7.2" e no Windows XP SP3
+3.	CollabNetSubversion-client-1.7.19-1-Win32
+4.	IBExpert 2008
+5.	7za
+6.	firstobject XML Editor 2.4.2.431
+
+
+Step 3
+• Step 2
++
+• SQL Server 2005 Express
+	Com Usuários:
+		sa		> Language: Brazilian
+		fortes	> Language: English
+
+
+
+• Notepad ++
+• Tortoise SVN
+• CollabNetSubversion-client-1.7.19-1-Win32
+• 7za
+• firstobject XML Editor 2.4.2.431
+• IBExpert 2008
+• Firebird 2.5.5
+• SQL Server 2005 Express
+
+<Requisito_Minimo_da_Maquina></Requisito_Minimo_da_Maquina>
+<Reconhecer_WANT>
+  <Arquivos_Necessarios1>Copia o arquivo borlndmm.dll para C:\Windows\System32</Arquivos_Necessarios1>
+  <Arquivos_Necessarios2>Copia o arquivo borlndmm.dll para C:\Windows\SysWOW64</Arquivos_Necessarios2>
+  <Variaveis_de_Ambiente>C:\Ferramentas</Variaveis_de_Ambiente>
+</Reconhecer_WANT>
+<Banco_de_Dados>
+  <Firebird></Firebird>
+  <MSSQL></MSSQL>
+</Banco_de_Dados>
+<Reconhecer_TortoiseSVN></Reconhecer_TortoiseSVN>
+<Diversos></Diversos>
+<Agent></Agent>

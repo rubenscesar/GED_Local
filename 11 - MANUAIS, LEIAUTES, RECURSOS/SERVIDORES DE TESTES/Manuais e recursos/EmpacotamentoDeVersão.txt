@@ -583,3 +583,16 @@ AtualizadorInstaladorNuvem:
 • Não rodou o Detox
 • Possivelmente está rodando direto o bat na máquina e assim acabou pulando outros processos que somente no TeamCity está passando antes de chegar no Deploy
 • O caso acima foi pq rodou direto o arquivo bat e pulou assim o processo de Detox que o TeamCity tem. Deve rodar pelo TeamCity
+
+# Derrubar usuário conectado
+
+Para derrubar aqueles usuários que entram nas pastas do pronto e impedem a conclusão do Deploy
+
+• Uma maneira de derrubar é entrar no servidor via acesso remoto "mstsc" no IP 10.1.254.70
+• Menu Windows >> Ferramentas Administrativas >> Gerenciamento do computador
+• Para identificar qual usuário está conectado a esta máquina, acesse: Gerenciamento do computador > Ferramentas do sistema > Pastas compartilhadas > Sessões
+• Para identificar quais são os os arquivos que estão aberto pelo usuário nesta máquina, acesse: Gerenciamento do computador > Ferramentas do sistema > Pastas compartilhadas > Arquivos abertos
+• Para liberar o acesso da pasta que deseja é necessário derrubar o usuário indo em: Gerenciamento do computador > Ferramentas do sistema > Pastas compartilhadas > Sessões, clicando com o botão direito em cima do usuário e "Fechar sessão"
+
+# Quando precisar alterar o arquivo Detox, coloca o novo nesta pasta
+• \\10.1.254.70\x\Programacao\Outros\Delphi
