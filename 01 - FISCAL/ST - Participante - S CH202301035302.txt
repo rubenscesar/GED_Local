@@ -1,0 +1,58 @@
+Épico:	Documentação sobre o critério de escolha dos dados do participante no novo método de conversão de arquivo Abrasf.
+		De acordo com o novo método de conversão de arquivo Abrasf, o sistema continuará a utilizar o critério de escolha existente,
+		que é baseado na sequência da conversão dos dados. Isso significa que o primeiro arquivo .xml a ser convertido terá seus dados
+		de participante considerados em primeiro lugar. Subsequentemente, ao converter o segundo arquivo, caso o participante tenha o
+		mesmo CNPJ, UF e país, mas com dados diferentes, o sistema atualizará os dados do participante da primeira nota, resultando
+		em apenas um registro de participante no arquivo .fs com os dados do participante da segunda nota.
+		
+		Com a nova metodologia de conversão de arquivo Abrasf, ao importar vários arquivos .xml, cada um contendo apenas uma nota
+		individual, o sistema unificará os dados de todos esses arquivos em um único arquivo .fs convertido. Isso difere do
+		comportamento anterior, onde para cada arquivo .xml selecionado, era criado um arquivo .fs convertido separadamente. Espera-se
+		que essa mudança resultará em um melhor desempenho na importação, uma vez que apenas um arquivo .fs será gerado, simplificando
+		o processo e reduzindo a quantidade de arquivos a serem processados.
+Número do cartão: S CH202301035302
+Ano de publicação: 2023
+Relacionamentos: Participantes, Abrasf
+
+■ Plano de Testes
+	▼ Requisitos
+		RE[1] Exigências para enquadramento do requisito
+		RE[2] Necessário para executar a homologação do cartão
+	▼ Escopo do Teste
+		Será Testado
+			Importação/Exportação
+			Conversão
+		Não Será Testado
+			Lançamentos
+			Obrigações Acessórias
+			Relatórios
+			Ferramentas
+	▼ Matriz de Risco
+		Status		ID	Descrição	(P)robabilidade de Ocorrência do Erro	(I)mpacto do Erro	Priorização do Teste = P x I	Responsável	Estratégia				Reavaliar
+		Priorizado	1	...			3 Alta									3 Alta				9								Rubens		Eliminar/Evitar			Anualmente
+					2	...			2 Média									2 Média				4								Rubens		Prevenir/Mitigar		Mensalmente
+					3	...			1 Baixa									1 Baixa				1								Rubens		Aceitar Passivamente	Por Evento
+					4	...			...										...					...								Rubens		Aceitar Ativamente		...
+
+■ Procedimentos de Testes
+	▼ Atividades
+		Firebird
+		SQL
+			versão Delphi 7
+			versão Delphi XE6
+				Importação Abrasf
+
+	▼ Procedimentos Iniciais
+
+	▼ Estratégia de Teste
+
+■ Casos de Testes
+	▼ Matriz de Lançamentos
+	▼ Resultados
+		Fluxos Básicos
+		Fluxos Alternativos
+		Fluxos de Exceção
+
+Links de testes unitários:
+Links de testes funcionais:
+Recursos:
