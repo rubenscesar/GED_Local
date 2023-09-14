@@ -1,0 +1,179 @@
+Épico: Adequar ao novo tipo de documento Bilhete de passagem eletrônico - Transporte metropolitano
+Número do cartão: S CH202210017341
+Ano de publicação: 2023
+Relacionamentos: BP-e TM, Importação .FS, Importação .XML
+
+■ Plano de Testes
+	▼ Requisitos
+		RE[1] Exigências para enquadramento do requisito (https://docs.google.com/spreadsheets/d/1336-4D79jjCMz8i2famiErlX4Zb6pGvX38rkk_Wz-k8/edit#gid=435679936)
+			RE[1.1] 	Embasamento na Nota Técnica 2020.002
+			RE[1.2] 	Será atribuído a estabelecimentos de todas as UFs
+			RE[1.3] 	Conforme detalhado na tabela abaixo, a origem das informações contidas no arquivo XML, indicada na coluna "Tag", e
+						a maneira como essas informações serão escrituradas em nosso sistema, indicada na coluna "Informação Interpretada".
+						Cabeçalho
+							|------------------|--------------------------------------------------------------------|
+							| Tag              | Informação Interpretada                                            |
+							|------------------|--------------------------------------------------------------------|
+							| <mod>            | Nota fiscal da espécie "BP-e TM" (valor = 63)                      |
+							| <tpBpe>          | Nota fiscal da espécie "BP-e Transporte Metropolitano" (valor = 4) |
+							| <dhEmi>          | Data de emissão da nota fiscal                                     |
+							| <dCompet>        | Data da prestação de serviço correspondente à nota fiscal          |
+							| <cMunIni>        | Código da UF e Município de Origem da nota fiscal                  |
+							| <cMunFim>        | Código da UF e Município de Destino da nota fiscal                 |
+							|------------------|--------------------------------------------------------------------|
+						Valores
+							|------------------|--------------------------------------------------------------------|
+							| Tag              | Informação Interpretada                                            |
+							|------------------|--------------------------------------------------------------------|
+							| <total><vBP>     | Preencher o campo Valor Bruto da nota fiscal                       |
+							| <ICMSTot><vBC>   | Base de Cálculo do ICMS da nota fiscal                             |
+							| <ICMSTot><vICMS> | Valor Total do ICMS da nota fiscal                                 |
+							| <ICMS>..<CST>    | CST da nota fiscal                                                 |
+							| <ICMS>..<pICMS>  | Alíquota do ICMS da nota fiscal                                    |
+							|------------------|--------------------------------------------------------------------|
+			RE[1.4] 	Será adequado Importação/Exportação .FS utilizando o Registro Tipo BPE
+			RE[1.5] 	Será incluído no campo 27 o Tipo do BPETM na Importação/Exportação .FS utilizando o Registro Tipo BPE
+			RE[1.6] 	Será incluído o menu Movimentos >> Saídas >> Bilhetes de Passagem Eletrônico de Transporte Metropolitano (BP-e TM)
+			RE[1.7] 	Será incluído o menu Movimentos >> Importação XML >> Importar BP-e TM
+			RE[1.8] 	Não haverá mudança na tela de lançamento. Será utilizado a mesma tela do BP-e
+			RE[1.9] 	Será atribuído um filtro de pesquisa pela opção BPETM nos relatórios que tiverem a espécie como filtro
+			RE[1.10]	Será exibido a espécie BPE TM nos relatórios que tiverem a informação da espécie
+			RE[1.11]	Será exibido em
+						Relatórios >> Listagem de Saídas >> ICMS & IPI
+						Relatórios >> Simples Nacional >> Espelho PGDAS
+						Relatórios >> Simples Nacional >> Acompanhamento Tributário
+						Relatórios >> Simples Nacional >> Acompanhamento Tributário (Demonstrativo de Cálculo)
+						Relatórios >> Livros Fiscais >> Registro de Saídas
+						Relatórios >> Livros Fiscais >> Registro de Apuração do ICMS
+						Relatórios >> Receitas por Estabelecimento
+						Relatórios >> Produtos Primários/Regimes Especiais
+						Relatórios >> Declaração de Faturamento
+						Relatórios >> Resumo >> Resumo Gerencial de Receitas e Tributos
+						Relatórios >> Listagem de Saídas >> ICMS & IPI
+						Relatórios >> Listagem de Saídas >> COFINS/PIS
+						Relatórios >> Tributos Federais >> COFINS, PIS, CSL, IRPJ e INSS (Bases de Cálculo, Receitas e Retenções) >> Saídas
+						Relatórios >> Tributos Federais >> Exclusão ICMS / ISS da BC PIS e COFINS
+						Relatórios >> Tributos Federais >> Contribuição Sobre o Valor da Receita Bruta - Demonstrativo Bloco P
+						Relatórios >> Lançamentos Contábeis >> Saídas
+						Relatórios >> Lançamentos Contábeis >> Consolidados
+						Movimentos >> Documentos Consolidados >> Documentos
+						Movimentos >> Contabilizar Movimentos
+			RE[1.12]	Na Ferramenta Utilitários >> Ferramentas de Manutenção >> Preencher ICMS e IPI Sem Itens será alterado a descrição
+						de "Bilhetes de Passagem Eletrônico" para "Bilhetes de Passagem Eletrônico (BPE e BPE TM)"
+			RE[1.13]	Na Ferramenta Utilitários >> Ferramentas de Manutenção >> Preencher ICMS e IPI Sem Itens ao selecionar a opção
+						"Bilhetes de Passagem Eletrônico (BPE e BPE TM)", devem ser alterados os documentos das duas espécies
+			RE[1.14]	Na Ferramenta Utilitários >> Ferramentas de Manutenção >> Preencher Dados PIS/COFINS será alterado a descrição
+						de "Bilhetes de Passagem Eletrônico" para "Bilhetes de Passagem Eletrônico (BPE e BPE TM)"
+			RE[1.15]	Na Ferramenta Utilitários >> Ferramentas de Manutenção >> Preencher Dados PIS/COFINS ao selecionar a opção
+						"Bilhetes de Passagem Eletrônico (BPE e BPE TM)", devem ser alterados os documentos das duas espécies
+			RE[1.16]	Na Ferramenta Utilitários >> Ferramentas de Manutenção >> Apagar CST PIS/COFINS será alterado a descrição
+						de "Bilhetes de Passagem Eletrônico" para "Bilhetes de Passagem Eletrônico (BPE e BPE TM)"
+			RE[1.17]	Na Ferramenta Utilitários >> Ferramentas de Manutenção >> Apagar CST PIS/COFINS ao selecionar a opção
+						"Bilhetes de Passagem Eletrônico (BPE e BPE TM)", devem ser alterados os documentos das duas espécies
+			RE[1.18]	Na Configuração em Utilitários >> Configurações >> Fiscal > Conversão/Importação > BP-e será alterado a descrição
+						de "BP-e" para "BP-e / BP-e TM"
+			RE[1.19]	Na obrigação acessória em Movimentos >> Obrigações Estaduais >> Gerar Arquivo do SPED Fiscal o BP-e TM será gerado
+						no mesmo campo do BP-e, ou seja, no campo 05 do Registro D100 deverá informar o código 63 (Bilhete de Passagem
+						Eletrônico - BP-e) previsto na Tabela 4.1.1 - Tabela de Documentos Fiscais do ICMS do Guia prático da EFD ICMS/IPI
+			RE[1.20]	Na obrigação acessória em Movimentos >> Obrigações Estaduais >> Gerar Arquivo do SPED Fiscal no campo 14 do Registro
+						D100, irá gerar o código "4" que é refente ao BP-e TM
+		RE[2] Necessário para executar a homologação do cartão
+	▼ Escopo do Teste
+		Será Testado
+			Lançamentos
+			Importação/Exportação
+			Conversão
+			Obrigações Acessórias
+			Relatórios
+			Ferramentas
+		Não Será Testado
+	▼ Matriz de Risco
+		Status		ID	Descrição	(P)robabilidade de Ocorrência do Erro	(I)mpacto do Erro	Priorização do Teste = P x I	Responsável	Estratégia				Reavaliar
+		Priorizado	1	...			3 Alta									3 Alta				9								Rubens		Eliminar/Evitar			Anualmente
+					2	...			2 Média									2 Média				4								Rubens		Prevenir/Mitigar		Mensalmente
+					3	...			1 Baixa									1 Baixa				1								Rubens		Aceitar Passivamente	Por Evento
+					4	...			...										...					...								Rubens		Aceitar Ativamente		...
+
+■ Procedimentos de Testes
+	▼ Atividades
+		Firebird
+		SQL
+			Escriturando em 2 estabelecimentos
+				Regime de Tributação Federal - Lucro Real
+				Regime de Tributação Federal - Lucro Presumido
+				Regime de Tributação Federal - Simples Nacional
+					Regime de Tributação Estadual - Normal
+					Regime de Tributação Estadual - Simples Nacional
+					Regime de Tributação Estadual - Excluído do Simples Nacional (Normal no HES)
+						Incidência tributária não-cumulativa
+						Incidência tributária cumulativa
+						Incidência tributária não-cumulativa e cumulativa (padrão não-cumulativa)
+							PIS/COFINS Regime de Apropriação de Créditos por Rateio Proporcional
+							PIS/COFINS Regime de Apropriação de Créditos Direta
+								Alíquota padrão de PIS/COFINS
+								Alíquota específica de PIS/COFINS
+									Regime de competência
+									Regime de caixa {devolução não gera estorno em regime de caixa, pois é uma devolução financeira}
+										Adotando critério de escrituração Consolidada para gerar Sped Contribuições, sem informar itens no Histórico da empresa e informando itens no Histórico do estabelecimento
+										Adotando critério de escrituração Detalhada para gerar Sped Contribuições, informando itens no Histórico da empresa e no Histórico do estabelecimento
+											Informando itens
+											Sem informar itens
+												Receita no Mercado Interno
+
+	▼ Procedimentos Iniciais
+
+	▼ Estratégia de Teste
+		Teste GUI (Graphical User Interface)
+			Dados na GRID dos registros
+		CRUD
+			Inclusão com passagem campo a campo
+			Inclusão com uso do mouse para concluir a gravação abreviando o tempo (Ok)
+			Inclusão com uso do atalho para concluir a gravação abreviando o tempo (F9)
+			Quando editar alguma informação, verificar se não ficou sujeira no banco
+		Perfil de Usuários
+			Confirmando que a empresa não possui nenhum Dono cadastrado
+				Todos (ADMIN)
+				TA - Total e apenas da Janela
+				TE - Todas as janelas Exceto a esta
+		Paradigmas de Escrita
+			Lançamentos preexistentes
+		Importação
+			Importação .FS
+			Importação .XML
+				Importar Documento de Ambiente de Produção
+				Não importar Documento de Ambiente de Homologação
+				Não permitir importação de outra espécie na funcionalidade que está sendo testada no momento
+				Não permitir importação da funcionalidade que está sendo testada no momento em outra espécie
+			Arquivo .DOC da versão de importação "LeiauteImportacaoFortesACFiscal.doc"
+			Visarq
+			Integração FortesDoc
+		Obrigação Acessória
+			SPED ICMS
+		Relatórios
+			Relatórios >> Listagem de Saídas >> ICMS & IPI
+			Relatórios >> Simples Nacional >> Espelho PGDAS
+			Relatórios >> Simples Nacional >> Acompanhamento Tributário
+			Relatórios >> Simples Nacional >> Acompanhamento Tributário (Demonstrativo de Cálculo)
+			Relatórios >> Livros Fiscais >> Registro de Saídas
+			Relatórios >> Livros Fiscais >> Registro de Apuração do ICMS
+			Relatórios >> Receitas por Estabelecimento
+			Relatórios >> Produtos Primários/Regimes Especiais
+			Relatórios >> Declaração de Faturamento
+			Relatórios >> Resumo >> Resumo Gerencial de Receitas e Tributos
+			Relatórios >> Listagem de Saídas >> ICMS & IPI
+			Relatórios >> Listagem de Saídas >> COFINS/PIS
+			Relatórios >> Tributos Federais >> COFINS, PIS, CSL, IRPJ e INSS (Bases de Cálculo, Receitas e Retenções) >> Saídas
+			Relatórios >> Tributos Federais >> Exclusão ICMS / ISS da BC PIS e COFINS
+			Relatórios >> Tributos Federais >> Contribuição Sobre o Valor da Receita Bruta - Demonstrativo Bloco P
+			Relatórios >> Lançamentos Contábeis >> Saídas
+			Relatórios >> Lançamentos Contábeis >> Consolidados
+			Movimentos >> Documentos Consolidados >> Documentos
+			Movimentos >> Contabilizar Movimentos
+		Ferramentas
+			Utilitários >> Ferramentas de Manutenção >> Preencher ICMS e IPI Sem Itens
+			Utilitários >> Ferramentas de Manutenção >> Preencher Dados PIS/COFINS
+			Utilitários >> Ferramentas de Manutenção >> Apagar CST PIS/COFINS
+			Utilitários >> Auditoria
+		Contabilização
+			Movimentos >> Contabilizar Movimentos
+		Testar em Base real de pendências passadas
