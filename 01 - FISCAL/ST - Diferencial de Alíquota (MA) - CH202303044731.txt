@@ -1,0 +1,168 @@
+Épico: Adequação ao cálculo do Diferencial de Alíquotas nas aquisições interestaduais de ativo imobilizado e Uso e consumo para a UF Maranhão.
+Número do cartão: S CH202303044731
+Ano de publicação: 2023
+Relacionamentos: Diferencial de Alíquota
+
+■ Plano de Testes
+	▼ Requisitos
+		RE[1] Exigências para enquadramento do requisito
+			RE[1.1] Embasamento no Conv. 52/91 e Art. 4º do Anexo 1.4 do RIMCS (MA)
+			RE[1.2] Será atribuído a estabelecimentos cujo UF seja de (MA)
+			RE[1.3] Será atribuído a partir de 01/04/2023
+			RE[1.4] Será atribuído a empresas cujo Regime de Tributação Federal e Estadual sejam do Lucro Real / Lucro Presumido / Simples Nacional / Normal
+			RE[1.5] Será atribuído a lançamentos de NF-e de entrada de terceiros
+			RE[1.6] Será atribuído a lançamentos com ICMS Diferencial de Alíquota
+			RE[1.7]	Fórmula utilizada quando for aplicado com "FUMACOP"
+					ICMS destacado na nota (R$):			Valor da Nota (R$) * Alíquota de Origem (%)
+					Valor da Operação (R$):					Valor da Nota (R$) + Valor de IPI (R$)
+					Base de Cálculo sem ICMS (R$):			Valor da Operação (R$) - ICMS destacado na nota (R$)
+					Base de Cálculo DIFAL (R$):				Base de Cálculo sem ICMS (R$) / ( 1 - ( Alíquota FUMACOP (%) + Alíquota Interna (%) ) )
+					Valor DIFAL (R$):						Base de Cálculo DIFAL (R$) * ( Alíquota Interna (%) - Alíquota de Origem (%) ) 
+					Valor FUMACOP (R$):						Base de Cálculo DIFAL (R$) * Alíquota FUMACOP (%)
+					
+					Exemplo:
+						Valor da Nota (R$)						R$1.000,00	
+						Valor de IPI (R$)							R$0,00	
+						Alíquota de Origem (%)						 12,00%	
+						Alíquota Interna (%)						 18,00%	
+						Alíquota FUMACOP (%)						  2,00%	
+								
+						ICMS destacado na nota (R$)				  R$120,00		Valor da Nota (R$) * Alíquota de Origem (%)
+						Valor da Operação (R$)					R$1.000,00		Valor da Nota (R$) + Valor de IPI (R$)
+						Base de Cálculo sem ICMS (R$)			  R$880,00		Valor da Operação (R$) - ICMS destacado na nota (R$)
+						Base de Cálculo DIFAL (R$)				R$1.100,00		Base de Cálculo sem ICMS (R$) / ( 1 - ( Alíquota FUMACOP (%) + Alíquota Interna (%) ) )
+						Valor DIFAL (R$)						   R$66,00		Base de Cálculo DIFAL (R$) * ( Alíquota Interna (%) - Alíquota de Origem (%) ) 
+						Valor FUMACOP (R$)						   R$22,00		Base de Cálculo DIFAL (R$) * Alíquota FUMACOP (%)
+			RE[1.8]	Fórmula utilizada quando for aplicado sem "FUMACOP"
+					ICMS destacado na nota (R$):			Valor da Nota (R$) * Alíquota de Origem (%)
+					Valor da Operação (R$):					Valor da Nota (R$) + Valor de IPI (R$)
+					Base de Cálculo sem ICMS (R$):			Valor da Operação (R$) - ICMS destacado na nota (R$)
+					Base de Cálculo DIFAL (R$):				Base de Cálculo sem ICMS (R$) / ( 1 - Alíquota Interna (%) )
+					Valor DIFAL (R$):						Base de Cálculo DIFAL (R$) * ( Alíquota Interna (%) - Alíquota de Origem (%) ) 
+					
+					Exemplo:
+						Valor da Nota (R$)						R$1.000,00	
+						Valor de IPI (R$)							R$0,00	
+						Alíquota de Origem (%)						 12,00%	
+						Alíquota Interna (%)						 18,00%	
+								
+						ICMS destacado na nota (R$)				  R$120,00		Valor da Nota (R$) * Alíquota de Origem (%)
+						Valor da Operação (R$)					R$1.000,00		Valor da Nota (R$) + Valor de IPI (R$)
+						Base de Cálculo sem ICMS (R$)			  R$880,00		Valor da Operação (R$) - ICMS destacado na nota (R$)
+						Base de Cálculo DIFAL (R$)				R$1.073,17		Base de Cálculo sem ICMS (R$) / ( 1 - Alíquota Interna (%) )
+						Valor DIFAL (R$)						   R$64,39		Base de Cálculo DIFAL (R$) * ( Alíquota Interna (%) - Alíquota de Origem (%) ) 
+			RE[1.9]	Fórmula utilizada quando for aplicado com "Redução de Base de Cálculo de ICMS" ------ ( ESTA FEATURE FOI POSTERGADA ) ------
+					Valor da Operação (R$):					Valor da Nota (R$) + Valor de IPI (R$)
+					Base de Cálculo sem ICMS (R$):			Valor da Operação (R$) - ICMS Reduzido (R$)
+					Base de Cálculo DIFAL (R$):				Base de Cálculo sem ICMS (R$) / ( 1 - Alíquota Interna (%) )
+					Base de Cálculo ICMS Reduzido (R$):		( Base de Cálculo DIFAL (R$) * 0,056 ) / Alíquota Interna (%)
+					Valor DIFAL (R$):						Base de Cálculo ICMS Reduzido (R$) * ( Alíquota Interna (%) - Alíquota de Origem / Interestadual (%) )
+					
+					Exemplo:
+						Valor da Nota (R$)						R$1.000,00	
+						Redução de Base de Cálculo (R$)			  R$585,80	
+						Valor de IPI (R$)						   R$50,00	
+						Alíquota de Origem / Interestadual (%)		  7,00%	
+						Alíquota Interna (%)						 18,00%	
+						ICMS Reduzido (R$)						   R$41,01	
+								
+						Valor da Operação (R$)					R$1.050,00		Valor da Nota (R$) + Valor de IPI (R$)
+						Base de Cálculo sem ICMS (R$)			R$1.008,99		Valor da Operação (R$) - ICMS Reduzido (R$)
+						Base de Cálculo DIFAL (R$)				R$1.230,48		Base de Cálculo sem ICMS (R$) / ( 1 - Alíquota Interna (%) )
+						Base de Cálculo ICMS Reduzido (R$)		  R$382,82		( Base de Cálculo DIFAL (R$) * 0,056 ) / Alíquota Interna (%)
+						Valor DIFAL (R$)						   R$42,11		Base de Cálculo ICMS Reduzido (R$) * ( Alíquota Interna (%) - Alíquota de Origem / Interestadual (%) )
+			RE[1.10]Será exibido em
+					Relatórios >> ICMS >> ICMS Diferencial de Alíquotas >> Entradas
+					SPED ICMS 
+						Registro E113
+							Apenas para apresentar aviso na geração de arquivo para o SPED caso o valor encontrado nos lançamentos de DIFAL seja diferente do valor encontrado na ICD
+			RE[1.11]A Ferramenta "Ajustar tributação ICMS & IPI dos itens" será ajustada
+			RE[1.12]Os valores de Diferencial de Alíquotas serão importados por Importação .FS, Importação .XML, Importação WEB
+		RE[2] Necessário para executar a homologação do cartão
+	▼ Escopo do Teste
+		Será Testado
+			Lançamentos
+			Importação/Exportação
+			Obrigações Acessórias
+			Relatórios
+			Ferramentas
+		Não Será Testado
+			Conversão
+	▼ Matriz de Risco
+		Status		ID	Descrição	(P)robabilidade de Ocorrência do Erro	(I)mpacto do Erro	Priorização do Teste = P x I	Responsável	Estratégia				Reavaliar
+		Priorizado	1	...			3 Alta									3 Alta				9								Rubens		Eliminar/Evitar			Anualmente
+					2	...			2 Média									2 Média				4								Rubens		Prevenir/Mitigar		Mensalmente
+					3	...			1 Baixa									1 Baixa				1								Rubens		Aceitar Passivamente	Por Evento
+					4	...			...										...					...								Rubens		Aceitar Ativamente		...
+
+■ Procedimentos de Testes
+	▼ Atividades
+		Firebird
+		SQL
+			Estabelecimento necessariamente com UF (MA)
+			Escriturando em 2 estabelecimentos
+				Regime de Tributação Federal - Lucro Real ou Lucro Presumido
+				Regime de Tributação Federal - Simples Nacional
+					Regime de Tributação Estadual - Normal
+					Regime de Tributação Estadual - Simples Nacional
+						Incidência tributária não-cumulativa
+							Alíquota padrão de PIS/COFINS
+								Regime de competência
+									Contribuinte do IPI
+									Não contribuinte do IPI
+										Informando itens
+										Sem informar itens
+											Anexo II - CFOPs (5.922 e 6.922) marcado "Operação com Produtos Industrializados pelo Estabelecimento"
+												Receita no Mercado Interno
+
+	▼ Procedimentos Iniciais
+
+	▼ Estratégia de Teste
+		Teste GUI (Graphical User Interface)
+			Dados na GRID dos registros
+			Teste de Análise do Valor Limite
+			Testar tela com resolução 1366x768, vê se na mesma aparecem todos os campos e são clicáveis
+			Passagem de campos
+			Atalhos dos botões
+			Ortografia e Gramática
+			Condição para habilitar ou tonar vísível os campos conforme RE[
+			Na inclusão está obedecendo o histórico dos dados (Quando tem que abrir a tela já com os dados do último registro salvo como sugestão)
+		CRUD
+			Inclusão com passagem campo a campo
+			Inclusão com uso do mouse para concluir a gravação abreviando o tempo (Ok)
+			Inclusão com uso do atalho para concluir a gravação abreviando o tempo (F9)
+			Quando editar alguma informação, verificar se não ficou sujeira no banco
+		Lançamentos
+			Antes de 01/04/2023
+			Depois de 01/04/2023
+				Lançamento com DIFAL novos
+				Lançamento com DIFAL pré existentes
+					UF MA
+					Outra UF
+			Incluir notas com mais de 1 corpo e dados diferentes
+			Incluir vários itens diferentes
+		Importação
+			Importação .FS
+			Importação .XML
+			Importação WEB
+		Obrigação Acessória
+			SPED ICMS
+		Relatórios
+			ICMS >> ICMS Diferencial de Alíquotas >> Entradas
+		Backup/Restore (quando se tratar de tabela nova)
+		Testar em Base real de pendências passadas
+
+■ Casos de Testes
+	▼ Matriz de Lançamentos
+	▼ Resultados
+		Fluxos Básicos
+		Fluxos Alternativos
+		Fluxos de Exceção
+
+Links de testes unitários:
+Links de testes funcionais:
+Recursos:
+					  Nome do arquivo no padrão:	[Relacionamento principal]-( Se for arquivo Abrasf informar o município e UF )[Município] (UF)-[Observação opcional]
+										Exemplo:	Arquivo para importação: Abrasf-Ponte Nova (MG)-Inscrição Estadual do Participante.xml
+	Nome do arquivo do banco de dados no padrão:	[Iniciais do subsistema]-[Relacionamento principal]-[Ano de publicação]-[Nome da empresa]-[Período]-[Observação opcional]
+										Exemplo:	Banco para testes: ACC-Planilha Financeira-2021-ONE INTERNET SA-042021.rar
