@@ -1,0 +1,306 @@
+Épico: Adequação ao ICMS Monofásico para Combustíveis que forem comercializados.
+Número do cartão: S 
+Ano de publicação: 2023
+Relacionamentos: ICMS Monofásico para Combustíveis
+
+■ Plano de Testes
+	▼ Requisitos
+		RE[1] Exigências para enquadramento do requisito
+			RE[1.1] Embasamento na Nota Técnica 2023.001
+			RE[1._] Será atribuído a estabelecimentos de todas as UFs
+			RE[1._] Serão incluídos os novos campos "BC Mono", "Alíq. (R$)" e "Vr. ICMS Mono" na aba "ICMS Monofásico" dos itens da NF-e quando o CST selecionado for x02
+			RE[1._] Serão incluídos os novos campos "BC Mono", "Alíq. (R$)", "Vr. ICMS Mono", "BC Mono Retido", "Alíq. (R$)" e "Vr. ICMS Mono Ret." na aba "ICMS Monofásico" dos itens da NF-e quando o CST selecionado for x15
+			RE[1._] Serão incluídos os novos campos "BC Mono Diferido", "Alíq. (R$)", "Alíq. ICMS Difer%" e "Vr. ICMS Mono" na aba "ICMS Monofásico" dos itens da NF-e quando o CST selecionado for x53
+			RE[1._] Serão incluídos os novos campos "BC Mono Ret. Ant.", "Alíq. (R$)" e "Vr. ICMS Mono Ret. Ant." na aba "ICMS Monofásico" dos itens da NF-e quando o CST selecionado for x61
+			RE[1._] Será incluído um novo campo "ICMS Mono Ret" na aba "Totais" da NF-e
+			RE[1._] O campo "ICMS Mono Ret" da aba "Totais" da NF-e deve ser incluído na composição do total da nota
+			RE[1._] Será atribuído ao campo "ICMS Mono Ret" na aba "Totais" da NF-e, a soma dos valores informados no campo "Vr. ICMS Mono Ret." da aba "ICMS Monofásico" dos itens da nota quando o CST informado no item for x15
+			RE[1._] Será comparado os valores informados no campo "ICMS Mono Ret" na aba "Totais" da NF-e com os valores das operações da aba "ICMS & IPI" da nota
+			RE[1._] Serão incluídos os novos campos "BC Mono Ret. Ant.", "Alíq. (R$)" e "Vr. ICMS Mono Ret. Ant." na aba "ICMS Monofásico" dos itens da NFC-e quando o CST selecionado for x61
+			RE[1._] Disponibilização de CSTs de ICMS para visualização e utilização:
+					Serão disponibilizados os CSTs de ICMS (02, 15, 53 e 61) para visualização e utilização nos lançamentos que atenderem aos seguintes critérios:
+						• A empresa for do Regime de Tributação Federal do Lucro Real ou Lucro Presumido;
+						• O estabelecimento for do Regime de Tributação Estadual Normal;
+						• O lançamento estiver utilizando produtos que tenham o "Código do Produto Conforme Tabela Publicada Pela ANP" preenchido;
+						• O lançamento seja a partir de 01/04/2023;
+						• Os CSTs serão atribuídos a lançamentos de NF-e de saída documentos próprios /
+																	NF-e de saída de terceiros /
+																	NF-e de entrada documentos próprios /
+																	NF-e de entrada de terceiros /
+					Será disponibilizado o CST de ICMS (61) para visualização e utilização nos lançamentos que atenderem aos seguintes critérios:
+						• A empresa for do Regime de Tributação Federal do Lucro Real ou Lucro Presumido;
+						• O estabelecimento for do Regime de Tributação Estadual Normal;
+						• O lançamento estiver utilizando produtos que tenham o "Código do Produto Conforme Tabela Publicada Pela ANP" preenchido;
+						• O lançamento seja a partir de 01/04/2023;
+						• O CST será atribuído a lançamentos de NFC-e de saída documentos próprios.
+					Serão disponibilizados os CSTs de ICMS (02, 15, 53 e 61) para visualização e utilização nos lançamentos do inventário que atenderem aos seguintes critérios:
+						• A empresa for do Regime de Tributação Federal do Lucro Real ou Lucro Presumido;
+						• O estabelecimento for do Regime de Tributação Estadual Normal;
+						• O lançamento estiver utilizando produtos que tenham o "Código do Produto Conforme Tabela Publicada Pela ANP" preenchido;
+						• O lançamento seja a partir de 01/04/2023;
+						• Todo e qualquer motivo de inventário que habilite os campos de CST.
+			RE[1._] Caso algum dos CSTs de ICMS (02, 15, 53 e 61) seja utilizado no item do lançamento, será obrigatório o preenchimento dos valores referentes a "ICMS Monofásico" no lançamento de NF-e
+			RE[1._] Caso o CST de ICMS (61) seja utilizado no item do lançamento, será obrigatório o preenchimento dos valores referentes a "ICMS Monofásico" no lançamento de NFC-e
+			RE[1._] Será atribuído a Tributação de ICMS "Outras" aos lançamentos de NF-e ou NFC-e que utilizarem qualquer um dos CSTs de ICMS (02, 15, 53 e 61)
+			RE[1._] Quando o CST de ICMS for x53 e o produto possuir a informação "820101001" no campo "Código do Produto Conforme Tabela Publicada Pela ANP", o valor originado da tag <vICMSMono> será atribuído aos campos "ICMS Debitado" ou "ICMS Creditado"
+			RE[1._] Os CSTs de ICMS (02, 15, 53 e 61) estarão disponíveis exclusivamente para as espécies "NF-e" (Nota Fiscal Eletrônica) e "NFC-e" (Nota Fiscal de Consumidor Eletrônica)
+			RE[1._] Empresas do Regime de Tributação Federal e Estadual do Simples Nacional (ME e EPP) terão habilitados os CSTs de ICMS (02, 15, 53 e 61) na lista, com o objetivo de preencher somente os documentos de entrada, tanto no mapeamento de importação, quanto no lançamento manual de NF-e
+			RE[1._] Exclusivamente para empresas do Regime de Tributação Federal e Estadual do Simples Nacional (ME e EPP), não serão habilitados os campos para preenchimento dos valores de ICMS Monofásico
+			RE[1._]	Disponibilização de CSTs de ICMS para visualização e utilização nas Ferramentas:
+						Utilitários >> Alterar / Excluir Inventário
+			RE[1._]	Apesar de reconhecer a importância de atualizar essas ferramentas neste cartão, nenhuma alteração será feita nelas:
+						Utilitários >> Ajustar Tributação ICMS e IPI dos Itens
+						Utilitários >> Analisador Fiscal
+			RE[1._]	Apesar de reconhecer a importância de gerar os ajustes automáticos na tela de "ICMS - Outros Débitos/Crédito, Estornos ...", nenhuma alteração será feita nela
+			RE[1._] Através de importação XML, será obtida a informação da tag <cProdANP> do arquivo XML e importá-la para o campo "Código do Produto Conforme Tabela Publicada Pela ANP" na funcionalidade Cadastros >> Produtos
+					|---------------|------------------------------|---------------------|-----------------------------------------------------|
+					|Processo       |Origem                        |Funcionalidade no AC |Campo no AC                                          |
+					|---------------|------------------------------|---------------------|-----------------------------------------------------|
+					|Importação XML |Tag <cProdANP> do arquivo XML |Cadastros            |Código do Produto Conforme Tabela Publicada Pela ANP |
+					|---------------|------------------------------|---------------------|-----------------------------------------------------|
+			RE[1._] Importação XML
+					Quando o CST de ICMS do item for x02:
+						• Ao importar um arquivo XML da Nota Fiscal Eletrônica (NF-e), o sistema deve obter a informação da tag <qBCMono> desse arquivo e inseri-la automaticamente no campo
+						  "BC Mono" da tela de lançamento dos itens da NF-e, localizado na aba "ICMS Monofásico"
+						• Ao importar um arquivo XML da Nota Fiscal Eletrônica (NF-e), o sistema deve obter a informação da tag <adRemICMS> desse arquivo e inseri-la automaticamente no campo
+						  "Alíq. (R$)" da tela de lançamento dos itens da NF-e, localizado na aba "ICMS Monofásico"
+						• Ao importar um arquivo XML da Nota Fiscal Eletrônica (NF-e), o sistema deve obter a informação da tag <vICMSMono> desse arquivo e inseri-la automaticamente no campo
+						  "Vr. ICMS Mono" da tela de lançamento dos itens da NF-e, localizado na aba "ICMS Monofásico"
+					Quando o CST de ICMS do item for x15:
+						• Ao importar um arquivo XML da Nota Fiscal Eletrônica (NF-e), o sistema deve obter a informação da tag <qBCMono> desse arquivo e inseri-la automaticamente no campo
+						  "BC Mono" da tela de lançamento dos itens da NF-e, localizado na aba "ICMS Monofásico"
+						• Ao importar um arquivo XML da Nota Fiscal Eletrônica (NF-e), o sistema deve obter a informação da tag <adRemICMS> desse arquivo e inseri-la automaticamente no campo
+						  "Alíq. (R$)" da tela de lançamento dos itens da NF-e, localizado na aba "ICMS Monofásico"
+						• Ao importar um arquivo XML da Nota Fiscal Eletrônica (NF-e), o sistema deve obter a informação da tag <vICMSMono> desse arquivo e inseri-la automaticamente no campo
+						  "Vr. ICMS Mono" da tela de lançamento dos itens da NF-e, localizado na aba "ICMS Monofásico"
+						• Ao importar um arquivo XML da Nota Fiscal Eletrônica (NF-e), o sistema deve obter a informação da tag <qBCMonoReten> desse arquivo e inseri-la automaticamente no campo
+						  "BC Mono Ret." da tela de lançamento dos itens da NF-e, localizado na aba "ICMS Monofásico"
+						• Ao importar um arquivo XML da Nota Fiscal Eletrônica (NF-e), o sistema deve obter a informação da tag <adRemICMSReten> desse arquivo e inseri-la automaticamente no campo
+						  "Alíq. (R$)" da tela de lançamento dos itens da NF-e, localizado na aba "ICMS Monofásico"
+						• Ao importar um arquivo XML da Nota Fiscal Eletrônica (NF-e), o sistema deve obter a informação da tag <vICMSMonoReten> desse arquivo e inseri-la automaticamente no campo
+						  "Vr. ICMS Mono Ret." da tela de lançamento dos itens da NF-e, localizado na aba "ICMS Monofásico"
+					Quando o CST de ICMS do item for x53:
+						• Ao importar um arquivo XML da Nota Fiscal Eletrônica (NF-e), o sistema deve obter a informação da tag <qBCMono> desse arquivo e inseri-la automaticamente no campo
+						  "BC Mono Diferido" da tela de lançamento dos itens da NF-e, localizado na aba "ICMS Monofásico"
+						• Ao importar um arquivo XML da Nota Fiscal Eletrônica (NF-e), o sistema deve obter a informação da tag <adRemICMS> desse arquivo e inseri-la automaticamente no campo
+						  "Alíq. (R$)" da tela de lançamento dos itens da NF-e, localizado na aba "ICMS Monofásico"
+						• Ao importar um arquivo XML da Nota Fiscal Eletrônica (NF-e), o sistema deve obter a informação da tag <pDif> desse arquivo e inseri-la automaticamente no campo
+						  "Alíq. ICMS Difer%" da tela de lançamento dos itens da NF-e, localizado na aba "ICMS Monofásico"
+						• Ao importar um arquivo XML da Nota Fiscal Eletrônica (NF-e), o sistema deve obter a informação da tag <vICMSMono> desse arquivo e inseri-la automaticamente no campo
+						  "Vr. ICMS Mono" da tela de lançamento dos itens da NF-e, localizado na aba "ICMS Monofásico"
+					Quando o CST de ICMS do item for x61:
+						• Ao importar um arquivo XML da Nota Fiscal Eletrônica (NF-e / NFC-e), o sistema deve obter a informação da tag <qBCMonoRet> desse arquivo e inseri-la automaticamente no campo
+						  "BC Mono Ret. Ant." da tela de lançamento dos itens da NF-e / NFC-e, localizado na aba "ICMS Monofásico"
+						• Ao importar um arquivo XML da Nota Fiscal Eletrônica (NF-e / NFC-e), o sistema deve obter a informação da tag <adRemICMSRet> desse arquivo e inseri-la automaticamente no campo
+						  "Alíq. (R$)" da tela de lançamento dos itens da NF-e / NFC-e, localizado na aba "ICMS Monofásico"
+						• Ao importar um arquivo XML da Nota Fiscal Eletrônica (NF-e / NFC-e), o sistema deve obter a informação da tag <vICMSMonoRet> desse arquivo e inseri-la automaticamente no campo
+						  "Vr. ICMS Mono Ret. Ant." da tela de lançamento dos itens da NF-e / NFC-e, localizado na aba "ICMS Monofásico"
+					|------------------|----------------------------------------|------|-----------------------|--------------------------|-------------------|------------------|
+					| Processo         | Origem                                 | CST  | Funcionalidade no AC  | Campo                    | Tamanho do Campo  | Exemplo          |
+					|------------------|----------------------------------------|------|-----------------------|--------------------------|-------------------|------------------|
+					| Importação XML   | Tag <qBCMono> do arquivo XML           | x02  | NF-e                  | BC Mono                  | 11v0-4            | 99999999999,9999 |
+					| Importação XML   | Tag <adRemICMS> do arquivo XML         | x02  | NF-e                  | Alíq. (R$)               | 3v2-4             | 999,9999         |
+					| Importação XML   | Tag <vICMSMono> do arquivo XML         | x02  | NF-e                  | Vr. ICMS Mono            | 13v2              | 9999999999999,99 |
+					|------------------|----------------------------------------|------|-----------------------|--------------------------|-------------------|------------------|
+					| Importação XML   | Tag <qBCMono> do arquivo XML           | x15  | NF-e                  | BC Mono                  | 11v0-4            | 99999999999,9999 |
+					| Importação XML   | Tag <adRemICMS> do arquivo XML         | x15  | NF-e                  | Alíq. (R$)               | 3v2-4             | 999,9999         |
+					| Importação XML   | Tag <vICMSMono> do arquivo XML         | x15  | NF-e                  | Vr. ICMS Mono            | 13v2              | 9999999999999,99 |
+					| Importação XML   | Tag <qBCMonoReten> do arquivo XML      | x15  | NF-e                  | BC Mono Retido           | 11v0-4            | 99999999999,9999 |
+					| Importação XML   | Tag <adRemICMSReten> do arquivo XML    | x15  | NF-e                  | Alíq. (R$)               | 3v2-4             | 999,9999         |
+					| Importação XML   | Tag <vICMSMonoReten> do arquivo XML    | x15  | NF-e                  | Vr. ICMS Mono Ret.       | 13v2              | 9999999999999,99 |
+					|------------------|----------------------------------------|------|-----------------------|--------------------------|-------------------|------------------|
+					| Importação XML   | Tag <qBCMono> do arquivo XML           | x53  | NF-e                  | BC Mono Diferido         | 11v0-4            | 99999999999,9999 |
+					| Importação XML   | Tag <adRemICMS> do arquivo XML         | x53  | NF-e                  | Alíq. (R$)               | 3v2-4             | 999,9999         |
+					| Importação XML   | Tag <pDif> do arquivo XML              | x53  | NF-e                  | Alíq. ICMS Difer%        | 3v2-4             | 999,9999         |
+					| Importação XML   | Tag <vICMSMono> do arquivo XML         | x53  | NF-e                  | Vr. ICMS Mono            | 13v2              | 9999999999999,99 |
+					|------------------|----------------------------------------|------|-----------------------|--------------------------|-------------------|------------------|
+					| Importação XML   | Tag <qBCMonoRet> do arquivo XML        | x61  | NF-e                  | BC Mono Ret. Ant.        | 11v0-4            | 99999999999,9999 |
+					| Importação XML   | Tag <adRemICMSRet> do arquivo XML      | x61  | NF-e                  | Alíq. (R$)               | 3v2-4             | 999,9999         |
+					| Importação XML   | Tag <vICMSMonoRet> do arquivo XML      | x61  | NF-e                  | Vr. ICMS Mono Ret. Ant.  | 13v2              | 9999999999999,99 |
+					|------------------|----------------------------------------|------|-----------------------|--------------------------|-------------------|------------------|
+					| Importação XML   | Tag <qBCMonoRet> do arquivo XML        | x61  | NFC-e                 | BC Mono Ret. Ant.        | 11v0-4            | 99999999999,9999 |
+					| Importação XML   | Tag <adRemICMSRet> do arquivo XML      | x61  | NFC-e                 | Alíq. (R$)               | 3v2-4             | 999,9999         |
+					| Importação XML   | Tag <vICMSMonoRet> do arquivo XML      | x61  | NFC-e                 | Vr. ICMS Mono Ret. Ant.  | 13v2              | 9999999999999,99 |
+					|------------------|----------------------------------------|------|-----------------------|--------------------------|-------------------|------------------|
+			RE[1._]	Mapeamento de importação
+						• O Mapeamento deve obedecer a todas as regras passadas anteriormente para disponibilização de CSTs de ICMS (02, 15, 53 e 61)
+						• Na importação de NF-e o sistema só deverá deixar mapear os CSTs de ICMS (02, 15, 53 e 61) com eles mesmos (02, 15, 53 e 61)
+						• Na importação de NFC-e o sistema só deverá deixar mapear os CSTs de ICMS (02, 15, 53 e 61) com o CST de ICMS (61)
+						• Caso o cliente tente mapear com algum outro CST deve apresentar a mensagem "CST impossibilitado para mapeamento. Por gentileza utilizar o mesmo CST da nota fiscal ou o CST 61, para atender a conversão dos valores de ICMS Monofásico"
+						• Quando a empresa remetente for do Simples Nacional (Emitiu documento com CSOSN) deverá habilitar a lista completa de CST para mapeamento
+			RE[1._]	Matriz de correspondência dos campos na importação de outros CSTs com o CST 61
+					|----------------|-------------------------------------|--------------|---------------|----------------------|-------------------------|
+					| Processo       | Origem                              | CST (Origem) | CST (Destino) | Funcionalidade no AC | Campo                   |
+					|----------------|-------------------------------------|--------------|---------------|----------------------|-------------------------|
+					| Importação XML | Tag <qBCMono> do arquivo XML        | x02          | x61           | NF-e / NFC-e         | BC Mono Ret. Ant.       |
+					| Importação XML | Tag <adRemICMS> do arquivo XML      | x02          | x61           | NF-e / NFC-e         | Alíq. (R$)              |
+					| Importação XML | Tag <vICMSMono> do arquivo XML      | x02          | x61           | NF-e / NFC-e         | Vr. ICMS Mono Ret. Ant. |
+					|----------------|-------------------------------------|--------------|---------------|----------------------|-------------------------|
+					| Importação XML | Tag <qBCMono> do arquivo XML        | x15          | x61           | NF-e / NFC-e         | Não se Aplica           |
+					| Importação XML | Tag <adRemICMS> do arquivo XML      | x15          | x61           | NF-e / NFC-e         | Não se Aplica           |
+					| Importação XML | Tag <vICMSMono> do arquivo XML      | x15          | x61           | NF-e / NFC-e         | Não se Aplica           |
+					| Importação XML | Tag <qBCMonoReten> do arquivo XML   | x15          | x61           | NF-e / NFC-e         | BC Mono Ret. Ant.       |
+					| Importação XML | Tag <adRemICMSReten> do arquivo XML | x15          | x61           | NF-e / NFC-e         | Alíq. (R$)              |
+					| Importação XML | Tag <vICMSMonoReten> do arquivo XML | x15          | x61           | NF-e / NFC-e         | Vr. ICMS Mono Ret. Ant. |
+					|----------------|-------------------------------------|--------------|---------------|----------------------|-------------------------|
+					| Importação XML | Tag <qBCMono> do arquivo XML        | x53          | x61           | NF-e / NFC-e         | BC Mono Ret. Ant.       |
+					| Importação XML | Tag <adRemICMS> do arquivo XML      | x53          | x61           | NF-e / NFC-e         | Alíq. (R$)              |
+					| Importação XML | Tag <pDif> do arquivo XML           | x53          | x61           | NF-e / NFC-e         | Não se Aplica           |
+					| Importação XML | Tag <vICMSMono> do arquivo XML      | x53          | x61           | NF-e / NFC-e         | Vr. ICMS Mono Ret. Ant. |
+					|----------------|-------------------------------------|--------------|---------------|----------------------|-------------------------|
+			RE[1._]	Será exibido em
+					Relatórios >> Livros Fiscais >> Registro de Entrada
+						Os valores serão apresentado com o "Código de Valores Fiscais" _
+					Relatórios >> ICMS >> ICMS Antecipado
+					DeSTDA
+						Registro ___
+		RE[2] Necessário para executar a homologação do cartão
+			• As alíquotas ad-rem únicas e monofásicas de R$ 0,9456/litro para o óleo diesel e biodiesel, e R$ 1,2571/kg para GLP
+	▼ Escopo do Teste
+		Será Testado
+			Lançamentos
+			Importação/Exportação
+			Conversão
+			Obrigações Acessórias
+			Relatórios
+			Ferramentas
+		Não Será Testado
+	▼ Matriz de Risco
+		Status		ID	Descrição	(P)robabilidade de Ocorrência do Erro	(I)mpacto do Erro	Priorização do Teste = P x I	Responsável	Estratégia				Reavaliar
+		Priorizado	1	...			3 Alta									3 Alta				9								Rubens		Eliminar/Evitar			Anualmente
+					2	...			2 Média									2 Média				4								Rubens		Prevenir/Mitigar		Mensalmente
+					3	...			1 Baixa									1 Baixa				1								Rubens		Aceitar Passivamente	Por Evento
+					4	...			...										...					...								Rubens		Aceitar Ativamente		...
+
+■ Procedimentos de Testes
+	▼ Atividades
+		Firebird
+		SQL
+			Escriturando em 2 estabelecimentos
+				Regime de Tributação Federal - Lucro Presumido
+				Regime de Tributação Federal - Simples Nacional
+					Regime de Tributação Estadual - Normal
+					Regime de Tributação Estadual - Simples Nacional
+					Regime de Tributação Estadual - Excluído do Simples Nacional (Normal no HES)
+						Incidência tributária cumulativa
+							PIS/COFINS Regime de Apropriação de Créditos Direta
+								Alíquota padrão de PIS/COFINS
+									Regime de competência
+									Regime de caixa {devolução não gera estorno em regime de caixa, pois é uma devolução financeira}
+										Adotando critério de escrituração Detalhada para gerar Sped Contribuições, informando itens no Histórico da empresa e no Histórico do estabelecimento
+											Contribuinte do IPI
+											Não contribuinte do IPI
+												Informando itens
+												Sem informar itens
+													Anexo I - CFOPs (5.922 e 6.922) desmarcado "Operação com Produtos Industrializados pelo Estabelecimento"
+														Receita no Mercado Interno
+
+	▼ Procedimentos Iniciais
+
+	▼ Estratégia de Teste
+		Teste GUI (Graphical User Interface)
+			Dados na GRID dos registros
+			Teste de Análise do Valor Limite
+			Testar tela com resolução 1366x768, vê se na mesma aparecem todos os campos e são clicáveis
+			Passagem de campos
+			Atalhos dos botões
+			Ortografia e Gramática
+			Condição para habilitar ou tonar vísível os campos conforme RE[
+			Na inclusão está obedecendo o histórico dos dados (Quando tem que abrir a tela já com os dados do último registro salvo como sugestão)
+		CRUD
+			Inclusão com passagem campo a campo
+			Inclusão com uso do mouse para concluir a gravação abreviando o tempo (Ok)
+			Inclusão com uso do atalho para concluir a gravação abreviando o tempo (F9)
+			Quando editar alguma informação, verificar se não ficou sujeira no banco
+		Paradigmas de Escrita
+		Importação
+			Importação .FS
+			Importação .CSV
+			Importação .XML
+			Importação WEB
+			Arquivo .DOC da versão de importação "LeiauteImportacaoFortesACFiscal.doc"
+			Visarq
+		Obrigação Acessória
+			SPED ICMS (Não houve alteração)
+			SPED Contribuições (Não houve alteração)
+		Relatórios
+			Relatórios >> Simples Nacional >> Espelho PGDAS
+			Relatórios >> Simples Nacional >> Acompanhamento Tributário
+			Relatórios >> Simples Nacional >> Acompanhamento Tributário (Demonstrativo de Cálculo)
+			DEFIS
+			Detalhamento Subst. e Trib. Monofásica
+				Entradas
+				Saídas
+			Relatórios >> Receitas por Estabelecimento
+			Relatórios >> Declaração de Faturamento
+			Relatórios >> Resumo >> Resumo Gerencial de Receitas e Tributos
+			Relatórios >> Comparativo Vendas x Compras
+		Testar em Base real de pendências passadas
+		Ferramentas
+			Utilitários >> Valores dos Estabelecimentos
+		Testar em Base real de pendências passadas
+
+■ Casos de Testes
+	▼ Matriz de Lançamentos
+		Teste de aceitação da NF-e de saída de terceiros
+		Teste de aceitação da NF-e de entrada de terceiros
+		Teste de aceitação da NF-e de saída documentos próprios
+		Teste de aceitação da NF-e de entrada documentos próprios
+		Teste de aceitação da NFC-e de saída documentos próprios.
+		Teste do comportamento da aba ICMS & IPI da NF-e de saída de terceiros
+		Teste do comportamento da aba ICMS & IPI da NF-e de entrada de terceiros
+		Teste do comportamento da aba ICMS & IPI da NF-e de saída documentos próprios
+		Teste do comportamento da aba ICMS & IPI da NF-e de entrada documentos próprios
+		Teste do comportamento da aba Totais da NFC-e de saída documentos próprios.
+		Teste de aceitação da NF1 de saída documentos próprios
+		Teste de aceitação da NFP de saída documentos próprios
+		Teste de aceitação da NFA de saída documentos próprios
+		Teste de aceitação da NF1 de entrada de terceiros
+		Teste de aceitação da NFP de entrada de terceiros
+		Teste de aceitação da NFA de entrada de terceiros
+		Teste de aceitação da NF1 de entrada documentos próprios
+		Teste de aceitação da NFP de entrada documentos próprios
+		Teste de aceitação da NFC-e de saída documentos próprios.
+		Teste de aceitação da NFVC de saída documentos próprios.
+		Teste de aceitação da CF-e de saída documentos próprios.
+		Teste de aceitação da CF de saída documentos próprios.
+	▼ Resultados
+		Fluxos Básicos
+		Fluxos Alternativos
+		Fluxos de Exceção
+
+
+Plano de Testes
+	Atividade
+		Procedimentos Iniciais
+			Estratégia de Teste
+				Matriz de Lançamentos
+					Resultado
+
+
+
+
+Links de testes unitários:
+Links de testes funcionais:
+Recursos:
+					  Nome do arquivo no padrão:	[Relacionamento principal]-( Se for arquivo Abrasf informar o município e UF )[Município] (UF)-[Observação opcional]
+										Exemplo:	Arquivo para importação: Abrasf-Ponte Nova (MG)-Inscrição Estadual do Participante.xml
+	Nome do arquivo do banco de dados no padrão:	[Iniciais do subsistema]-[Relacionamento principal]-[Ano de publicação]-[Nome da empresa]-[Período]-[Observação opcional]
+										Exemplo:	Banco para testes: ACC-Planilha Financeira-2021-ONE INTERNET SA-042021.rar
+Fluxo Básico Modelo:
+	- Geração automática de Inventário (quando documento possuir itens)
+	- Backup/Restore (quando se tratar de tabela nova)
+	- Integração Contábil
+	- Livros Fiscais
+	- SPED Contribuições
+	- SPED ECF
+	- Avaliar demais Obrigações Federais
+	- Avaliar demais obrigações Estaduais
+	- Apurações (Tributos Federais)
+	- Apurações (Simples Nacional)
+	- Apurações (ICMS Normal)
+	- Apurações (Livro de Apuração do ICMS)
+	- Analisador (Regras Tributárias)
+	- Sempre incluir notas com mais de 1 corpo e dados diferentes
+	- Sempre incluir vários itens diferentes
+	- Quando houver alguma mudança que interfira no cadastro do produto avaliar a sua importação WEB e XML pela NF-e, NFC-e e CF-e
