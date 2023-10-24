@@ -6,12 +6,19 @@ Relacionamentos:
 ■ Plano de Testes
 	▼ Requisitos
 		RE[1] Exigências para enquadramento do requisito
-			RE[1.1] Embasamento no Art. __, Decreto n°__.___/__ do RIMCs (__)
+			RE[1.1] Embasamento no Art. __, Decreto n°__.___/__ do RICMS (__)
 			RE[1._] Será atribuído a estabelecimentos cujo UF seja de (MG)
-			RE[1._] Será atribuído a empresas cujo Regime de Tributação Estadual seja do Lucro Real / Lucro Presumido / Simples Nacional
+			RE[1._] Será atribuído a empresas cujo Regime de Tributação Federal seja do Lucro Real / Lucro Presumido / Simples Nacional
+			RE[1._] Será atribuído a empresas cujo Regime de Tributação Estadual seja Normal
 			RE[1._] Será atribuído a lançamentos de NF-e e ___ de entrada / saída de terceiros / documentos próprios
 			RE[1._] Será atribuído a lançamentos com ICMS Normal / Antecipado / Diferencial de Alíquota
 			RE[1._] Será atribuído a lançamentos quando o CST / CSOSN utilizado for ___
+			RE[1._] Será atribuído a lançamentos na tela de "ICMS - Outros Débitos/Créditos, Estornos, Deduções, Observações, Val. Declaratórios e Déb. Especiais" no menu "Movimentos >> Apuração ICMS e IPI"
+			RE[1._] Serão incluídos novos campos na tela de "ICMS - Outros Débitos/Créditos, Estornos, Deduções, Observações, Val. Declaratórios e Déb. Especiais" no menu "Movimentos >> Apuração ICMS e IPI". Os campos incluídos serão: X, Y e Z
+			RE[1._] Os novos campos estarão visíveis na tela somente quando os requisitos RE[1._] até RE[1._] forem cumpridos
+			RE[1._]	Quando estiver visível, os campos X e Y exigirão preenchimento obrigatório
+			RE[1._]	Quando estiver visível, o campo X exigirá preenchimento obrigatório
+			RE[1._]	Não haverá modificação nos demais campos
 			RE[1._]	Fórmula utilizada quando for aplicado ___
 					__ x __ = __
 			RE[1._]	Será exibido em
@@ -92,7 +99,7 @@ Relacionamentos:
 			Inclusão com uso do mouse para concluir a gravação abreviando o tempo (Ok)
 			Inclusão com uso do atalho para concluir a gravação abreviando o tempo (F9)
 			Quando editar alguma informação, verificar se não ficou sujeira no banco
-		Paradigmas de Escrita
+		Escrita
 		Importação
 			Importação .FS
 			Importação .CSV
