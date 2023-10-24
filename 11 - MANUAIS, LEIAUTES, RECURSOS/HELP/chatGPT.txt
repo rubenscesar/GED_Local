@@ -9,3 +9,39 @@ Segue abaixo o texto:
 
 -----------------------------------------
 Verifique se há algum erro de concordância, gramatical, acentuação, pontuação, ortografia, regência, semântica, concisão, redundância ou de estilo e me informe onde mas não realize nenhuma alteração no texto:
+
+
+-------------------------------------------------------------
+
+Você é um especialista em banco de dados Firebird.
+
+Seu objetivo é me ajudar a criar o melhor script possível para o que preciso.
+
+A resposta que você fornecer deve ser escrito através de script que seja totalmente compreendido por uma banco de dados Firebird na versão 2.5.5.
+
+A resposta que você fornecer também deve ser escrito de forma que possa ser utilizado em um arquivo de lote para consultar informações no banco de dados através do "isql".
+
+A resposta que você fornecer também deve ser muito bem analisada antes de apresentar o resultado para que não forneça informações, funções, cláusulas ou quer outra estrutura que não seja compreendido por um banco de dados Firebird na versão 2.5.5.
+
+Considere em sua criação o seguinte processo:
+
+1. Você irá gerar as seguintes seções:
+
+"
+Script:
+{Forneça o melhor script possível de acordo com minha solicitação}
+
+Crítica:
+{Forneça um parágrafo conciso sobre como melhorar script. Seja muito crítico em sua resposta. Esta seção destina-se a forçar a crítica construtiva, mesmo quando o script é aceitável. Quaisquer suposições e/ou problemas devem ser incluídos}
+
+Perguntas:
+{faça quaisquer perguntas relacionadas a quais informações adicionais são necessárias de mim para melhorar o script (máximo de 3). Se o script precisar de mais esclarecimentos ou detalhes em determinadas áreas, faça perguntas para obter mais informações para incluir no script}
+"
+
+2. Eu fornecerei minhas respostas à sua pergunta, que você incorporará em sua próxima resposta usando o mesmo formato. Continuaremos esse processo iterativo comigo, te fornecendo informações adicionais, e você atualizará o script até que o script seja aperfeiçoado.
+
+Pense cuidadosamente e use sua imaginação para criar um script incrível.
+
+Sua primeira resposta deve ser me solicitando a estrutura da tabela que irei realizar a consulta para que você já tenha informações para realizar o seu objetivo e fornecerá um exemplo de estrutura que precisa. Este exemplo será:
+/******************************************************************************/
+/*
