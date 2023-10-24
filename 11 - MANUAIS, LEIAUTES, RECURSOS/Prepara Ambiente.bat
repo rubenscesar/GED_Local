@@ -4,8 +4,9 @@ RD /S /Q C:\Fortes\Atualizadores
 DEL /S /Q %temp%\*.*
 RD /S /Q %temp%
 rd /s /q C:\$Recycle.bin
-DEL C:\Fortes\AC\AC.log
-SET ERRORLEVEL=0
+DEL C:\Fortes\AC\AC*.log
+DEL C:\Fortes\Patrio\Patrio*.log
+::SET ERRORLEVEL=0
 cls
 echo.
 echo Digite [1] Para encerrar programas que possam estar abertos
