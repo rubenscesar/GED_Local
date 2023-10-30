@@ -1,0 +1,111 @@
+Épico: Adequação da tela de lançamentos de tipificações com a criação de novos campos e ajustar o SPED para incluir essas informações no registro E112
+Número do cartão: S CH202308017724
+Ano de publicação: 2023
+Relacionamentos: Sped Fiscal, Sped ICMS, Registro E111, E112
+
+■ Plano de Testes
+	▼ Requisitos
+		RE[1] Exigências para enquadramento do requisito
+			RE[1.1] Embasamento nos incisos X e XI do Art. 20 do RICMS (AM)
+			RE[1.2] A versão do Manual do SPED ICMS/IPI que será empregada para atender à solicitação é a 3.1.4
+			RE[1.3] Será atribuído a estabelecimentos cujo UF seja de (AM)
+			RE[1.4] Será atribuído a lançamentos na aba "Outros Créditos" na tela de "ICMS - Outros Débitos/Créditos, Estornos, Deduções, Observações, Val. Declaratórios e Déb. Especiais" no menu "Movimentos >> Apuração ICMS e IPI"
+			RE[1.5] Serão incluídos novos campos na aba "Outros Créditos" na tela de "ICMS - Outros Débitos/Créditos, Estornos, Deduções, Observações, Val. Declaratórios e Déb. Especiais" no menu "Movimentos >> Apuração ICMS e IPI". Os campos incluídos serão: Nº do Doc. de Arrecadação, Origem do Processo, Nº do Processo, Descrição Resumida do Proc. e Descrição Complementar
+			RE[1.6] Serão incluídos novas colunas na aba "Outros Créditos" na grid de "ICMS - Outros Débitos/Créditos, Estornos, Deduções, Observações, Val. Declaratórios e Déb. Especiais" no menu "Movimentos >> Apuração ICMS e IPI". As colunas incluídos serão: Nº do Doc. de Arrecadação e Origem do Processo
+			RE[1.7] Os novos campos estarão visíveis na tela somente quando o requisito RE[1.3] for cumprido
+			RE[1.8] Considerando que os novos campos estão visíveis na tela, eles serão habilitados para inclusão de informações somente quando os códigos de ajuste fiscal informados forem exclusivamente "AM020003" e/ou "AM020007"
+			RE[1.9] Quando os requisitos anteriores forem atendidos, os campos "Nº do Doc. de Arrecadação" e "Origem do Processo" exigirão preenchimento obrigatório
+			RE[1.10] Não haverá modificação nos demais campos
+			RE[1.11] Gerar arquivo do Sped ICMS incluindo o Registro E112 para cada Registro E111 gerado no arquivo
+			RE[1.12] A ordem dos registros E111 e E112 a ser seguida na escrituração do arquivo deve ser a seguinte. Primeiro um Registro E111, seguido por um Registro E112, podendo se repetir se for necessário
+			RE[1.13] A inserção de informações no arquivo Sped ICMS deve ser feita de acordo com os dados registrados na tela da ICD
+					 Registro E111
+						O código do campo "Classificação" será transcrito para o campo 2 do Registro E111
+						O conteúdo do campo "Descrição" será transcrito para o campo 3 do Registro E111
+						O conteúdo do campo "Valor" será transcrito para o campo 4 do Registro E111
+					 Registro E112
+						O conteúdo do campo "Nº do Doc. de Arrecadação" será transcrito para o campo 2 do Registro E112
+						O conteúdo do campo "Nº do Processo" será transcrito para o campo 3 do Registro E112
+						O conteúdo do campo "Origem do Processo" será transcrito para o campo 4 do Registro E112
+						O conteúdo do campo "Descrição Resumida do Proc." será transcrito para o campo 5 do Registro E112
+						O conteúdo do campo "Descrição Complementar" será transcrito para o campo 6 do Registro E112
+			RE[1.14] Os valores na ICD podem ser repetidos dentro da competência atual ou em competências futuras, pois de acordo com o Manual do SPED ICMS/IPI não há regras de validação quanto a duplicidade do registro E111 e E112
+			RE[1.15] Será exibido em
+						Relatórios >> ICMS >> ICMS Normal (Demonstrativo de Cálculo)
+						Relatórios >> Livros Fiscais >> Registro de Apuração do ICMS
+			RE[1.18] O somatório dos valores no campo 4 dos registros E111, nos quais os códigos de ajuste fiscal informados sejam "AM020003" e/ou "AM020007", será transcrito para o campo 8 do Registro E110
+	▼ Escopo do Teste
+		Será Testado
+			Lançamentos
+			Conversão
+			Obrigações Acessórias
+			Relatórios
+		Não Será Testado
+			Importação/Exportação
+			Ferramentas
+	▼ Matriz de Risco
+		Status		ID	Descrição	(P)robabilidade de Ocorrência do Erro	(I)mpacto do Erro	Priorização do Teste = P x I	Responsável	Estratégia				Reavaliar
+		Priorizado	1	...			3 Alta									3 Alta				9								Rubens		Eliminar/Evitar			Anualmente
+					2	...			2 Média									2 Média				4								Rubens		Prevenir/Mitigar		Mensalmente
+					3	...			1 Baixa									1 Baixa				1								Rubens		Aceitar Passivamente	Por Evento
+					4	...			...										...					...								Rubens		Aceitar Ativamente		...
+
+■ Procedimentos de Testes
+	▼ Atividades
+		Firebird
+		SQL
+			Estabelecimento necessariamente com UF (AM)
+			Escriturando em 2 estabelecimentos com UFs diferentes
+				Regime de Tributação Federal - Lucro Real ou Lucro Presumido
+				Regime de Tributação Federal - Simples Nacional (garantir que a funcionalidade não prejudicou outra por ter especificações diferentes)
+					Regime de Tributação Estadual - Normal
+					Regime de Tributação Estadual - Simples Nacional (garantir que a funcionalidade não prejudicou outra por ter especificações diferentes)
+					Regime de Tributação Estadual - Excluído do Simples Nacional (Normal no HES) (garantir que a funcionalidade não prejudicou outra por ter especificações diferentes)
+							Regime de competência
+								Contribuinte do IPI
+									Informando itens
+									Sem informar itens
+
+	▼ Procedimentos Iniciais
+
+	▼ Estratégia de Teste
+		Teste GUI (Graphical User Interface)
+			Dados na GRID dos registros
+			Teste de Análise do Valor Limite
+			Testar tela com resolução 1366x768, vê se na mesma aparecem todos os campos e são clicáveis
+			Passagem de campos
+			Atalhos dos botões
+			Ortografia e Gramática
+			Condição para habilitar ou tonar vísível os campos conforme RE[1.3]
+		CRUD
+			Inclusão com passagem campo a campo
+			Inclusão com uso do mouse para concluir a gravação abreviando o tempo (Ok)
+			Inclusão com uso do atalho para concluir a gravação abreviando o tempo (F9)
+			Quando editar alguma informação, verificar se não ficou sujeira no banco
+		Escrita
+			Realizar um teste de regressão manual abrangente em registros que foram previamente executados antes da atualização do sistema. Em seguida, verificar as mudanças e seu estado após a atualização do sistema
+			Lançamento na ICD de origem manual
+				Com lançamentos que possuam Nº do Doc. de Arrecadação, Origem do Processo, Nº do Processo, Descrição Resumida do Proc. e Descrição Complementar, diferentes
+					Com um lançamento para cada uma das origens de processo que estão presentes no Manual do SPED ICMS/IPI na versão 3.1.4, dentro do mesmo período de competência e com o mesmo valor
+					Com um lançamento para cada uma das origens de processo que estão presentes no Manual do SPED ICMS/IPI na versão 3.1.4, dentro do mesmo período de competência e com valores diferentes
+				Com lançamentos que possuam o mesmo Nº do Doc. de Arrecadação, Origem do Processo, Nº do Processo, Descrição Resumida do Proc. e Descrição Complementar, dentro do mesmo período de competência e com valores diferentes
+			Lançamento na ICD de origem proviniente de documento fiscal
+		Conversão
+			SPED ICMS
+		Obrigação Acessória
+			SPED ICMS
+				Validar o arquivo no validador
+		Relatórios
+			Relatórios >> ICMS >> ICMS Normal (Demonstrativo de Cálculo)
+			Relatórios >> Livros Fiscais >> Registro de Apuração do ICMS
+			Verificar relatórios com filtros
+		Auditoria
+		Backup/Restore
+		Testar em Base real de pendências passadas (Não há base disponível)
+
+■ Casos de Testes
+	▼ Matriz de Lançamentos
+	▼ Resultados
+		Fluxos Básicos
+		Fluxos Alternativos
+		Fluxos de Exceção
