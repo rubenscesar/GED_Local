@@ -1,0 +1,28 @@
+Cursos de Testes (gratuitos, alguns com certificado):
+
+- Playlist do Vinicius Pessoni "Comece no Teste de Software": 
+https://youtube.com/playlist?list=PLEqTHftpM91OQfx9XfmcXTjmypQTDB9qI
+
+- Playlist do Júlio de Lima "Testes de Software do Zero": 
+https://youtube.com/playlist?list=PLf8x7B3nFTl3EouPsBoqgbatKti9liVyj
+
+- Curso de Teste Gratuito e Com Certificado: "Aprendendo a Testar": 
+https://www.sympla.com.br/play/aprendendo-a-testar/1150323
+
+- Curso gratuito de introdução aos testes de software da Coursera: 
+https://www.coursera.org/learn/intro-teste-de-software 
+
+- Webinário gratuito do Júlio de Lima sobre Testes de Software para Iniciantes:
+https://vimeo.com/385484101/bcc4a71c10
+
+- "Teste de Software" do Portal GSTI: https://www.portalgsti.com.br/cursos/curso-gratuito-teste-de-software/
+
+- "Qualidade" da Kultivi:
+https://kultivi.com/
+
+
+
+
+
+
+Se vc não tiver uma graduação na área de TI...minha primeira recomendação é fazer uma. Depois, procure e se aprofunde em modelos de melhorias em processos de testes, metodologias ágeis, lógica de programação, linguagem de programação (ao menos uma para back e front). Estude um pouco sobre banco de dados (não a nível DBA)mas, pelo menos pra saber executar e montar querys. Por fim, explore também um pouco de automação com uma ferramenta que atenda a boa parte das necessidades de um QA.
