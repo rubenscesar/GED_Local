@@ -1,0 +1,37 @@
+que já existe
+CNPJ
+CNPJ em branco
+Exterior
+
+OBJETIVO: INCLUSÃO
+EXTERIOR
+	2)
+		participante
+			já está cadastrado antes da importação
+				O participante possui todos os dados
+				O participante não possui CNPJ, UF, inscrição municipal e endereço
+		participante da primeira nota
+			será cadastrado apenas na importação
+				O participante da nota não possui CNPJ, UF, inscrição municipal e endereço
+				O participante da nota possui país diferente de qualquer outro já cadastrado ou a ser cadastrado nas próximas importações
+=================================================================================================================================================================================
+	2)
+		participante da primeira nota
+			já está cadastrado antes da importação
+				O participante da nota possui todos os dados
+				O participante não possui CNPJ, UF, inscrição municipal e endereço
+		participante da segunda nota
+			será cadastrado apenas na importação
+				O participante da nota não possui CNPJ, UF, inscrição municipal e endereço
+				O participante da nota possui país diferente de qualquer outro já cadastrado ou a ser cadastrado nas próximas importações
+=================================================================================================================================================================================
+	2)
+		participante da primeira nota
+			será cadastrado apenas na importação
+				O participante possui todos os dados
+				O participante não possui CNPJ, UF, inscrição municipal e endereço
+		participante da primeira nota
+			será cadastrado apenas na importação
+				O participante da nota não possui CNPJ, UF, inscrição municipal e endereço
+				O participante da nota possui país diferente de qualquer outro já cadastrado ou a ser cadastrado nas próximas importações
+=================================================================================================================================================================================
