@@ -1,0 +1,85 @@
+SafePal S1
+
+Este aparelho é uma carteira física de criptomoeda, também conhecido como hardware wallet ou cold wallet.
+
+Tem o objetivo de proteger e gerenciar as minhas criptomoedas.
+
+Tutorial
+	Configuração
+		Configurar para o primeiro uso
+			Criar uma nova carteira
+				Utilize o SafePal
+					1º	Ligue o SafePal no botão que tem na lateral do aparelho
+					2º	Escolha a linguagem "Inglês"
+					3º	Ignore a próxima tela, pois é apenas para informar para que vai servir cada botão
+					4º	Siga para a próxima tela, pois é apenas uma tela de boas vindas
+					5º	Escolha "Create new Wallet"
+					6º	Escolha "Create Now" na explicação do que seria uma frase minemônica
+					7º	Escolha "24", que significa que serão 24 palavras minemónicas 
+					8º	Anote as palavras minemônicas na mesma ordem que foram apresentadas em um cartão
+					9º	Clique em "Next"
+					10º	Informe as palavras minemônicas que você anotou anteriormente seguindo a mesma ordem
+					11º	Informe um PIN para o SafePal e anote este PIN em um local seguro
+					12º	Siga para a próxima tela, pois é apenas uma tela informando que a carteira foi criada
+					13º Informe um nome para a sua carteira
+					14º Clique em "Ok"
+				Utilize o Celular
+					15º	Faça o download do aplicativo no celular lendo o QR Code do papel que veio na caixa ou lendo o QR Code que apareceu na tela
+					16º Escolha "Hardware Wallet (Física)"
+					17º Clique em "Seguinte"
+					18º Defina um senha para o aplicativo diferente da informada no SafePal
+					19º Clique em "Submeter"
+					20º Configure a sua impressão digital
+					21º Defina o desenho padrão
+					22º Clique em "Iniciar a aventura SafePal"
+					23º Clique em "Configurar"
+					24º Clique em "Seguinte"
+					25º Informe a senha do aplicativo
+					26º No SafePal escolha "Scan"
+					27º Leia o QR Code que está aparecendo na tela do aplicativo com a câmera do SafePal
+					28º Informe o PIN do SafePal
+					29º Clique em "Seguinte" no aplicativo
+					30º Permita o uso da câmera durante o uso do aplicativo
+					31º Leia o QR Code que está aparecendo na tela do SafePal com a câmera do aplicativo
+				Concluído!
+			Recuperar uma carteira
+	Uso
+		Como sacar
+		Como depositar (Receber)
+			Para transferir as criptomoedas para a cold wallet você só precisa do endereço de Wallet (chave pública).
+			A cold wallet só serve como um dispositivo de confirmação.
+			Utilize o Celular
+				1º Escolha a criptomoeda que deseja receber as moedas dela para dentro da carteira
+				2º Clique em "Receber"
+				3º A chave que aparecer é a chave pública desta criptomoeda que você irá copiar para a exchange poder transferir as moedas para esta chave
+			Utilize a Exchange
+				1º Na Exchange vai aparecer alguma opção de sacar criptomoeda ou transferir onde você vai poder informar para onde está transferindo as moedas e neste momento você vai colar a chave pública da criptomoeda em questão
+				2º Assim que você enviar da Exchange vai querer descontar algum valor de transação que é da mineração e pouco tempo depois este valor vai parecer na carteira do app do celular
+		Cuidados
+			Confira se há hardware wallet está configurada corretamente
+				Utilizando o SafePal
+				1º Escolha "Asset Management" ou  "Gestão de Ativos"
+				2º Escolha um dos seus endereços de Wallet (Ativos)
+				3º Escolha "Receive" ou "receber"
+				Utilizando o Celular
+				4º No aplicativo escolha o mesmo endereço de Wallet (Ativo) selecionado no SafePal
+				5º Escolha "Receber"
+				4º Compare se o endereço apresentado (chave pública) no SafePal é o mesmo que o endereço apresentado no aplicativo
+			Quais os cuidados que devo ter quando estiver sacando
+			Quais os cuidados que devo ter quando estiver depositando valores a uma criptomoeda já existente nesta carteira
+			Quais os cuidados que devo ter quando estiver depositando valores a uma criptomoeda nova nesta carteira
+	Atualizações e manutenção
+		Como atualizar o firmware do SafePal
+		O que ser feito periodicamente
+	Conhecimento
+		O que é hardware wallet
+		O que é cold wallet
+		O que é uma frase minemônica
+		O que fazer se a bateria estragar
+			Se a bateria estragar ela funciona ligada com o cabo
+		Como funciona uma wallet
+		Como fazer um backup caso você tenha perdido frase minemônica mas ainda tem acesso a conta
+	Como entrar em contato com a SafePal
+		Fale Conosco.
+		Telefone: (11) 9.6609-5084.
+		Whatsapp: (11) 9.6609-5084.
