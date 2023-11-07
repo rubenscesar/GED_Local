@@ -1,0 +1,70 @@
+Obs O sistema passará a verificar a chave e número
+
+IMPORTA
+	Configuração com opção "Verificar se o documento já está cadastrado" marcada
+		Saídas
+			No mesmo lote de importação
+				Mesmas notas
+					Autorizada com Chave e depois a Autorizada com Chave Igual					Resultado Esperado: Importa primeira nota e Apresenta erro na segunda nota (Documento já cadastrado)
+					Autorizada com Chave e depois a Cancelada com Chave Igual					Resultado Esperado: Importa como Cancelada
+					Autorizada com Chave e depois a Cancelada com Chave Diferente				Resultado Esperado: Importa 2 notas sendo a primeira Autorizada e a segunda Cancelada
+					Cancelada com Chave e depois a Cancelada com Chave Igual					Resultado Esperado: Importa primeira nota como Cancelada e Apresenta erro na segunda nota (Documento já cadastrado)
+					Cancelada com Chave e depois a Autorizada com Chave Igual					Resultado Esperado: Importa primeira nota como Cancelada e Apresenta erro na segunda nota (Documento já cadastrado)
+					Cancelada com Chave e depois a Autorizada com Chave Diferente				Resultado Esperado: Importa 2 notas sendo a primeira Cancelada e a segunda Autorizada
+				Notas diferente
+					Autorizada com Chave e depois a Autorizada com Chave Igual					Resultado Esperado: Importa 2 notas sendo as 2 Autorizadas
+					Autorizada com Chave e depois a Cancelada com Chave Igual					Resultado Esperado: Importa 2 notas sendo a primeira Autorizada e a segunda Cancelada
+					Autorizada com Chave e depois a Cancelada com Chave Diferente				Resultado Esperado: Importa 2 notas sendo a primeira Autorizada e a segunda Cancelada
+					Cancelada com Chave e depois a Cancelada com Chave Igual					Resultado Esperado: Importa 2 notas sendo as 2 Canceladas
+					Cancelada com Chave e depois a Autorizada com Chave Igual					Resultado Esperado: Importa primeira nota como Cancelada e a segunda Autorizada
+					Cancelada com Chave e depois a Autorizada com Chave Diferente				Resultado Esperado: Importa primeira nota como Cancelada e a segunda Autorizada
+			Em lotes diferentes de importação
+				Mesmas notas
+					Autorizada com Chave e depois a Autorizada com Chave Igual					Resultado Esperado: Apresenta erro (Documento já cadastrado)
+					Autorizada com Chave e depois a Cancelada com Chave Igual					Resultado Esperado: Importa e altera a nota lançada para Cancelada
+					Autorizada com Chave e depois a Cancelada com Chave Diferente				Resultado Esperado: Importa segunda nota como Cancelada e mantem a que já existia sem alteração
+					Cancelada com Chave e depois a Cancelada com Chave Igual					Resultado Esperado: Apresenta erro (Documento já cadastrado)
+					Cancelada com Chave e depois a Autorizada com Chave Igual					Resultado Esperado: Apresenta erro (Documento já cadastrado)
+					Cancelada com Chave e depois a Autorizada com Chave Diferente				Resultado Esperado: Importa segunda nota como Autorizada e mantem a que já existia sem alteração
+				Notas diferente
+					Autorizada com Chave e depois a Autorizada com Chave Igual					Resultado Esperado: Importa segunda nota como Autorizada e mantem a que já existia sem alteração
+					Autorizada com Chave e depois a Cancelada com Chave Igual					Resultado Esperado: Importa segunda nota como Cancelada e mantem a que já existia sem alteração
+					Autorizada com Chave e depois a Cancelada com Chave Diferente				Resultado Esperado: Importa segunda nota como Cancelada e mantem a que já existia sem alteração
+					Cancelada com Chave e depois a Cancelada com Chave Igual					Resultado Esperado: Importa segunda nota como Cancelada e mantem a que já existia sem alteração
+					Cancelada com Chave e depois a Autorizada com Chave Igual					Resultado Esperado: Importa segunda nota como Autorizada e mantem a que já existia sem alteração
+					Cancelada com Chave e depois a Autorizada com Chave Diferente				Resultado Esperado: Importa segunda nota como Autorizada e mantem a que já existia sem alteração
+	Configuração com opção "Verificar se o documento já está cadastrado" desmarcada
+		Saídas
+			No mesmo lote de importação
+				Mesmas notas
+					Autorizada com Chave e depois a Autorizada com Chave Igual					Resultado Esperado: Importa primeira nota como Autorizada e Apresenta erro na segunda nota (Documento já cadastrado)
+					Autorizada com Chave e depois a Cancelada com Chave Igual					Resultado Esperado: Importa primeira nota e não apresenta erro
+					Autorizada com Chave e depois a Cancelada com Chave Diferente				Resultado Esperado: Importa 2 notas sendo a primeira Autorizada e a segunda Cancelada
+					Cancelada com Chave e depois a Cancelada com Chave Igual					Resultado Esperado: Importa primeira nota como Autorizada e Apresenta erro na segunda nota (Documento já cadastrado)
+					Cancelada com Chave e depois a Autorizada com Chave Igual					Resultado Esperado: Importa primeira nota como Cancelada e Apresenta erro na segunda nota (Documento já cadastrado)
+					Cancelada com Chave e depois a Autorizada com Chave Diferente				Resultado Esperado: Importa 2 notas sendo a primeira Cancelada e a segunda Autorizada
+				Notas diferente
+					Autorizada com Chave e depois a Autorizada com Chave Igual					Resultado Esperado: Importa 2 notas sendo as 2 Autorizadas
+					Autorizada com Chave e depois a Cancelada com Chave Igual					Resultado Esperado: 
+					Autorizada com Chave e depois a Cancelada com Chave Diferente				Resultado Esperado: 
+					Cancelada com Chave e depois a Cancelada com Chave Igual					Resultado Esperado: 
+					Cancelada com Chave e depois a Autorizada com Chave Igual					Resultado Esperado: 
+					Cancelada com Chave e depois a Autorizada com Chave Diferente				Resultado Esperado: 
+			Em lotes diferentes de importação
+				Mesmas notas
+					Autorizada com Chave e depois a Autorizada com Chave Igual					Resultado Esperado: 
+					Autorizada com Chave e depois a Cancelada com Chave Igual					Resultado Esperado: 
+					Autorizada com Chave e depois a Cancelada com Chave Diferente				Resultado Esperado: 
+					Cancelada com Chave e depois a Cancelada com Chave Igual					Resultado Esperado: 
+					Cancelada com Chave e depois a Autorizada com Chave Igual					Resultado Esperado: 
+					Cancelada com Chave e depois a Autorizada com Chave Diferente				Resultado Esperado: 
+				Notas diferente
+					Autorizada com Chave e depois a Autorizada com Chave Igual					Resultado Esperado: 
+					Autorizada com Chave e depois a Cancelada com Chave Igual					Resultado Esperado: 
+					Autorizada com Chave e depois a Cancelada com Chave Diferente				Resultado Esperado: 
+					Cancelada com Chave e depois a Cancelada com Chave Igual					Resultado Esperado: 
+					Cancelada com Chave e depois a Autorizada com Chave Igual					Resultado Esperado: 
+					Cancelada com Chave e depois a Autorizada com Chave Diferente				Resultado Esperado: 
+
+
+se tem mais de um lançamento no banco da mesma nota e importar um doc de entrada cancelada deve dar erro
