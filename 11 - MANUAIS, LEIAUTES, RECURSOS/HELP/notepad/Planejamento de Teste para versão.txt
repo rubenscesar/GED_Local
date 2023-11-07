@@ -1,0 +1,130 @@
+Comparativo de Telas (Consultando)
+	Telas compartilhas com outros subsistemas
+		Tela de entrada do sistema
+		UF
+		Municípios
+		Contabilistas
+		HEM
+		HES
+		Processos Administrativos e Judiciais
+		Legislação
+		Backup
+		Restauração
+	Relatórios
+		Demonstrativo de Cálculo PIS/COFINS (Normal) (Competência)
+		Demonstrativo de Cálculo PIS/COFINS (Normal) (Caixa)
+		Demonstrativo de Cálculo PIS/COFINS (Detalhado)
+		DARF
+		Espelho PGDAS (Competência)
+		Espelho PGDAS (Caixa)
+		Acompanhamento Tributário
+Importações
+	FS
+		Faturas
+	XML
+	Web
+Conversão
+	Sintegra
+	SPED Fiscal
+Integração
+	Fiscal x Contábil
+Obrigação Acessória
+	SPED Fiscal
+		Nessa Suite de teste incluir uma stack no SPED Fiscal onde será validado o arquivo no SPED
+	SPED Contribuições
+	SPED ECF
+	DIEF PI
+	DIEF MA
+Backup e Resturação
+	Incluindo nova empresa
+		Do Fiscal restaurado no Fiscal
+		Do Fiscal restaurado no Contábil
+		Do Fiscal restaurado no Gestão
+		Do Fiscal restaurado no Administração
+		Do Contábil restaurado no Fiscal
+		Do Contábil restaurado no Contábil
+		Do Contábil restaurado no Gestão
+		Do Contábil restaurado no Administração
+		Do Gestão restaurado no Fiscal
+		Do Gestão restaurado no Contábil
+		Do Gestão restaurado no Gestão
+		Do Gestão restaurado no Administração
+		Do Administração restaurado no Fiscal
+		Do Administração restaurado no Contábil
+		Do Administração restaurado no Gestão
+		Do Administração restaurado no Administração
+		Do Fiscal,Contábil,Gestão,Administração restaurado no Fiscal
+		Do Fiscal,Contábil,Gestão,Administração restaurado no Contábil
+		Do Fiscal,Contábil,Gestão,Administração restaurado no Gestão
+		Do Fiscal,Contábil,Gestão,Administração restaurado no Administração
+	Substituindo empresa existente
+		Do Fiscal restaurado no Fiscal
+		Do Fiscal restaurado no Contábil
+		Do Fiscal restaurado no Gestão
+		Do Fiscal restaurado no Administração
+		Do Contábil restaurado no Fiscal
+		Do Contábil restaurado no Contábil
+		Do Contábil restaurado no Gestão
+		Do Contábil restaurado no Administração
+		Do Gestão restaurado no Fiscal
+		Do Gestão restaurado no Contábil
+		Do Gestão restaurado no Gestão
+		Do Gestão restaurado no Administração
+		Do Administração restaurado no Fiscal
+		Do Administração restaurado no Contábil
+		Do Administração restaurado no Gestão
+		Do Administração restaurado no Administração
+		Do Fiscal,Contábil,Gestão,Administração restaurado no Fiscal
+		Do Fiscal,Contábil,Gestão,Administração restaurado no Contábil
+		Do Fiscal,Contábil,Gestão,Administração restaurado no Gestão
+		Do Fiscal,Contábil,Gestão,Administração restaurado no Administração
+
+Observação:
+Dividir por tópicos (Plano de teste)
+
+Requisitos:
+Lançamentos préexistentes
+Lançamentos no regime do simples nacional
+Lançamentos no regime normal
+Lançamentos com incidência tributária Não-Cumulativo
+Lançamentos com incidência tributária Cumulativo
+Lançamentos com incidência tributária Misto (Não-Cumulativo)
+Lançamentos com incidência tributária Misto (Cumulativo)
+	Extremamente necessário aproveitar o banco utilizado na P 20190300004
+Lançamentos com itens
+Lançamentos sem itens
+
+
+
+Unit Dados dos lançamentos a serem incluídos, editados e excluídos dividido por regime de tributação e incidência tributária
+	Lucro Real - Não-Cumulativo			KrLucroRealNCumul
+	Lucro Real - Misto (Não-Cumulativo)	KrLucroRealMistoNCumul
+	Lucro Real - Cumulativo				KrLucroRealCumul
+	Lucro Real - Misto (Cumulativo)		KrLucroRealMistoCumul
+	Lucro Presumido - Cumulativo		KrLucroPres
+	Simples Nacional					KrSimplesNacional
+Unit com diversos dados que não se encontram nos lançamentos como cadastros, etc.	KrCadastros
+Unit com funções e procedures utilizados no projeto		KrUtil
+
+
+
+
+
+FISCAL
+	EFD Contribuições
+		KrUtil - Unit com funções e procedures utilizados no projeto
+		C170_Entrega_de_documentos_de_entrada
+			Lucro_Real_Nao_Cumulativo			LR_NCumulativo
+			Lucro_Real_Misto_Nao_Cumulativo		LR_Mist_NCumula
+			Lucro_Real_Cumulativo				LR_Cumulativo
+			Lucro_Real_Misto_Cumulativo			LR_Mist_Cumulat
+			Lucro_Presumido_Cumulativo			LP_Cumulativo
+	EFD ICMS/IPI
+CONTÁBIL
+	ECD
+	ECF
+GESTÃO
+ADMINISTRAÇÃO
+GERAL
+	INSTALAÇÃO
+	ATUALIZAÇÃO
