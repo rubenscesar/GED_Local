@@ -1,0 +1,28 @@
+Prêmio
+	Valor que você paga mensalmente
+Sinistro
+	O problema pelo qual você assegurou
+Capital Segurado
+	Valor que você segurou com a seguradora
+	Quanto
+
+Em vida
+	Receber pelos dias que fiquei internado
+		Quanto
+	Doença grave direito ao capital segurado
+		Quanto
+	Acidente com invalidez
+		Quanto
+	Depois de quanto tempo você pode tirar o dinheiro que você colocou?
+	
+Sinistro
+	Preciso de pouco por não tem ninguém dependente
+	
+Direitos
+	Morte Natural
+	Morte Acidental
+	Invalidez por acidente
+	Invalidez por doença
+	Despesas Médicas e Hospitalares
+	Diárias por Incapacidades Temporárias
+	Assistênica Funeral
