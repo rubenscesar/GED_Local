@@ -1,0 +1,5 @@
+melhoria 
+inserts de cda mes para não reprocessar
+
+verificar pelo /log se reprocesar meses anteriores
+
