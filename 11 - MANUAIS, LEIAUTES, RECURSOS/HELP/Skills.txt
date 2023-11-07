@@ -1,0 +1,7 @@
+rubenscesar@fortestecnologia.com.br
+
+Desenvolvimento Fisco
+
+Teste de exploratório, regressão, integração, usabilidade, performance, instalação, aceitação
+
+Planejo e testo as liberações das versões, pendências e solicitações e valido se melhora a experiência do usuário. Colaboro nas reuniões de solicitação. Trabalho na capacitação da equipe QA. Estudo mudanças de ferramentas na equipe para melhoria nos processos de comunicação e documentação. Automatizo alguns poucos processos de apoio pessoal. Sou o responsável pelo monitoramento diário dos testes automatizados e pela liberação das versões. Tiro dúvidas de negócio na equipe Fisco
