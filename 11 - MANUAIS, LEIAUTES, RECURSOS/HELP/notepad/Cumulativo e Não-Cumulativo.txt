@@ -1,0 +1,35 @@
+Incidência Tributária Cumulativa
+	Se CFOP for de devolução
+		Se pelo menos 1 item e/ou serviço for tributado
+			Informa a nota com todos os seus itens: 0200, C100, C170, ...
+		Caso contrário não informa a nota
+	Caso contrário não informa a nota
+Incidência Tributária Não-Cumulativa
+	Se pelo menos 1 item e/ou serviço for tributado
+		Informa a nota com todos os seus itens: 0200, C100, C170, ...
+	Caso contrário não informa a nota
+
+Incidência Tributária Mista Padrão Cumulativa
+	Se CFOP for de devolução
+		Se pelo menos 1 item e/ou serviço for tributado
+			Informa a nota com todos os seus itens: 0200, C100, C170, ...
+		Caso contrário não informa a nota
+	Senão
+		Se Incidência Tributária de pelo menos 1 item e/ou serviço for Não-Cumulativa
+			Se pelo menos 1 item e/ou serviço for tributado
+				Informa a nota com todos os seus itens: 0200, C100, C170, ...
+				Se houver algum item que seja uma entrada de documento próprio e Cumulativo, será informado com CST "70" atendendo a pendência 20171100088
+			Caso contrário não informa a nota
+		Caso contrário não informa a nota
+Incidência Tributária Mista Padrão Não-Cumulativa
+	Se CFOP for de devolução
+		Se pelo menos 1 item e/ou serviço for tributado
+			Informa a nota com todos os seus itens: 0200, C100, C170, ...
+		Caso contrário não informa a nota
+	Senão
+		Se Incidência Tributária de pelo menos 1 item e/ou serviço for Não-Cumulativa
+			Se pelo menos 1 item e/ou serviço for tributado
+				Informa a nota com todos os seus itens: 0200, C100, C170, ...
+				Se houver algum item que seja uma entrada de documento próprio e Cumulativo, será informado com CST "70" atendendo a pendência 20171100088
+			Caso contrário não informa a nota
+		Caso contrário não informa a nota
