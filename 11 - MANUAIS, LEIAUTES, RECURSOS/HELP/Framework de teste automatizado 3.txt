@@ -1,0 +1,96 @@
+Mapeamento				Mapeamento
+Atividade				Procedimentos de Testes > Atividade
+ProcIniciais			Procedimentos de Testes > Procedimentos Iniciais
+Estrategia				Procedimentos de Testes > Estratégia de Teste
+Escopo					Plano de Testes > Escopo do Teste
+MatrizLançamentos		Casos de Testes > Matriz de Lançamentos
+Resultados				Casos de Testes > Resultados
+
+
+╔═══════════════════════╗
+║	INSTALAÇÃO DO AC	║
+╚═══════════════════════╝
+
+Procedimentos de Testes
+	Atividades
+	Procedimentos Iniciais
+
+	Estratégia de Teste
+		■ Antes da instalação
+			┌───────────────────────────────────────────────────────┬───────────────────────────────────────────────────────┬───────────────────────────────────────────────────────┐
+			│Responsabilidade do TeamCity							│Responsabilidade do TestComplete						│Status													│
+			├───────────────────────────────────────────────────────┼───────────────────────────────────────────────────────┼───────────────────────────────────────────────────────┤
+			│■ Facher todos os processos da máquina					│														│Deve ser refeito										│
+			│■ Mapear Unidades de Rede								│														│Deve ser refeito										│
+			│■ Apagar o AC.ver da pasta DiretorioVersao				│														│Deve ser refeito										│
+			│■ Copiar o AC.ver para pasta DiretorioVersao			│														│Deve ser refeito										│
+			│■ Copiar Instalador da Rede para pasta DiretorioVersao	│														│Deve ser refeito										│
+			│■ Deletar Firebird										│														│Deve ser refeito										│
+			└───────────────────────────────────────────────────────┴───────────────────────────────────────────────────────┴───────────────────────────────────────────────────────┘
+		■ Durante a instalação
+			┌───────────────────────────────────────────────────────┬───────────────────────────────────────────────────────┬───────────────────────────────────────────────────────┐
+			│Responsabilidade do TeamCity							│Responsabilidade do TestComplete						│Status													│
+			├───────────────────────────────────────────────────────┼───────────────────────────────────────────────────────┼───────────────────────────────────────────────────────┤
+			│														│■ Executar Instalador									│Deve ser Reavaliado									│
+			│														│	• Teste GUI (Graphical User Interface)				│Deve ser Reavaliado									│
+			│														│		• Dados na GRID dos registros					│														│
+			│														│		• Teste de Análise do Valor Limite				│														│
+			│														│		• Passagem de campos							│														│
+			│														│		• Ortografia e Gramática						│														│
+			│														│		• Condição para habilitar ou tonar vísível os	│														│
+			│														│		  campos										│														│
+			│														│	• CRUD												│Deve ser Reavaliado									│
+			│														│		• Passagem campo a campo						│														│
+			│														│		• Instalação com uso do mouse para concluir a	│														│
+			│														│		  gravação abreviando o tempo (Ok)				│														│
+			│														│		• Instalação com uso do atalho para concluir a	│														│
+			│														│		  gravação abreviando o tempo (F9)				│														│
+			│														│	• Escolher SGBD										│														│
+			│														│		• Com Firebird preexistente (selecionando		│														│
+			│														│		  a opção "Usar Firebird Existente")			│														│
+			│														│		• Com Firebird do próprio Instalador			│														│
+			│														│		  (selecionando a opção							│														│
+			│														│		  "Instalar Firebird 2.5.5")					│														│
+			│														│		• Com Firebird do próprio Instalador em máquina	│														│
+			│														│		  que tem outro Firebird						│														│
+			│														│		• Verifica de está testando em SQL:				│														│
+			│														│			• Se Sim:	Com MS SQL (selecionando a		│														│
+			│														│			  			opção "Não Instalar")			│														│
+			│														│			• Se Não:	Nada a fazer					│														│
+			││														│														│
+			││														│														│
+			││														│														│
+			││														│														│
+			││														│														│
+			└───────────────────────────────────────────────────────┴───────────────────────────────────────────────────────┴───────────────────────────────────────────────────────┘
+		■ Depois da instalação
+			┌───────────────────────────────────────────────────────┬───────────────────────────────────────────────────────┬───────────────────────────────────────────────────────┐
+			│Responsabilidade do TeamCity							│Responsabilidade do TestComplete						│Status													│
+			├───────────────────────────────────────────────────────┼───────────────────────────────────────────────────────┼───────────────────────────────────────────────────────┤
+			│														│														│														│
+			│														│														│														│
+			│														│														│														│
+			│														│														│														│
+			│														│														│														│
+			└───────────────────────────────────────────────────────┴───────────────────────────────────────────────────────┴───────────────────────────────────────────────────────┘
+		
+Plano de Testes
+	Requisitos
+	Escopo do Teste
+		Será Testado
+		Não Será Testado
+	Matriz de Risco
+
+Casos de Testes
+	Matriz de Lançamentos
+	Resultados
+		Fluxos Básicos
+		Fluxos Alternativos
+		Fluxos de Exceção
+
+Plano de Testes
+	Atividade
+		Procedimentos Iniciais
+			Estratégia de Teste
+					Matriz de Lançamentos
+						Resultado
