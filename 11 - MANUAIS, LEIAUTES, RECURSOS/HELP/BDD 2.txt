@@ -1,0 +1,74 @@
+Épico:				Importação de Dados dos Participantes
+Feature:			Testando a importação como o usuário do sistema
+					Eu quero conferir os dados dos participantes na tela dos lançamentos e nos relatórios
+					Objetivando garantir que um participante de uma nota não esteja sendo vinculado a outra nota
+Scenario Outline:	Conferir os dados nos lançamentos importados equivalente aos campos <codigo_do_participante>,
+																						<nome_do_participante>,
+																						<UF_do_participante>,
+																						<municipio_do_participante>,
+																						<CNPJ_do_participante>,
+																						<IE_do_participante>,
+																						<endereco_do_participante>
+Dado (Given)		que eu como usuário, importo o lançamento da espécie <espécies>
+Quando (When)		importo cada lançamento com participante cadastrada com o tipo <cadastro_da_contabilização>
+	And				por <forma_de_contabilização>
+	And				data <data_da_contabilização
+	And				conta <conta_contábil>
+	And				estabelecimento <estabelecimento_contábil>
+Then				consulto e comparo cada valor em cada lançamento, entrando na funcionalidade de "Lançamentos Contábeis"
+	And				comparo os valores das grids
+	And				comparo as informações nos relatórios
+	And				comparo os dados exportados para contabilidade
+
+
+Funcionalidade (Feature) [Narrativa]:
+Como [o papel]
+Eu quero [recurso]
+
+Cenário (Scenario):
+Dado (Given)
+Quando (When)
+Então (Then)
+e (and)
+
+
+Examples: 
+  | Campo_da_Contabilização_a_ser_testado | espécies | cadastro_da_contabilização | forma_de_contabilização | data_da_contabilização | conta_contábil                                    | estabelecimento_contábil     | agrupamento                                 |
+  | Valor Total                           | NFS      | Documentos                 | Determinado por CFOP    | Data de Emissão        | Conta do Remetente/Prestador/Destinatário/Tomador | Estabelecimento do Documento | não agrupando os lançamento de CF-e e NFC-e |
+
+
+
+		   Épico:	Importação de Dados dos Participantes
+		 Feature:	Testando a importação como o usuário do sistema
+					Eu quero conferir os dados dos participantes na tela dos lançamentos e dos participantes
+					objetivando garantir que um participante de uma nota não esteja sendo vinculado a outra nota
+Scenario Outline:	Conferir os dados nos lançamentos importados equivalente aos campos <codigo_do_participante>,
+																						<nome_do_participante>,
+																						<UF_do_participante>,
+																						<municipio_do_participante>,
+																						<CNPJ_do_participante>,
+																						<IE_do_participante>,
+																						<endereco_do_participante>
+	 (Given) Dado	que eu como usuário, importo o lançamento da espécie <espécie>
+	(When) Quando	na Configuração está marcado "Atualizar dados dos participantes já cadastrado" e "Gerar Históricos dos participantes"
+		  (And) e	quando na Configuração está marcado "Validar se CNPJ/CPF está preenchido quando participante não for do exterior"
+		  (And) e	prossegue com a importação de 1 arquivo
+	 (Then) Então	em cada lançamento, entrando na tela do lançamento de <espécie>, consulto e comparo o <codigo_do_participante_importado> com <codigo_do_participante_pre_cadastrado>
+		  (And) e																				comparo o <nome_do_participante_importado> com <nome_do_participante_pre_cadastrado>
+		  (And) e																				comparo o <UF_do_participante_importado> com <UF_do_participante_pre_cadastrado>
+		  (And) e																				comparo o <municipio_do_participante_importado> com <municipio_do_participante_pre_cadastrado>
+		  (And) e																				comparo o <CNPJ_do_participante_importado> com <CNPJ_do_participante_pre_cadastrado>
+		  (And) e																				comparo o <IE_do_participante_importado> com <IE_do_participante_pre_cadastrado>
+		  (And) e																				comparo o <endereco_do_participante_importado> com <endereco_do_participante_pre_cadastrado>
+
+
+
+
+
+
+
+
+
+
+
+
