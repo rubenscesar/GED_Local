@@ -1,0 +1,12 @@
+Participante do Exterior
+Participante Nacional com CNPJ / CPF em branco
+Participante Nacional com CNPJ
+Participante Nacional com CPF
+
+
+
+Épico:
+Documentação sobre o critério de escolha dos dados do participante no novo método de conversão de arquivo Abrasf.
+
+Devolutiva:
+De acordo com o novo método de conversão de arquivo Abrasf, o sistema continuará a utilizar o critério de escolha existente, que é baseado na sequência da conversão dos dados. Isso significa que o primeiro arquivo .xml a ser convertido terá seus dados de participante considerados em primeiro lugar. Subsequentemente, ao converter o segundo arquivo, caso o participante tenha o mesmo CNPJ, UF e país, mas com dados diferentes, o sistema atualizará os dados do participante da primeira nota, resultando em apenas um registro de participante no arquivo .fs com os dados do participante da segunda nota.
