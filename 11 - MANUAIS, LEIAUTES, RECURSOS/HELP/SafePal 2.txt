@@ -1,0 +1,77 @@
+Vai aparecer uma tela solicitando pra escolher o idioma escolha português 
+Vai aparecer uma tela solicitando pra conferir se o aplicativo se o aparelho 6 pau ele é um dispositivo autêntico e pede pra ir na tela seguinte clique no botão seguinte 
+A próxima tela pede pra fazer uma leitura do código de QR Code então ele pede pra poder clicar no botão seguinte e você vai ser direcionado para o QR Code você abre o aplicativo do celular que por faça qualquer tipo de leitura de QR Code não precisa ser baixar o aplicativo ainda. Quando fizer a leitura do QR Code universa direcionado para uma página 
+Na página do cel Vai aparecer uma mensagem dizendo "Prima "OK" na carteira de hardware para continuar e introduza o código de 6 dígitos exibido na carteira de hardware."
+No aparelho sempre qual você clica no botão seguinte que vai aparecer 6 dígitos para você digitar no celular 
+Após digitar no celular os 6 dígitos clique no botão autenticar 
+Depois vai aparecer no celular uma tela dizendo que o dispositivo é autêntico e é a sua primeira autenticação , Clique em "Confirmar e continuar"
+Agora no Hardware SafePal Clique no botão seguinte 
+Tem o aparelho você faz a leitura do QR Code que vai aparecer no celular 
+Vai aparecer uma mensagem no SafePal qual dizendo "Parabéns dispositivo ativado com sucesso"
+Não sei qual clique em ok 
+no SafePal Ignore a próxima tela, pois é apenas para informar para que vai servir cada botão
+					4º	Siga para a próxima tela, pois é apenas uma tela de boas vindas
+					5º	Escolha "Criar nova Wallet"
+					6º	Escolha "Criar Agora" na explicação do que seria uma frase minemônica
+					7º	Escolha "24", que significa que serão 24 palavras minemónicas 
+					8º	Anote as palavras minemônicas na mesma ordem que foram apresentadas em um cartão
+					9º	Clique em "Seguinte"
+					
+					
+					7º	Escolha "24", que significa que serão 24 palavras minemónicas 
+					8º	Anote as palavras minemônicas na mesma ordem que foram apresentadas em um cartão
+					1 charge
+					2 weapon
+					3 swift
+					4 panda
+					5 bless
+					6 wrestle
+					7 coyote
+					8 bargain
+					9 bean
+					10 evoke
+					11 monitor
+					12 congress
+					13 valve
+					14 recall
+					15 trigger
+					16 dance
+					17 lab
+					18 cricket
+					19 mom
+					20 rich
+					21 hotel
+					22 remove
+					23 quarter
+					24 giraffe
+					
+					9º	Clique em "Seguinte"
+					10º	Informe as palavras minemônicas que você anotou anteriormente seguindo a mesma ordem
+					11º	Informe um PIN para o SafePal e anote este PIN em um local seguro = 23207395
+					informe o código pin novamente
+					12º	Siga para a próxima tela, pois é apenas uma tela informando que a carteira foi criada
+					13º Informe um nome para a sua carteira = CryptoRubens
+					14º Clique em "Done"
+					Confirme o nome da wallet em tecle "Ok"
+				Utilize o Celular
+					15º	Faça o download do aplicativo no celular lendo o QR Code do papel que veio na caixa ou lendo o QR Code que apareceu na tela
+					18º Defina um senha para o aplicativo diferente da informada no SafePal= Ru8en$ CrYpt0FOrtun3!
+					19º Clique em "Submeter"
+					20º Configure a sua impressão digital
+					21º Defina o desenho padrão
+					---
+					 /
+					 |-
+					22º Clique em "Iniciar a aventura SafePal"
+					16º Escolha "Hardware Wallet (Física)"
+					17º Clique em "Seguinte"
+					24º Clique em "Seguinte"
+					25º Informe a senha do aplicativo
+					26º No SafePal escolha "Scan"
+					27º Leia o QR Code que está aparecendo na tela do aplicativo com a câmera do SafePal
+					Na próxima do SafePal vai aparecer "Confirmar ligação com a wallet?" e tecle "Ok"
+					28º Informe o PIN do SafePal
+					29º Clique em "Seguinte" no aplicativo
+					30º Permita o uso da câmera durante o uso do aplicativo
+					31º Leia o QR Code que está aparecendo na tela do SafePal com a câmera do aplicativo
+				Concluído!
