@@ -1,0 +1,10 @@
+Abrir estes arquivos você terá acesso ao menu e conseguir identificar qual o arquivo que representa aquela janela 
+Fiscal
+	DmFc
+Contábil
+	DmCt
+Gestão
+	DmCo
+	
+	Pas e Dfm
+	Showlog
