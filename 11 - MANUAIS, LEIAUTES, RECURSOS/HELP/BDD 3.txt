@@ -1,0 +1,13 @@
+Épico		Ferramenta Ajustar tributação de ICMS e IPI dos Itens
+Feature		Testando a ferramenta a partir da perspectiva do usuário do sistema
+			Eu quero conferir os dados da estrutura da nota (aba ICMS & IPI) na tela dos lançamentos
+			Objetivando garantir que a composição do ICMS & IPI esteja com as informações corretas.
+Scenario	Conferir os dados nos lançamentos quando o lançamento possuir 1 (um) item equivalente ao campo <Micro_filtros> atendendo a uma tabela de decisão pré estabelecida
+Given		que eu como usuário, escrituro o lançamento da espécie <Espécies>
+When		escrituro o lançamento com o CFOP iniciado com <CFOP_Iniciais>
+Then		em cada lançamento, acessando via banco de dados da <Espécies>, consulto e comparo o 
+
+
+Examples: 
+  | Campo_a_ser_testado | Espécies | CFOP_Iniciais | Micro_filtros |
+  
