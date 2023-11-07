@@ -1,0 +1,54 @@
+Importação XML
+	Saída:	Normal
+			Cancelado (Substituindo)
+			Cancelado (Incluindo)
+			CTe OS Denegado ** Não temos modelo **
+			CTe OS Numeração inutilizada ** Não temos modelo **
+			Documento Fiscal Complementar ** Não temos modelo **
+			Documento Fiscal emitido com base em Regime Especial ** Não temos modelo **
+Saída - Importação XML (Tela)
+Entrada - Importação XML (Tela)
+
+	
+1. Estava permitindo importar documentos de  CT-e OS na Movimentação de CT-e;
+2. Validações de documento cadastrado errada;
+3. Estava deixando importar documentos de estabalescimentos diferentes na mesma tela;
+4. Quando cancelado, estava importando tudo como CT-e;
+5. Quando cancelado, após ajuste para importar no movimento correto estava quebrando por SQL;
+6. Existia mensagem com o texto CTe quando se tratava de CT-e OS;
+7. Log de importação estava ficando amarrado sempre CT-e;
+
+Saída
+Importar (CT-e) na tela de Importação XML - (CT-e)
+Importar (CT-e) na tela de Saída (CT-e) - Importação XML (Tela) no estabelescimento correto
+Importar (CT-e) na tela de Saída (CT-e) - Importação XML (Tela) no estabelescimento incorreto
+Importar (CT-e) na tela de Importação XML - (CT-e OS)
+Importar (CT-e) na tela de Saída (CT-e OS) - Importação XML (Tela) no estabelescimento correto
+Importar (CT-e) na tela de Saída (CT-e OS) - Importação XML (Tela) no estabelescimento incorreto
+Importar (CT-e OS) na tela de Importação XML - (CT-e OS)
+Importar (CT-e OS) na tela de Saída (CT-e OS) - Importação XML (Tela) no estabelescimento correto
+Importar (CT-e OS) na tela de Saída (CT-e OS) - Importação XML (Tela) no estabelescimento incorreto
+Importar (CT-e OS) na tela de Importação XML - (CT-e)
+Importar (CT-e OS) na tela de Saída (CT-e) - Importação XML (Tela) no estabelescimento correto
+Importar (CT-e OS) na tela de Saída (CT-e) - Importação XML (Tela) no estabelescimento incorreto
+
+Entrada
+Importar (CT-e) na tela de Importação XML - (CT-e)
+Importar (CT-e) na tela de Entrada (CT-e) - Importação XML (Tela) no estabelescimento correto
+Importar (CT-e) na tela de Entrada (CT-e) - Importação XML (Tela) no estabelescimento incorreto
+Importar (CT-e) na tela de Importação XML - (CT-e OS)
+Importar (CT-e) na tela de Entrada (CT-e OS) - Importação XML (Tela) no estabelescimento correto
+Importar (CT-e) na tela de Entrada (CT-e OS) - Importação XML (Tela) no estabelescimento incorreto
+Importar (CT-e OS) na tela de Importação XML - (CT-e OS)
+Importar (CT-e OS) na tela de Entrada (CT-e OS) - Importação XML (Tela) no estabelescimento correto
+Importar (CT-e OS) na tela de Entrada (CT-e OS) - Importação XML (Tela) no estabelescimento incorreto
+Importar (CT-e OS) na tela de Importação XML - (CT-e)
+Importar (CT-e OS) na tela de Entrada (CT-e) - Importação XML (Tela) no estabelescimento correto
+Importar (CT-e OS) na tela de Entrada (CT-e) - Importação XML (Tela) no estabelescimento incorreto
+
+
+Importar Entrada em Saída e vice-versa
+Importar documento por documento não tendo outro informado e importando todos
+
+Relatórios
+Backup/Restore
