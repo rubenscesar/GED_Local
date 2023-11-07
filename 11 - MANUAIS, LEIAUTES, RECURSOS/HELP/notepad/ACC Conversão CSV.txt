@@ -1,0 +1,115 @@
+TESTAR SE ESTÁ SENDO INFORMADO ESTABELECIMENTO E CENTRO DE RESULTADO FIXO COMO 0001
+TESTAR SE ESTÁ APRESENTANDO A ESTRELA NO TÍTULO DAS JANELAS QUE NÃO PODERÃO SER SELECIONADAS COMO PREFERIDAS
+BUSCAR EXEMPLOS DE LANÇAMENTOS COM JUROS, MULTS E DESCONTOS
+CRIAR CARTÃO COM EXEMPLOS DE LANÇAMENTOS COM JUROS, MULTS E DESCONTOS PARA SEREM VALIDADOS PELA ELIANE
+
+Perfil de usuário
+	CRUD
+Tela
+	Modelos de Planilhas Financeiras
+	Mapeamentos
+	Importação > Converter Planilha Financeira
+		CRUD
+		Grid
+		Padrões
+		Usabilidade
+Importação
+	Contas Pagas
+	Contas Recebidas
+	Contas a Pagar
+	Contas a Receber
+		Contendo Juros
+		Contendo Multa
+		Contendo Desconto
+			Importar o mesmo arquivo pela 2ª vez
+			Gerando lançamentos de 2ª e 3ª fórmula
+			Gerando lançamentos de 1ª fórmula
+Conversão
+	xlsx
+	xls
+	csv
+		Converter o mesmo arquivo pela 2ª vez
+
+
+Contas Pagas
+	1ª Fórmula
+		D - Fornecedores (Passivo Circulante) .................................	R$ 50.000,00
+		C - Caixa ou Bancos (Ativo Circulante).................................	R$ 50.000,00 (Valor Total)
+
+Contas Pagas com Desconto
+	1ª Fórmula
+		D - Fornecedores (Passivo Circulante) .................................	R$ 50.000,00
+		C - Caixa ou Bancos (Ativo Circulante).................................	R$ 50.000,00 (Valor Total)
+
+		D - Fornecedores (Passivo Circulante) .................................	R$  2.500,00
+		C - Descontos Obtidos (Conta de Resultado - Receitas financeiras) .....	R$  2.500,00 (Valor do desconto)
+	ou
+	2ª Fórmula
+		D - Fornecedores (Passivo Circulante) .................................	R$ 50.000,00 (Valor Total)
+		C - Caixa ou Bancos (Ativo Circulante).................................	R$ 47.500,00 (Valor Total - Valor do desconto)
+		C - Descontos Obtidos (Conta de Resultado - Receitas financeiras) .....	R$  2.500,00 (Valor do desconto)
+
+Contas Pagas com Juros
+	1ª Fórmula
+		D - Fornecedores (Passivo Circulante) .................................	R$ 47.500,00
+		C - Caixa ou Bancos (Ativo Circulante).................................	R$ 47.500,00 (Valor Total - Valor do Juros)
+
+		D - Juros / Multa (Conta de Resultado - Receitas financeiras) .........	R$  2.500,00
+		C - Caixa ou Bancos (Ativo Circulante).................................	R$  2.500,00 (Valor do Juros)
+	ou
+	3ª Fórmula
+		D - Fornecedores (Passivo Circulante) .................................	R$ 47.500,00 (Valor Total - Valor do Juros)
+		D - Juros / Multa (Conta de Resultado - Receitas financeiras) .........	R$  2.500,00 (Valor do Juros)
+		C - Caixa ou Bancos (Ativo Circulante).................................	R$ 50.000,00 (Valor Total)
+
+Contas Pagas com Multa
+	1ª Fórmula
+		D - Fornecedores (Passivo Circulante) .................................	R$ 47.500,00
+		C - Caixa ou Bancos (Ativo Circulante).................................	R$ 47.500,00 (Valor Total - Valor da Multa)
+
+		D - Juros / Multa (Conta de Resultado - Receitas financeiras) .........	R$  2.500,00
+		C - Caixa ou Bancos (Ativo Circulante).................................	R$  2.500,00 (Valor do Multa)
+	ou
+	3ª Fórmula
+		D - Fornecedores (Passivo Circulante) .................................	R$ 47.500,00 (Valor Total - Valor da Multa)
+		D - Juros / Multa (Conta de Resultado - Receitas financeiras) .........	R$  2.500,00 (Valor da Multa)
+		C - Caixa ou Bancos (Ativo Circulante).................................	R$ 50.000,00 (Valor Total)
+
+Contas Recebidas com Desconto
+	1ª Fórmula
+		D - Caixa ou Bancos (Ativo Circulante).................................	R$ 47.500,00
+		C - Duplicatas Descontadas (Passivo Circulante)........................	R$ 47.500,00 (Valor Total - Valor do desconto)
+
+		D - Despesas Financeiras (Conta de Resultado - Receitas financeiras) ..	R$  2.500,00
+		C - Duplicatas Descontadas (Passivo Circulante)........................	R$  2.500,00 (Valor do desconto)
+	ou
+	3ª Fórmula
+		D - Caixa ou Bancos (Ativo Circulante).................................	R$ 47.500,00 (Valor Total - Valor do desconto)
+		D - Despesas Financeiras (Conta de Resultado - Receitas financeiras) ..	R$  2.500,00 (Valor do desconto)
+		C - Duplicatas Descontadas (Passivo Circulante)........................	R$ 50.000,00 (Valor Total)
+
+Contas Recebidas com Juros
+	1ª Fórmula
+		D - Caixa ou Bancos (Ativo Circulante).................................	R$ 47.500,00 (Valor Total - Valor do Juros)
+		C - Duplicatas a Receber (Ativo Circulante) ...........................	R$ 47.500,00
+
+		D - Caixa ou Bancos (Ativo Circulante).................................	R$  2.500,00 (Valor do Juros)
+		C - Juros / Multa (Conta de Resultado - Receitas financeiras) .........	R$  2.500,00
+	ou
+	2ª Fórmula
+		D - Caixa ou Bancos (Ativo Circulante).................................	R$ 50.000,00 (Valor Total)
+		C - Duplicatas a Receber (Ativo Circulante) ...........................	R$ 47.500,00 (Valor Total - Valor do Juros)
+		C - Juros / Multa (Conta de Resultado - Receitas financeiras) .........	R$  2.500,00 (Valor do Juros)
+
+Contas Recebidas com Multa
+	1ª Fórmula
+		D - Caixa ou Bancos (Ativo Circulante).................................	R$ 47.500,00 (Valor Total - Valor da Multa)
+		C - Duplicatas a Receber (Ativo Circulante) ...........................	R$ 47.500,00
+
+		D - Caixa ou Bancos (Ativo Circulante).................................	R$  2.500,00 (Valor da Multa)
+		C - Juros / Multa (Conta de Resultado - Receitas financeiras) .........	R$  2.500,00
+	ou
+	2ª Fórmula
+		D - Caixa ou Bancos (Ativo Circulante).................................	R$ 50.000,00 (Valor Total)
+		C - Duplicatas a Receber (Ativo Circulante) ...........................	R$ 47.500,00 (Valor Total - Valor da Multa)
+		C - Juros / Multa (Conta de Resultado - Receitas financeiras) .........	R$  2.500,00 (Valor da Multa)
