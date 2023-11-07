@@ -1,0 +1,154 @@
+OBJETIVO: INCLUSÃO
+OBJETIVO: ATUALIZAÇÃO
+		participante
+		participante da primeira nota
+		participante da segunda nota
+			já está cadastrado antes da importação
+			será cadastrado apenas na importação
+			será atualizado na importação
+				O participante possui todos os dados
+				O participante não possui CNPJ, UF, inscrição municipal e endereço
+				O participante não possui CNPJ, UF, inscrição municipal, nome, endereço e país
+				O participante da nota possui todos os dados
+				O participante da nota possui CNPJ, UF, inscrição municipal, nome, endereço e país iguais a um participante já cadastrado
+				O participante da nota possui CNPJ, UF, inscrição municipal, nome, endereço e país diferente de qualquer outro já cadastrado ou a ser cadastrado nas próximas importações
+				O participante da nota não possui CNPJ, UF, inscrição municipal e endereço
+		
+
+OBJETIVO: ATUALIZAÇÃO
+CNPJ / CPF IsNull
+
+EXTERIOR
+	1)
+		participante
+			já está cadastrado antes da importação
+				O participante possui todos os dados
+				O participante não possui CNPJ, UF, inscrição municipal e endereço
+		participante da primeira nota
+			será atualizado na importação
+				O participante da nota não possui CNPJ, UF, inscrição municipal e endereço
+				O participante da nota possui país igual a um participante já cadastrado
+				O participante da nota possui nome diferente de qualquer outro já cadastrado ou a ser cadastrado nas próximas importações
+=================================================================================================================================================================================
+	1)
+		participante da primeira nota
+			já está cadastrado antes da importação
+				O participante da nota possui todos os dados
+				O participante não possui CNPJ, UF, inscrição municipal e endereço
+		participante da segunda nota
+			será atualizado na importação
+				O participante da nota não possui CNPJ, UF, inscrição municipal e endereço
+				O participante da nota possui país igual a um participante já cadastrado
+				O participante da nota possui nome diferente de qualquer outro já cadastrado ou a ser cadastrado nas próximas importações
+=================================================================================================================================================================================
+	1)
+		participante da primeira nota
+			será cadastrado apenas na importação
+				O participante possui todos os dados
+				O participante não possui CNPJ, UF, inscrição municipal e endereço
+		participante da segunda nota
+			será atualizado na importação
+				O participante da nota não possui CNPJ, UF, inscrição municipal e endereço
+				O participante da nota possui país igual a um participante já cadastrado
+				O participante da nota possui nome diferente de qualquer outro já cadastrado ou a ser cadastrado nas próximas importações
+=================================================================================================================================================================================
+CNPJ
+	1)
+		participante
+			já está cadastrado antes da importação
+				O participante possui todos os dados
+		participante da primeira nota
+			será atualizado na importação
+				O participante da nota possui CNPJ, UF, inscrição municipal, nome e país iguais a um participante já cadastrado
+				O participante da nota possui endereço diferente de qualquer outro já cadastrado ou a ser cadastrado nas próximas importações
+	2)
+		participante
+			já está cadastrado antes da importação
+				O participante possui todos os dados
+		participante da primeira nota
+			será atualizado na importação
+				O participante da nota possui CNPJ, UF, inscrição municipal e país iguais a um participante já cadastrado
+				O participante da nota possui nome e endereço diferente de qualquer outro já cadastrado ou a ser cadastrado nas próximas importações
+	3)
+		participante
+			já está cadastrado antes da importação
+				O participante possui todos os dados
+		participante da primeira nota
+			será atualizado na importação
+				O participante da nota possui CNPJ, UF e país iguais a um participante já cadastrado
+				O participante da nota possui inscrição municipal, nome e endereço diferente de qualquer outro já cadastrado ou a ser cadastrado nas próximas importações
+	4)
+		participante
+			já está cadastrado antes da importação
+				O participante possui todos os dados
+		participante da primeira nota
+			será atualizado na importação
+				O participante da nota possui CNPJ e país iguais a um participante já cadastrado
+				O participante da nota possui UF, inscrição municipal, nome e endereço diferente de qualquer outro já cadastrado ou a ser cadastrado nas próximas importações
+=================================================================================================================================================================================
+	1)
+		participante da primeira nota
+			já está cadastrado antes da importação
+				O participante da nota possui todos os dados
+		participante da segunda nota
+			será atualizado na importação
+				O participante da nota possui CNPJ, UF, inscrição municipal, nome e país iguais a um participante já cadastrado
+				O participante da nota possui endereço diferente de qualquer outro já cadastrado ou a ser cadastrado nas próximas importações
+	2)
+		participante da primeira nota
+			já está cadastrado antes da importação
+				O participante da nota possui todos os dados
+		participante da segunda nota
+			será atualizado na importação
+				O participante da nota possui CNPJ, UF, inscrição municipal e país iguais a um participante já cadastrado
+				O participante da nota possui nome e endereço diferente de qualquer outro já cadastrado ou a ser cadastrado nas próximas importações
+	3)
+		participante da primeira nota
+			já está cadastrado antes da importação
+				O participante da nota possui todos os dados
+		participante da segunda nota
+			será atualizado na importação
+				O participante da nota possui CNPJ, UF e país iguais a um participante já cadastrado
+				O participante da nota possui inscrição municipal, nome e endereço diferente de qualquer outro já cadastrado ou a ser cadastrado nas próximas importações
+	4)
+		participante da primeira nota
+			já está cadastrado antes da importação
+				O participante da nota possui todos os dados
+		participante da segunda nota
+			será atualizado na importação
+				O participante da nota possui CNPJ e país iguais a um participante já cadastrado
+				O participante da nota possui UF, inscrição municipal, nome e endereço diferente de qualquer outro já cadastrado ou a ser cadastrado nas próximas importações
+=================================================================================================================================================================================
+	1)
+		participante da primeira nota
+			será cadastrado apenas na importação
+				O participante da nota possui todos os dados
+		participante da segunda nota
+			será atualizado na importação
+				O participante da nota possui CNPJ, UF, inscrição municipal, nome e país iguais a um participante já cadastrado
+				O participante da nota possui endereço diferente de qualquer outro já cadastrado ou a ser cadastrado nas próximas importações
+	2)
+		participante da primeira nota
+			será cadastrado apenas na importação
+				O participante da nota possui todos os dados
+		participante da segunda nota
+			será atualizado na importação
+				O participante da nota possui CNPJ, UF, inscrição municipal e país iguais a um participante já cadastrado
+				O participante da nota possui nome e endereço diferente de qualquer outro já cadastrado ou a ser cadastrado nas próximas importações
+	3)
+		participante da primeira nota
+			será cadastrado apenas na importação
+				O participante da nota possui todos os dados
+		participante da segunda nota
+			será atualizado na importação
+				O participante da nota possui CNPJ, UF e país iguais a um participante já cadastrado
+				O participante da nota possui inscrição municipal, nome e endereço diferente de qualquer outro já cadastrado ou a ser cadastrado nas próximas importações
+	4)
+		participante da primeira nota
+			será cadastrado apenas na importação
+				O participante da nota possui todos os dados
+		participante da segunda nota
+			será atualizado na importação
+				O participante da nota possui CNPJ e país iguais a um participante já cadastrado
+				O participante da nota possui UF, inscrição municipal, nome e endereço diferente de qualquer outro já cadastrado ou a ser cadastrado nas próximas importações
+=================================================================================================================================================================================
