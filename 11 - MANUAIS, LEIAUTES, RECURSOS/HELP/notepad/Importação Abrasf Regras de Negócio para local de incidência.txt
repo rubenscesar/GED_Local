@@ -1,0 +1,52 @@
+Se tiver Orgão Gerador leva para UF/Município favorecido
+Se Estabelecimento for de *Aracajú ou *JUAZEIRO DO NORTE a UF/Município de prestação de serviço leva para UF/Município favorecido
+Se Estabelecimento for de *CAJAZEIRAS e não tiver Orgão Gerador a UF/Município do estabelecimento leva para UF/Município favorecido
+
+
+
+Regime da empresa - Normal
+*Arquivo com OrgaoGerador
+*Arquivo sem OrgaoGerador considerando MunicipioPrestacaoServico
+*Arquivo sem OrgaoGerador considerando Municipio do Estabelecimento
+	Local da incidência conforme atividade
+		Quando não está configurado
+		Tomador
+		Prestador
+		Prestação
+Lançamento Manual
+
+
+Regime da empresa - Simples Nacional
+
+
+
+
+Estabelecimento diferente de Aracajú (SE), Juazeiro do Norte (CE) ou Cajazeiras (PB). Ex.: Fortaleza (CE)
+  01 NFSe (Fortaleza (CE) - Saída - Regime Normal - Quando Local de Incidência não está configurado													ESPERADO: UF e Município (favorecido) deve ser igual ao informado em <OrgaoGerador>
+  02 NFSe (Fortaleza (CE) - Saída - Regime Normal - Quando Local de Incidência não está configurado - Arquivo sem OrgaoGerador						ESPERADO: UF e Município (favorecido) deve ser igual ao do estabelecimento
+  03 NFSe (Fortaleza (CE) - Saída - Regime Normal - Quando Local de Incidência for Tomador
+  04 NFSe (Fortaleza (CE) - Saída - Regime Normal - Quando Local de Incidência for Prestador
+  05 NFSe (Fortaleza (CE) - Saída - Regime Normal - Quando Local de Incidência for Prestação
+
+Estabelecimento for de Aracajú (SE)
+  01 NFSe (Aracajú (SE) - Saída - Regime Normal - Quando Local de Incidência não está configurado													ESPERADO: UF e Município (favorecido) deve ser igual ao da Prestação de Serviço
+  02 NFSe (Aracajú (SE) - Saída - Regime Normal - Quando Local de Incidência não está configurado - Arquivo sem MunicipioPrestacaoServico			ESPERADO: UF e Município (favorecido) deve ser igual ao do <OrgaoGerador>
+  03 NFSe (Aracajú (SE) - Saída - Regime Normal - Quando Local de Incidência não está configurado - Arquivo sem MunPrestServic e sem OrgaoGerador	ESPERADO: UF e Município (favorecido) deve ser igual ao do estabelecimento
+  04 NFSe (Aracajú (SE) - Saída - Regime Normal - Quando Local de Incidência for Tomador
+  05 NFSe (Aracajú (SE) - Saída - Regime Normal - Quando Local de Incidência for Prestador
+  06 NFSe (Aracajú (SE) - Saída - Regime Normal - Quando Local de Incidência for Prestação
+  
+Estabelecimento for de Juazeiro do Norte (CE)
+  01 NFSe (Juazeiro do Norte (CE) - Saída - Regime Normal - Quando Local de Incidência não está configurado											ESPERADO: UF e Município (favorecido) deve ser igual ao da Prestação de Serviço
+  02 NFSe (Juazeiro do Norte (CE) - Saída - Regime Normal - Quando Local de Incidência não está conf - Arq sem MunicipioPrestacaoServico			ESPERADO: UF e Município (favorecido) deve ser igual ao do <OrgaoGerador>
+  03 NFSe (Juazeiro do Norte (CE) - Saída - Regime Normal - Quando Local de Incidência não está conf - Arq s MunPrestServic e s OrgaoGera			ESPERADO: UF e Município (favorecido) deve ser igual ao do estabelecimento
+  04 NFSe (Juazeiro do Norte (CE) - Saída - Regime Normal - Quando Local de Incidência for Tomador
+  05 NFSe (Juazeiro do Norte (CE) - Saída - Regime Normal - Quando Local de Incidência for Prestador
+  06 NFSe (Juazeiro do Norte (CE) - Saída - Regime Normal - Quando Local de Incidência for Prestação
+
+Estabelecimento for de Cajazeiras (PB)
+  01 NFSe (Cajazeiras (PB) - Saída - Regime Normal - Quando Local de Incidência não está configurado												ESPERADO: UF e Município (favorecido) deve ser igual ao do estabelecimento se não tiver <OrgaoGerador>
+  02 NFSe (Cajazeiras (PB) - Saída - Regime Normal - Quando Local de Incidência for Tomador
+  03 NFSe (Cajazeiras (PB) - Saída - Regime Normal - Quando Local de Incidência for Prestador
+  04 NFSe (Cajazeiras (PB) - Saída - Regime Normal - Quando Local de Incidência for Prestação
+  
