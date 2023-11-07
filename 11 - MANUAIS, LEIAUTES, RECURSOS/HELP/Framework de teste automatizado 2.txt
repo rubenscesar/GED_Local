@@ -1,0 +1,143 @@
+framework de teste de versão automatizado
+
+	como avalia as ferramentas que vai entrar
+		se é para interface
+		se é para api
+		como produzir relatório
+		qual a linguagem
+		
+como documentaria adequadamente os problemas encontrados durante o teste
+	Documentaria sempre? Não
+integração
+	consulta em banco
+	desempenho
+api
+caracteres inválidos
+SonarQube:
+utilizar bdd
+
+
+D7 e Xe6
+	Pré-teste
+		LEIAUTES
+			Recomendações
+				Se houver liberação de leiaute em algum cartão, informe o número do cartão aqui [___] para que possamos indentificar a necessidade de solicitar ao DEV de copiar o leiaute para as pastas antes de realizar o Deploy da versão
+			Conferir versão do leiaute do Fiscal nas pastas (165)
+				Leiaute D7:
+					\\10.1.254.70\x\Programacao\Pronto\AC\CD\Help
+					\\10.1.254.70\x\Programacao\Pronto\AC\Atualizador
+				Leiaute XE6:
+					\\10.1.254.70\x\Programacao\Pronto\ACXE6\Atualizador
+					\\10.1.254.70\x\Programacao\Pronto\ACXE6\CD\Help
+			Conferir versão do leiaute do Contábil nas pastas (10)
+				Leiaute D7:
+					\\10.1.254.70\x\Programacao\Pronto\AC\CD\Help
+					\\10.1.254.70\x\Programacao\Pronto\AC\Atualizador
+				Leiaute XE6:
+					\\10.1.254.70\x\Programacao\Pronto\ACXE6\Atualizador
+					\\10.1.254.70\x\Programacao\Pronto\ACXE6\CD\Help
+		AC.VER
+			Conferir Ortografia
+			Se houver liberação de leiaute, conferir se este consta no AC.ver como <Item>Liberação do Leiaute ***.</Item>
+			Conferir se pendência não consta como solicitação e vice-versa
+			Conferir se primeiro estão as solicitações e despois as pendência
+			Conferir se não tem prefixos como ACF - , ou ACC -
+			Conferir se está aparecendo cartões que já saíram na versão anterior
+
+Versão Oridinária / Extraordinária
+	D7
+	Xe6
+		INSTALAÇÃO
+			Pasta Homologação
+				Com Firebird preexistente (selecionando a opção "Usar Firebird Existente")
+			Pasta Portal
+				Com Firebird preexistente (selecionando a opção "Usar Firebird Existente")
+				Com Firebird do próprio Instalador (selecionando a opção "Instalar Firebird 2.5.5")
+				Com Firebird do próprio Instalador em máquina que tem outro firebird [VM]
+		INSTALAÇÃO DE TERMINAL
+			Com 2 pastas no servidor [VM]
+		ATUALIZAÇÃO
+			Pasta Homologação
+				Atualização em Banco Firebird com Firebird na versão 2.1.7
+					A seu critério para versão do Fortes
+				Atualização em Banco Firebird com Firebird na versão oficial da Fortes
+					A seu critério para versão do Fortes
+				Atualização em Banco SQL
+					Atualização em Banco SQL a seu critério para versão do Fortes
+			Pasta Portal
+				Atualização em Banco Firebird com Firebird na versão 2.1.7
+					Versão do Fortes seja imediatamente anterior a versão atual
+					Versão do Fortes seja 2 anteriores a versão atual
+					Versão do Fortes seja a partir de 3 anteriores a versão atual
+				Atualização em Banco Firebird com Firebird na versão oficial da Fortes
+					Marcando "Não realizar backup do banco de dados"
+					Banco Firebird interrompendo a atualização e restaurando
+						Versão do Fortes seja imediatamente anterior a versão atual
+						Versão do Fortes seja 2 anteriores a versão atual
+						Versão do Fortes seja a partir de 3 anteriores a versão atual
+				Atualização em Banco SQL
+					Marcando "Não realizar backup do banco de dados"
+					Banco Firebird interrompendo a atualização e restaurando
+						Versão do Fortes seja imediatamente anterior a versão atual `tendo usuários configurados com linguagens diferente`
+						Versão do Fortes seja seja 2 anteriores a versão atual `tendo usuários configurados com linguagens diferente`
+						Versão do Fortes seja seja a partir de 3 anteriores a versão atual `tendo usuários configurados com linguagens diferente`
+		exe (Nuvem)
+			Pasta Homologação
+				Após atualizar ou instalar, conferir se o Fortes está abrindo Banco Firebird
+				Após atualizar ou instalar, conferir se o Fortes está abrindo Banco SQL
+			Pasta Portal
+				Após atualizar ou instalar, conferir se o Fortes está abrindo Banco Firebird
+				Após atualizar ou instalar, conferir se o Fortes está abrindo Banco SQL
+		LICENÇA DE USO
+			**`IMPORTANTE:`** Para atualizar um banco sem dar problema de licença de uso, o banco utilizado tem que passar pelo menos uns 10 min com o sistema aberto para gravar na tabela DICT um registro do Jarvis.License ou Remprots.Licence ou rodar o script: INSERT INTO DICT (ROWTYPE, PARTITIONKEY, ROWKEY, DATATYPE, STRVALUE, INTVALUE, BLBVALUE) VALUES ('Jarvis.License', 'EngineKind', 'Default', 'B', NULL, NULL, 'ailqjbbiizlvyndiafcnqgewmtehuaokjqyjzigybhdwwfugckgmismgabnqscsodvjltgkicrcrgcmgqngcdiaapepchjmoygixzojcxupcfwxygjfjbetmmdbarlegfzexslcudnasnshcnlbqiunqfvnjduxoufvjgynitkxijsdmkrgvauyymexhvqnupzvwpydgqhucksneujxgkgvsghxnzazexraiwhgafulqrnieeolkeidssbocmtueugihxwnkywjxwekwtrdntqhkdpwlmclkefvdwhoanfkgvdiomttroxeazwziypeopnjendqesoqnfcpyzfrawbsibcxaudcodqfvwggmuwvvqziomcqkgpmsgfbcxmfiutjbmaeqywctvwvifyhutydevipockdchckylurqrknehivertquxarmboaxhdncualndgbiqlhmledgldldnwnwkbuqasvwmwdlnkhavsqixchurbsecynm') -- **FINALIDADE:** No campo criptografado contém informações de CNPJ, se está utilizando Jarvis ou Remprots, etc. Por padrão é utilizado o Remprots, ou seja, se não houver registro considera-se Remprots ou o próprio registro contendo na sua criptografia que é Remprots
+			**ATUALIZAR:** Apagando o AC.ini **Resultado esperado:** A licença de uso `não` será encontrada. Conforme Alex Vidal em 09/09/2020, o banco contém a informação se a licença utilizada é o Jarvis ou Remprots. Quando a licença utilizada é o Jarvis o AC.ini serve para identificar onde encontrar o caminho da licença. Quando a licença utilizada é o Remprots o sistema vai buscar a licença no AC.ini. Conforme mudança nos critérios de atualização, se a licença não é encontrada o atualizador irá apresentar mensagem e fechar
+			**ATUALIZAR:** Apagando a pasta "Bundles" do Registro do Windows em  HKEY_CURRENT_USER\Software\Fortes Informática\Jarvis\ **Resultado esperado:** A licença de uso ainda deverá ser encontrada
+			**RETIRADO DOS TESTES: ATUALIZAR:** Apagando a linha "EngineKind=lekJarvis" do AC.ini **Resultado esperado:** Em teoria a licença utilizada, se é Jarvis ou Remprots já está gravada no banco então a licença de uso ainda deverá ser encontrada
+			**RETIRADO DOS TESTES: ATUALIZAR:** Apagando a pasta "Jarvis" do Registro do Windows em  HKEY_CURRENT_USER\Software\Fortes Informática\ **Resultado esperado:** A licença de uso `não` será encontrada
+			**RETIRADO DOS TESTES ATÉ SER INCLUÍDO CARTÃO PARA TRATAMENTO DO MESMO:** **DESINSTALAR:** Desinstalar e conferir se a licença de uso foi retirada da máquina **Resultado esperado:** Não está funcionando adequadamente
+			**RETIRADO DOS TESTES ATÉ SER INCLUÍDO CARTÃO PARA TRATAMENTO DO MESMO:** **DESINSTALAR:** Desinstalar e conferir se a pasta "Fortes Informática" foi retirada do Registro do Windows em  HKEY_CURRENT_USER\Software\ **Resultado esperado:** Não está funcionando adequadamente
+		DIVERSOS
+			Conferir versão do leiaute do Fiscal na instalação (165)
+			Conferir versão do leiaute do Contábil na instalação (10)
+			Conferir versão do leiaute do Fiscal na atualização (165)
+			Conferir versão do leiaute do Contábil na atualização (10)
+			Verificar código das pendências e solicitações liberadas no VER: . . . . . - Verificados: 
+			Verificar necessidade de correções ortográficas no VER
+			Backup/Restauração
+			Testar cartões que estão saindo nesta versão
+
+Versão Simplificada
+	D7
+	Xe6
+		exe (D7)
+			Pasta Homologação
+				Conferir se o Fortes está abrindo Banco Firebird
+				Conferir se o Fortes está abrindo Banco SQL
+			Pasta Portal
+				Conferir se o Fortes está abrindo Banco Firebird
+					Testar cartões que estão saindo nesta versão
+				Conferir se o Fortes está abrindo Banco SQL
+		exe (Nuvem)
+			Pasta Homologação
+				Conferir se o Fortes está abrindo Banco Firebird
+				Conferir se o Fortes está abrindo Banco SQL
+			Pasta Portal
+				Conferir se o Fortes está abrindo Banco Firebird
+				Conferir se o Fortes está abrindo Banco SQL
+		DIVERSOS
+			Verificar código das pendências e solicitações liberadas no VER: . . . . . - Verificados: 
+			Verificar necessidade de correções ortográficas no VER
+			Backup/Restauração
+
+
+conversar com Nubiana sobre pasta homologação
+automatizar processo de versão
+
+
+
+agilizar dev commitar nas tags
+processo de comunicação
+agilizar solução dos testes no teamcity
+	Recomendações
+		Monitorar se pastas no pronto estão sendo utilizadas por outros usuários que esquecem de fechar a pasta ao terminar de copiar os arquivos (verificar com a TI qual o usuário e repassar para Rolim)
+
