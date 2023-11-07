@@ -1,0 +1,21 @@
+A FAZER
+	Corrigir os testes funcionais que estão quebrando em máquinas específicas
+	Verificar por que está havendo tanto enfileiramento de teste no TeamCity
+		Veirifcar a possibilidade de retirar o gatilho de enfileirar depois que rodar o conversor com sucesso 
+	Criar uma VM de testes funcionais do XE6 com Windows 10
+	Criar uma VM de testes unitários do D7 com Windows 10
+	Criar uma VM de testes unitários do XE6 com Windows 10
+	Documentar requisitos para criar VM
+	Documentar infraestrutura das VMs
+	Automatizar teste de versão
+	Melhorar projeto de criar arquivos Abrasf
+	Analisar os requisitos antes da reunião de solicitação
+	Criar testes unitários BDD
+	Uso do confluence
+	Criar uma maneira de fiscalizar quanto de espaço em disco livre tem em cada VM para quando atingir um limite muito baixo tomar alguma ação
+FAZENDO
+	Criar uma VM de testes funcionais do D7 com Windows 10
+FEITO
+	Workflow de Deploy de versão Ordinária
+								 Extraordinária
+								 Simplificada
