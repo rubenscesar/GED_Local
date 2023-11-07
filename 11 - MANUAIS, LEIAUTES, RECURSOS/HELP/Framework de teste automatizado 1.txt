@@ -1,0 +1,34 @@
+Como vc cria uma framework de teste automatizado
+	O que é uma framework
+	como avalia as ferramentas que vai entrar
+		se é para interface
+		se é para api
+		como produzir relatório
+		qual a linguagem
+		
+sobre como você pode testar o software em determinados estágios
+como vc testaria esse problema
+como é que vc chegou nessa decisão
+	testes esploratórios
+
+
+como documentaria adequadamente os problemas encontrados durante o teste
+	Documentaria sempre? Não
+	documentas suas decisões
+	pensar e rascunhar antes de resolver problemas técnicos
+	
+quais ferramentas já utilizou
+
+passagem de campos
+tamanho do campo
+usabilidade
+	diminuição de cliques
+	interpretação da informações claras
+	alinhamento dos campos
+	escrita do português correto
+integração
+	consulta em banco
+api
+caracteres inválidos
+maiúsculo minúsculo
+dados incorretos
