@@ -1,0 +1,10 @@
+TortoiseSVN 1.8.8 Build 25755 64 bit
+Projetos:
+	AC:		https://10.1.254.7/svn/ac/trunk
+	Doc:	https://10.1.254.7/svn/acoutros/Docs
+	Patrio:	https://10.1.254.7/svn/PATRIO/trunk
+Versão do AC:
+	E:\Diversos\Versões do AC
+Chrome:
+	CardCounter
+	Tampermounkey BETA
