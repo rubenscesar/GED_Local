@@ -1,0 +1,64 @@
+===============================
+| A D M I N I S T R A T I V O |
+===============================
+
+Nome: PROCESSO DE ISENÇÃO DE IPI E IOF
+Número: 10882721104201783
+		10882721105201728
+		13804724687201715
+Origem do Processo: Secretaria da Receita Federal do Brasil
+
+===================
+| J U D I C I A L |
+===================
+
+Nome: PROCESSOS JUDICIAIS
+Número: 00000002000000000123
+Origem do Processo: Outros
+
+
+....5...10 ...5...20 ...5...30 ...5...40 ...5...50 ...5...60 ...5...70 ...5...80 ...5...90 ...5..100 ...5..110
+PROCESSO ADMINISTRATIVO.5...30 ...5...40 ...5...50 ...5...60 ...5...70 ...5...80 ...5...90 ...5..100 ...5..110
+AÇÃO JUDICIAL.5...20 ...5...30 ...5...40 ...5...50 ...5...60 ...5...70 ...5...80 ...5...90 ...5..100 ...5..110
+Área,Épico,Ícone,Óculos,Último,área,épico,ícone,óculos,último,aço,à,è,cão,Õnibus,õnibus
+
+EFD CONTRIBUIÇÕES
+	Processo Administrativo - 1020
+		Número
+		Origem ---	SE
+						[Origem] = Secretaria da Receita Federal do Brasil
+					ENTÃO
+						[Natureza da Ação Judicial] =	01 – Processo Administrativo de Consulta
+														02 – Despacho Decisório
+														03 – Ato Declaratório Executivo
+														04 – Ato Declaratório Interpretativo
+														05 – Decisão Administrativa de DRJ ou do CARF
+														06 – Auto de Infração
+														99 – Outros
+					SENÃO
+						?
+		Data do Despacho/Decisão Administrativa
+
+	Ação Judicial - 1010
+		Número
+		Origem ---	SE
+						[Origem] = Justiça Federal
+					ENTÃO
+						[Natureza da Ação Judicial] =	01 – Decisão judicial transitada em julgado, a favor da pessoa jurídica.
+														02 – Decisão judicial não transitada em julgado, a favor da pessoa jurídica.
+														03 – Decisão judicial oriunda de liminar em mandado de segurança.
+														04 – Decisão judicial oriunda de liminar em medida cautelar.
+														05 – Decisão judicial oriunda de antecipação de tutela.
+														06 - Decisão judicial vinculada a depósito administrativo ou judicial em montante integral.
+														07 – Medida judicial em que a pessoa jurídica não é o autor.
+														08 – Súmula vinculante aprovada pelo STF ou STJ.
+														09 – Decisão judicial oriunda de liminar em mandado de segurança coletivo.
+														99 - Outros.
+					SENÃO
+						?
+		Seção
+		Vara
+		Descrição Resumida da Decisão Judicial
+		Data da Sentença/Decisão Judicial
+
+EFD REINF
