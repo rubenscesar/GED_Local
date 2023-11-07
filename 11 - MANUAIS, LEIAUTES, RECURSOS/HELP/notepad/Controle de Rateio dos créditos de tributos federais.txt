@@ -1,0 +1,6 @@
+RATEIO
+
+Não trabalhar com NFSe de entrada do exterior
+Não trabalhar com retenções
+Não trabalhar com notas mistas contendo apenas serviços
+Não trabalhar com NFCe mistas contendo nos serviços CST 05 e 75 com base
