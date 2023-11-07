@@ -1,0 +1,11 @@
+Se aparecer erro de ComparaBanco
+	Na pasta C:\Dados\AC ou Patrio
+	Renomeia os bancos que estão lá só para não perder
+	Baixa uma tag mais antiga, tipo umas 4 versões para traz
+	nesta tag rodar o PreparaBanco
+	este processo irá criar um banco na pasta C:\Dados\AC ou Patrio
+	lá deve renomear o banco para AC1.gdb / Patrio1.gdb
+	depois baixa a tag do trunk
+	nesta tag rodar o PreparaBanco
+	este processo irá criar um banco na pasta C:\Dados\AC ou Patriocom o nome AC.gdb / Patrio.gdb
+	na tag do trunk roda novamente o ComparaBanco
