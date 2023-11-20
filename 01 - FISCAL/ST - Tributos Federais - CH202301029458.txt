@@ -1,0 +1,224 @@
+Épico:	O objetivo da solicitação é modificar o cálculo da base de PIS e COFINS na apropriação de créditos, de modo que o valor do IPI destacado em documento fiscal
+		não seja incluído automaticamente. Atualmente, quando a empresa não é contribuinte do IPI, o sistema adiciona o valor do IPI à base de PIS e COFINS. A
+		proposta é implementar essa modificação nas configurações do sistema, permitindo que o cliente escolha se deseja ou não considerar o IPI na base de cálculo de
+		PIS/COFINS.
+Número do cartão: S CH202301029458
+Ano de publicação: 2023
+Relacionamentos: 
+
+■ Plano de Testes
+	▼ Requisitos
+		RE[1] Exigências para enquadramento do requisito
+			RE[1.1] Embasamento na IN 2.121/2022
+			RE[1._] Será atribuído a estabelecimentos de todos os estados
+			RE[1._] Será atribuído a empresas cujo Regime de Tributação Federal seja do Lucro Real
+			RE[1._] Será atribuído a empresas que apuram por regime de competência
+			RE[1._] Será atribuído a empresas cujo Regime de Tributação Estadual seja Normal
+			RE[1._] Será atribuído a empresas que não apuram IPI
+			RE[1._] Será atribuído a lançamentos de NF-e de entrada de terceiros / documentos próprios
+			RE[1._] Será atribuído a lançamentos com ICMS Normal
+			RE[1._] Os novos campos estarão visíveis na tela somente quando os requisitos RE[1._] até RE[1._] forem cumpridos
+			RE[1._]	Quando estiver visível, os campos X e Y exigirão preenchimento obrigatório
+			RE[1._]	Quando estiver visível, o campo X exigirá preenchimento obrigatório
+			RE[1._]	Não haverá modificação nos demais campos
+			RE[1._]	Fórmula utilizada quando for aplicado ___d
+					__ x __ = __
+			RE[1._]	Será exibido em
+					Relatórios >> Livros Fiscais >> Registro de Entrada
+						Os valores serão apresentado com o "Código de Valores Fiscais" _
+					Relatórios >> ICMS >> ICMS Antecipado
+					DeSTDA
+						Registro ___
+			RE[1._]	Ferramentas
+		RE[2] Necessário para executar a homologação do cartão
+	▼ Escopo do Teste
+		Será Testado
+			Lançamentos
+			Importação/Exportação
+			Conversão
+			Obrigações Acessórias
+			Relatórios
+			Ferramentas
+		Não Será Testado
+	▼ Matriz de Risco
+		Status		ID	Descrição	(P)robabilidade de Ocorrência do Erro	(I)mpacto do Erro	Priorização do Teste = P x I	Responsável	Estratégia				Reavaliar
+		Priorizado	1	...			3 Alta									3 Alta				9								Rubens		Eliminar/Evitar			Anualmente
+					2	...			2 Média									2 Média				4								Rubens		Prevenir/Mitigar		Mensalmente
+					3	...			1 Baixa									1 Baixa				1								Rubens		Aceitar Passivamente	Por Evento
+					4	...			...										...					...								Rubens		Aceitar Ativamente		...
+
+■ Procedimentos de Testes
+	▼ Atividades
+		Firebird
+		SQL
+			Estabelecimento necessariamente com UF (..)
+			Escriturando em 2 estabelecimentos
+				Regime de Tributação Federal - Lucro Real ou Lucro Presumido
+				Regime de Tributação Federal - Lucro Real
+				Regime de Tributação Federal - Lucro Presumido
+				Regime de Tributação Federal - Simples Nacional
+					Regime de Tributação Estadual - Normal
+					Regime de Tributação Estadual - Simples Nacional
+					Regime de Tributação Estadual - Excluído do Simples Nacional (Normal no HES)
+						Incidência tributária não-cumulativa
+						Incidência tributária cumulativa
+						Incidência tributária não-cumulativa e cumulativa (padrão não-cumulativa)
+							PIS/COFINS Regime de Apropriação de Créditos por Rateio Proporcional
+							PIS/COFINS Regime de Apropriação de Créditos Direta
+								Alíquota padrão de PIS/COFINS
+								Alíquota específica de PIS/COFINS
+									Regime de competência
+									Regime de caixa {devolução não gera estorno em regime de caixa, pois é uma devolução financeira}
+										Adotando critério de escrituração Consolidada para gerar Sped Contribuições, sem informar itens no Histórico da empresa e informando itens no Histórico do estabelecimento
+										Adotando critério de escrituração Detalhada para gerar Sped Contribuições, informando itens no Histórico da empresa e no Histórico do estabelecimento
+											Contribuinte do IPI
+											Não contribuinte do IPI
+												Informando itens
+												Sem informar itens
+													Anexo I - CFOPs (5.922 e 6.922) desmarcado "Operação com Produtos Industrializados pelo Estabelecimento"
+													Anexo II - CFOPs (5.922 e 6.922) marcado "Operação com Produtos Industrializados pelo Estabelecimento"
+														CFOPs (5.922 e 6.922) marcado "Operação com Produtos Industrializados pelo Estabelecimento"
+														CFOPs (5.922 e 6.922) desmarcado "Operação com Produtos Industrializados pelo Estabelecimento"
+															Utilizando o recurso de Reconhecer como Receita os CFOPs (5.922 e 6.922) com Remessa de Entrega Futura (consequentemente os CFOPs 5.922 e 6.922 entrarão como receita e os CFOPs 5.117 e 6.117 entrarão como remessa de entrega futura)
+															Sem utilizar o recurso de Reconhecer como Receita os CFOPs (5.922 e 6.922) com Remessa de Entrega Futura (consequentemente os CFOPs 5.922 e 6.922 entrarão como remessa de entrega futura e os CFOPs 5.117 e 6.117 entrarão como receita)
+																Receita no Mercado Interno
+																Receita no Mercado Externo
+
+	▼ Procedimentos Iniciais
+
+	▼ Estratégia de Teste
+		Teste GUI (Graphical User Interface)
+			Dados na GRID dos registros
+			Teste de Análise do Valor Limite
+			Testar tela com resolução 1366x768, vê se na mesma aparecem todos os campos e são clicáveis
+			Passagem de campos
+			Atalhos dos botões
+			Ortografia e Gramática
+			Condição para habilitar ou tonar vísível os campos conforme RE[
+			Na inclusão está obedecendo o histórico dos dados (Quando tem que abrir a tela já com os dados do último registro salvo como sugestão)
+		CRUD
+			Inclusão com passagem campo a campo
+			Inclusão com uso do mouse para concluir a gravação abreviando o tempo (Ok)
+			Inclusão com uso do atalho para concluir a gravação abreviando o tempo (F9)
+			Quando editar alguma informação, verificar se não ficou sujeira no banco
+		Escrita
+		Importação
+			Importação .FS
+			Importação .CSV
+			Importação .XML
+			Importação WEB
+			Arquivo .DOC da versão de importação "LeiauteImportacaoFortesACFiscal.doc"
+			Visarq
+		Conversão
+			Sintegra
+			SPED ICMS
+			Importação NFS-e .TXT Indaiatuba (SP)
+			Importação .TXT (SP)
+			Importação .XLSX (Fortaleza)
+			Importação Abrasf
+			AC Auto (para as entradas)
+		Obrigação Acessória
+			SPED ICMS
+			DEFIS
+		Relatórios
+			Relatórios >> Simples Nacional >> Espelho PGDAS
+			Relatórios >> Simples Nacional >> Acompanhamento Tributário
+			Relatórios >> Simples Nacional >> Acompanhamento Tributário (Demonstrativo de Cálculo)
+			DEFIS
+			Detalhamento Subst. e Trib. Monofásica
+				Entradas
+				Saídas
+			Relatórios >> Receitas por Estabelecimento
+			Relatórios >> Declaração de Faturamento
+			Relatórios >> Resumo >> Resumo Gerencial de Receitas e Tributos
+			Relatórios >> Comparativo Vendas x Compras
+		Testar em Base real de pendências passadas
+		Ferramentas
+			Utilitários >> Valores dos Estabelecimentos
+		Testar em Base real de pendências passadas
+
+■ Casos de Testes
+	▼ Matriz de Lançamentos
+	▼ Resultados
+		Fluxos Básicos
+		Fluxos Alternativos
+		Fluxos de Exceção
+
+
+Plano de Testes
+	Atividade
+		Procedimentos Iniciais
+			Estratégia de Teste
+				Matriz de Lançamentos
+					Resultado
+
+
+
+
+Links de testes unitários:
+Links de testes funcionais:
+Recursos:
+					  Nome do arquivo no padrão:	[Relacionamento principal]-( Se for arquivo Abrasf informar o município e UF )[Município] (UF)-[Observação opcional]
+										Exemplo:	Arquivo para importação: Abrasf-Ponte Nova (MG)-Inscrição Estadual do Participante.xml
+	Nome do arquivo do banco de dados no padrão:	[Iniciais do subsistema]-[Relacionamento principal]-[Ano de publicação]-[Nome da empresa]-[Período]-[Observação opcional]
+										Exemplo:	Banco para testes: ACC-Planilha Financeira-2021-ONE INTERNET SA-042021.rar
+Fluxo Básico Modelo:
+	- Colocar no invalida saldo
+	- Testar tela com resolução 1366x768, vê se na mesma aparecem todos os campos e são clicáveis
+	- Perfil de Usuário
+	- Leiaute de importação
+	- Visarq
+	- Sintegra
+	- Documentos consolidados (Com pro e Sem pro)
+	- Importação XML (quando se tratar de novo documento eletrônico)
+	- Importação XML (Verificar a importação da forma cancelada)
+	- Ferramentas de Ajustes (Quando necessário) - Transferir Produtos - Transferir Participantes - Avaliar demais ferramentas
+	- AC Auto (para as entradas)
+	- Geração automática de Inventário (quando documento possuir itens)
+	- Backup/Restore (quando se tratar de tabela nova)
+	- Integração Contábil
+	- Listagens diversas
+	- Verificar relatórios com filtros
+	- Quebra de sequência
+	- Livros Fiscais
+	- SPED Contribuições
+	- SPED ECF
+	- Avaliar demais Obrigações Federais
+	- SPED ICMS
+	- Avaliar demais obrigações Estaduais
+	- Apurações (Tributos Federais)
+	- Apurações (Simples Nacional)
+	- Apurações (ICMS Normal)
+	- Apurações (Livro de Apuração do ICMS)
+	- Analisador (Regras Tributárias)
+	- Controle de créditos
+	- Controle de retenções
+	- Controle de Vencimentos
+	- Integração FortesDoc (quando se tratar de novo documento eletrônico)
+	- Auditoria
+	- Situação do Documento, verificar por exemplo quando cancelado se está aparecendo uma linha do participante em branco, quando marcar a opção para ver os dados do mesmo na listagem de saídas.
+	- Se alteração em SQL verificar se modificações devem ir para o .DOC da versão de importação "LeiauteImportacaoFortesACFiscal.doc"
+	- Preencher dados Pis/Cofins, quando tiver mudança verificar se deve ajustar também para Regras Tributarias, variável "AnalisadorFiscal".
+	- Sempre testar incluindo documentos em mais de 1 estabelecimento
+	- Sempre incluir notas com mais de 1 corpo e dados diferentes
+	- Sempre incluir vários itens diferentes
+	- Depois de todos os teste, sempre testar com uma base real, de preferência a base grande, avaliar funcionamento e performance
+	- (Contabilização) Verificar se ao desfazer importação FS após ter contabilizado não está mantendo prezo os lançamentos contábeis. Para conferir tem de dar um select na tabela LCF após importar, contabilizar e desfazer importação FS para ver se as contabilizações permanecem ou não no banco.
+	- Atender a um ciclo onde os testes irão passar
+	- Atender a um ciclo onde os testes irão dar errado
+	- Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou outra por ter especificações diferentes
+	- Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou a forma como vinha sendo feito até esta data
+	- Na "exportação/geração de arquivo de obrigação acessória", sempre validar o arquivo no validador
+	- Quando houver mudança no leiaute de alguma obrigação acessória como SPED ICMS avaliar essas mudanças pelo layout da importação da NFe também
+	- Quando houver alguma mudança que interfira no cadastro do produto avaliar a sua importação WEB e XML pela NF-e, NFC-e e CF-e
+	- Quando editar alguma informação verificar se não ficou sujeira no banco (Ex.: Editar uma CT-e de Anulação para Normal e permanecer informações de IR e CSLL no banco interfere no demonstrativo de cálculo)
+	- Quando se tratar de importação que envolva o cadastro de participantes deve dividir em 2 pilares: Importar até 10 notas e importar acima de 10 notas
+	- Perfil de Usuários
+		Confirmando que a empresa não possui nenhum Dono cadastrado
+		CRUD na tela a ser testada
+			Todos (ADMIN)
+			TA - Total e apenas da Janela
+			I - Inclusão
+			A - Alteração
+			E - Exclusão
+			TE - Todas as janelas Exceto a esta
