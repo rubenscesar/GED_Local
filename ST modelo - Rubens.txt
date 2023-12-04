@@ -117,6 +117,13 @@ Relacionamentos:
 			AC Auto (para as entradas)
 		Obrigação Acessória
 			SPED ICMS
+				Validar o arquivo no validador
+				Com lançamentos realizados na versão anterior e reprocessados na versão de homologação
+				Com lançamentos realizados na versão de homologação
+			SPED Contribuições
+				Validar o arquivo no validador
+				Com lançamentos realizados na versão anterior e reprocessados na versão de homologação
+				Com lançamentos realizados na versão de homologação
 			DEFIS
 		Relatórios
 			Relatórios >> Simples Nacional >> Espelho PGDAS
