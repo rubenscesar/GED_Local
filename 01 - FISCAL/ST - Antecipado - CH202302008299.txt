@@ -1,0 +1,266 @@
+Épico: Adequação ao novo cálculo de ICMS Antecipado para estabelecimentos de Pernambuco
+Número do cartão: S CH202302008299
+Ano de publicação: 2023
+Relacionamentos: ICMS Antecipado
+
+■ Plano de Testes
+	▼ Requisitos
+		RE[1] Exigências para enquadramento do requisito
+			RE[1.1] Embasamento no Art. 29, inciso II da lei 15.730/2016
+					e decreto nº 44.650, de 30 de junho de 2017
+			RE[1.2] Será atribuído a estabelecimentos cujo UF seja de (PE)
+			RE[1.3] Será atribuído a lançamentos a partir de 01/04/2017
+			RE[1.4] Será atribuído a empresas cujo Regime de Tributação Federal seja do Lucro Real / Lucro Presumido / Simples Nacional
+			RE[1.5] Será atribuído a empresas cujo Regime de Tributação Estadual seja Normal / Simples Nacional
+			RE[1.6] Será atribuído a empresas cujo Regime de Pagemento seja de Competência / Caixa
+			RE[1.7] Será atribuído a lançamentos de NF-e de entrada de terceiros
+			RE[1.8] Será atribuído o novo campo "Red. %" na tela do item e do corpo da NF-e, aba "ICMS Antencipado"
+			RE[1.9] Será atribuído descrições na tela do item e do corpo da NF-e, aba "ICMS Antencipado" com as fórmulas de campos chaves do ICMS antecipado
+			RE[1.10]Fórmula utilizada quando for aplicado redução de base de cálculo
+					Custo Aquisição		=	Total da Aba Geral + Valor de IPI quando estabelecimento não for contribuinte do IPI
+					Base de Cálculo		=	(( Custo de Aquisição  -  Crédito Origem ) / ( 1  -  Alíq.% Interna )) + (( Custo de Aquisição  -  Crédito Origem ) / ( 1  -  Alíq.% Interna )) x Agreg%
+					Débito Presumido	=	Base de Cálculo² x Red.% x Alíq.% Interna
+					Crédito Origem		=	Base de Cálculo do ICMS Normal¹ x Alíquota de Origem
+					ICMS Antecipado		=	Débito Presumido - ( Crédito Origem x Red.% )
+			RE[1.11]Fórmula utilizada quando não for aplicado redução de base de cálculo
+					Custo Aquisição		=	Total da Aba Geral + Valor de IPI quando estabelecimento não for contribuinte do IPI
+					Base de Cálculo		=	(( Custo de Aquisição  -  Crédito Origem ) / ( 1  -  Alíq.% Interna )) + (( Custo de Aquisição  -  Crédito Origem ) / ( 1  -  Alíq.% Interna )) x Agreg%
+					Débito Presumido	=	Base de Cálculo² x Alíq.% Interna
+					Crédito Origem		=	Base de Cálculo do ICMS Normal¹ x Alíquota de Origem
+					ICMS Antecipado		=	Débito Presumido - Crédito Origem
+			RE[1.12]Os novos campos estarão visíveis na tela somente quando os requisitos RE[1.2] até RE[1.7] forem cumpridos
+			RE[1.13]Será atribuído o novo campo "Red. %" na tela do Cadastros >> Mapeamento de Importação (NF-e) >> Produto por Fornecedor, na área de "ICMS Antecipado" que estará visível quando a opção "Exibir informações de ICMS à Recolher no Mapeamento de Produtos" estiver marcada em Configurações >> Importação NF-e/NFC-e/CF-e
+			RE[1.14]O novo campo estará habilitado na tela do Cadastros >> Mapeamento de Importação (NF-e) >> Produto por Fornecedor, na área de "ICMS Antecipado" quando o CST for x20 ou x70 e houver um estabelecimento no cadastro da empresa com a UF de (PE)
+			RE[1.15]O preenchimento do novo campo será obrigatório na tela do Cadastros >> Mapeamento de Importação (NF-e) >> Produto por Fornecedor, na área de "ICMS Antecipado" quando o CST for x20 ou x70
+			RE[1.16]Será atribuído o novo campo "Red. %" na tela do "Mapeamento de Produto por Fornecedor" na importação de XML
+			RE[1.17]O novo campo estará visível na tela do "Mapeamento de Produto por Fornecedor" na importação de XML somente quando estiver marcado a opção "Exibir informações de ICMS à Recolher no Mapeamento de Produtos" em Configurações >> Importação NF-e/NFC-e/CF-e
+			RE[1.18]Se já houver um cadastro de "Mapeamento de Produto por Fornecedor" para o CFOP 2.xxx com CST x20 ou x70 e, na importação do XML, o campo "Red.%" estiver em branco, a tela de "Mapeamento de Produto por Fornecedor" será reaberta para inserir essa informação
+			RE[1.19]Na importação do XML na tela do "Mapeamento de Produto por Fornecedor", o campo "Red.%" será obrigatório
+			RE[1.20]Será atribuído o novo campo "Red. %" na tela em Utilitários >> Ajustar tributação ICMS e IPI dos Itens, na área de "ICMS à Recolher dos documentos NFe ou NF1 ou 1A" quando o "Tipo de Recolhimento" for "Antecipado"
+			RE[1.21]O preenchimento do novo campo será obrigatório na tela em Utilitários >> Ajustar tributação ICMS e IPI dos Itens, na área de "ICMS à Recolher dos documentos NFe ou NF1 ou 1A" quando o "Tipo de Recolhimento" for "Antecipado" e o CST for x20 ou x70
+			RE[1.22]Será atribuído o novo campo "Red. %" em Relatórios >> ICMS >> ICMS Antecipado
+			RE[1.23]Será exibido em
+					Livro de Registro de Entrada
+					Apurações (Livro de Apuração do ICMS)
+						Haverá recálculo do Crédito de Origem
+					Relatórios >> ICMS >> ICMS Antecipado
+			RE[1.24]Será exibido na Obrigação acessória
+					SPED ICMS
+			RE[1.25]Será atribuído o novo campo "Red. %" no registro PNM do leiaute de importação .FS
+			RE[1.26]Será atribuído o novo campo "Red. %" no registro ANM do leiaute de importação .FS
+			RE[1.27]Não haverá modificação nos demais campos
+		RE[2] Necessário para executar a homologação do cartão
+	▼ Escopo do Teste
+		Será Testado
+			Lançamentos
+			Importação/Exportação
+			Obrigações Acessórias
+			Relatórios
+			Ferramentas
+		Não Será Testado
+			Conversão (Não converte valores de antecipado)
+	▼ Matriz de Risco
+		Status		ID	Descrição	(P)robabilidade de Ocorrência do Erro	(I)mpacto do Erro	Priorização do Teste = P x I	Responsável	Estratégia				Reavaliar
+		Priorizado	1	...			3 Alta									3 Alta				9								Rubens		Eliminar/Evitar			Anualmente
+					2	...			2 Média									2 Média				4								Rubens		Prevenir/Mitigar		Mensalmente
+					3	...			1 Baixa									1 Baixa				1								Rubens		Aceitar Passivamente	Por Evento
+					4	...			...										...					...								Rubens		Aceitar Ativamente		...
+
+■ Procedimentos de Testes
+	▼ Atividades
+		Firebird
+		SQL
+			Estabelecimento necessariamente com UF (PE)
+			Escriturando em 2 estabelecimentos
+				Regime de Tributação Federal - Lucro Real
+				Regime de Tributação Federal - Simples Nacional
+					Regime de Tributação Estadual - Normal
+					Regime de Tributação Estadual - Simples Nacional
+						Incidência tributária não-cumulativa
+							Contribuinte do IPI
+							Não contribuinte do IPI
+								Informando itens
+								Sem informar itens
+
+	▼ Procedimentos Iniciais
+
+	▼ Estratégia de Teste
+		Teste GUI (Graphical User Interface)
+			Teste de Análise do Valor Limite
+			Testar tela com resolução 1366x768, vê se na mesma aparecem todos os campos e são clicáveis
+			Passagem de campos
+			Atalhos dos botões
+			Ortografia e Gramática
+			Condição para habilitar ou tonar vísível os campos conforme RE[1.2] a RE[1.9]
+		CRUD
+			Inclusão com passagem campo a campo
+			Inclusão com uso do mouse para concluir a gravação abreviando o tempo (Ok)
+			Inclusão com uso do atalho para concluir a gravação abreviando o tempo (F9)
+			Quando editar alguma informação, verificar se não ficou sujeira no banco
+		Escrita
+			GUI
+			CRUD
+				NF-e
+					Incluir notas com mais de 1 operação e dados diferentes
+					Incluir itens diferentes
+					Com lançamentos realizados na versão anterior e reprocessados na versão de homologação
+						ML[1.1]
+					Com lançamentos realizados na versão de homologação
+						ML[2.1]
+						ML[2.2]
+				Cadastro de "Mapeamento de Produto por Fornecedor"
+		Importação
+			Importação .FS
+			Importação .XML
+				Mapeamento de Produto por Fornecedor
+			Importação WEB
+			Arquivo .DOC da versão de importação "LeiauteImportacaoFortesACFiscal.doc"
+			Visarq
+		Obrigação Acessória
+			SPED ICMS
+				Validar o arquivo no validador
+				Com lançamentos realizados na versão anterior e reprocessados na versão de homologação
+				Com lançamentos realizados na versão de homologação
+		Relatórios
+			Livro de Registro de Entrada
+			Apurações (Livro de Apuração do ICMS)
+			Relatórios >> ICMS >> ICMS Antecipado
+				Com lançamentos realizados na versão anterior e reprocessados na versão de homologação
+				Com lançamentos realizados na versão de homologação
+		Ferramentas
+			Utilitários >> Ajustar tributação ICMS e IPI dos Itens
+		Auditoria
+		Backup/Restore
+		Testar em Base real de pendências passadas
+		Atender a um ciclo onde os testes irão passar
+		Atender a um ciclo onde os testes irão dar errado
+		Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou outra por ter especificações diferentes
+		Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou a forma como vinha sendo feito até esta data
+
+■ Casos de Testes
+	▼ Matriz de Lançamentos
+		ML[1] 1 nota com 1 item
+			ML[1.1] Nota 1:
+					CFOP: 2.102
+					CST: x00
+					Frete: 10,00
+					Seguro: 20,00
+					Outras Despesas: 30,00
+					Desconto: 40,00
+					ICMS Desoneração: 50,00
+					Não Contribuinte do IPI: 100,99
+					Alíquota de Origem:	7,00%
+					Agreg%:	30,00%
+					Alíq.% Interna: 18,00%
+					
+					Nota 2:
+					CFOP: 2.102
+					CST: x20
+					Frete: 10,00
+					Seguro: 20,00
+					Outras Despesas: 30,00
+					Desconto: 40,00
+					ICMS Desoneração: 50,00
+					Não Contribuinte do IPI: 100,99	
+					Alíquota de Origem:	7,00%
+					Agreg%:	30,00%
+					Alíq.% Interna: 18,00%
+					
+					Nota 3:
+					CFOP: 2.403
+					CST: x70
+					Frete: 10,00
+					Seguro: 20,00
+					Outras Despesas: 30,00
+					Desconto: 40,00
+					ICMS Desoneração: 50,00
+					Não Contribuinte do IPI: 100,99	
+					Alíquota de Origem:	7,00%
+					Agreg%:	30,00%
+					Alíq.% Interna: 18,00%
+					
+					Nota 4:
+					CFOP: 2.102
+					CST: x90
+					Frete: 10,00
+					Seguro: 20,00
+					Outras Despesas: 30,00
+					Desconto: 40,00
+					ICMS Desoneração: 50,00
+					Não Contribuinte do IPI: 100,99	
+					Alíquota de Origem:	7,00%
+					Agreg%:	30,00%
+					Alíq.% Interna: 18,00%
+
+			ML[1.2] Nota 1:
+					CFOP: 2.102
+					CST: x00
+					Frete: 10,00
+					Seguro: 20,00
+					Outras Despesas: 30,00
+					Desconto: 40,00
+					ICMS Desoneração: 50,00
+					Não Contribuinte do IPI: 100,99
+					Alíquota de Origem:	7,00%
+					Agreg%:	30,00%
+					Alíq.% Interna: 18,00%
+					Red.%: 40,00%
+					
+					Nota 2:
+					CFOP: 2.102
+					CST: x20
+					Frete: 10,00
+					Seguro: 20,00
+					Outras Despesas: 30,00
+					Desconto: 40,00
+					ICMS Desoneração: 50,00
+					Não Contribuinte do IPI: 100,99	
+					Alíquota de Origem:	7,00%
+					Agreg%:	30,00%
+					Alíq.% Interna: 18,00%
+					Red.%: 40,00%
+					
+					Nota 3:
+					CFOP: 2.403
+					CST: x70
+					Frete: 10,00
+					Seguro: 20,00
+					Outras Despesas: 30,00
+					Desconto: 40,00
+					ICMS Desoneração: 50,00
+					Não Contribuinte do IPI: 100,99	
+					Alíquota de Origem:	7,00%
+					Agreg%:	30,00%
+					Alíq.% Interna: 18,00%
+					Red.%: 40,00%
+					
+					Nota 4:
+					CFOP: 2.102
+					CST: x90
+					Frete: 10,00
+					Seguro: 20,00
+					Outras Despesas: 30,00
+					Desconto: 40,00
+					ICMS Desoneração: 50,00
+					Não Contribuinte do IPI: 100,99	
+					Alíquota de Origem:	7,00%
+					Agreg%:	30,00%
+					Alíq.% Interna: 18,00%
+					Red.%: 40,00%
+		ML[2] 1 nota com vários itens
+			ML[2.1]	Nota 5:
+					Agreg%			Alíq.% Interna	Red.%			Pg. Fronteira
+					Com Valor A		Com Valor A		Com Valor A		Com Valor
+					Com Valor A		Com Valor A		Com Valor B
+					Com Valor B		Com Valor A		Com Valor A		Com Valor
+					Com Valor B		Com Valor A		Com Valor B		Com Valor
+			ML[2.2]	Nota 6:
+					Agreg%			Alíq.% Interna	Red.%			Pg. Fronteira
+					Com Valor A		Com Valor A		Sem Valor
+					Com Valor B		Com Valor A		Sem Valor		Com Valor
+					Sem Valor		Com Valor A		Sem Valor		Com Valor
+					
+	▼ Resultados
+		Fluxos Básicos
+		Fluxos Alternativos
+		Fluxos de Exceção
