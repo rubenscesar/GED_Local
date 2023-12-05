@@ -13,7 +13,7 @@ Relacionamentos: ICMS Antecipado
 			RE[1.4] Será atribuído a empresas cujo Regime de Tributação Federal seja do Lucro Real / Lucro Presumido / Simples Nacional
 			RE[1.5] Será atribuído a empresas cujo Regime de Tributação Estadual seja Normal / Simples Nacional
 			RE[1.6] Será atribuído a empresas cujo Regime de Pagemento seja de Competência / Caixa
-			RE[1.7] Será atribuído a lançamentos de NF-e de entrada de terceiros
+			RE[1.7] Será atribuído a lançamentos de NF-e de entrada de terceiros e doc. próprio
 			RE[1.8] Será atribuído o novo campo "Red. %" na tela do item e do corpo da NF-e, aba "ICMS Antencipado"
 			RE[1.9] Será atribuído descrições na tela do item e do corpo da NF-e, aba "ICMS Antencipado" com as fórmulas de campos chaves do ICMS antecipado
 			RE[1.10]Fórmula utilizada quando for aplicado redução de base de cálculo
