@@ -22,6 +22,10 @@ Relacionamentos:
 			RE[1._]	Fórmula utilizada quando for aplicado ___
 					__ x __ = __
 			RE[1._]	Será exibido em
+					Relatórios >> Tributos Federais >> COFINS, PIS, CSL, IRPJ e INSS (Base de Cálculo, Receitas e Retenções) >> Saídas
+					Relatórios >> Tributos Federais >> COFINS, PIS, CSL, IRPJ - Regime de Caixa (Base de Cálculo e Receitas)
+					Relatórios >> Outras Listagens >> Vencimentos
+					Relatórios >> Tributos Federais >> COFINS, PIS, CSL e IRPJ (Demonstrativo de Cálculo)
 					Relatórios >> Livros Fiscais >> Registro de Entrada
 						Os valores serão apresentado com o "Código de Valores Fiscais" _
 					Relatórios >> ICMS >> ICMS Antecipado
