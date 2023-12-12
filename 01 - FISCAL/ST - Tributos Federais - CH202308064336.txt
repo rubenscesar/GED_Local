@@ -1,0 +1,229 @@
+Épico:	Atualmente, o sistema AC já está configurado para lidar com os modelos de notas fiscais, abrangendo ISS, NFSe e NFe com serviços vinculados. Essa
+		integração foi implementada para atender às exigências específicas relacionadas a esses tipos de documentos.
+
+		Agora, o objetivo é incorporar a alíquota zero para IRPJ e CSLL nos modelos de notas fiscais utilizados por estabelecimentos comerciais, especialmente
+		bares e restaurantes, que foram incluídos na lista de beneficiários. Este ajuste tem como propósito proporcionar os benefícios fiscais correspondentes
+		ao PERSE a esses estabelecimentos ao longo do período determinado de 60 meses
+Número do cartão: S CH202308064336
+Ano de publicação: 2023
+Relacionamentos: PERSE
+
+■ Plano de Testes
+	▼ Requisitos
+		RE[1] Exigências para enquadramento do requisito
+			RE[1.1] Embasamento no Art. 1º, IN n° 2.114 de 31/10/2022 da RFB
+			RE[1.2] Será atribuído a estabelecimentos de todas as UFs
+			RE[1.3] Será atribuído a empresas cujo Regime de Tributação Federal seja do Lucro Real (estimativa mensal) / Lucro Presumido
+			RE[1.4] Será atribuído a empresas cujo Regime de Tributação Estadual seja Normal
+			RE[1.4] Será atribuído a empresas cujo Regime de Apuração seja Caixa / Competência
+			RE[1.6] O benefício será concedido a pessoas jurídicas, incluindo entidades sem fins lucrativos, que estivessem ativas até 18.03.2022, com base na
+					data de "Início Ativid." em Cadastros >> Empresas > Estabelecimentos, ou seja, igual ou anterior a 18.03.2022. A aplicação da regra de data
+					será determinada pela data de estabelecimento da Matriz, independentemente da data de início das atividades das filiais
+			RE[1.7] Será incluído um campo denominado "Alíquota zero - Lei 14.148/2021 (PERSE)" em Cadastros >> Produtos > Tributos Federais. Ao ser marcado e
+					atendidos o requisito anterior RE[1.6], o produto terá a alíquota zero aplicada aos valores de CSL e IRPJ
+			RE[1.8] Se a data "Início Ativid." for maior que 18.03.2022, não deve permitir a marcação do campo "Alíquota zero - Lei 14.148/2021 (PERSE)" em Cadastros
+					>> Produtos > Tributos Federais e apresentar a mensagem "Data de início de atividade informada no cadastro da empresa (xx.xx.xxxx) é
+					posterior à data limite permitida para utilização do benefício do Perse (18.03.2022)"
+			RE[1.9] Se a data "Início Ativid." for menor ou igual a 18.03.2022, deve permitir a marcação do campo "Alíquota zero - Lei 14.148/2021 (PERSE)" em
+					Cadastros >> Produtos > Tributos Federais
+			RE[1.10]Se a data "Início Ativid." estiver em branco, não deve permitir a marcação do campo "Alíquota zero - Lei 14.148/2021 (PERSE)" em Cadastros
+					>> Produtos > Tributos Federais e apresentar a mensagem "Data de início de atividade em branco. Informar data de início da atividade em
+					Cadastro>Empresa>Estabelecimento"
+			RE[1.11]Será incluído uma ajudinha ao lado do campo "Alíquota zero - Lei 14.148/2021 (PERSE)" em Cadastros >> Produtos > Tributos Federais com o
+					texto "Ao marcar essa opção, os produtos selecionados serão atribuídas alíquotas zero aos valores de CSL e IRPJ. Entrando em vigência a
+					partir de 01.03.2022, pelo prazo de 60 meses de acordo com a Lei 14.148/2021."
+			RE[1.12]Será atribuído a lançamentos de NF-e de saída documentos próprios e de terceiros
+													NFA de saída documentos próprios e de terceiros
+													NFC-e de saída documentos próprios
+													CF-e de saída documentos próprios
+													NF-e de entrada documentos próprios e de terceiros com CFOP de devolução
+													NFA de entrada documentos próprios e de terceiros com CFOP de devolução
+			RE[1.13]Na tela dos lançamentos citados no RE[1.12], na aba "Tributos Federais" será adicionado um asterisco "*" ao lado do título dos campos CSL e
+					IRPJ quando o requisitos RE[1.2] até RE[1.7] forem atendidos
+			RE[1.14]O asterisco de destaque deve ficar ao lado do percentual correto de CSL e IRPJ, visto que, dependendo do produto, o percentual de CSL e IRPJ
+					são diferentes
+			RE[1.15]Será incluído uma mensagem "*Base de Cálculo de CSL e IRPJ destacadas no campo "Receita Tributável" terão alíquota reduzida a 0% de
+					acordo com a Lei 14.138, de 3 de maio 2021 (Perse)" na tela dos lançamentos citados no RE[1.12], na aba "Tributos Federais"
+			RE[1.16]Quando o produto não for alíquota 0% não deverá mostrar o asterisco nem a mensagem
+			RE[1.17]Quando o lançamento contiver exclusivamente itens relacionados ao PERSE:
+					A base de cálculo do produto será levada para a aba de tributos federais, e será identificado com asterisco considerando a mesma como
+					alíquota reduzida a 0%
+			RE[1.18]Quando o lançamento contiver tanto itens relacionados ao PERSE quanto itens não relacionados:
+					Deverá obedecer ao percentual exibido a cada um dos produtos, porém não terá direito ao benefício de acordo com a lei
+					Não será exibido a mensagem nem o asterisco nesse cenário
+			RE[1.19]Quando o lançamento não incluir itens relacionados ao PERSE:
+					Mantém a regra que hoje já consta no sistema
+			RE[1.20]Em "Movimentos >> Controle de Vencimentos", no caso de o regime de apuração ser "Caixa", os valores da Base de Cálculo serão apresentados
+					individualmente nos seus percentuais destacados na nota, acompanhados do asterisco e exibirão a mensagem correspondente à alíquota zero,
+					seguindo o mesmo padrão aplicado atualmente para as demais notas
+			RE[1.21]Será incluído uma mensagem "*Base de Cálculo de CSL e IRPJ destacadas no campo "Receita Tributável" terão alíquota reduzida a 0% de acordo
+					com a Lei 14.138, de 3 de maio 2021 (Perse)" em "Movimentos >> Controle de Vencimentos"
+			RE[1.22]Será exibido em
+					Relatórios >> Tributos Federais >> COFINS, PIS, CSL, IRPJ e INSS (Base de Cálculo, Receitas e Retenções) >> Saídas
+						Será realizado o ajuste para as notas serem mostradas com alíquota zero
+					Relatórios >> Tributos Federais >> COFINS, PIS, CSL, IRPJ e INSS (Base de Cálculo, Receitas e Retenções) >> Entradas
+						Será realizado o ajuste para as notas serem mostradas com alíquota zero
+					Relatórios >> Tributos Federais >> COFINS, PIS, CSL, IRPJ - Regime de Caixa (Base de Cálculo e Receitas)
+						Será separado cada documento, onde o cálculo e exibição no relatório será de acordo com a data da baixa realizada
+					Relatórios >> Outras Listagens >> Vencimentos
+						Será separado cada documento, onde o cálculo e exibição no relatório será de acordo com a data da baixa realizada
+					Relatórios >> Tributos Federais >> COFINS, PIS, CSL e IRPJ (Demonstrativo de Cálculo)
+						Serão distribuídas as bases de acordo com cada percentual e somente as que possuírem a alíquota do imposto diferente de zero
+			RE[1.23]Será incluído um campo denominado "Alíquota zero - Lei 14.148/2021 (PERSE)" em Utilitários >> Ferramentas de Manutenção >> Atualizar Cadastro
+					de Produtos > Tributos Federais. Ao ser selecionado e atendido o requisito anterior RE[1.6], os produtos escolhidos terão a
+					marcação no campo "Alíquota zero - Lei 14.148/2021 (PERSE)" atribuída
+			RE[1.24]Será incluído uma ajudinha ao lado do campo "Alíquota zero - Lei 14.148/2021 (PERSE)" em Utilitários >> Ferramentas de Manutenção >> Atualizar
+					Cadastro de Produtos > Tributos Federais com o texto "Ao marcar essa opção, os produtos selecionados serão atribuídas alíquotas zero aos
+					valores de CSL e IRPJ. Entrando em vigência a partir de 01.03.2022, pelo prazo de 60 meses de acordo com a Lei 14.148/2021."
+			RE[1.25]Será exibido nas obrigações acessórias:
+					SPED ECF
+						O cliente realizará os lançamentos das deduções, onde serão preenchidos os valores, pelo sistema, nos registros:
+							Registro P300
+							Registro P500
+			RE[1.26]Será incluído um campo denominado "Alíquota zero - Lei 14.148/2021 (PERSE)" no leiaute de Importação .FS no registro PRO
+			RE[1.27]O benefício terá validade por 60 meses. Em 02.2027 acaba
+	▼ Escopo do Teste
+		Será Testado
+			Lançamentos
+			Importação/Exportação
+			Obrigações Acessórias
+			Relatórios
+			Ferramentas
+		Não Será Testado
+			Conversão
+	▼ Matriz de Risco
+		Status		ID	Descrição	(P)robabilidade de Ocorrência do Erro	(I)mpacto do Erro	Priorização do Teste = P x I	Responsável	Estratégia				Reavaliar
+		Priorizado	1	...			3 Alta									3 Alta				9								Rubens		Eliminar/Evitar			Anualmente
+					2	...			2 Média									2 Média				4								Rubens		Prevenir/Mitigar		Mensalmente
+					3	...			1 Baixa									1 Baixa				1								Rubens		Aceitar Passivamente	Por Evento
+					4	...			...										...					...								Rubens		Aceitar Ativamente		...
+
+■ Procedimentos de Testes
+	▼ Atividades
+		Firebird
+		SQL
+			Escriturando em 2 estabelecimentos
+				Regime de Tributação Federal - Lucro Real
+				Regime de Tributação Federal - Lucro Presumido
+				Regime de Tributação Federal - Simples Nacional (garantir que a funcionalidade não prejudicou a forma como vinha sendo feito até esta data)
+					Regime de Tributação Estadual - Normal
+					Regime de Tributação Estadual - Simples Nacional (garantir que a funcionalidade não prejudicou a forma como vinha sendo feito até esta data)
+						Incidência tributária não-cumulativa
+						Incidência tributária cumulativa
+						Incidência tributária não-cumulativa e cumulativa (padrão não-cumulativa)
+							Alíquota padrão de PIS/COFINS
+							Alíquota específica de PIS/COFINS
+								Regime de competência
+								Regime de caixa {devolução não gera estorno em regime de caixa, pois é uma devolução financeira}
+									Adotando critério de escrituração Consolidada para gerar Sped Contribuições, sem informar itens no Histórico da empresa e informando itens no Histórico do estabelecimento
+									Adotando critério de escrituração Detalhada para gerar Sped Contribuições, informando itens no Histórico da empresa e no Histórico do estabelecimento
+										Informando itens
+										Sem informar itens
+
+	▼ Procedimentos Iniciais
+
+	▼ Estratégia de Teste
+		Teste GUI (Graphical User Interface)
+			Dados na GRID dos registros
+			Teste de Análise do Valor Limite
+			Testar tela com resolução 1366x768, vê se na mesma aparecem todos os campos e são clicáveis
+			Passagem de campos
+			Atalhos dos botões
+			Ortografia e Gramática
+			Condição para habilitar ou tonar vísível os campos conforme RE[
+			Na inclusão está obedecendo o histórico dos dados (Quando tem que abrir a tela já com os dados do último registro salvo como sugestão)
+		CRUD
+			Inclusão com passagem campo a campo
+			Inclusão com uso do mouse para concluir a gravação abreviando o tempo (Ok)
+			Inclusão com uso do atalho para concluir a gravação abreviando o tempo (F9)
+			Quando editar alguma informação, verificar se não ficou sujeira no banco
+		Escrita
+			GUI
+			CRUD
+				NF-e de saída documentos próprios e de terceiros
+					ML[1.1]
+					ML[2.5] até ML[2.7]
+					Lançamento com mais de 60 meses	
+				NFA de saída documentos próprios e de terceiros
+					ML[1.1]
+				NFC-e de saída documentos próprios
+					ML[1.1]
+				CF-e de saída documentos próprios
+					ML[1.1]
+				NF-e de entrada documentos próprios e de terceiros com CFOP de devolução
+					ML[1.1]
+				NFA de entrada documentos próprios e de terceiros com CFOP de devolução
+					ML[1.1]
+		Importação
+			Importação .FS
+			Importação .XML
+			Arquivo .DOC da versão de importação "LeiauteImportacaoFortesACFiscal.doc"
+			Visarq
+		Obrigação Acessória
+			SPED ECF
+		Relatórios
+			Relatórios >> Tributos Federais >> COFINS, PIS, CSL, IRPJ e INSS (Base de Cálculo, Receitas e Retenções) >> Saídas
+			Relatórios >> Tributos Federais >> COFINS, PIS, CSL, IRPJ e INSS (Base de Cálculo, Receitas e Retenções) >> Entradas
+			Relatórios >> Tributos Federais >> COFINS, PIS, CSL, IRPJ - Regime de Caixa (Base de Cálculo e Receitas)
+			Relatórios >> Outras Listagens >> Vencimentos
+			Relatórios >> Tributos Federais >> COFINS, PIS, CSL e IRPJ (Demonstrativo de Cálculo)
+		Ferramentas
+			Utilitários >> Ferramentas de Manutenção >> Atualizar Cadastro de Produtos > Tributos Federais
+				Teste de aceitação
+					Com apenas 1 estabelecimento
+						Data de "Início Ativid." em Cadastros >> Empresas > Estabelecimentos estiver em branco
+						Data de "Início Ativid." em Cadastros >> Empresas > Estabelecimentos for maior que 18.03.2022
+						Data de "Início Ativid." em Cadastros >> Empresas > Estabelecimentos for menor ou igual a 18.03.2022
+					Com 2 estabelecimentos e manipulando a data de "Início Ativid." da matriz e filial matém com data em branco
+						Data de "Início Ativid." em Cadastros >> Empresas > Estabelecimentos estiver em branco
+						Data de "Início Ativid." em Cadastros >> Empresas > Estabelecimentos for maior que 18.03.2022
+						Data de "Início Ativid." em Cadastros >> Empresas > Estabelecimentos for menor ou igual a 18.03.2022
+					Com 2 estabelecimentos e manipulando a data de "Início Ativid." da filial e matriz matém com data em branco
+						Data de "Início Ativid." em Cadastros >> Empresas > Estabelecimentos estiver em branco
+						Data de "Início Ativid." em Cadastros >> Empresas > Estabelecimentos for maior que 18.03.2022
+						Data de "Início Ativid." em Cadastros >> Empresas > Estabelecimentos for menor ou igual a 18.03.2022
+		Testar em Base real de pendências passadas
+		
+■ Casos de Testes
+	▼ Matriz de Lançamentos
+		ML[1]	Itens individuais por nota
+			ML[1.1]	Sem informação de percentual de CSL e IRPJ
+				ML[1.1]	Com produto com benefício fiscal do PERSE (Com cadastro realizado na versão de homologação)
+				ML[1.2]	Com produto sem benefício fiscal do PERSE (Com cadastro realizado na versão de homologação)
+				ML[1.3]	Com produto sem informação de benefício fiscal do PERSE (Com cadastro realizado na versão anterior e reprocessados na versão de homologação)
+			ML[1.2]	Com percentuais designados para CSL e IRPJ, sendo "1º percentual" e "1º percentual", respectivamente
+				ML[1.1]	Com produto com benefício fiscal do PERSE (Com cadastro realizado na versão de homologação)
+				ML[1.2]	Com produto sem benefício fiscal do PERSE (Com cadastro realizado na versão de homologação)
+			ML[1.3]	Com percentuais designados para CSL e IRPJ, sendo "1º percentual" e "3º percentual", respectivamente
+				ML[1.1]	Com produto com benefício fiscal do PERSE (Com cadastro realizado na versão de homologação)
+				ML[1.2]	Com produto sem benefício fiscal do PERSE (Com cadastro realizado na versão de homologação)
+			ML[1.4]	Com percentuais designados para CSL e IRPJ, sendo "2º percentual" e "1º percentual", respectivamente
+				ML[1.1]	Com produto com benefício fiscal do PERSE (Com cadastro realizado na versão de homologação)
+				ML[1.2]	Com produto sem benefício fiscal do PERSE (Com cadastro realizado na versão de homologação)
+		ML[2]	Múltiplos itens por nota
+			ML[2.1]	Sem informação de percentual de CSL e IRPJ
+						Com produto com benefício fiscal do PERSE (Com cadastro realizado na versão de homologação)
+						Com produto sem benefício fiscal do PERSE (Com cadastro realizado na versão de homologação)
+						Com produto sem informação de benefício fiscal do PERSE (Com cadastro realizado na versão anterior e reprocessados na versão de homologação)
+			ML[2.2]	Com percentuais designados para CSL e IRPJ, sendo "1º percentual" e "1º percentual", respectivamente
+						Com produto com benefício fiscal do PERSE (Com cadastro realizado na versão de homologação)
+						Com produto sem benefício fiscal do PERSE (Com cadastro realizado na versão de homologação)
+						Com produto sem informação de benefício fiscal do PERSE (Com cadastro realizado na versão anterior e reprocessados na versão de homologação)
+			ML[2.3]	Com percentuais designados para CSL e IRPJ, sendo "1º percentual" e "3º percentual", respectivamente
+						Com produto com benefício fiscal do PERSE (Com cadastro realizado na versão de homologação)
+						Com produto sem benefício fiscal do PERSE (Com cadastro realizado na versão de homologação)
+						Com produto sem informação de benefício fiscal do PERSE (Com cadastro realizado na versão anterior e reprocessados na versão de homologação)
+			ML[2.4]	Com percentuais designados para CSL e IRPJ, sendo "2º percentual" e "1º percentual", respectivamente
+						Com produto com benefício fiscal do PERSE (Com cadastro realizado na versão de homologação)
+						Com produto sem benefício fiscal do PERSE (Com cadastro realizado na versão de homologação)
+						Com produto sem informação de benefício fiscal do PERSE (Com cadastro realizado na versão anterior e reprocessados na versão de homologação)
+			ML[2.5]	Sem informação de percentual de CSL e IRPJ
+						Com produto com benefício fiscal do PERSE (Com cadastro realizado na versão de homologação)
+					Com percentuais designados para CSL e IRPJ, sendo "1º percentual" e "3º percentual", respectivamente
+						Com produto com benefício fiscal do PERSE (Com cadastro realizado na versão de homologação)
+					Com percentuais designados para CSL e IRPJ, sendo "2º percentual" e "1º percentual", respectivamente
+						Com produto com benefício fiscal do PERSE (Com cadastro realizado na versão de homologação)
+	▼ Resultados
+		Fluxos Básicos
+		Fluxos Alternativos
+		Fluxos de Exceção
