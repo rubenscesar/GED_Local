@@ -80,7 +80,7 @@ Relacionamentos: PERSE
 						O cliente realizará os lançamentos das deduções, onde serão preenchidos os valores, pelo sistema, nos registros:
 							Registro P300
 							Registro P500
-			RE[1.26]Será incluído um campo denominado "Alíquota zero - Lei 14.148/2021 (PERSE)" no leiaute de Importação .FS no registro PRO
+			RE[1.26]Será incluído um campo denominado "Alíquota zero - Lei 14.148/2021 (Perse)" no leiaute de Importação .FS no registro PRO
 			RE[1.27]O benefício terá validade por 60 meses. Em 02.2027 acaba
 	▼ Escopo do Teste
 		Será Testado
