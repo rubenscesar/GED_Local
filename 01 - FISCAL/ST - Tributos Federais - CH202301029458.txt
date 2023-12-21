@@ -10,27 +10,27 @@ Relacionamentos:
 	▼ Requisitos
 		RE[1] Exigências para enquadramento do requisito
 			RE[1.1] Embasamento na IN 2.121/2022
-			RE[1._] Será atribuído a estabelecimentos de todos os estados
-			RE[1._] Será atribuído a empresas cujo Regime de Tributação Federal seja do Lucro Real
-			RE[1._] Será atribuído a empresas que apuram por regime de competência
-			RE[1._] Será atribuído a empresas cujo Regime de Tributação Estadual seja Normal
-			RE[1._] Será atribuído a empresas que não apuram IPI
-			RE[1._] Será atribuído a lançamentos de NF-e de entrada de terceiros / documentos próprios
-			RE[1._] Será atribuído a lançamentos com ICMS Normal
-			RE[1._] Os novos campos estarão visíveis na tela somente quando os requisitos RE[1._] até RE[1._] forem cumpridos
-			RE[1._]	Quando estiver visível, os campos X e Y exigirão preenchimento obrigatório
-			RE[1._]	Quando estiver visível, o campo X exigirá preenchimento obrigatório
-			RE[1._]	Não haverá modificação nos demais campos
-			RE[1._]	Fórmula utilizada quando for aplicado ___d
-					__ x __ = __
-			RE[1._]	Será exibido em
-					Relatórios >> Livros Fiscais >> Registro de Entrada
-						Os valores serão apresentado com o "Código de Valores Fiscais" _
-					Relatórios >> ICMS >> ICMS Antecipado
-					DeSTDA
-						Registro ___
-			RE[1._]	Ferramentas
-		RE[2] Necessário para executar a homologação do cartão
+			RE[1.2] Será atribuído a estabelecimentos de todos os estados
+			RE[1.3] Será atribuído a empresas cujo Regime de Tributação Federal seja do Lucro Real
+			RE[1.4] Será atribuído a empresas que apuram por regime de competência
+			RE[1.5] Será atribuído a empresas cujo Regime de Tributação Estadual seja Normal
+			RE[1.6] Será atribuído a empresas que não apuram IPI
+			RE[1.7] Será atribuído a lançamentos de NF-e de entrada de terceiros / documentos próprios
+			RE[1.8] Será atribuído a Ferramenta de "Preencher Dados PIS/COFINS" o novo campo "Desconsiderar IPI da BC PIS/COFINS"
+			RE[1.9] O novo campo estará habilitado na tela de "Preencher Dados PIS/COFINS" somente quando os requisitos RE[1.3] até RE[1.7] forem cumpridos
+			RE[1.10]Será atribuído uma ajudinha na Ferramenta de "Preencher Dados PIS/COFINS", campo "Desconsiderar IPI da BC PIS/COFINS"
+			RE[1.11]Não haverá modificação nos demais campos
+			RE[1.12]Fórmula utilizada quando for marcado em "Preencher Dados PIS/COFINS"
+					Valor do Produto - Valor da Exclusão da BC PIS/COFINS = Valor da BC de PIS/COFINS
+			RE[1.13]Fórmula utilizada quando não for marcado em "Preencher Dados PIS/COFINS" (comportamento préexistente)
+					Valor do Produto + Valor do IPI - Valor da Exclusão da BC PIS/COFINS = Valor da BC de PIS/COFINS
+			RE[1.14]Será exibido na Obrigação acessória
+					SPED Contribuições
+			RE[1.15]Será exibido em
+					Relatórios >> Listagem de Entradas >> COFINS/PIS
+					Relatórios >> Tributos Federais >> COFINS, PIS, CSL e IRPJ (Demonstrativo de Cálculo)
+					Relatórios >> Tributos Federais >> COFINS, PIS (Consolidação das Receitas e Créditos) >> Créditos
+					Relatórios >> Resumo >> Resumo por Alíquota e CST (COFINS/PIS)
 	▼ Escopo do Teste
 		Será Testado
 			Lançamentos
@@ -51,174 +51,87 @@ Relacionamentos:
 	▼ Atividades
 		Firebird
 		SQL
-			Estabelecimento necessariamente com UF (..)
 			Escriturando em 2 estabelecimentos
-				Regime de Tributação Federal - Lucro Real ou Lucro Presumido
 				Regime de Tributação Federal - Lucro Real
 				Regime de Tributação Federal - Lucro Presumido
-				Regime de Tributação Federal - Simples Nacional
 					Regime de Tributação Estadual - Normal
-					Regime de Tributação Estadual - Simples Nacional
-					Regime de Tributação Estadual - Excluído do Simples Nacional (Normal no HES)
 						Incidência tributária não-cumulativa
 						Incidência tributária cumulativa
-						Incidência tributária não-cumulativa e cumulativa (padrão não-cumulativa)
-							PIS/COFINS Regime de Apropriação de Créditos por Rateio Proporcional
 							PIS/COFINS Regime de Apropriação de Créditos Direta
 								Alíquota padrão de PIS/COFINS
 								Alíquota específica de PIS/COFINS
 									Regime de competência
 									Regime de caixa {devolução não gera estorno em regime de caixa, pois é uma devolução financeira}
-										Adotando critério de escrituração Consolidada para gerar Sped Contribuições, sem informar itens no Histórico da empresa e informando itens no Histórico do estabelecimento
 										Adotando critério de escrituração Detalhada para gerar Sped Contribuições, informando itens no Histórico da empresa e no Histórico do estabelecimento
 											Contribuinte do IPI
 											Não contribuinte do IPI
 												Informando itens
-												Sem informar itens
-													Anexo I - CFOPs (5.922 e 6.922) desmarcado "Operação com Produtos Industrializados pelo Estabelecimento"
-													Anexo II - CFOPs (5.922 e 6.922) marcado "Operação com Produtos Industrializados pelo Estabelecimento"
-														CFOPs (5.922 e 6.922) marcado "Operação com Produtos Industrializados pelo Estabelecimento"
-														CFOPs (5.922 e 6.922) desmarcado "Operação com Produtos Industrializados pelo Estabelecimento"
-															Utilizando o recurso de Reconhecer como Receita os CFOPs (5.922 e 6.922) com Remessa de Entrega Futura (consequentemente os CFOPs 5.922 e 6.922 entrarão como receita e os CFOPs 5.117 e 6.117 entrarão como remessa de entrega futura)
-															Sem utilizar o recurso de Reconhecer como Receita os CFOPs (5.922 e 6.922) com Remessa de Entrega Futura (consequentemente os CFOPs 5.922 e 6.922 entrarão como remessa de entrega futura e os CFOPs 5.117 e 6.117 entrarão como receita)
-																Receita no Mercado Interno
-																Receita no Mercado Externo
-
+												
 	▼ Procedimentos Iniciais
 
 	▼ Estratégia de Teste
 		Teste GUI (Graphical User Interface)
-			Dados na GRID dos registros
-			Teste de Análise do Valor Limite
 			Testar tela com resolução 1366x768, vê se na mesma aparecem todos os campos e são clicáveis
 			Passagem de campos
-			Atalhos dos botões
 			Ortografia e Gramática
-			Condição para habilitar ou tonar vísível os campos conforme RE[
-			Na inclusão está obedecendo o histórico dos dados (Quando tem que abrir a tela já com os dados do último registro salvo como sugestão)
+			Condição para habilitar ou tonar vísível os campos conforme RE[1.9]
 		CRUD
 			Inclusão com passagem campo a campo
 			Inclusão com uso do mouse para concluir a gravação abreviando o tempo (Ok)
 			Inclusão com uso do atalho para concluir a gravação abreviando o tempo (F9)
-			Quando editar alguma informação, verificar se não ficou sujeira no banco
 		Escrita
+			Lançamentos préexistentes
+			Lançamentos de NF-e
+				Entrada de terceiros
+				Entrada de documentos próprios
+					Compra
+					Devolução de venda
+						Lançamentos com valores de "Exclusão da BC PIS/COFINS"
+						Lançamentos sem valores de "Exclusão da BC PIS/COFINS"
+							Lançamentos com valores de "IPI"
+							Lançamentos sem valores de "IPI"
+			Lançamentos de outras espécies (garantir que não interferiu indevidamente)
+			Lançamentos de NF-e em estabelecimento contribuinte do IPI (garantir que não interferiu indevidamente)
 		Importação
 			Importação .FS
-			Importação .CSV
 			Importação .XML
 			Importação WEB
-			Arquivo .DOC da versão de importação "LeiauteImportacaoFortesACFiscal.doc"
-			Visarq
 		Conversão
-			Sintegra
-			SPED ICMS
-			Importação NFS-e .TXT Indaiatuba (SP)
-			Importação .TXT (SP)
-			Importação .XLSX (Fortaleza)
-			Importação Abrasf
 			AC Auto (para as entradas)
 		Obrigação Acessória
-			SPED ICMS
-			DEFIS
+			SPED Contribuições
 		Relatórios
-			Relatórios >> Simples Nacional >> Espelho PGDAS
-			Relatórios >> Simples Nacional >> Acompanhamento Tributário
-			Relatórios >> Simples Nacional >> Acompanhamento Tributário (Demonstrativo de Cálculo)
-			DEFIS
-			Detalhamento Subst. e Trib. Monofásica
-				Entradas
-				Saídas
-			Relatórios >> Receitas por Estabelecimento
-			Relatórios >> Declaração de Faturamento
-			Relatórios >> Resumo >> Resumo Gerencial de Receitas e Tributos
-			Relatórios >> Comparativo Vendas x Compras
-		Testar em Base real de pendências passadas
+			Relatórios >> Listagem de Entradas >> COFINS/PIS
+			Relatórios >> Tributos Federais >> COFINS, PIS, CSL e IRPJ (Demonstrativo de Cálculo)
+			Relatórios >> Tributos Federais >> COFINS, PIS (Consolidação das Receitas e Créditos) >> Créditos
+			Relatórios >> Resumo >> Resumo por Alíquota e CST (COFINS/PIS)
 		Ferramentas
-			Utilitários >> Valores dos Estabelecimentos
+			Utilitários >> Ferramentas de Manutenção >> "Preencher Dados PIS/COFINS"
+				Marcando "Exclusão da BC PIS/COFINS"
+				Desmarcando "Exclusão da BC PIS/COFINS"
+					Com lançamentos conforme ML[1.1] apenas com CST e Base de Cálculo de PIS/COFINS em branco
+			Em estabelecimento contribuinte do IPI (garantir que não interferiu indevidamente)
+				Utilitários >> Ferramentas de Manutenção >> "Preencher Dados PIS/COFINS"
+					Marcando "Exclusão da BC PIS/COFINS"
+			Utilitários >> Analisador Fiscal
+				Aplicar Regras Tributárias (Garantir que está sendo aplicado apenas a NFM)
+			Auditoria
 		Testar em Base real de pendências passadas
 
 ■ Casos de Testes
 	▼ Matriz de Lançamentos
+		ML[1] Escrita
+				Lançamentos de NF-e
+					Detalhes dos Itens:
+					ML[1.1]	Tributação de IPI	IPI		Exclusão da BC PIS/COFINS
+							Crédito				SIM		SIM
+							Outros				NÃO		NÃO
+							Crédito				SIM		NÃO
+							Outros				NÃO		SIM
 	▼ Resultados
 		Fluxos Básicos
 		Fluxos Alternativos
 		Fluxos de Exceção
 
-
-Plano de Testes
-	Atividade
-		Procedimentos Iniciais
-			Estratégia de Teste
-				Matriz de Lançamentos
-					Resultado
-
-
-
-
-Links de testes unitários:
-Links de testes funcionais:
-Recursos:
-					  Nome do arquivo no padrão:	[Relacionamento principal]-( Se for arquivo Abrasf informar o município e UF )[Município] (UF)-[Observação opcional]
-										Exemplo:	Arquivo para importação: Abrasf-Ponte Nova (MG)-Inscrição Estadual do Participante.xml
-	Nome do arquivo do banco de dados no padrão:	[Iniciais do subsistema]-[Relacionamento principal]-[Ano de publicação]-[Nome da empresa]-[Período]-[Observação opcional]
-										Exemplo:	Banco para testes: ACC-Planilha Financeira-2021-ONE INTERNET SA-042021.rar
 Fluxo Básico Modelo:
-	- Colocar no invalida saldo
-	- Testar tela com resolução 1366x768, vê se na mesma aparecem todos os campos e são clicáveis
-	- Perfil de Usuário
-	- Leiaute de importação
-	- Visarq
-	- Sintegra
-	- Documentos consolidados (Com pro e Sem pro)
-	- Importação XML (quando se tratar de novo documento eletrônico)
-	- Importação XML (Verificar a importação da forma cancelada)
-	- Ferramentas de Ajustes (Quando necessário) - Transferir Produtos - Transferir Participantes - Avaliar demais ferramentas
-	- AC Auto (para as entradas)
-	- Geração automática de Inventário (quando documento possuir itens)
 	- Backup/Restore (quando se tratar de tabela nova)
-	- Integração Contábil
-	- Listagens diversas
-	- Verificar relatórios com filtros
-	- Quebra de sequência
-	- Livros Fiscais
-	- SPED Contribuições
-	- SPED ECF
-	- Avaliar demais Obrigações Federais
-	- SPED ICMS
-	- Avaliar demais obrigações Estaduais
-	- Apurações (Tributos Federais)
-	- Apurações (Simples Nacional)
-	- Apurações (ICMS Normal)
-	- Apurações (Livro de Apuração do ICMS)
-	- Analisador (Regras Tributárias)
-	- Controle de créditos
-	- Controle de retenções
-	- Controle de Vencimentos
-	- Integração FortesDoc (quando se tratar de novo documento eletrônico)
-	- Auditoria
-	- Situação do Documento, verificar por exemplo quando cancelado se está aparecendo uma linha do participante em branco, quando marcar a opção para ver os dados do mesmo na listagem de saídas.
-	- Se alteração em SQL verificar se modificações devem ir para o .DOC da versão de importação "LeiauteImportacaoFortesACFiscal.doc"
-	- Preencher dados Pis/Cofins, quando tiver mudança verificar se deve ajustar também para Regras Tributarias, variável "AnalisadorFiscal".
-	- Sempre testar incluindo documentos em mais de 1 estabelecimento
-	- Sempre incluir notas com mais de 1 corpo e dados diferentes
-	- Sempre incluir vários itens diferentes
-	- Depois de todos os teste, sempre testar com uma base real, de preferência a base grande, avaliar funcionamento e performance
-	- (Contabilização) Verificar se ao desfazer importação FS após ter contabilizado não está mantendo prezo os lançamentos contábeis. Para conferir tem de dar um select na tabela LCF após importar, contabilizar e desfazer importação FS para ver se as contabilizações permanecem ou não no banco.
-	- Atender a um ciclo onde os testes irão passar
-	- Atender a um ciclo onde os testes irão dar errado
-	- Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou outra por ter especificações diferentes
-	- Atender a um ciclo onde os testes serão feitos para garantir que a funcionalidade não prejudicou a forma como vinha sendo feito até esta data
-	- Na "exportação/geração de arquivo de obrigação acessória", sempre validar o arquivo no validador
-	- Quando houver mudança no leiaute de alguma obrigação acessória como SPED ICMS avaliar essas mudanças pelo layout da importação da NFe também
-	- Quando houver alguma mudança que interfira no cadastro do produto avaliar a sua importação WEB e XML pela NF-e, NFC-e e CF-e
-	- Quando editar alguma informação verificar se não ficou sujeira no banco (Ex.: Editar uma CT-e de Anulação para Normal e permanecer informações de IR e CSLL no banco interfere no demonstrativo de cálculo)
-	- Quando se tratar de importação que envolva o cadastro de participantes deve dividir em 2 pilares: Importar até 10 notas e importar acima de 10 notas
-	- Perfil de Usuários
-		Confirmando que a empresa não possui nenhum Dono cadastrado
-		CRUD na tela a ser testada
-			Todos (ADMIN)
-			TA - Total e apenas da Janela
-			I - Inclusão
-			A - Alteração
-			E - Exclusão
-			TE - Todas as janelas Exceto a esta
