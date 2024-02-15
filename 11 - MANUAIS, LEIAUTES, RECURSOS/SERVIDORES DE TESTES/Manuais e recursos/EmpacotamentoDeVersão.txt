@@ -596,3 +596,30 @@ Para derrubar aqueles usuários que entram nas pastas do pronto e impedem a concl
 
 # Quando precisar alterar o arquivo Detox, coloca o novo nesta pasta
 • \\10.1.254.70\x\Programacao\Outros\Delphi
+
+
+# Quando apresenta problema na compilação
+
+[08:54:09]         [dcc] ./krLeiauteABRASF.pas (3463)
+[08:54:09]         [dcc] Hint: H2443 Inline function 'TObjectList.Remove' has not 
+[08:54:09]         [dcc] been expanded because unit 'System.Types' is not specified 
+[08:54:09]         [dcc] in USES list 
+[08:54:09]         [dcc] ./krLeiauteABRASF.pas (3483)
+[08:54:09]         [dcc] Hint: H2443 Inline function 'TObjectList.Remove' has not 
+[08:54:09]         [dcc] been expanded because unit 'System.Types' is not specified 
+[08:54:09]         [dcc] in USES list 
+[08:54:09]         [dcc] ./krLeiauteABRASF.pas (7623)
+[08:54:09]         [dcc] Error: E2035 Not enough actual parameters 
+
+Lembrando que quando tiver [dcc] significa que quebrou algo na compilação
+1ª Possibilidade
+Na linha "[08:54:09]         [dcc] ./krLeiauteABRASF.pas (7623)"
+krLeiauteABRASF.pas = Quer dizer o nome do arquivo
+(7623) = Quer dizer a linha onde apresentou o erro no arquivo
+Então, baixa a tag, abre o arquivo e vai até a linha 7623 e tenta identificar se tem algum erro
+2ª Possibilidade
+O problema pode estar no detox
+Observação: É possível que ocorra problema na compilação de um arquivo mesmo que não tenha sido commitado nenhuma
+alteração deste arquivo, pois existe a possibilidade de ter sido alterado o detox para atender uma necessidade
+do código que está rodando no trunk mas como uma versão simplificada ou extraordinária roda a partir da última tag
+daria incompatibilidade, sendo assim, é necessário manter uma cópia do último detox utilizado na última versão
