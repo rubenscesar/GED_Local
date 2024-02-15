@@ -2,10 +2,14 @@
 chcp 1252 >"%temp%"\null
 set Caminho=%cd%
 
-if exist "%Caminho%\AC.fdb" (set DB="%Caminho%\AC.fdb")
+if exist "%Caminho%\AC.fdb" (set DB="%Caminho%\AC.fdb"
+                             goto passo2)
+if exist "%Caminho%\AC - Copia.fdb" (set DB="%Caminho%\AC - Copia.fdb"
+                                     goto passo2)
 if not exist "%Caminho%\AC.fdb" (set /p DB=INFORME O CAMINHO DO BANCO DE DADOS COM aspas "": 
                                  echo.
                                  echo.)
+:passo2
 echo CAMINHO DO BANCO: %DB%
 echo.
 if exist "%Caminho%\BKP_AntesDeRodarRunScript.fdb" del "%Caminho%\BKP_AntesDeRodarRunScript.fdb"
