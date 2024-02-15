@@ -1,7 +1,5 @@
 A FAZER
 	Corrigir os testes funcionais que estão quebrando em máquinas específicas
-	Verificar por que está havendo tanto enfileiramento de teste no TeamCity
-		Veirifcar a possibilidade de retirar o gatilho de enfileirar depois que rodar o conversor com sucesso 
 	Criar uma VM de testes funcionais do XE6 com Windows 10
 	Criar uma VM de testes unitários do D7 com Windows 10
 	Criar uma VM de testes unitários do XE6 com Windows 10
@@ -13,9 +11,19 @@ A FAZER
 	Criar testes unitários BDD
 	Uso do confluence
 	Criar uma maneira de fiscalizar quanto de espaço em disco livre tem em cada VM para quando atingir um limite muito baixo tomar alguma ação
+	Criar cartão para reformular a localização da tela em: Movimentos >> Importação XML >> Importar NF-e de Serviços (São Paulo - SP)
+		Está no menu de importação XML mas importa txt
+	Criar cartão para reformular a mensagem: Código do Serviço ( 7870 ) não cadastrado na tabela padrão Serviço (NOTA FISCAL ELETRÔNICA).
+		Está apresentando mesmo quando a tabela padrão de Serviço não é NOTA FISCAL ELETRÔNICA
+		Deve apresentar informar uma mensagem genérica das possíveis tabelas ou informar a tabela específica de qual município
+	Preparar a VM Coringa para acesso como terminal
 FAZENDO
 	Criar uma VM de testes funcionais do D7 com Windows 10
+	Formatar a Kiks
+	Ajustar TeamCity para compor os testes unitários em um único local
 FEITO
 	Workflow de Deploy de versão Ordinária
 								 Extraordinária
 								 Simplificada
+	Verificar por que está havendo tanto enfileiramento de teste no TeamCity
+		Veirifcar a possibilidade de retirar o gatilho de enfileirar depois que rodar o conversor com sucesso 
